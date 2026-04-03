@@ -1,0 +1,90 @@
+{
+  "method": "sklearn.permutation_importance v6 model",
+  "n_repeats": 15,
+  "features": {
+    "arm": {
+      "mean": 0.0049,
+      "std": 0.0005
+    },
+    "pritamab": {
+      "mean": 0.0038,
+      "std": 0.0004
+    },
+    "kras": {
+      "mean": 0.0601,
+      "std": 0.0053
+    },
+    "prpc_level": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "msi": {
+      "mean": 0.0622,
+      "std": 0.0044
+    },
+    "bliss": {
+      "mean": 0.305,
+      "std": 0.0089
+    },
+    "orr": {
+      "mean": 0.0908,
+      "std": 0.0047
+    },
+    "dcr": {
+      "mean": 0.0951,
+      "std": 0.0029
+    },
+    "cea": {
+      "mean": 0.0797,
+      "std": 0.0032
+    },
+    "dl_confidence": {
+      "mean": 0.0971,
+      "std": 0.0042
+    },
+    "best_pct_change": {
+      "mean": 0.0813,
+      "std": 0.0033
+    },
+    "prpc_expr": {
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "ctdna_base": {
+      "mean": 0.0733,
+      "std": 0.0029
+    },
+    "ctdna_resp": {
+      "mean": 0.0053,
+      "std": 0.0003
+    },
+    "pk_auc_norm": {
+      "mean": 0.1094,
+      "std": 0.0042
+    },
+    "pk_cmax": {
+      "mean": 0.0963,
+      "std": 0.0033
+    },
+    "tox_sum": {
+      "mean": 0.0205,
+      "std": 0.0017
+    },
+    "il6": {
+      "mean": 0.0971,
+      "std": 0.0065
+    },
+    "tnfa": {
+      "mean": 0.0803,
+      "std": 0.0029
+    }
+  },
+  "top5": [
+    "bliss",
+    "pk_auc_norm",
+    "dl_confidence",
+    "il6",
+    "pk_cmax",
+    "dcr"
+  ]
+}

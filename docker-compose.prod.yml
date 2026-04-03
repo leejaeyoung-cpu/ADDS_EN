@@ -1,0 +1,212 @@
+version: '3.8'
+
+# =============================================================================
+# ADDS Production Docker Compose
+# 물리학 기반 항암제 최적화 시스템
+# =============================================================================
+
+services:
+  # ===========================================================================
+  # PostgreSQL 데이터베이스
+  # ===========================================================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: adds_postgres
+    environment:
+      POSTGRES_DB: adds_db
+      POSTGRES_USER: adds_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    networks:
+      - adds_network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U adds_user -d adds_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # ===========================================================================
+  # 데이터 수집 및 분류 서비스
+  # ===========================================================================
+  data-ingestion:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.data-ingestion
+    container_name: adds_data_ingestion
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_db
+      DB_USER: adds_user
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      WATCH_DIR: /data/incoming
+      PROCESSED_DIR: /data/processed
+    volumes:
+      - ${DATA_ROOT:-./patient_data}:/data
+      - ./backend/services:/app/services
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - adds_network
+    restart: unless-stopped
+
+  # ===========================================================================
+  # CT 분석 서비스 (GPU)
+  # ===========================================================================
+  ct-analysis:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ct-analysis
+    container_name: adds_ct_analysis
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_db
+      DB_USER: adds_user
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      NIFTI_DIR: /data/nifti
+      RESULTS_DIR: /data/results
+      MODEL_PATH: /models/nnunet
+    volumes:
+      - ${DATA_ROOT:-./patient_data}:/data
+      - ./models:/models
+      - ./backend/api:/app/api
+      - ./src:/app/src
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - adds_network
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+
+  # ===========================================================================
+  # 에너지 모델링 서비스
+  # ===========================================================================
+  energy-modeling:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.energy-modeling
+    container_name: adds_energy_modeling
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_db
+      DB_USER: adds_user
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      BINDINGDB_PATH: /data/bindingdb/BindingDB_Extracted.tsv
+    volumes:
+      - ./backend/models:/app/models
+      - ./bindingdb:/data/bindingdb:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - adds_network
+    ports:
+      - "8002:8000"
+    restart: unless-stopped
+
+  # ===========================================================================
+  # AI 추론 서비스 (GPU)
+  # ===========================================================================
+  ai-discovery:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ai-discovery
+    container_name: adds_ai_discovery
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_db
+      DB_USER: adds_user
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      MODEL_CACHE: /models/cache
+    volumes:
+      - ./backend/models:/app/models
+      - ./models/cache:/models/cache
+      - ./bindingdb:/data/bindingdb:ro
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - adds_network
+    ports:
+      - "8003:8000"
+    restart: unless-stopped
+
+  # ===========================================================================
+  # API Gateway
+  # ===========================================================================
+  api-gateway:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api-gateway
+    container_name: adds_api_gateway
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_db
+      DB_USER: adds_user
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+      CT_ANALYSIS_URL: http://ct-analysis:8000
+      ENERGY_MODELING_URL: http://energy-modeling:8000
+      AI_DISCOVERY_URL: http://ai-discovery:8000
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - postgres
+      - ct-analysis
+      - energy-modeling
+      - ai-discovery
+    networks:
+      - adds_network
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  # ===========================================================================
+  # Redis (캐싱 및 작업 큐)
+  # ===========================================================================
+  redis:
+    image: redis:7-alpine
+    container_name: adds_redis
+    volumes:
+      - redis_data:/data
+    networks:
+      - adds_network
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+volumes:
+  postgres_data:
+  redis_data:
+
+
+networks:
+  adds_network:
+    driver: bridge

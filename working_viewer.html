@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ADDS 3D Organ Viewer - Working Version</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #controls-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 250px;
+            display: none;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="canvas-container">
+        <canvas id="canvas-3d"></canvas>
+    </div>
+
+    <div id="loading">
+        Loading 3D visualization...
+    </div>
+
+    <div id="controls-panel">
+        <h3>Controls</h3>
+        <button id="btn-reset">Reset View</button>
+        <div class="control-group">
+            <label><input type="checkbox" id="show-organs" checked> Show Organs</label>
+            <label><input type="checkbox" id="show-tumors" checked> Show Tumors</label>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+        // Based on working viewer3d.js from ADDS project
+        let scene, camera, renderer, controls;
+        let meshObjects = [];
+
+        async function init() {
+            console.log('[Viewer] Initializing...');
+
+            // Setup scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xFFFFFF);
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+
+            const dirLight1 = new THREE.DirectionalLight(0xffffff, 0.5);
+            dirLight1.position.set(1, 1, 1);
+            scene.add(dirLight1);
+
+            const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+            dirLight2.position.set(-1, -1, -1);
+            scene.add(dirLight2);
+
+            // Setup camera
+            const container = document.getElementById('canvas-3d');
+            const aspect = container.clientWidth / container.clientHeight;
+            camera = new THREE.PerspectiveCamera(50, aspect, 1, 5000);
+            camera.position.set(300, 300, 300);
+
+            // Setup renderer
+            renderer = new THREE.WebGLRenderer({
+                canvas: container,
+                antialias: true
+            });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // Setup controls
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.minDistance = 50;
+            controls.maxDistance = 2000;
+
+            // Load mesh data
+            await loadMeshData();
+
+            // Setup UI controls
+            setupControls();
+
+            // Start animation
+            animate();
+
+            // Hide loading
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('controls-panel').style.display = 'block';
+
+            console.log('[Viewer] Initialization complete');
+        }
+
+        async function loadMeshData() {
+            console.log('[Viewer] Loading mesh data...');
+
+            try {
+                const API_URL = 'http://localhost:8000';
+
+                // Load catalog
+                const catalogResp = await fetch(`${API_URL}/api/organ-meshes/catalog`);
+                const catalog = await catalogResp.json();
+
+                console.log('Catalog:', catalog);
+
+                // Load organ meshes
+                for (const [organName, meshPath] of Object.entries(catalog.organs)) {
+                    const meshResp = await fetch(`${API_URL}/api/organ-meshes/organ/${organName}`);
+                    const meshData = await meshResp.json();
+
+                    const mesh = createMesh(
+                        meshData,
+                        meshData.color || '#8B4513',
+                        0.7,
+                        organName
+                    );
+                    meshObjects.push(mesh);
+                }
+
+                // Load tumor meshes
+                for (const [organName, meshPath] of Object.entries(catalog.tumors)) {
+                    const meshResp = await fetch(`${API_URL}/api/organ-meshes/tumor/${organName}`);
+                    const meshData = await meshResp.json();
+
+                    const mesh = createMesh(
+                        meshData,
+                        '#ff0000',
+                        0.9,
+                        `${organName}_tumors`
+                    );
+                    meshObjects.push(mesh);
+                }
+
+                centerCamera();
+
+            } catch (error) {
+                console.error('[Viewer] Error loading mesh data:', error);
+                document.getElementById('loading').innerHTML = `
+            <div style="color: #ff0000; font-weight: bold;">Error loading 3D data</div>
+            <div style="margin-top: 10px; font-size: 12px;">${error.message}</div>
+        `;
+            }
+        }
+
+        // THIS IS THE KEY FUNCTION - copied from working viewer3d.js
+        function createMesh(meshData, color, opacity, name) {
+            console.log(`[Viewer] Creating mesh: ${name}`);
+
+            // CRITICAL: Use .flat() exactly as in working code
+            const vertices = new Float32Array(meshData.vertices.flat());
+            const indices = new Uint32Array(meshData.faces.flat());
+
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+            geometry.setIndex(new THREE.BufferAttribute(indices, 1));
+            geometry.computeVertexNormals();
+
+            const material = new THREE.MeshPhongMaterial({
+                color: new THREE.Color(color),
+                transparent: true,
+                opacity: opacity,
+                side: THREE.DoubleSide,
+                flatShading: false,
+                shininess: 30
+            });
+
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.name = name;
+            scene.add(mesh);
+
+            console.log(`[Viewer] Mesh created: ${name} (${meshData.num_vertices} vertices, ${meshData.num_faces} faces)`);
+
+            return mesh;
+        }
+
+        function centerCamera() {
+            const box = new THREE.Box3();
+
+            scene.traverse((object) => {
+                if (object.isMesh && object.visible) {
+                    box.expandByObject(object);
+                }
+            });
+
+            if (!box.isEmpty()) {
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const fov = camera.fov * (Math.PI / 180);
+                let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2));
+                cameraZ *= 1.5;
+
+                camera.position.set(center.x + cameraZ / 2, center.y + cameraZ / 2, center.z + cameraZ);
+                camera.lookAt(center);
+
+                controls.target.copy(center);
+                controls.update();
+
+                console.log('[Viewer] Camera centered', { center, size });
+            }
+        }
+
+        function setupControls() {
+            document.getElementById('btn-reset').addEventListener('click', () => {
+                centerCamera();
+            });
+
+            document.getElementById('show-organs').addEventListener('change', (e) => {
+                meshObjects.forEach(mesh => {
+                    if (!mesh.name.includes('tumor')) {
+                        mesh.visible = e.target.checked;
+                    }
+                });
+            });
+
+            document.getElementById('show-tumors').addEventListener('change', (e) => {
+                meshObjects.forEach(mesh => {
+                    if (mesh.name.includes('tumor')) {
+                        mesh.visible = e.target.checked;
+                    }
+                });
+            });
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('canvas-3d');
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

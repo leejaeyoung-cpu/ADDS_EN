@@ -1,0 +1,72 @@
+[
+  {
+    "allele": "G12C",
+    "n_observed": 1,
+    "obs_freq": 0.038,
+    "bootstrap_ci_95": [
+      0.0,
+      0.115
+    ],
+    "meta_freq": 0.07,
+    "meta_ci": 0.063,
+    "within_meta_range": false,
+    "meta_ref": "Yokota 2011",
+    "note": "Imputed via meta-analysis priors, n=26. Bootstrap uncertainty reflects small sample instability."
+  },
+  {
+    "allele": "WT",
+    "n_observed": 6,
+    "obs_freq": 0.231,
+    "bootstrap_ci_95": [
+      0.077,
+      0.385
+    ],
+    "meta_freq": 0.247,
+    "meta_ci": 0.234,
+    "within_meta_range": false,
+    "meta_ref": "Yokota 2011",
+    "note": "Imputed via meta-analysis priors, n=26. Bootstrap uncertainty reflects small sample instability."
+  },
+  {
+    "allele": "G12D",
+    "n_observed": 11,
+    "obs_freq": 0.423,
+    "bootstrap_ci_95": [
+      0.231,
+      0.615
+    ],
+    "meta_freq": 0.372,
+    "meta_ci": 0.358,
+    "within_meta_range": false,
+    "meta_ref": "Yokota 2011 JNCI meta-analysis",
+    "note": "Imputed via meta-analysis priors, n=26. Bootstrap uncertainty reflects small sample instability."
+  },
+  {
+    "allele": "G13D",
+    "n_observed": 1,
+    "obs_freq": 0.038,
+    "bootstrap_ci_95": [
+      0.0,
+      0.115
+    ],
+    "meta_freq": 0.091,
+    "meta_ci": 0.083,
+    "within_meta_range": false,
+    "meta_ref": "Yokota 2011",
+    "note": "Imputed via meta-analysis priors, n=26. Bootstrap uncertainty reflects small sample instability."
+  },
+  {
+    "allele": "G12V",
+    "n_observed": 7,
+    "obs_freq": 0.269,
+    "bootstrap_ci_95": [
+      0.115,
+      0.462
+    ],
+    "meta_freq": 0.22,
+    "meta_ci": 0.208,
+    "within_meta_range": false,
+    "meta_ref": "Yokota 2011",
+    "note": "Imputed via meta-analysis priors, n=26. Bootstrap uncertainty reflects small sample instability."
+  }
+]

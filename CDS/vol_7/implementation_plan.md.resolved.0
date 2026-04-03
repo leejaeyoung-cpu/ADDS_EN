@@ -1,0 +1,127 @@
+# CT 고급 전처리 통합 파이프라인 구현 계획
+
+## 목표
+`CTdata1`, `CTdata2` 하위의 모든 CT 데이터를 10단계 고급 전처리 파이프라인으로 처리하고, Swin-UNETR용 학습 데이터셋 자동 빌드, 각 단계 before/after 시각화 대시보드까지 원스톱으로 생성한다.
+
+## 데이터 현황
+| 데이터 | 형식 | 슬라이스 | 메모 |
+|---|---|---|---|
+| `CTdata1/CTdcm/` | DICOM | ~427장 | NIfTI, 세그멘테이션 기존 존재 |
+| `CTdata1/nifti/` | NIfTI | 기존 변환본 | `inha_ct_volume.nii.gz` 등 |
+| `CTdata2/0930 pre*.dcm` | DICOM | 383 | 치료 전 |
+| `CTdata2/1223 post*.dcm` | DICOM | 560 | 치료 후 |
+
+## 시스템 아키텍처
+
+```
+[Input Layer]
+  CTdata1/CTdcm/  + CTdata1/nifti/
+  CTdata2/ (0930 pre, 1223 post)
+       ↓
+[Stage 0] DICOM → NIfTI 자동 변환 (시리즈별 분리)
+       ↓
+[Stage 1-8] AdvancedCTPreprocessor (기존 8단계 활용)
+       +
+[Stage 9] 이방성 리샘플링 (1.0×1.0×1.5mm 등방성)
+[Stage 10] 세그멘테이션 기반 복부 ROI 마킹
+       ↓
+[Output A] preprocessed/*.nii.gz  (전처리 볼륨)
+[Output B] tensors/*.pt           (5채널 학습 텐서)
+[Output C] qc_report.json         (QC 메트릭 종합)
+[Output D] dashboard.html         (인터랙티브 시각화)
+```
+
+---
+
+## Proposed Changes
+
+### Component 1 — 10단계 파이프라인 업그레이드
+
+#### [MODIFY] [ct_advanced_preprocessing.py](file:///f:/ADDS/src/medical_imaging/ct_advanced_preprocessing.py)
+- **Stage 9 추가**: `_stage9_isotropic_resample()` — scipy zoom으로 등방성 리샘플링 (1.0mm³)
+- **Stage 10 추가**: `_stage10_abdomen_roi_mark()` — TotalSegmentator 세그 마스크를 받아 복부 ROI bbox 기록
+- `PreprocessingResult`에 `isotropic_volume`, `abdomen_mask` 필드 추가
+
+---
+
+### Component 2 — 배치 실행 엔진 (NEW)
+
+#### [NEW] [ct_batch_preprocessor.py](file:///f:/ADDS/src/medical_imaging/ct_batch_preprocessor.py)
+전체 파이프라인 오케스트레이터. 핵심 기능:
+- `scan_ct_sources()` — CTdata1/CTdata2 하위 DICOM/NIfTI 자동 탐색, 시리즈 분리
+- `dicom_series_to_nifti()` — SimpleITK 기반 시리즈→NIfTI 변환 (orientation 자동 보정)
+- `BatchPreprocessor.run_all()` — 멀티스레드 배치 처리, 진행률 표시
+- 출력: `f:/ADDS/preprocessed/{patient_id}/{series_name}/`
+
+---
+
+### Component 3 — Swin-UNETR 학습 데이터셋 빌더 (NEW)
+
+#### [NEW] [ct_dataset_builder.py](file:///f:/ADDS/src/medical_imaging/ct_dataset_builder.py)
+전처리 결과 → PyTorch `.pt` 텐서 변환기. 핵심 기능:
+- `build_tensor()` — `PreprocessingResult.multi_window` (5,D,H,W)를 96³ 패치로 분할
+- `DatasetManifest` — JSON 매니페스트 (path, qc_verdict, patient_id, series, split)
+- `train_val_split()` — 80/20 분리, QC FAIL 자동 제외
+- 출력: `f:/ADDS/preprocessed/tensors/` + `manifest.json`
+
+---
+
+### Component 4 — 전처리 시각화 대시보드 (NEW)
+
+#### [NEW] [ct_preprocessing_dashboard.py](file:///f:/ADDS/src/medical_imaging/ct_preprocessing_dashboard.py)
+자립형 HTML 대시보드 생성기. 핵심 기능:
+- `generate_stage_comparison()` — 각 스테이지 axial/coronal/sagittal before→after PNG (matplotlib)
+- `generate_qc_panel()` — SNR/CNR/Motion 막대그래프
+- `generate_html_dashboard()` — 모든 리소스를 base64 인라인으로 임베드한 단일 HTML 파일
+- 출력: `f:/ADDS/preprocessed/dashboard_{patient_id}.html`
+
+---
+
+### Component 5 — 통합 실행 스크립트 (NEW)
+
+#### [NEW] [run_ct_advanced_preprocessing.py](file:///f:/ADDS/run_ct_advanced_preprocessing.py)
+CLI 진입점:
+```
+python run_ct_advanced_preprocessing.py \
+    --sources CTdata1 CTdata2 \
+    --output preprocessed \
+    --skip-stages 3 \      # N4 스킵 옵션 (속도)
+    --build-dataset \
+    --dashboard
+```
+
+---
+
+## Verification Plan
+
+### 자동 테스트 (파이프라인 셀프 테스트)
+```powershell
+# 기존 phantom 테스트 (ct_advanced_preprocessing.py 내장)
+cd f:\ADDS
+python -m src.medical_imaging.ct_advanced_preprocessing
+# 기대: "8/8 checks passed"
+
+# 배치 엔진 드라이런 (실제 데이터 없이 synthetic)
+python run_ct_advanced_preprocessing.py --dry-run
+# 기대: 소스 탐색 결과, 예상 처리 건수만 출력
+```
+
+### 실제 데이터 검증
+```powershell
+# CTdata2 0930(pre) 시리즈 1개만 먼저 처리
+python run_ct_advanced_preprocessing.py --sources CTdata2 --limit 1 --dashboard
+# 기대:
+# - preprocessed/CTdata2/0930_pre/preprocessed.nii.gz 생성
+# - preprocessed/CTdata2/0930_pre/tensors/*.pt 생성
+# - preprocessed/dashboard_CTdata2_0930_pre.html 생성 → 브라우저에서 열어 시각 확인
+```
+
+### QC 검증 기준
+| 메트릭 | PASS 기준 |
+|---|---|
+| SNR | ≥ 3.0 |
+| CNR | ≥ 1.5 |
+| Motion Score | ≤ 0.4 |
+| Body Coverage | ≥ 10% |
+| 5채널 shape | (5, D, H, W) |
+| 등방성 spacing | 1.0mm³ ±0.1 |

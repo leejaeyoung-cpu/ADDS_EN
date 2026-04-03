@@ -1,0 +1,138 @@
+# ── 환자 데이터 (PHI) ─────────────────────────────────────────────
+CTdata1/
+CTdata2/
+nnunet_*_input/
+nnunet_*_output/
+nnunet_0930*/
+nnunet_1223*/
+nnunet_delay*/
+test_inference_input/
+test_inference_output/
+*.dcm
+*.nii
+*.nii.gz
+*.mha
+
+# ── Cellpose 원본 이미지/마스크 (대용량) ───────────────────────────
+cellpose_data/26.03.27 cell/
+cellpose_data/pipeline/masks/
+cellpose_data/pipeline/preprocessed/
+cellpose_data/pipeline/outlines/
+
+# ── 대용량 모델 가중치 (GitHub 100MB 제한) ─────────────────────────
+sam_vit_b_01ec64.pth
+yolo*.pt
+segvol_ckpt/
+checkpoints/
+SegVol/
+SegVol.zip
+*.pth
+*.pt
+*.onnx
+*.pb
+
+# ── nnUNet 데이터 ───────────────────────────────────────────────────
+nnUNet_data/
+nnUNet_predictions/
+nnUNet_preprocessed/
+nnUNet_raw/
+nnUNet_results/
+nnunet_input/
+nnunet_output/
+preprocessed/
+yolo_crops/
+
+# ── 시크릿 / 환경변수 ───────────────────────────────────────────────
+.env
+.env.clinical
+# .env.example and .env.template are INTENTIONALLY tracked (CI templates)
+*.key
+*.pem
+*.p12
+
+# ── Python ──────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+
+# ── 임시 출력 / 로그 ────────────────────────────────────────────────
+logs/
+*.log
+output/
+outputs/
+results/
+evaluation_results/
+benchmark_results/
+runs/
+organs_segmentation_output/
+
+# ── 개발 도구 ───────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ── 대용량 바이너리 ─────────────────────────────────────────────────
+*.zip
+*.tar.gz
+*.h5
+*.hdf5
+test_totalseg_output.nii
+
+# ── 데이터베이스 ────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+database/
+binding_database/
+bindingdb/
+literature_database/
+
+# ── 백업 ────────────────────────────────────────────────────────────
+Backup/
+backend_backup_*/
+archive/
+
+# ── 로컬 전용 대용량 폴더 (GitHub에 올리지 않음) ────────────────────
+ClinicalPathologyPlatform/
+Download/
+data/
+CTdata/
+cellpose_data/
+huvec/
+txt/
+models/
+pritamab/
+research/
+
+# ── 정리 도구 (로컬 전용) ───────────────────────────────────────────
+cleanup_root.py
+cleanup_root_phase2.py
+fix_hardcoded_paths.py
+push_to_github.py
+
+# ── 문서/발표 파일 (로컬 전용) ──────────────────────────────────────
+*.pptx
+*.docx
+*.pdf
+*.txt
+!README.txt
+2026_master/
+2026_master_pdf.txt
+*.coverage
+.coverage
+
+# ── 기타 로컬 전용 ──────────────────────────────────────────────────
+*.md
+!README.md
+!CONTRIBUTING.md
+!docs/*.md

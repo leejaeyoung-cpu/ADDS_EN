@@ -1,0 +1,41 @@
+# 목표 (Goal Description)
+임상수요형 중개연구 발표평가 통과에 따른 고품질 피치덱(PPT) 자동 생성 파이프라인 구축.
+기존 단순 예측모델 연구 발표를 넘어 **'독립형 AI 디지털의료기기소프트웨어(SaMD)' 제품화 및 인허가 전략**을 전면에 내세우는 최신 의료 AI 피치 트렌드(Deep Blue & Trust 컨셉)를 반영합니다. Canva 연동 대신 완벽히 제어 가능한 `python-pptx` 기반의 Nano Banana (초안 생성기) 파이프라인을 구축하여 텍스트 배치 및 구조화를 자동화합니다.
+
+## User Review Required
+> [!IMPORTANT]
+> 구성된 슬라이드 목차(10장 내외)와 강조 포인트(SaMD 인허가, GMP, 사이버보안)가 발표 의도와 정확히 부합하는지 확인이 필요합니다. 승인해주시면 즉시 PPTX 생성 스크립트를 작성하여 파일을 추출하겠습니다.
+
+## Proposed Changes
+
+### [PPT 생성을 위한 슬라이드 구조 및 디자인 컨셉]
+**디자인 컨셉 분석 (최근 2년 의료 AI 트렌드)**
+- **Colors**: Trust Blue (신뢰성), Teal/Mint (혁신), Clean White 바탕.
+- **Layout**: 텍스트 과부하를 피하고 도식화(Pipeline) 및 단계적 전개(Step-by-step) 중심.
+- **Messaging**: "단순 AI 연구 ➔ 인허가/실제 임상 적용(SaMD)을 위한 규제 융합 패키지화"
+
+**슬라이드 목차 (총 10장 구성안)**
+1. **[Title]** KRAS 변이 대장암 기반 AI 의사결정지원 의료기술 (ADDS. V1) 실용화
+2. **[Background]** 임상 미충족 수요 및 ADDS. V1의 연구 성과 요약
+3. **[Vision]** 연구용 모델에서 **독립형 AI 디지털의료기기(SaMD)** 로의 도약
+4. **[Regulatory Strategy]** SaMD 해당성 검토 및 품목/등급 분류 설계
+5. **[Quality & Manufacturing]** 의료기기 제조 및 품질관리체계(GMP/QS) 구축안
+6. **[Tech Docs]** 소프트웨어 기술문서 패키지화 (요구사항, 알고리즘, 위험관리)
+7. **[Clinical Evidence]** 단계적 임상근거 확보 전략 (후향/외부 검증 ➔ PDO ➔ 전향 임상)
+8. **[Usability & Security]** 사용적합성 및 의료기기 사이버보안 대응 전략
+9. **[Roadmap]** 통합 규제 극복 및 시장 진입(인허가, 신의료기술, 급여화) 로드맵
+10. **[Conclusion]** 임상 현장 적용 및 보급 확산 비전
+
+### [파이썬 기반 PPT 생성 스크립트 작성]
+#### [NEW] `generate_samd_pitch.py`
+- `python-pptx` 라이브러리를 사용하여 위의 10장 구성으로 이루어진 템플릿 생성.
+- 각 슬라이드별로 명확한 Title, Bullet points, 그리고 강조 박스(SaMD 패키지화)를 배치.
+- 폰트, 도형(도식화), 색상 코드를 하드코딩하여 깔끔한 초안(Draft)을 생성, 사용자가 세부 이미지만 얹으면 바로 발표 가능한 퀄리티로 출력.
+
+## Verification Plan
+### Automated Tests
+- `python generate_samd_pitch.py` 실행 후 오류 없이 `ADDS_SaMD_Pitch_Draft.pptx` 생성 확인.
+- 스크립트 실행 후 파일 크기 및 생성 로그 확인.
+
+### Manual Verification
+- 사용자에게 완성된 PPTX 파일을 다운로드하여 디자인, 폰트 깨짐 유무, 텍스트 배치 및 로직의 흐름(연구 ➔ SaMD 전환)을 최종 점검받음.

@@ -1,0 +1,5 @@
+# Task: Generate Infographic Presentation Images
+
+- [x] Write prompts to convert flowchart contents into professional infographic images (no movie posters).
+- [x] Generate 3 presentation-ready infographic images (Architecture Flow, PDO Validation, SaMD Timeline).
+- [x] Present the final infographic images to the user.

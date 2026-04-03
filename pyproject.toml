@@ -1,0 +1,149 @@
+# Code Quality Tools Configuration (2026 Best Practices)
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adds"
+version = "2.0.0"
+description = "AI-Driven Drug Discovery System - Medical Imaging AI"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[tool.ruff]
+# Line length
+line-length = 100
+target-version = "py311"
+
+# File patterns to exclude
+exclude = [
+    ".git",
+    "__pycache__",
+    "*.egg-info",
+    ".venv",
+    "venv",
+    "archive",
+    "scripts/debugging",
+    "nnUNet_*",
+]
+
+[tool.ruff.lint]
+# Enable specific linting rules
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort (import sorting)
+    "N",      # pep8-naming
+    "S",      # bandit (security)
+    "B",      # bugbear (common bugs)
+    "C90",    # mccabe (complexity)
+    "UP",     # pyupgrade (modern Python)
+]
+
+# Ignore specific rules
+ignore = [
+    "E501",   # Line too long (handled by formatter)
+    "S101",   # Use of assert (common in tests)
+    "S311",   # Random for non-cryptographic use
+    "B008",   # Function call in argument defaults
+]
+
+# Complexity threshold
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+# Ignore security warnings in test files
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S", "B"]
+"scripts/**/*.py" = ["S"]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+exclude = '''
+/(
+    \.git
+  | __pycache__
+  | \.venv
+  | venv
+  | archive
+  | nnUNet_*
+)/
+'''
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # Too strict for medical AI code
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+
+# Exclude patterns
+exclude = [
+    'archive/',
+    'scripts/debugging/',
+    'nnUNet_*',
+]
+
+# Per-module options
+[[tool.mypy.overrides]]
+module = [
+    "pydicom.*",
+    "nibabel.*",
+    "monai.*",
+    "cellpose.*",
+    "streamlit.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = """
+    --verbose
+    --cov=src
+    --cov-report=html
+    --cov-report=term-missing
+    --cov-fail-under=50
+"""
+
+# Coverage settings
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/scripts/*",
+    "*/__pycache__/*",
+    "*/archive/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+]
+
+[tool.bandit]
+exclude_dirs = [
+    "tests",
+    "scripts",
+    "archive",
+]
+skips = [
+    "B101",  # assert_used
+    "B601",  # paramiko_calls
+]

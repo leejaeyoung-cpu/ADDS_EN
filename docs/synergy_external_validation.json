@@ -1,0 +1,9 @@
+{
+  "loewe_external_n": 9956,
+  "loewe_mean": -6.34,
+  "loewe_std": 17.788,
+  "bliss_internal_mean": 17.4,
+  "scale_note": "Bliss and Loewe are different synergy scales (Bliss=independence model, Loewe=dose-effect additivity). Direct score comparison not valid. Directional concordance (both positive=synergistic) is the meaningful comparison.",
+  "concordance": "Both predominantly positive (synergistic) -- directionally concordant",
+  "limitation": "Direct numeric comparison invalid (different scales). Need Bliss values from DrugComb for proper comparison."
+}

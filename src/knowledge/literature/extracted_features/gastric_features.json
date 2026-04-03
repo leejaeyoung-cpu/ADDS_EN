@@ -1,0 +1,353 @@
+{
+    "cancer_type": "Gastric",
+    "description": "Aggregated quantitative features from 10 Nature-tier gastric cancer papers",
+    "sources": "literature_database.json - Papers GAC_001 to GAC_010",
+    "total_patients": 12520,
+    "feature_extraction_date": "2026-01-14",
+    "molecular_subtypes": {
+        "description": "TCGA molecular classification (Nature 2014)",
+        "source": "GAC_001 - PMID:25079317",
+        "subtypes": {
+            "EBV_positive": {
+                "prevalence": 0.09,
+                "characteristics": [
+                    "Extreme DNA hypermethylation",
+                    "PIK3CA mutations common",
+                    "PD-L1 overexpression",
+                    "Excellent prognosis with immunotherapy"
+                ],
+                "treatment_implications": "Pembrolizumab/Nivolumab highly effective"
+            },
+            "MSI_high": {
+                "prevalence": 0.22,
+                "characteristics": [
+                    "High mutation burden (median TMB: 40.5 mutations/Mb)",
+                    "MLH1 methylation or MMR gene mutations",
+                    "Better prognosis",
+                    "High TILs"
+                ],
+                "treatment_implications": "Immunotherapy first-line (46% ORR with pembrolizumab monotherapy)"
+            },
+            "genomically_stable": {
+                "prevalence": 0.20,
+                "characteristics": [
+                    "Diffuse Lauren histology enriched",
+                    "CDH1 mutations (16%)",
+                    "RHOA mutations (14%)",
+                    "Younger age at diagnosis"
+                ],
+                "treatment_implications": "Limited targeted therapy options, chemotherapy backbone"
+            },
+            "chromosomal_instability": {
+                "prevalence": 0.49,
+                "characteristics": [
+                    "TP53 mutations (71%)",
+                    "Marked aneuploidy",
+                    "RTK-RAS activation",
+                    "Intestinal Lauren histology"
+                ],
+                "treatment_implications": "HER2-targeted therapy if amplified, VEGF inhibitors"
+            }
+        }
+    },
+    "morphological_features": {
+        "lauren_classification": {
+            "source": "GAC_001",
+            "distribution": {
+                "intestinal": 0.54,
+                "diffuse": 0.32,
+                "mixed": 0.14
+            },
+            "clinical_significance": "Intestinal type associated with CIN subtype, better differentiation"
+        },
+        "differentiation": {
+            "well": 0.15,
+            "moderate": 0.45,
+            "poor": 0.40
+        },
+        "tumor_infiltrating_lymphocytes": {
+            "source": "GAC_008 - Meta-analysis of 3189 patients",
+            "high_til_prevalence": 0.42,
+            "median_til_percentage": 15.0,
+            "prognostic_value": {
+                "os_hazard_ratio": 0.64,
+                "dfs_hazard_ratio": 0.58,
+                "interpretation": "High TILs confer 56% reduction in death risk"
+            }
+        }
+    },
+    "actionable_biomarkers": {
+        "HER2": {
+            "prevalence": 0.21,
+            "definition": "IHC 3+ or IHC 2+/FISH+",
+            "source": "GAC_002 - ToGA trial",
+            "treatment": "Trastuzumab + Chemotherapy",
+            "clinical_benefit": {
+                "median_os_trastuzumab": 13.8,
+                "median_os_chemotherapy": 11.1,
+                "hazard_ratio": 0.74,
+                "absolute_benefit_months": 2.7
+            },
+            "optimal_benefit_group": {
+                "criteria": "IHC 3+ or IHC 2+/FISH+ with high expression",
+                "median_os": 16.0,
+                "hazard_ratio": 0.65
+            }
+        },
+        "PD_L1": {
+            "prevalence_cps_1": 0.73,
+            "prevalence_cps_5": 0.60,
+            "prevalence_cps_10": 0.45,
+            "source": "GAC_003 - CheckMate 649, GAC_005 - KEYNOTE-859",
+            "treatment": "Nivolumab or Pembrolizumab + Chemotherapy",
+            "clinical_benefit_cps_5": {
+                "median_os_nivo_chemo": 14.4,
+                "median_os_chemo_alone": 11.1,
+                "hazard_ratio": 0.71,
+                "absolute_benefit_months": 3.3
+            },
+            "interpretation": "PD-L1 CPS ≥5 or ≥10 predicts immunotherapy benefit"
+        },
+        "MSI_high": {
+            "prevalence": 0.22,
+            "source": "GAC_001 (TCGA), GAC_009 (KEYNOTE cohort)",
+            "overlap_with_pdl1": 0.85,
+            "median_tmb": 55.2,
+            "treatment": "Pembrolizumab monotherapy or with chemotherapy",
+            "clinical_benefit_monotherapy": {
+                "orr": 0.46,
+                "complete_response_rate": 0.11,
+                "median_pfs": 11.2,
+                "duration_of_response": "Not reached at 23 months"
+            },
+            "interpretation": "MSI-H is indication for immunotherapy regardless of line"
+        },
+        "Claudin_18_2": {
+            "prevalence": 0.38,
+            "definition": "≥75% of tumor cells with moderate-to-strong membrane staining",
+            "source": "GAC_004 - SPOTLIGHT trial",
+            "treatment": "Zolbetuximab + mFOLFOX6",
+            "clinical_benefit": {
+                "median_os_zolbe": 14.9,
+                "median_os_chemo": 12.5,
+                "hazard_ratio": 0.75,
+                "median_pfs_zolbe": 10.6,
+                "median_pfs_chemo": 8.7
+            },
+            "status": "FDA approved 2024"
+        }
+    },
+    "mutation_landscape": {
+        "driver_mutations": {
+            "TP53": {
+                "prevalence": 0.71,
+                "source": "GAC_001",
+                "subtype_enrichment": "CIN subtype",
+                "clinical_significance": "Poor prognosis in CIN subtype"
+            },
+            "ARID1A": {
+                "prevalence": 0.17,
+                "significance": "Chromatin remodeling, associated with MSI",
+                "potential_therapeutic": "EZH2 inhibitors, immunotherapy"
+            },
+            "RHOA": {
+                "prevalence": 0.14,
+                "subtype_enrichment": "Genomically stable, diffuse type",
+                "clinical_significance": "Younger age, limited targeted options"
+            },
+            "CDH1": {
+                "prevalence": 0.16,
+                "significance": "E-cadherin loss, diffuse gastric cancer",
+                "hereditary_link": "Hereditary diffuse gastric cancer syndrome"
+            },
+            "PIK3CA": {
+                "prevalence": 0.08,
+                "subtype_enrichment": "EBV-positive",
+                "potential_therapeutic": "PI3K inhibitors under investigation"
+            },
+            "KRAS": {
+                "prevalence": 0.09,
+                "significance": "Lower than colorectal cancer",
+                "clinical": "Limited EGFR inhibitor efficacy"
+            }
+        },
+        "amplifications": {
+            "ERBB2_HER2": 0.21,
+            "EGFR": 0.10,
+            "MET": 0.05,
+            "FGFR2": 0.04
+        }
+    },
+    "pathway_alterations": {
+        "RTK_RAS_pathway": {
+            "prevalence": 0.37,
+            "genes": [
+                "ERBB2",
+                "EGFR",
+                "MET",
+                "KRAS",
+                "BRAF"
+            ],
+            "therapeutic_targets": [
+                "Trastuzumab",
+                "Ramucirumab"
+            ]
+        },
+        "PI3K_AKT_mTOR": {
+            "prevalence": 0.25,
+            "genes": [
+                "PIK3CA",
+                "PTEN",
+                "AKT1"
+            ],
+            "enrichment": "EBV-positive subtype"
+        },
+        "p53_pathway": {
+            "prevalence": 0.71,
+            "gene": "TP53",
+            "clinical": "Marker of CIN subtype, poor prognosis"
+        },
+        "WNT_signaling": {
+            "prevalence": 0.08,
+            "genes": [
+                "APC",
+                "CTNNB1"
+            ],
+            "clinical": "Rare in gastric vs. colorectal"
+        },
+        "DNA_damage_response": {
+            "prevalence": 0.26,
+            "source": "GAC_007 - Pan-cancer DDR analysis",
+            "mechanisms": [
+                "MSI",
+                "POLE mutations",
+                "HR defects"
+            ],
+            "therapeutic": "Platinum sensitivity, potential PARP inhibitors"
+        },
+        "chromatin_remodeling": {
+            "prevalence": 0.22,
+            "genes": [
+                "ARID1A",
+                "SMARCA4"
+            ],
+            "clinical": "Associated with immunotherapy responsiveness"
+        }
+    },
+    "treatment_outcomes": {
+        "first_line_chemotherapy": {
+            "median_os_doublet": 11.1,
+            "median_pfs_doublet": 5.5,
+            "orr_doublet": 0.35,
+            "source": "GAC_002 control arm"
+        },
+        "her2_positive_first_line": {
+            "median_os_trastuzumab_chemo": 13.8,
+            "median_pfs": 6.7,
+            "orr": 0.47,
+            "source": "GAC_002"
+        },
+        "immunotherapy_first_line": {
+            "nivo_chemo_pdl1_cps5": {
+                "median_os": 14.4,
+                "median_pfs": 7.7,
+                "orr": 0.60,
+                "source": "GAC_003"
+            },
+            "pembro_chemo_all": {
+                "median_os": 12.9,
+                "median_pfs": 6.9,
+                "orr": 0.51,
+                "source": "GAC_005"
+            },
+            "pembro_mono_msi_high": {
+                "orr": 0.46,
+                "median_pfs": 11.2,
+                "source": "GAC_009"
+            }
+        },
+        "claudin182_targeted": {
+            "median_os_zolbe_chemo": 14.9,
+            "median_pfs": 10.6,
+            "orr": 0.57,
+            "source": "GAC_004"
+        },
+        "second_line_vegf_inhibitor": {
+            "median_os_ramucirumab": 5.2,
+            "median_pfs": 2.1,
+            "dcr": 0.49,
+            "source": "GAC_010"
+        }
+    },
+    "prognostic_factors": {
+        "molecular_subtype": {
+            "best_prognosis": [
+                "EBV-positive",
+                "MSI-high"
+            ],
+            "intermediate": "Genomically stable",
+            "poor": "Chromosomal instability with TP53 mutation"
+        },
+        "biomarkers": {
+            "favorable": {
+                "MSI_high": "HR 0.64 vs MSS",
+                "high_TILs": "HR 0.64 vs low TILs",
+                "EBV_positive": "Better OS than EBV-negative"
+            },
+            "unfavorable": {
+                "TP53_mutation_in_CIN": "Poor prognosis",
+                "peritoneal_metastasis": "Median OS <6 months"
+            }
+        }
+    },
+    "treatment_algorithm": {
+        "description": "Evidence-based treatment selection based on biomarkers",
+        "first_line": {
+            "MSI_high": {
+                "treatment": "Pembrolizumab monotherapy or with chemotherapy",
+                "evidence": "Level I (KEYNOTE cohorts)",
+                "expected_orr": 0.46
+            },
+            "HER2_positive_high_expression": {
+                "treatment": "Trastuzumab + Chemotherapy",
+                "evidence": "Level I (ToGA trial)",
+                "expected_os": 13.8
+            },
+            "PD_L1_CPS_≥5": {
+                "treatment": "Nivolumab + Chemotherapy",
+                "evidence": "Level I (CheckMate 649)",
+                "expected_os": 14.4
+            },
+            "Claudin18_2_positive_HER2_negative": {
+                "treatment": "Zolbetuximab + mFOLFOX6",
+                "evidence": "Level I (SPOTLIGHT)",
+                "expected_os": 14.9
+            },
+            "biomarker_negative": {
+                "treatment": "Platinum + Fluoropyrimidine doublet",
+                "evidence": "Standard of care",
+                "expected_os": 11.1
+            }
+        },
+        "second_line": {
+            "PD_L1_positive_or_MSI_high": {
+                "treatment": "Pembrolizumab or Nivolumab",
+                "evidence": "FDA approved"
+            },
+            "all_patients": {
+                "treatment": "Ramucirumab + Paclitaxel or Ramucirumab monotherapy",
+                "evidence": "Level I (REGARD, RAINBOW trials)",
+                "expected_os_mono": 5.2
+            }
+        }
+    },
+    "quality_metrics": {
+        "total_papers_analyzed": 10,
+        "total_patients": 12520,
+        "level_I_evidence_papers": 7,
+        "nature_tier_S_papers": 6,
+        "median_citation_count": 850,
+        "mean_confidence_score": 1.06,
+        "data_completeness": 0.95
+    }
+}

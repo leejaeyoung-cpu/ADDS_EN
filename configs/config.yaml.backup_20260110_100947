@@ -1,0 +1,141 @@
+# ADDS (AI Anticancer Drug Discovery System) Configuration
+
+# Project Metadata
+project:
+  name: "ADDS"
+  version: "1.0.0"
+  description: "AI Anticancer Drug Discovery System for cocktail therapy optimization"
+  institution: "인하대학병원 의생명공학과"
+
+# Directory Paths
+paths:
+  root: "C:/Users/brook/Desktop/AIDATA/ADDS"
+  data:
+    raw: "C:/Users/brook/Desktop/AIDATA/ADDS/data/raw"
+    processed: "C:/Users/brook/Desktop/AIDATA/ADDS/data/processed"
+    outputs: "C:/Users/brook/Desktop/AIDATA/ADDS/data/outputs"
+  models: "C:/Users/brook/Desktop/AIDATA/ADDS/models"
+  logs: "C:/Users/brook/Desktop/AIDATA/ADDS/logs"
+  cache: "C:/Users/brook/Desktop/AIDATA/ADDS/cache"
+
+# Database Configuration
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  name: "adds_db"
+  user: "adds_user"
+  # Password should be set via environment variable: ADDS_DB_PASSWORD
+  
+# Cellpose Configuration
+cellpose:
+  model_type: "cyto2"  # or 'nuclei', 'cyto', custom model path
+  gpu: false  # Default: CPU mode (can be overridden by ADDS_CELLPOSE_GPU env var)
+  batch_size: 16  # 32GB RAM 활용
+  diameter: null  # null for automatic detection
+  flow_threshold: 0.4
+  cellprob_threshold: 0.0
+  channels: [0, 0]  # [cytoplasm, nucleus] 0=grayscale
+
+# Image Processing
+image_processing:
+  supported_formats: [".tif", ".tiff", ".png", ".jpg", ".jpeg"]
+  resize_dim: [512, 512]
+  normalize: true
+  augmentation:
+    enabled: true
+    rotation: true
+    flip: true
+    brightness: 0.2
+    contrast: 0.2
+
+# Feature Extraction
+features:
+  morphological:
+    - "area"
+    - "perimeter"
+    - "circularity"
+    - "eccentricity"
+    - "solidity"
+    - "mean_intensity"
+    - "std_intensity"
+  image_embedding_model: "resnet50"  # or 'vit_base_patch16_224'
+  text_embedding_model: "dmis-lab/biobert-v1.1"
+
+# Drug Synergy Calculation
+synergy:
+  methods:
+    - "bliss"
+    - "loewe"
+    - "hsa"
+    - "zip"
+  dose_range: [0.001, 100]  # μM
+  dose_points: 10
+
+# Model Configuration
+models:
+  gnn:
+    hidden_channels: 256  # 증가 (128 -> 256)
+    num_layers: 4  # 증가 (3 -> 4)
+    dropout: 0.2
+    heads: 8  # 증가 (4 -> 8) for GAT
+    learning_rate: 0.001
+  
+  attention:
+    d_model: 512  # 증가 (256 -> 512)
+    nhead: 16  # 증가 (8 -> 16)
+    num_encoder_layers: 8  # 증가 (6 -> 8)
+    dim_feedforward: 2048  # 증가 (1024 -> 2048)
+    dropout: 0.1
+    learning_rate: 0.0001
+  
+  bayesian_opt:
+    n_trials: 200  # 증가 (100 -> 200)
+    n_jobs: 16  # Ryzen 9 8940HX 전체 스레드 활용
+    sampler: "TPESampler"
+    pruner: "MedianPruner"
+
+# Training Configuration
+training:
+  batch_size: 64  # 증가 (32 -> 64), 32GB RAM 활용
+  epochs: 100
+  early_stopping_patience: 10
+  validation_split: 0.2
+  test_split: 0.1
+  seed: 42
+  device: "cuda"  # Default: GPU (can be overridden by ADDS_DEVICE env var: 'cpu' or 'cuda')
+  num_workers: 8  # 멀티프로세싱 (16 threads의 절반)
+  pin_memory: true  # GPU 메모리 최적화
+  mixed_precision: true  # Mixed precision training (FP16) for faster training
+
+# Cross-Validation
+cross_validation:
+  n_folds: 5
+  stratified: true
+  shuffle: true
+
+# MLflow Configuration
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "ADDS_experiments"
+  artifact_location: "./mlartifacts"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/adds.log"
+
+# UI Configuration
+ui:
+  port: 8501
+  theme: "dark"
+  max_upload_size: 200  # MB
+  cache_ttl: 3600  # seconds
+
+# Validation Thresholds
+validation:
+  min_cell_count: 50  # minimum cells per image
+  max_contamination: 0.1  # for outlier detection
+  min_confidence: 0.7  # minimum model confidence
+  biological_plausibility_threshold: 0.8

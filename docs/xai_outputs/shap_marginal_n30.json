@@ -1,0 +1,1142 @@
+[
+  {
+    "patient_id": "P0603",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_predicted": 8.98,
+    "local_contribs": {
+      "arm": 0.012,
+      "pritamab": 0.0121,
+      "kras": -0.2302,
+      "prpc_level": 0.0,
+      "msi": -0.4876,
+      "bliss": -0.6903,
+      "orr": -0.2577,
+      "dcr": 0.0252,
+      "cea": -0.118,
+      "dl_confidence": -0.0676,
+      "best_pct_change": 0.1076,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.1028,
+      "ctdna_resp": -0.0061,
+      "pk_auc_norm": -0.0855,
+      "pk_cmax": -0.2873,
+      "tox_sum": -0.0397,
+      "il6": 0.1687,
+      "tnfa": -0.005
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "pk_cmax"
+    ],
+    "top3_contribs": [
+      -0.6903,
+      -0.4876,
+      -0.2873
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0150",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_predicted": 9.57,
+    "local_contribs": {
+      "arm": -0.0289,
+      "pritamab": -0.0261,
+      "kras": 0.0632,
+      "prpc_level": 0.0,
+      "msi": -0.4551,
+      "bliss": -0.399,
+      "orr": -0.1896,
+      "dcr": -0.0994,
+      "cea": -0.1664,
+      "dl_confidence": -0.0458,
+      "best_pct_change": 0.0593,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.1033,
+      "ctdna_resp": 0.0121,
+      "pk_auc_norm": 0.1015,
+      "pk_cmax": 0.034,
+      "tox_sum": -0.0314,
+      "il6": -0.1325,
+      "tnfa": -0.1011
+    },
+    "top3_features": [
+      "msi",
+      "bliss",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.4551,
+      -0.399,
+      -0.1896
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0282",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_predicted": 8.41,
+    "local_contribs": {
+      "arm": 0.0015,
+      "pritamab": 0.012,
+      "kras": 0.0732,
+      "prpc_level": 0.0,
+      "msi": -0.3099,
+      "bliss": -0.8637,
+      "orr": 0.1406,
+      "dcr": -0.0662,
+      "cea": -0.0341,
+      "dl_confidence": -0.0183,
+      "best_pct_change": 0.1079,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.094,
+      "ctdna_resp": -0.0043,
+      "pk_auc_norm": -0.0173,
+      "pk_cmax": -0.361,
+      "tox_sum": -0.0279,
+      "il6": -0.0361,
+      "tnfa": -0.138
+    },
+    "top3_features": [
+      "bliss",
+      "pk_cmax",
+      "msi"
+    ],
+    "top3_contribs": [
+      -0.8637,
+      -0.361,
+      -0.3099
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0057",
+    "arm": "Control",
+    "kras": "G13D",
+    "pfs_predicted": 8.9,
+    "local_contribs": {
+      "arm": -0.0251,
+      "pritamab": -0.0212,
+      "kras": -0.0293,
+      "prpc_level": 0.0,
+      "msi": -0.382,
+      "bliss": -0.7542,
+      "orr": 0.1731,
+      "dcr": 0.0034,
+      "cea": -0.0085,
+      "dl_confidence": -0.0131,
+      "best_pct_change": -0.005,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.04,
+      "ctdna_resp": -0.0222,
+      "pk_auc_norm": -0.0071,
+      "pk_cmax": -0.0978,
+      "tox_sum": -0.004,
+      "il6": -0.1584,
+      "tnfa": 0.0391
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.7542,
+      -0.382,
+      0.1731
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0225",
+    "arm": "Control",
+    "kras": "G12C",
+    "pfs_predicted": 7.55,
+    "local_contribs": {
+      "arm": -0.0189,
+      "pritamab": -0.0233,
+      "kras": -0.204,
+      "prpc_level": 0.0,
+      "msi": -0.2708,
+      "bliss": -0.8585,
+      "orr": -0.2033,
+      "dcr": -0.0839,
+      "cea": -0.184,
+      "dl_confidence": -0.1608,
+      "best_pct_change": -0.2077,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0942,
+      "ctdna_resp": -0.0036,
+      "pk_auc_norm": -0.0569,
+      "pk_cmax": -0.1039,
+      "tox_sum": -0.0475,
+      "il6": 0.1559,
+      "tnfa": -0.0024
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "best_pct_change"
+    ],
+    "top3_contribs": [
+      -0.8585,
+      -0.2708,
+      -0.2077
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0026",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_predicted": 8.03,
+    "local_contribs": {
+      "arm": 0.0084,
+      "pritamab": 0.0121,
+      "kras": -0.0512,
+      "prpc_level": 0.0,
+      "msi": -0.3559,
+      "bliss": -0.6951,
+      "orr": -0.3368,
+      "dcr": -0.0095,
+      "cea": 0.0528,
+      "dl_confidence": 0.0142,
+      "best_pct_change": -0.0829,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0488,
+      "ctdna_resp": -0.0045,
+      "pk_auc_norm": 0.0192,
+      "pk_cmax": 0.0883,
+      "tox_sum": -0.0388,
+      "il6": -0.108,
+      "tnfa": -0.0098
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.6951,
+      -0.3559,
+      -0.3368
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0182",
+    "arm": "Control",
+    "kras": "G12C",
+    "pfs_predicted": 9.22,
+    "local_contribs": {
+      "arm": -0.0211,
+      "pritamab": -0.0266,
+      "kras": -0.2193,
+      "prpc_level": 0.0,
+      "msi": -0.6463,
+      "bliss": -0.8848,
+      "orr": -0.1818,
+      "dcr": -0.0218,
+      "cea": 0.1821,
+      "dl_confidence": -0.0454,
+      "best_pct_change": -0.0855,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0069,
+      "ctdna_resp": -0.0069,
+      "pk_auc_norm": 0.0245,
+      "pk_cmax": 0.0515,
+      "tox_sum": -0.0447,
+      "il6": 0.2575,
+      "tnfa": -0.0389
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "il6"
+    ],
+    "top3_contribs": [
+      -0.8848,
+      -0.6463,
+      0.2575
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0516",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 15.85,
+    "local_contribs": {
+      "arm": 0.0152,
+      "pritamab": 0.0179,
+      "kras": 0.0059,
+      "prpc_level": 0.0,
+      "msi": 3.1516,
+      "bliss": 1.1137,
+      "orr": 0.2633,
+      "dcr": -0.038,
+      "cea": 0.0576,
+      "dl_confidence": 0.1079,
+      "best_pct_change": 0.0081,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.0143,
+      "ctdna_resp": -0.0133,
+      "pk_auc_norm": 0.157,
+      "pk_cmax": 0.0203,
+      "tox_sum": -0.029,
+      "il6": -0.0447,
+      "tnfa": 0.0181
+    },
+    "top3_features": [
+      "msi",
+      "bliss",
+      "orr"
+    ],
+    "top3_contribs": [
+      3.1516,
+      1.1137,
+      0.2633
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0294",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_predicted": 8.59,
+    "local_contribs": {
+      "arm": -0.0322,
+      "pritamab": -0.03,
+      "kras": -0.1014,
+      "prpc_level": 0.0,
+      "msi": -0.4469,
+      "bliss": -0.9075,
+      "orr": 0.0678,
+      "dcr": -0.1454,
+      "cea": -0.0164,
+      "dl_confidence": -0.2706,
+      "best_pct_change": -0.2114,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.1501,
+      "ctdna_resp": -0.006,
+      "pk_auc_norm": 0.0348,
+      "pk_cmax": -0.2152,
+      "tox_sum": -0.0634,
+      "il6": 0.1576,
+      "tnfa": -0.056
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "dl_confidence"
+    ],
+    "top3_contribs": [
+      -0.9075,
+      -0.4469,
+      -0.2706
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0045",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_predicted": 11.95,
+    "local_contribs": {
+      "arm": -0.0259,
+      "pritamab": -0.03,
+      "kras": 0.0123,
+      "prpc_level": 0.0,
+      "msi": -0.4372,
+      "bliss": 0.7988,
+      "orr": 0.134,
+      "dcr": -0.1077,
+      "cea": 0.2109,
+      "dl_confidence": 0.0004,
+      "best_pct_change": -0.1032,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0528,
+      "ctdna_resp": 0.0118,
+      "pk_auc_norm": 0.0986,
+      "pk_cmax": -0.0682,
+      "tox_sum": -0.0293,
+      "il6": -0.1497,
+      "tnfa": 0.0095
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "cea"
+    ],
+    "top3_contribs": [
+      0.7988,
+      -0.4372,
+      0.2109
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0175",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 10.75,
+    "local_contribs": {
+      "arm": 0.0113,
+      "pritamab": 0.0145,
+      "kras": -0.0059,
+      "prpc_level": 0.0,
+      "msi": -0.527,
+      "bliss": 0.7341,
+      "orr": 0.117,
+      "dcr": -0.0968,
+      "cea": -0.9354,
+      "dl_confidence": 0.0228,
+      "best_pct_change": -0.2208,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0992,
+      "ctdna_resp": -0.0087,
+      "pk_auc_norm": 0.1135,
+      "pk_cmax": -0.0657,
+      "tox_sum": -0.0319,
+      "il6": 0.1929,
+      "tnfa": 0.0276
+    },
+    "top3_features": [
+      "cea",
+      "bliss",
+      "msi"
+    ],
+    "top3_contribs": [
+      -0.9354,
+      0.7341,
+      -0.527
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0457",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 10.91,
+    "local_contribs": {
+      "arm": 0.0124,
+      "pritamab": 0.0091,
+      "kras": -0.0312,
+      "prpc_level": 0.0,
+      "msi": -0.6112,
+      "bliss": 1.4154,
+      "orr": 0.1064,
+      "dcr": 0.0152,
+      "cea": -0.0518,
+      "dl_confidence": -0.1693,
+      "best_pct_change": 0.1116,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.1866,
+      "ctdna_resp": -0.0073,
+      "pk_auc_norm": 0.0571,
+      "pk_cmax": -0.2153,
+      "tox_sum": -0.0564,
+      "il6": -0.0126,
+      "tnfa": -0.0183
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "pk_cmax"
+    ],
+    "top3_contribs": [
+      1.4154,
+      -0.6112,
+      -0.2153
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0162",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_predicted": 10.08,
+    "local_contribs": {
+      "arm": -0.0323,
+      "pritamab": -0.0268,
+      "kras": -0.0415,
+      "prpc_level": 0.0,
+      "msi": -0.5136,
+      "bliss": 0.7809,
+      "orr": 0.1117,
+      "dcr": -0.1298,
+      "cea": -0.0338,
+      "dl_confidence": 0.0182,
+      "best_pct_change": -0.109,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0881,
+      "ctdna_resp": -0.0085,
+      "pk_auc_norm": 0.1047,
+      "pk_cmax": -0.1607,
+      "tox_sum": -0.0375,
+      "il6": -0.1678,
+      "tnfa": 0.143
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "il6"
+    ],
+    "top3_contribs": [
+      0.7809,
+      -0.5136,
+      -0.1678
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0634",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_predicted": 8.91,
+    "local_contribs": {
+      "arm": 0.0135,
+      "pritamab": 0.0141,
+      "kras": -0.0297,
+      "prpc_level": 0.0,
+      "msi": -0.2609,
+      "bliss": -0.8659,
+      "orr": 0.1562,
+      "dcr": -0.0774,
+      "cea": -0.0013,
+      "dl_confidence": 0.0276,
+      "best_pct_change": -0.1475,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.1225,
+      "ctdna_resp": -0.0009,
+      "pk_auc_norm": -0.0103,
+      "pk_cmax": 0.1187,
+      "tox_sum": -0.0491,
+      "il6": -0.1445,
+      "tnfa": 0.045
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.8659,
+      -0.2609,
+      0.1562
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0086",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_predicted": 14.83,
+    "local_contribs": {
+      "arm": -0.0156,
+      "pritamab": -0.0208,
+      "kras": -0.1012,
+      "prpc_level": 0.0,
+      "msi": 2.799,
+      "bliss": -0.4136,
+      "orr": 0.1648,
+      "dcr": -0.0569,
+      "cea": 0.0549,
+      "dl_confidence": 0.0391,
+      "best_pct_change": 0.003,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.216,
+      "ctdna_resp": -0.0196,
+      "pk_auc_norm": -0.1498,
+      "pk_cmax": 0.1432,
+      "tox_sum": 0.096,
+      "il6": -0.1443,
+      "tnfa": 0.0679
+    },
+    "top3_features": [
+      "msi",
+      "bliss",
+      "ctdna_base"
+    ],
+    "top3_contribs": [
+      2.799,
+      -0.4136,
+      -0.216
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0165",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_predicted": 9.27,
+    "local_contribs": {
+      "arm": 0.0121,
+      "pritamab": 0.0137,
+      "kras": -0.0726,
+      "prpc_level": 0.0,
+      "msi": -0.3739,
+      "bliss": -0.6724,
+      "orr": 0.1314,
+      "dcr": -0.1209,
+      "cea": 0.125,
+      "dl_confidence": 0.0573,
+      "best_pct_change": -0.1421,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0395,
+      "ctdna_resp": -0.0067,
+      "pk_auc_norm": -0.0365,
+      "pk_cmax": 0.0454,
+      "tox_sum": -0.0312,
+      "il6": 0.1461,
+      "tnfa": -0.0028
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "il6"
+    ],
+    "top3_contribs": [
+      -0.6724,
+      -0.3739,
+      0.1461
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0363",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 12.89,
+    "local_contribs": {
+      "arm": 0.0162,
+      "pritamab": 0.0191,
+      "kras": -0.0156,
+      "prpc_level": 0.0,
+      "msi": -0.5374,
+      "bliss": 0.9695,
+      "orr": 0.1957,
+      "dcr": -0.0273,
+      "cea": 0.1158,
+      "dl_confidence": 0.0338,
+      "best_pct_change": 0.1412,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.0479,
+      "ctdna_resp": -0.0147,
+      "pk_auc_norm": 0.0016,
+      "pk_cmax": -0.1078,
+      "tox_sum": 0.0893,
+      "il6": -0.1261,
+      "tnfa": -0.0204
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      0.9695,
+      -0.5374,
+      0.1957
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0174",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 12.14,
+    "local_contribs": {
+      "arm": 0.0174,
+      "pritamab": 0.0143,
+      "kras": 0.0271,
+      "prpc_level": 0.0,
+      "msi": -0.4971,
+      "bliss": 1.2648,
+      "orr": 0.2423,
+      "dcr": 0.0356,
+      "cea": 0.0445,
+      "dl_confidence": 0.1024,
+      "best_pct_change": 0.1506,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0151,
+      "ctdna_resp": 0.002,
+      "pk_auc_norm": -0.014,
+      "pk_cmax": 0.1372,
+      "tox_sum": -0.0173,
+      "il6": -0.0448,
+      "tnfa": 0.0823
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      1.2648,
+      -0.4971,
+      0.2423
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0348",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_predicted": 11.34,
+    "local_contribs": {
+      "arm": 0.0205,
+      "pritamab": 0.0169,
+      "kras": 0.0506,
+      "prpc_level": 0.0,
+      "msi": -0.2464,
+      "bliss": -0.0014,
+      "orr": -0.3831,
+      "dcr": 0.0641,
+      "cea": 0.1071,
+      "dl_confidence": -0.0055,
+      "best_pct_change": 0.0218,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.1747,
+      "ctdna_resp": 0.013,
+      "pk_auc_norm": 0.1573,
+      "pk_cmax": -0.1712,
+      "tox_sum": 0.137,
+      "il6": 0.0473,
+      "tnfa": 0.0544
+    },
+    "top3_features": [
+      "orr",
+      "msi",
+      "ctdna_base"
+    ],
+    "top3_contribs": [
+      -0.3831,
+      -0.2464,
+      0.1747
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0645",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_predicted": 9.51,
+    "local_contribs": {
+      "arm": 0.0091,
+      "pritamab": 0.0125,
+      "kras": 0.053,
+      "prpc_level": 0.0,
+      "msi": -0.3389,
+      "bliss": 0.1349,
+      "orr": -0.3557,
+      "dcr": 0.006,
+      "cea": 0.0655,
+      "dl_confidence": -0.1337,
+      "best_pct_change": -0.2518,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.1267,
+      "ctdna_resp": 0.0046,
+      "pk_auc_norm": 0.092,
+      "pk_cmax": 0.0246,
+      "tox_sum": 0.0695,
+      "il6": 0.1197,
+      "tnfa": 0.0275
+    },
+    "top3_features": [
+      "orr",
+      "msi",
+      "best_pct_change"
+    ],
+    "top3_contribs": [
+      -0.3557,
+      -0.3389,
+      -0.2518
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0357",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_predicted": 8.34,
+    "local_contribs": {
+      "arm": 0.0144,
+      "pritamab": 0.0147,
+      "kras": -0.0623,
+      "prpc_level": 0.0,
+      "msi": -0.7395,
+      "bliss": -0.7136,
+      "orr": -0.2101,
+      "dcr": 0.0113,
+      "cea": -0.0216,
+      "dl_confidence": 0.0451,
+      "best_pct_change": 0.0349,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0206,
+      "ctdna_resp": -0.0141,
+      "pk_auc_norm": 0.0229,
+      "pk_cmax": 0.0139,
+      "tox_sum": -0.0644,
+      "il6": -0.1407,
+      "tnfa": -0.2331
+    },
+    "top3_features": [
+      "msi",
+      "bliss",
+      "tnfa"
+    ],
+    "top3_contribs": [
+      -0.7395,
+      -0.7136,
+      -0.2331
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0118",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_predicted": 9.26,
+    "local_contribs": {
+      "arm": 0.0143,
+      "pritamab": 0.013,
+      "kras": -0.195,
+      "prpc_level": 0.0,
+      "msi": -0.564,
+      "bliss": -0.9209,
+      "orr": -0.2306,
+      "dcr": 0.0141,
+      "cea": 0.0695,
+      "dl_confidence": 0.0679,
+      "best_pct_change": 0.1237,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.1942,
+      "ctdna_resp": 0.0115,
+      "pk_auc_norm": 0.0897,
+      "pk_cmax": 0.0442,
+      "tox_sum": -0.0689,
+      "il6": -0.2479,
+      "tnfa": -0.0673
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "il6"
+    ],
+    "top3_contribs": [
+      -0.9209,
+      -0.564,
+      -0.2479
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0078",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 11.19,
+    "local_contribs": {
+      "arm": 0.0093,
+      "pritamab": 0.0138,
+      "kras": -0.0039,
+      "prpc_level": 0.0,
+      "msi": -0.7405,
+      "bliss": 0.7648,
+      "orr": 0.1075,
+      "dcr": -0.1211,
+      "cea": -0.1186,
+      "dl_confidence": 0.0404,
+      "best_pct_change": -0.2006,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0935,
+      "ctdna_resp": -0.0063,
+      "pk_auc_norm": -0.0607,
+      "pk_cmax": -0.1531,
+      "tox_sum": 0.0527,
+      "il6": -0.1966,
+      "tnfa": -0.0934
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "best_pct_change"
+    ],
+    "top3_contribs": [
+      0.7648,
+      -0.7405,
+      -0.2006
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0624",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_predicted": 8.78,
+    "local_contribs": {
+      "arm": 0.0135,
+      "pritamab": 0.0216,
+      "kras": -0.0512,
+      "prpc_level": 0.0,
+      "msi": -0.4362,
+      "bliss": -0.8407,
+      "orr": -0.4346,
+      "dcr": -0.0327,
+      "cea": -0.0252,
+      "dl_confidence": -0.0236,
+      "best_pct_change": 0.0939,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.0354,
+      "ctdna_resp": 0.0097,
+      "pk_auc_norm": -0.124,
+      "pk_cmax": 0.0121,
+      "tox_sum": -0.0091,
+      "il6": 0.1673,
+      "tnfa": 0.1013
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.8407,
+      -0.4362,
+      -0.4346
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0630",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_predicted": 9.82,
+    "local_contribs": {
+      "arm": 0.0104,
+      "pritamab": 0.0104,
+      "kras": -0.1258,
+      "prpc_level": 0.0,
+      "msi": -0.5427,
+      "bliss": -0.8084,
+      "orr": 0.1263,
+      "dcr": -0.095,
+      "cea": -0.2118,
+      "dl_confidence": 0.0144,
+      "best_pct_change": -0.1799,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.151,
+      "ctdna_resp": -0.0118,
+      "pk_auc_norm": -0.0167,
+      "pk_cmax": 0.0846,
+      "tox_sum": 0.076,
+      "il6": 0.0904,
+      "tnfa": -0.0156
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "cea"
+    ],
+    "top3_contribs": [
+      -0.8084,
+      -0.5427,
+      -0.2118
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0111",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_predicted": 9.39,
+    "local_contribs": {
+      "arm": -0.0248,
+      "pritamab": -0.0188,
+      "kras": 0.0579,
+      "prpc_level": 0.0,
+      "msi": -0.4031,
+      "bliss": -0.036,
+      "orr": 0.1877,
+      "dcr": 0.0127,
+      "cea": 0.0178,
+      "dl_confidence": 0.0433,
+      "best_pct_change": -0.1172,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.008,
+      "ctdna_resp": 0.014,
+      "pk_auc_norm": 0.1323,
+      "pk_cmax": 0.0924,
+      "tox_sum": 0.0992,
+      "il6": 0.2457,
+      "tnfa": 0.0561
+    },
+    "top3_features": [
+      "msi",
+      "il6",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.4031,
+      0.2457,
+      0.1877
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0027",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_predicted": 7.06,
+    "local_contribs": {
+      "arm": -0.0263,
+      "pritamab": -0.0306,
+      "kras": -0.0117,
+      "prpc_level": 0.0,
+      "msi": -0.7043,
+      "bliss": 0.9839,
+      "orr": -0.468,
+      "dcr": -0.121,
+      "cea": -0.0616,
+      "dl_confidence": -0.1402,
+      "best_pct_change": -0.1521,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.0536,
+      "ctdna_resp": 0.0205,
+      "pk_auc_norm": 0.0097,
+      "pk_cmax": -0.173,
+      "tox_sum": 0.0673,
+      "il6": -0.187,
+      "tnfa": -0.1164
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      0.9839,
+      -0.7043,
+      -0.468
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0098",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_predicted": 11.93,
+    "local_contribs": {
+      "arm": 0.0233,
+      "pritamab": 0.0206,
+      "kras": -0.0302,
+      "prpc_level": 0.0,
+      "msi": -0.5389,
+      "bliss": 0.542,
+      "orr": 0.1381,
+      "dcr": -0.0008,
+      "cea": -0.0473,
+      "dl_confidence": 0.0217,
+      "best_pct_change": 0.0922,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.0508,
+      "ctdna_resp": -0.0202,
+      "pk_auc_norm": 0.1204,
+      "pk_cmax": 0.0238,
+      "tox_sum": -0.0722,
+      "il6": -0.1236,
+      "tnfa": -0.0
+    },
+    "top3_features": [
+      "bliss",
+      "msi",
+      "orr"
+    ],
+    "top3_contribs": [
+      0.542,
+      -0.5389,
+      0.1381
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "C0249",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_predicted": 9.42,
+    "local_contribs": {
+      "arm": -0.024,
+      "pritamab": -0.0225,
+      "kras": -0.0506,
+      "prpc_level": 0.0,
+      "msi": -0.5476,
+      "bliss": -0.5096,
+      "orr": -0.2292,
+      "dcr": -0.007,
+      "cea": -0.0039,
+      "dl_confidence": 0.0388,
+      "best_pct_change": 0.0842,
+      "prpc_expr": 0.0,
+      "ctdna_base": 0.1855,
+      "ctdna_resp": 0.0014,
+      "pk_auc_norm": -0.0514,
+      "pk_cmax": 0.149,
+      "tox_sum": -0.0351,
+      "il6": 0.1824,
+      "tnfa": 0.0297
+    },
+    "top3_features": [
+      "msi",
+      "bliss",
+      "orr"
+    ],
+    "top3_contribs": [
+      -0.5476,
+      -0.5096,
+      -0.2292
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  },
+  {
+    "patient_id": "P0296",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_predicted": 9.77,
+    "local_contribs": {
+      "arm": 0.0133,
+      "pritamab": 0.0157,
+      "kras": -0.2678,
+      "prpc_level": 0.0,
+      "msi": -0.2837,
+      "bliss": -0.8228,
+      "orr": -0.4617,
+      "dcr": -0.1125,
+      "cea": 0.0199,
+      "dl_confidence": -0.0075,
+      "best_pct_change": 0.0844,
+      "prpc_expr": 0.0,
+      "ctdna_base": -0.1359,
+      "ctdna_resp": 0.0013,
+      "pk_auc_norm": 0.1299,
+      "pk_cmax": -0.0343,
+      "tox_sum": -0.0397,
+      "il6": 0.252,
+      "tnfa": 0.0315
+    },
+    "top3_features": [
+      "bliss",
+      "orr",
+      "msi"
+    ],
+    "top3_contribs": [
+      -0.8228,
+      -0.4617,
+      -0.2837
+    ],
+    "xai_method": "Marginal_Contribution_100bg_LocalAttribution"
+  }
+]

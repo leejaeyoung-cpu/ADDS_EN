@@ -1,0 +1,17 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# 시스템 패키지
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python 패키지
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# 애플리케이션
+COPY . .
+
+CMD ["python", "main.py"]

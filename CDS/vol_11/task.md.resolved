@@ -1,0 +1,5 @@
+# Task: Generate Explained Presentation Figures
+
+- [x] Write a Python script using Pillow to combine the 15 generated images with detailed Korean explanations.
+- [x] Run the script to generate presentation-ready 1920x1080 image cards.
+- [x] Output the results to a new folder for the user (PPT_Figures_With_Text).

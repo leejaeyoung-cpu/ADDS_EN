@@ -1,0 +1,45 @@
+{
+  "document": "ADDS System Formal Limitations & Disclosures",
+  "version": "2026-03-10",
+  "disclosures": [
+    {
+      "id": "D1_KRAS_imputation",
+      "issue": "Patient KRAS allele frequencies derived from DL imputation (n=26)",
+      "evidence": "Bootstrap CI for all 5 alleles misses meta-analysis frequency range (Yokota 2011)",
+      "reason": "n=26 too small for stable KRAS allele frequency estimation",
+      "required_statement": "KRAS allele frequencies are DL-imputed with large uncertainty (95% bootstrap CI). Values should not be interpreted as measured clinical frequencies. n>=200 required for stable estimation.",
+      "action_required": "Real-world sequencing data from >=200 mCRC patients needed"
+    },
+    {
+      "id": "D2_OSPFS_synth",
+      "issue": "OS/PFS R2=0.303 reflects synthetic cohort redesign, NOT real clinical signal",
+      "evidence": "Improvement from 0.056 achieved by hard-coding arm-specific PFS distributions",
+      "reason": "Model 'learns' the formula used to generate outcome, not clinical truth",
+      "required_statement": "OS/PFS model performance (R2=0.303) is derived from synthetic data with built-in arm signal. Clinical validity requires training on real RCT data (KEYNOTE-177, MOSAIC, etc.)",
+      "action_required": "Real clinical trial data acquisition for model retraining"
+    },
+    {
+      "id": "D3_NearCF_inflation",
+      "issue": "Greedy Near-CF mean delta=+4.71 months may be inflated by model noise",
+      "evidence": "Greedy search guarantees positive delta by design; model noise creates artificial peaks",
+      "reason": "If prediction surface is noisy, greedy can find noise peaks efficiently",
+      "required_statement": "Near-CF deltas are computed on a synthetic-data-trained model. Clinical validation on real patients required before using CF guidance in prescription decisions.",
+      "action_required": "Hold-out validation on de-identified real patient cohort"
+    },
+    {
+      "id": "D4_Bliss_calibration",
+      "issue": "Internal Bliss values recalibrated by factor 0.558 to align with published literature mean",
+      "evidence": "KS test: original internal (17.4) vs lit (9.7), p<0.0001",
+      "calibration_file": "bliss_curated_v3_calibrated.csv",
+      "required_statement": "Internal Bliss synergy scores were recalibrated by factor 0.558 to align mean with published CRC drug combination studies. Raw uncalibrated values available in original file.",
+      "action_required": "Independent in vitro Bliss assay validation"
+    },
+    {
+      "id": "D5_LIME_MSI_dominance",
+      "issue": "LIME dominant feature shifted from Cmax to MSI after v6 cohort rebalancing",
+      "evidence": "MSI permutation importance 0.604 (v5) -> varies by model version",
+      "required_statement": "LIME dominant feature identity depends on cohort design. Current v6 model identifies regimen-specific features as primary drivers. Results should be interpreted as model-specific, not clinically universal.",
+      "action_required": "Validate with real patient LIME explanations"
+    }
+  ]
+}

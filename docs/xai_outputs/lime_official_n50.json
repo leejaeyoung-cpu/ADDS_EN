@@ -1,0 +1,1702 @@
+[
+  {
+    "patient_id": "P0606",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 10.74,
+    "top5_attributions": [
+      [
+        "cea",
+        0.15396515807790292
+      ],
+      [
+        "pk_cmax",
+        0.1289424837873224
+      ],
+      [
+        "msi",
+        0.11666889297783431
+      ],
+      [
+        "prpc_level",
+        0.08573497702226388
+      ],
+      [
+        "il6",
+        -0.07877742213928664
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.154,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0277",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 9.07,
+    "top5_attributions": [
+      [
+        "il6",
+        -0.24278296051173862
+      ],
+      [
+        "msi",
+        0.1802029371526058
+      ],
+      [
+        "ctdna_base",
+        0.17260883680341105
+      ],
+      [
+        "cea",
+        0.14871814506033978
+      ],
+      [
+        "pritamab",
+        0.1401414098402117
+      ]
+    ],
+    "dominant_feature": "il6",
+    "dominant_value": -0.2428,
+    "dominant_direction": "negative",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0505",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 14.06,
+    "top5_attributions": [
+      [
+        "cea",
+        0.30111770133055155
+      ],
+      [
+        "msi",
+        0.27775394088230415
+      ],
+      [
+        "il6",
+        -0.24539693350098785
+      ],
+      [
+        "bliss",
+        0.22489977294746716
+      ],
+      [
+        "pk_cmax",
+        0.21798340760812068
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3011,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0252",
+    "arm": "Control",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 12.13,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2866415415256052
+      ],
+      [
+        "pk_cmax",
+        0.2295144618460649
+      ],
+      [
+        "kras",
+        0.22626784430747343
+      ],
+      [
+        "dcr",
+        -0.16209791442026933
+      ],
+      [
+        "il6",
+        -0.1441969521213489
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2866,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0421",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 10.51,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2684100983030199
+      ],
+      [
+        "il6",
+        -0.1588690488721798
+      ],
+      [
+        "kras",
+        0.14171162078633054
+      ],
+      [
+        "msi",
+        0.13860035629713946
+      ],
+      [
+        "tnfa",
+        0.13737680433975735
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2684,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0291",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 9.53,
+    "top5_attributions": [
+      [
+        "msi",
+        0.2422050654023553
+      ],
+      [
+        "cea",
+        0.24052566036062561
+      ],
+      [
+        "il6",
+        -0.18136842013051627
+      ],
+      [
+        "kras",
+        0.150722585356232
+      ],
+      [
+        "pk_cmax",
+        0.1503382956716718
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.2422,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0347",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 9.37,
+    "top5_attributions": [
+      [
+        "cea",
+        0.20490197825619058
+      ],
+      [
+        "kras",
+        0.17308344272002787
+      ],
+      [
+        "pk_cmax",
+        0.12936339307735098
+      ],
+      [
+        "bliss",
+        0.11828778739190254
+      ],
+      [
+        "ctdna_base",
+        0.11586428706647081
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2049,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0231",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 8.51,
+    "top5_attributions": [
+      [
+        "pk_cmax",
+        0.2577601069647336
+      ],
+      [
+        "kras",
+        0.1967401319938052
+      ],
+      [
+        "cea",
+        0.18366102689583905
+      ],
+      [
+        "bliss",
+        0.12744422419073143
+      ],
+      [
+        "msi",
+        0.12553021343152052
+      ]
+    ],
+    "dominant_feature": "pk_cmax",
+    "dominant_value": 0.2578,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0263",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.38,
+    "top5_attributions": [
+      [
+        "kras",
+        0.1994285319433398
+      ],
+      [
+        "msi",
+        0.19910239820911
+      ],
+      [
+        "cea",
+        0.1948555593058277
+      ],
+      [
+        "bliss",
+        0.1731634061692147
+      ],
+      [
+        "il6",
+        -0.15505092151279865
+      ]
+    ],
+    "dominant_feature": "kras",
+    "dominant_value": 0.1994,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0196",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 10.9,
+    "top5_attributions": [
+      [
+        "cea",
+        0.3026562066453996
+      ],
+      [
+        "kras",
+        0.17901506973536735
+      ],
+      [
+        "pk_cmax",
+        0.15573991420028382
+      ],
+      [
+        "bliss",
+        0.12357060595627384
+      ],
+      [
+        "il6",
+        -0.1130806916157481
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3027,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0664",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 7.61,
+    "top5_attributions": [
+      [
+        "cea",
+        0.28746000786655723
+      ],
+      [
+        "msi",
+        0.2110829198470906
+      ],
+      [
+        "kras",
+        0.19606056746202405
+      ],
+      [
+        "il6",
+        -0.1400066562922413
+      ],
+      [
+        "pk_cmax",
+        0.12136228135429553
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2875,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0662",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 13.49,
+    "top5_attributions": [
+      [
+        "msi",
+        0.32909572227094946
+      ],
+      [
+        "cea",
+        0.29781669486755946
+      ],
+      [
+        "kras",
+        0.22021607151166614
+      ],
+      [
+        "pk_cmax",
+        0.15685574760471538
+      ],
+      [
+        "bliss",
+        0.11447041725763069
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.3291,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0456",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 9.32,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2539716579403335
+      ],
+      [
+        "msi",
+        0.22917969212467137
+      ],
+      [
+        "pk_cmax",
+        0.22062152853832048
+      ],
+      [
+        "bliss",
+        0.18537085959250985
+      ],
+      [
+        "il6",
+        -0.18358852994222646
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.254,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0340",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.27,
+    "top5_attributions": [
+      [
+        "cea",
+        0.29449892079216083
+      ],
+      [
+        "kras",
+        0.23238636881874164
+      ],
+      [
+        "il6",
+        -0.1260766900027428
+      ],
+      [
+        "pk_cmax",
+        0.08879229447136391
+      ],
+      [
+        "ctdna_base",
+        -0.06842658046088362
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2945,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0054",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 11.41,
+    "top5_attributions": [
+      [
+        "cea",
+        0.28530387421599535
+      ],
+      [
+        "msi",
+        0.2658160503944729
+      ],
+      [
+        "kras",
+        0.23285643297051056
+      ],
+      [
+        "pk_cmax",
+        0.20241474300456724
+      ],
+      [
+        "bliss",
+        0.12430036161958471
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2853,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0120",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 9.3,
+    "top5_attributions": [
+      [
+        "cea",
+        0.27277819009440996
+      ],
+      [
+        "kras",
+        0.1930449839634075
+      ],
+      [
+        "il6",
+        -0.18361038949695552
+      ],
+      [
+        "msi",
+        0.1469504027006274
+      ],
+      [
+        "pk_cmax",
+        0.12346245068748636
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2728,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0152",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.79,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2415589145310955
+      ],
+      [
+        "msi",
+        0.189312809297758
+      ],
+      [
+        "pk_auc_norm",
+        0.1260490217954753
+      ],
+      [
+        "kras",
+        0.10118096458005271
+      ],
+      [
+        "pk_cmax",
+        0.09136435109798301
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2416,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0499",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 13.39,
+    "top5_attributions": [
+      [
+        "msi",
+        0.31626895272044375
+      ],
+      [
+        "pk_cmax",
+        0.23770484491769403
+      ],
+      [
+        "bliss",
+        0.1863312747483785
+      ],
+      [
+        "cea",
+        0.18221660006092086
+      ],
+      [
+        "il6",
+        -0.16471437000460692
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.3163,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0540",
+    "arm": "Pritamab",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 10.71,
+    "top5_attributions": [
+      [
+        "il6",
+        -0.2673154401800432
+      ],
+      [
+        "cea",
+        0.22558095200840048
+      ],
+      [
+        "kras",
+        0.167721357985895
+      ],
+      [
+        "pk_cmax",
+        0.15785407999517415
+      ],
+      [
+        "bliss",
+        0.11704755274849749
+      ]
+    ],
+    "dominant_feature": "il6",
+    "dominant_value": -0.2673,
+    "dominant_direction": "negative",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0461",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 7.98,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2987484095212535
+      ],
+      [
+        "msi",
+        0.24966858863120775
+      ],
+      [
+        "kras",
+        0.1662105566282414
+      ],
+      [
+        "il6",
+        -0.1539314477575907
+      ],
+      [
+        "pritamab",
+        0.12569089466356656
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2987,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0261",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 13.86,
+    "top5_attributions": [
+      [
+        "msi",
+        0.28491115975944753
+      ],
+      [
+        "il6",
+        -0.1883936855250098
+      ],
+      [
+        "cea",
+        0.1781342715858656
+      ],
+      [
+        "pk_cmax",
+        0.16480901436235323
+      ],
+      [
+        "kras",
+        0.10841299128556914
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.2849,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0029",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.56,
+    "top5_attributions": [
+      [
+        "pk_cmax",
+        0.2043965613281454
+      ],
+      [
+        "cea",
+        0.1789320273354692
+      ],
+      [
+        "msi",
+        0.1672411016773453
+      ],
+      [
+        "prpc_level",
+        0.13756066547299634
+      ],
+      [
+        "dcr",
+        -0.1333664254636908
+      ]
+    ],
+    "dominant_feature": "pk_cmax",
+    "dominant_value": 0.2044,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0156",
+    "arm": "Control",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 12.35,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2624612066631179
+      ],
+      [
+        "kras",
+        0.19993651521622094
+      ],
+      [
+        "msi",
+        0.19818960141762254
+      ],
+      [
+        "il6",
+        -0.17736357816732132
+      ],
+      [
+        "orr",
+        -0.15344985481137088
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2625,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0304",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 9.45,
+    "top5_attributions": [
+      [
+        "cea",
+        0.24339665524591803
+      ],
+      [
+        "il6",
+        -0.14192239248762845
+      ],
+      [
+        "kras",
+        0.1362928161576021
+      ],
+      [
+        "msi",
+        0.13328153032806825
+      ],
+      [
+        "pk_cmax",
+        0.13074592419492617
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2434,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0161",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 7.51,
+    "top5_attributions": [
+      [
+        "cea",
+        0.27441551341725656
+      ],
+      [
+        "kras",
+        0.2442794717616118
+      ],
+      [
+        "msi",
+        0.14771889526457538
+      ],
+      [
+        "pk_cmax",
+        0.1303519194519981
+      ],
+      [
+        "il6",
+        -0.11816556803522721
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2744,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0519",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 9.71,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2991568162099298
+      ],
+      [
+        "pk_cmax",
+        0.2068307443775292
+      ],
+      [
+        "msi",
+        0.15089496819419324
+      ],
+      [
+        "kras",
+        0.11800575766571114
+      ],
+      [
+        "il6",
+        -0.09377429671853892
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2992,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0254",
+    "arm": "Control",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 8.53,
+    "top5_attributions": [
+      [
+        "cea",
+        0.27649035543405304
+      ],
+      [
+        "il6",
+        -0.2045549230232083
+      ],
+      [
+        "kras",
+        0.19361262901396112
+      ],
+      [
+        "pk_cmax",
+        0.18346133878807608
+      ],
+      [
+        "bliss",
+        0.14561605389072327
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2765,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0051",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 5.53,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2917998094797183
+      ],
+      [
+        "msi",
+        0.28617496347313803
+      ],
+      [
+        "dcr",
+        -0.24082732145292432
+      ],
+      [
+        "arm",
+        0.20037887118683978
+      ],
+      [
+        "tnfa",
+        -0.15428237215430451
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2918,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0074",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.57,
+    "top5_attributions": [
+      [
+        "kras",
+        0.17483081929661468
+      ],
+      [
+        "cea",
+        0.17110554788015855
+      ],
+      [
+        "dcr",
+        -0.16652252342200632
+      ],
+      [
+        "orr",
+        -0.15216084833365
+      ],
+      [
+        "il6",
+        -0.13061066727350348
+      ]
+    ],
+    "dominant_feature": "kras",
+    "dominant_value": 0.1748,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0061",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 11.08,
+    "top5_attributions": [
+      [
+        "il6",
+        -0.22368555321022168
+      ],
+      [
+        "cea",
+        0.2170610958551577
+      ],
+      [
+        "pk_cmax",
+        0.2098000463750099
+      ],
+      [
+        "msi",
+        0.1435690429228156
+      ],
+      [
+        "bliss",
+        0.1418731010320156
+      ]
+    ],
+    "dominant_feature": "il6",
+    "dominant_value": -0.2237,
+    "dominant_direction": "negative",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0580",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.73,
+    "top5_attributions": [
+      [
+        "kras",
+        0.18321241998917595
+      ],
+      [
+        "cea",
+        0.1817633423016033
+      ],
+      [
+        "prpc_expr",
+        0.15762598298677988
+      ],
+      [
+        "il6",
+        -0.14302836522599952
+      ],
+      [
+        "ctdna_base",
+        0.14149661352859513
+      ]
+    ],
+    "dominant_feature": "kras",
+    "dominant_value": 0.1832,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0203",
+    "arm": "Control",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 7.24,
+    "top5_attributions": [
+      [
+        "pk_cmax",
+        0.17508315585523304
+      ],
+      [
+        "il6",
+        -0.15621085989035788
+      ],
+      [
+        "msi",
+        0.14684438521704454
+      ],
+      [
+        "kras",
+        0.13037826529339963
+      ],
+      [
+        "cea",
+        0.12382630265656763
+      ]
+    ],
+    "dominant_feature": "pk_cmax",
+    "dominant_value": 0.1751,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0192",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 5.0,
+    "top5_attributions": [
+      [
+        "il6",
+        -0.27171453109198995
+      ],
+      [
+        "cea",
+        0.26115672597210554
+      ],
+      [
+        "pk_cmax",
+        0.20425324393648883
+      ],
+      [
+        "kras",
+        0.16061173666276327
+      ],
+      [
+        "orr",
+        -0.15800201009602766
+      ]
+    ],
+    "dominant_feature": "il6",
+    "dominant_value": -0.2717,
+    "dominant_direction": "negative",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0231",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 13.48,
+    "top5_attributions": [
+      [
+        "kras",
+        0.2806314054678933
+      ],
+      [
+        "msi",
+        0.26819934293257147
+      ],
+      [
+        "pk_cmax",
+        0.2086307354913391
+      ],
+      [
+        "cea",
+        0.1605826981941883
+      ],
+      [
+        "il6",
+        -0.15610288642141593
+      ]
+    ],
+    "dominant_feature": "kras",
+    "dominant_value": 0.2806,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0560",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 6.84,
+    "top5_attributions": [
+      [
+        "cea",
+        0.30335039519939755
+      ],
+      [
+        "il6",
+        -0.19714822967360626
+      ],
+      [
+        "kras",
+        0.1787948483705889
+      ],
+      [
+        "msi",
+        0.161805678940685
+      ],
+      [
+        "dcr",
+        -0.11467276295260619
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3034,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0198",
+    "arm": "Control",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 11.45,
+    "top5_attributions": [
+      [
+        "cea",
+        0.34322734767232016
+      ],
+      [
+        "msi",
+        0.2895543826234868
+      ],
+      [
+        "kras",
+        0.2746712413607605
+      ],
+      [
+        "pk_cmax",
+        0.23067570692901998
+      ],
+      [
+        "bliss",
+        0.17182903946714123
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3432,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0078",
+    "arm": "Control",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 8.33,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2848918610983621
+      ],
+      [
+        "pk_cmax",
+        0.24829122252620428
+      ],
+      [
+        "bliss",
+        0.2032961455184766
+      ],
+      [
+        "dcr",
+        -0.18550860890799536
+      ],
+      [
+        "msi",
+        0.13076615861385404
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2849,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0010",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 9.76,
+    "top5_attributions": [
+      [
+        "cea",
+        0.3296043549189906
+      ],
+      [
+        "tnfa",
+        0.18243871514991164
+      ],
+      [
+        "kras",
+        0.178498571575768
+      ],
+      [
+        "bliss",
+        0.15381850604882735
+      ],
+      [
+        "il6",
+        -0.14603493293032374
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3296,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0095",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 10.46,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2247633178593598
+      ],
+      [
+        "msi",
+        0.224710603353579
+      ],
+      [
+        "pk_cmax",
+        0.19095567232027533
+      ],
+      [
+        "kras",
+        0.12918362252928958
+      ],
+      [
+        "bliss",
+        0.10860295590885709
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2248,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0562",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.45,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2626430032203047
+      ],
+      [
+        "kras",
+        0.23129553211008583
+      ],
+      [
+        "il6",
+        -0.15359375092269523
+      ],
+      [
+        "bliss",
+        0.1512104004958411
+      ],
+      [
+        "pk_cmax",
+        0.11098022845371484
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2626,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0027",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 10.43,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2882600190032945
+      ],
+      [
+        "kras",
+        0.2781767940005447
+      ],
+      [
+        "il6",
+        -0.1819066769493259
+      ],
+      [
+        "msi",
+        0.16587838276870767
+      ],
+      [
+        "bliss",
+        0.15347568908756323
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2883,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0175",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 6.76,
+    "top5_attributions": [
+      [
+        "cea",
+        0.28210417883303823
+      ],
+      [
+        "il6",
+        -0.1637977152213363
+      ],
+      [
+        "msi",
+        0.16327656421823353
+      ],
+      [
+        "pk_cmax",
+        0.14609679190501998
+      ],
+      [
+        "pk_auc_norm",
+        0.1453726821602717
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2821,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "C0075",
+    "arm": "Control",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 8.81,
+    "top5_attributions": [
+      [
+        "cea",
+        0.31832526298266833
+      ],
+      [
+        "il6",
+        -0.1982787208760777
+      ],
+      [
+        "kras",
+        0.14583946355760757
+      ],
+      [
+        "pk_cmax",
+        0.09134497470298863
+      ],
+      [
+        "msi",
+        0.09083716378319535
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.3183,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0144",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.13,
+    "top5_attributions": [
+      [
+        "cea",
+        0.19366084501200875
+      ],
+      [
+        "il6",
+        -0.1893560149584508
+      ],
+      [
+        "kras",
+        0.15352341695454744
+      ],
+      [
+        "bliss",
+        0.1402136748499345
+      ],
+      [
+        "pk_auc_norm",
+        -0.12682816385680235
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.1937,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0443",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 15.72,
+    "top5_attributions": [
+      [
+        "msi",
+        0.3435034839783323
+      ],
+      [
+        "kras",
+        0.29204992378987155
+      ],
+      [
+        "il6",
+        -0.2619307242867806
+      ],
+      [
+        "cea",
+        0.25003631804553605
+      ],
+      [
+        "tnfa",
+        0.22721975633618963
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.3435,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0017",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.74,
+    "top5_attributions": [
+      [
+        "cea",
+        0.20851634793675786
+      ],
+      [
+        "bliss",
+        0.19190593507413228
+      ],
+      [
+        "kras",
+        0.19055109221857336
+      ],
+      [
+        "dcr",
+        -0.13234136961260767
+      ],
+      [
+        "pk_cmax",
+        0.12844938088948885
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2085,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0245",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 9.02,
+    "top5_attributions": [
+      [
+        "pk_cmax",
+        0.2104063993282226
+      ],
+      [
+        "il6",
+        -0.18474578143724865
+      ],
+      [
+        "cea",
+        0.1823955552513654
+      ],
+      [
+        "dcr",
+        -0.1692628663121108
+      ],
+      [
+        "orr",
+        -0.117077950251499
+      ]
+    ],
+    "dominant_feature": "pk_cmax",
+    "dominant_value": 0.2104,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0242",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 11.41,
+    "top5_attributions": [
+      [
+        "msi",
+        0.18562308298572755
+      ],
+      [
+        "cea",
+        0.18127076291719382
+      ],
+      [
+        "pk_cmax",
+        0.1683907141569823
+      ],
+      [
+        "bliss",
+        -0.15744161737048487
+      ],
+      [
+        "kras",
+        0.11478813307586354
+      ]
+    ],
+    "dominant_feature": "msi",
+    "dominant_value": 0.1856,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0638",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.43,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2534375797348355
+      ],
+      [
+        "kras",
+        0.1725071780974151
+      ],
+      [
+        "il6",
+        -0.16610538632341254
+      ],
+      [
+        "dcr",
+        -0.14218152356536934
+      ],
+      [
+        "prpc_expr",
+        -0.14006274525269344
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2534,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  },
+  {
+    "patient_id": "P0639",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 8.66,
+    "top5_attributions": [
+      [
+        "cea",
+        0.2248663616838578
+      ],
+      [
+        "kras",
+        0.21997068301753922
+      ],
+      [
+        "il6",
+        -0.21768221885953595
+      ],
+      [
+        "pk_cmax",
+        0.16507790516987406
+      ],
+      [
+        "msi",
+        0.1608303492430202
+      ]
+    ],
+    "dominant_feature": "cea",
+    "dominant_value": 0.2249,
+    "dominant_direction": "positive",
+    "xai_method": "lime.LimeTabularExplainer v0.2.0 (v6 model)",
+    "n_samples": 500,
+    "cohort_version": "v6"
+  }
+]

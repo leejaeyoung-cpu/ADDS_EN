@@ -1,0 +1,87 @@
+# CT 고급 전처리 파이프라인 v2.0 — Walkthrough
+
+## 구현 완료 내용
+
+### 변경/신규 파일
+
+| 파일 | 상태 | 역할 |
+|---|---|---|
+| [src/medical_imaging/ct_advanced_preprocessing.py](file:///f:/ADDS/src/medical_imaging/ct_advanced_preprocessing.py) | 수정 | 8단계 → **10단계** (Stage9: 등방성 리샘플링, Stage10: 복부 ROI 어노테이션) |
+| [src/medical_imaging/ct_batch_preprocessor.py](file:///f:/ADDS/src/medical_imaging/ct_batch_preprocessor.py) | **신규** | CTdata1/CTdata2 자동 스캔, DICOM→NIfTI 변환 (majority voting), 배치 실행 |
+| [src/medical_imaging/ct_dataset_builder.py](file:///f:/ADDS/src/medical_imaging/ct_dataset_builder.py) | **신규** | 5채널 텐서 → 96³ 패치 → manifest.json (Swin-UNETR용) |
+| [src/medical_imaging/ct_preprocessing_dashboard.py](file:///f:/ADDS/src/medical_imaging/ct_preprocessing_dashboard.py) | **신규** | Axial/Coronal/Sagittal 단계별 비교 + QC 메트릭 단일 HTML |
+| [run_ct_advanced_preprocessing.py](file:///f:/ADDS/run_ct_advanced_preprocessing.py) | **신규** | 원스톱 CLI 진입점 |
+
+---
+
+## 파이프라인 10단계 상세
+
+| Stage | 기능 | 핵심 파라미터 |
+|---|---|---|
+| 1 | HU Clamping + Metal Artifact 마스킹 | 메탈 > 3000 HU → 이웃 평균으로 대체 |
+| 2 | Body Isolation (Otsu + Morphology) | 3D 연결 성분 분석 |
+| 3 | N4 Bias Field Correction | SimpleITK N4ITK |
+| 4 | Non-Local Means 3D Denoising | fast_mode, σ 자동 추정 |
+| 5 | 3D CLAHE | clip=2.0, Z-축 Gaussian 평활화 |
+| 6 | 5채널 Multi-Window Fusion | Soft/Liver/Colon/Lung/Bone |
+| 7 | Organ-Aware ROI Cropping | 횡격막→골반 자동 Z 경계 |
+| 8 | Quality Metrics (SNR/CNR/Motion) | PASS/WARN/FAIL 자동 판정 |
+| **9** | **등방성 리샘플링** | scipy.ndimage.zoom (3차 스플라인) → 1.0mm³ |
+| **10** | **복부 ROI 어노테이션** | 횡격막/골반 Z좌표, HU 분포, 장기 존재 여부 |
+
+---
+
+## 실제 데이터 검증 결과 (CTdata2 / 0930 pre)
+
+```
+Input  : 380 slices @ 512×512 (2개 비정상 크기 슬라이스 자동 제외)
+금속    : 105,566 voxel 감지 → 인근 평균으로 대체
+Body   : 37.3% coverage
+ROI    : z=[100:380] (대각기저→골반)
+Stage9 : 이미 1mm → skip
+Stage10: 횡격막 107mm | 골반 377mm | 복부 커버리지 71.1%
+처리    : 166초 (N4, NLM 스킵 시)
+```
+
+### 생성된 파일
+```
+f:/ADDS/preprocessed/
+  CTdata2/CTdata2_0930_pre/
+    ├── raw.nii.gz               (94 MB)
+    ├── preprocessed.nii.gz      (93 MB, Stage1-8 처리)
+    ├── isotropic.nii.gz         (93 MB, Stage9 등방성)
+    ├── clahe.nii.gz             (164 MB, CLAHE 강화)
+    ├── body_mask.nii.gz         (0.7 MB, 바이너리 마스크)
+    ├── multi_window_5ch.npy     (1.99 GB, 5채널 융합)
+    ├── qc_report.json           (QC 메트릭)
+    └── annotation.json          (복부 랜드마크)
+  batch_summary.json
+  dashboard_CTdata2_0930_pre.html  (1.2 MB, 인터랙티브)
+  pipeline.log
+```
+
+---
+
+## 전체 5개 시리즈 실행 방법
+
+```powershell
+# 1. 전체 실행 (N4+NLM 포함, 약 30-60분)
+python run_ct_advanced_preprocessing.py --dashboard
+
+# 2. 속도 우선 (N4+NLM 스킵, 약 5-10분/시리즈)
+python run_ct_advanced_preprocessing.py --skip-stages 3 4 --dashboard
+
+# 3. 데이터셋 빌더까지 포함
+python run_ct_advanced_preprocessing.py --skip-stages 3 4 --dashboard
+# → preprocessed/tensors/*.pt + manifest.json 자동 생성
+
+# 4. 대시보드만 재생성
+python run_ct_advanced_preprocessing.py --dashboard-only
+```
+
+**탐지된 5개 시리즈:**
+1. `CTdata1/nifti/inha_ct_arterial` (NIfTI)
+2. `CTdata1/nifti/CT_0000` (NIfTI)
+3. `CTdata1/CTdcm/` → 426 DICOM
+4. `CTdata2/0930 pre` → 382 DICOM (치료 전)
+5. `CTdata2/1223 post` → 557 DICOM (치료 후)

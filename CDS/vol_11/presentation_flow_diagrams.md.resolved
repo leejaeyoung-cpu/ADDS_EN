@@ -1,0 +1,111 @@
+# ADDS. V1 발표용 핵심 흐름도 (Flow Diagrams)
+
+기존 이미지들이 추상적인 '포스터' 느낌이었다면, 이번 자료는 과제의 **'전반적인 내용 전달과 프로세스 흐름'**을 직관적으로 보여주기 위한 다이어그램들입니다. PPT 슬라이드 내에서 '시스템 구조', '오가노이드 검증 흐름', '인허가 로드맵'을 명확히 전달할 때 스크린샷 캡쳐나 다이어그램 삽입용으로 활용하기 좋습니다.
+
+---
+
+### 1. 다중모달 통합 및 위험 예측 파이프라인 (ADDS. V1 Architecture Flow)
+*(환자 데이터가 어떻게 수집되고 통합되어 어떤 결과를 도출하는지 한눈에 보여줍니다.)*
+
+```mermaid
+flowchart LR
+    %% Data Inputs
+    subgraph Data_Inputs ["1. 초진 시점 데이터 입력 (환자 ID 연계)"]
+        direction TB
+        A[필수 임상검사/혈액]
+        B[CT 판독 소견 및 병기]
+        C[병리 슬라이드 WSI/ROI]
+        D[분자진단/ctDNA 변이]
+    end
+
+    %% Preprocessing & AI
+    subgraph Integration_AI ["2. ADDS. V1 다중모달 통합 분석 인공지능"]
+        direction TB
+        E[Cellpose 기반 세포/핵 분할 및 정량 지표 추출]
+        F(PrPᶜ 등 핵심 IHC 바이오마커 정량화)
+        G{AI 의사결정 추론 엔진\n위험 평가 알고리즘}
+        
+        E --> G
+        F --> G
+    end
+
+    %% Outputs & Clinical Decision
+    subgraph Output_Decision ["3. 임상 의사결정 지원 리포트"]
+        direction TB
+        H((조기 진행위험 점수 0-100))
+        I([최적 항암 요법 Top1 및 예비 후보 제시])
+        J[설명 가능한 예측 근거 XAI / 대표 ROI]
+    end
+
+    %% Connections
+    A --> Integration_AI
+    B --> Integration_AI
+    C --> E
+    D --> Integration_AI
+
+    G ==> Output_Decision
+
+    %% Styling
+    classDef input fill:#f0f8ff,stroke:#003366,stroke-width:2px,color:#003366
+    classDef ai fill:#e6f7ff,stroke:#009999,stroke-width:2px,color:#006666
+    classDef output fill:#f9f2ec,stroke:#d35400,stroke-width:2px,color:#a04000
+    
+    class A,B,C,D input
+    class E,F,G ai
+    class H,I,J output
+```
+
+---
+
+### 2. PDO (환자 유래 오가노이드) 기반 약물 검증 흐름
+*(2차년도의 핵심인 'AI 모델 예측을 실제 오가노이드에서 어떻게 실증하는가'를 표현합니다.)*
+
+```mermaid
+flowchart TD
+    %% Base Model vs Reality
+    P1[환자 종양 생검 및 수술 조직] --> P2(환자 유래 PDO 구축)
+    
+    A1[ADDS. V1 모델 예측] -->|가상 시뮬레이션| A2[단독 및 병용요법 추천]
+    
+    P2 -->|Ex vivo 배양| P3{동일 항암제 처리 및 스크리닝}
+    A2 -.->|추천 성분 테스트| P3
+    
+    P3 --> P4[약물 반응 정량화: IC50, AUC, Viability]
+    P3 --> P5[내성 발생 시 바이오마커 변화 분석: NGS/ctDNA]
+    
+    P4 --> F[예측 모델 정확도 피드백 및 성능 고도화]
+    P5 --> F
+    
+    F --> R([최종 환자 맞춤형 치료 전략 확정])
+
+    %% Styling
+    classDef default fill:#fafafa,stroke:#333,stroke-width:1px
+    classDef model fill:#e8f4f8,stroke:#2980b9,stroke-width:2px,color:#154360
+    class A1,A2,F model
+```
+
+---
+
+### 3. 연구 모델에서 디지털 의료기기(SaMD)로의 상용화 여정
+*(단순 논문 연구로 끝나는 것이 아닌, 실제 병원 현장 도입을 위한 엄격한 규제 충족 프로세스입니다.)*
+
+```mermaid
+timeline
+    title 디지털의료기기소프트웨어 상용화 및 확산 로드맵
+    section 연구 및 프로토타입
+        1차년도 : 사양 고정 및 후향 코호트 검증
+                : 품목 등급 해당성 검토 및 방향 설정
+    section 기능 검증 및 시스템 구축
+        2차년도 : PDO 기반 전임상 약물 반응 검증
+                : 제조 및 품질관리 QS 체계 도입
+                : 소프트웨어 기술문서 패키지 개발 (요구사항, 위험관리)
+    section 임상 실증 및 제품화
+        3차년도 : 전향 환경 파일럿 임상 및 사용적합성 평가
+                : 사이버보안 (암호화, 로그, 권한관리) 심사통과
+                : 최종 독립형 SaMD 인허가 등록 (식약처)
+    section 확산 (Post-Market)
+        도입 이후 : 다학제 진료 워크플로우 MDT 시스템 통합
+                : 시판 후 감시 체계 (CAPA) 및 버전 업데이트 관리
+```
+
+위의 다이어그램들은 PPT 텍스트 대신 슬라이드 중앙에 시각적인 **인포그래픽(구조도)** হিসেবে 배치하시기에 매우 적합하게 렌더링 됩니다. 화면 캡처 또는 이미지 저장 기능을 사용해 간편하게 슬라이드에 구조를 삽입해 보세요!

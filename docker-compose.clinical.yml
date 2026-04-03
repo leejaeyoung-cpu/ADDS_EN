@@ -1,0 +1,237 @@
+version: '3.8'
+
+services:
+  # PostgreSQL - 구조화된 환자 데이터
+  postgres:
+    image: postgres:15-alpine
+    container_name: adds_postgres
+    restart: unless-stopped
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./services/database/init:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: adds_clinical
+      POSTGRES_USER: adds
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+    ports:
+      - "5432:5432"
+    networks:
+      - adds_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U adds"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # MinIO - DICOM/이미지 오브젝트 스토리지
+  minio:
+    image: minio/minio:latest
+    container_name: adds_minio
+    restart: unless-stopped
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./data/minio:/data
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER:-adds_admin}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD:-adds_minio_2026}
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    networks:
+      - adds_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # Redis - 작업 큐 및 캐시
+  redis:
+    image: redis:7-alpine
+    container_name: adds_redis
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - "6379:6379"
+    networks:
+      - adds_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Data Ingestion Service - 인하대 데이터 수신 및 분류
+  data_ingestion:
+    build:
+      context: ./services/data_ingestion
+      dockerfile: Dockerfile
+    container_name: adds_data_ingestion
+    restart: unless-stopped
+    volumes:
+      - ./data/incoming:/incoming  # 인하대 데이터 drop 폴더
+      - ./data/processed:/processed
+      - ./services/data_ingestion:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+      MINIO_HOST: minio
+      MINIO_PORT: 9000
+      MINIO_USER: ${MINIO_USER:-adds_admin}
+      MINIO_PASSWORD: ${MINIO_PASSWORD:-adds_minio_2026}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - adds_network
+
+  # CT Processor Service - CT 분석 및 부피 계산
+  ct_processor:
+    build:
+      context: ./services/ct_processor
+      dockerfile: Dockerfile
+    container_name: adds_ct_processor
+    restart: unless-stopped
+    volumes:
+      - ./data/processed:/data
+      - ./services/ct_processor:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+      MINIO_HOST: minio
+      MINIO_PORT: 9000
+      MINIO_USER: ${MINIO_USER:-adds_admin}
+      MINIO_PASSWORD: ${MINIO_PASSWORD:-adds_minio_2026}
+      REDIS_HOST: redis
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    depends_on:
+      - postgres
+      - minio
+      - redis
+    networks:
+      - adds_network
+
+  # Cell Image Analyzer - 세포 이미지 분석
+  cell_analyzer:
+    build:
+      context: ./services/cell_analyzer
+      dockerfile: Dockerfile
+    container_name: adds_cell_analyzer
+    restart: unless-stopped
+    volumes:
+      - ./data/processed:/data
+      - ./services/cell_analyzer:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+      MINIO_HOST: minio
+    depends_on:
+      - postgres
+      - minio
+    networks:
+      - adds_network
+
+  # Clinical Note Parser - 의사 소견 NLP
+  note_parser:
+    build:
+      context: ./services/note_parser
+      dockerfile: Dockerfile
+    container_name: adds_note_parser
+    restart: unless-stopped
+    volumes:
+      - ./data/processed:/data
+      - ./services/note_parser:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+    depends_on:
+      - postgres
+    networks:
+      - adds_network
+
+  # Data Integrator - Timeline 생성 및 에너지 추정
+  data_integrator:
+    build:
+      context: ./services/data_integrator
+      dockerfile: Dockerfile
+    container_name: adds_data_integrator
+    restart: unless-stopped
+    volumes:
+      - ./services/data_integrator:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+      REDIS_HOST: redis
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - adds_network
+
+  # API Gateway - FastAPI
+  api:
+    build:
+      context: ./services/api
+      dockerfile: Dockerfile
+    container_name: adds_api_gateway
+    restart: unless-stopped
+    ports:
+      - "8001:8000"  # 기존 8000 포트와 충돌 방지
+    volumes:
+      - ./services/api:/app
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: adds_clinical
+      DB_USER: adds
+      DB_PASSWORD: ${DB_PASSWORD:-adds_secure_2026}
+      MINIO_HOST: minio
+      MINIO_PORT: 9000
+      MINIO_USER: ${MINIO_USER:-adds_admin}
+      MINIO_PASSWORD: ${MINIO_PASSWORD:-adds_minio_2026}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+    depends_on:
+      - postgres
+      - minio
+      - redis
+    networks:
+      - adds_network
+
+networks:
+  adds_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  minio_data:
+  redis_data:

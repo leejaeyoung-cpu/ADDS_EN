@@ -1,0 +1,78 @@
+# Transfer Learning Configuration - 1-channel + Pretrained Weights
+# Designed to leverage 5000-epoch pretrained Swin-UNETR model
+
+model:
+  type: "swin_unetr"
+  img_size: [96, 96, 96]
+  in_channels: 1  # SINGLE CHANNEL - compatible with pretrained model
+  out_channels: 2  # Tumor vs Background
+  feature_size: 48
+  use_pretrained: true  # Load pretrained weights
+  pretrained_path: "models/pretrained/swin_unetr_pretrained.pt"
+  use_checkpoint: true
+
+data:
+  root: "data/medical_decathlon/Task10_Colon"
+  target_spacing: [1.5, 1.5, 2.0]
+  patch_size: [96, 96, 96]
+  n_folds: 5
+  use_cache: false
+  use_3d_context: true
+  context_size: 5
+  tumor_focused_sampling: true
+  single_channel_mode: true  # NEW: Use single CT window
+  window_type: "abdominal"  # Best for tumor detection
+
+training:
+  batch_size: 2
+  num_epochs: 50  # Transfer learning converges faster
+  learning_rate: 0.0001  # Lower LR for fine-tuning
+  weight_decay: 0.00001
+  gradient_accumulation_steps: 4
+  use_amp: true
+  early_stopping_patience: 10
+  val_interval: 1
+
+optimizer:
+  type: "AdamW"
+  betas: [0.9, 0.999]
+  eps: 0.00000001
+
+scheduler:
+  type: "ReduceLROnPlateau"
+  mode: "max"
+  factor: 0.5
+  patience: 5
+  min_lr: 0.00001
+
+loss:
+  type: "FocalDiceCELoss"
+  focal_weight: 0.5
+  dice_weight: 0.4
+  ce_weight: 0.1
+  focal_alpha: 0.75
+  focal_gamma: 2.5
+  dice_smooth: 0.00001
+
+augmentation:
+  rotation_range: [-15, 15]
+  scaling_range: [0.9, 1.1]
+  elastic_alpha: 10
+  elastic_sigma: 3
+  intensity_shift_range: 0.1
+  noise_std: 0.01
+  augmentation_prob: 0.6
+
+logging:
+  log_dir: "runs/transfer_learning_v1"
+  checkpoint_dir: "models/transfer_learning_v1"
+  save_interval: 5
+  log_interval: 10
+  max_checkpoints_to_keep: 5
+
+wandb:
+  enabled: false
+
+device: "cuda"
+num_workers: 0
+pin_memory: true

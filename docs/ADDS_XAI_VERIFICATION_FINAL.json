@@ -1,0 +1,105 @@
+{
+  "ok": 46,
+  "warn": 15,
+  "fail": 1,
+  "timestamp": "2026-03-10T17:30 KST",
+  "verdict": "FAIL",
+  "issues": [
+    {
+      "level": "WARN",
+      "cat": "GradCAM",
+      "msg": "ctDNA saliency=0.251, claimed 0.61 (diff=0.36)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "CF",
+      "msg": "CF5 delta=-0.01 vs claimed 2.8 (diff=2.81)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "CF",
+      "msg": "Only 49.7% positive deltas -- benefit scenarios not predominant",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "CI",
+      "msg": "Min CI width claimed 1.22, actual=1.95",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "CI",
+      "msg": "MEDIUM claimed 30%, actual=8/20",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "Model",
+      "msg": "Rho field not found",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "Model",
+      "msg": "Report claims residual std=0.93 for Synergy model but no residual_stats file found",
+      "detail": "This figure cannot be directly verified without saved residual data. Plausible given R2=0.996, but cannot be confirmed independently."
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "D1_clinical_relevance mean=3.64 vs claimed 3.8 (diff=0.16)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "D4_actionability mean=3.00 vs claimed 3.5 (diff=0.50)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "D5_time_efficiency mean=3.96 vs claimed 3.6 (diff=0.36)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "D6_patient_safety_alert mean=3.96 vs claimed 3.7 (diff=0.26)",
+      "detail": ""
+    },
+    {
+      "level": "FAIL",
+      "cat": "ClinCoh",
+      "msg": "Cmax direction only 38% positive -- contradicts clinical expectation!",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "ClinCoh",
+      "msg": "ctDNA VAF negative attribution only 35% -- weaker than expected",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "StructValid",
+      "msg": "Monotonicity test (SV-2) not independently run -- report makes untested claim",
+      "detail": "The report states \"Pritamab \uae30\ubc18 arm\uc5d0\uc11c PrPc \uae30\uc5ec\ub3c4 \ub2e8\uc870 \uc99d\uac00 \ud655\uc778\" but no saved result file documents this test. Must run and save to confirm."
+    },
+    {
+      "level": "WARN",
+      "cat": "StructValid",
+      "msg": "Ablation test (SV-3) result (-1.8 months for Cmax removal) not independently verifiable",
+      "detail": "No saved ablation_results file. This figure cannot be confirmed. Run and save ablation."
+    },
+    {
+      "level": "WARN",
+      "cat": "ConvergenceIdx",
+      "msg": "Convergence Index is defined in report but no saved output file exists",
+      "detail": "The report describes the formula but never shows actual Convergence Index values for any patient. This is a forward-looking proposal, not demonstrated data. Must add convergence_index_results.json to validate the claim."
+    }
+  ]
+}

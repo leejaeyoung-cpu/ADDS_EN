@@ -1,0 +1,115 @@
+{
+  "patient_id": "TEST001",
+  "timestamp": "2026-03-10T21:41:42.120535",
+  "steps": {
+    "step1_biomarker": {
+      "status": "ok",
+      "result": {
+        "kras_allele": "G12D",
+        "kras_risk_score": 0.72,
+        "msi_status": "MSS",
+        "msi_immunotherapy_benefit": false,
+        "tp53_status": "mutant",
+        "prpc_level": "high",
+        "prpc_expression": 0.9,
+        "pritamab_target_positive": true,
+        "genomic_risk_composite": 0.576,
+        "elapsed_sec": 13.56
+      }
+    },
+    "step2_ct": {
+      "status": "ok",
+      "result": {
+        "status": "skipped",
+        "reason": "No CT path provided or path missing"
+      }
+    },
+    "step3_synergy": {
+      "status": "ok",
+      "result": {
+        "pritamab_eligible": true,
+        "top_combinations": [
+          {
+            "regimen": "Pritamab+FOLFOXIRI",
+            "bliss_pred": 18.4,
+            "pfs_pred": 26.1,
+            "rank": 1,
+            "rationale": "PrPc+ + platinum-based triple therapy. Highest synergy."
+          },
+          {
+            "regimen": "Pritamab+FOLFOX",
+            "bliss_pred": 15.2,
+            "pfs_pred": 22.5,
+            "rank": 2,
+            "rationale": "PrPc+ + oxaliplatin. Preferred 1st-line."
+          }
+        ],
+        "model_used": "model not loaded (fallback used)",
+        "bliss_note": "Calibrated internal Bliss (factor 0.558 applied)",
+        "elapsed_sec": 0.0
+      }
+    },
+    "step4_prediction": {
+      "status": "ok",
+      "result": {
+        "regimen": "Pritamab+FOLFOXIRI",
+        "pfs_predicted_months": 9.5,
+        "os_predicted_months": 17.6,
+        "ci_95_lower": 7.6,
+        "ci_95_upper": 13.0,
+        "ci_width_months": 5.4,
+        "confidence_tier": "MEDIUM",
+        "model": "GBM v5 (CV R2=0.303)",
+        "note": "Synthetic cohort model. CI via B=50 bootstrap. NOT for clinical use.",
+        "elapsed_sec": 0.62
+      }
+    },
+    "step5_xai": {
+      "status": "ok",
+      "result": {
+        "lime_top_features": [
+          {
+            "feature": "Pritamab_target(PrPc)",
+            "contribution": 0.28,
+            "interpretation": "PrPc high -> Pritamab activatable"
+          },
+          {
+            "feature": "KRAS_G12D",
+            "contribution": -0.12,
+            "interpretation": "KRAS G12D mutant reduces response probability"
+          },
+          {
+            "feature": "MSI_status",
+            "contribution": -0.05,
+            "interpretation": "MSS: standard chemotherapy preferred"
+          },
+          {
+            "feature": "Bliss_synergy_score",
+            "contribution": 0.21,
+            "interpretation": "Drug combination synergy confirms benefit"
+          }
+        ],
+        "gradcam": {
+          "status": "skipped",
+          "reason": "No CT data or tumor not detected"
+        },
+        "counterfactual_scenarios": [
+          {
+            "if_changed": "KRAS G12D → KRAS WT (hypothetical)",
+            "predicted_delta_pfs": "+3.2 months",
+            "required_action": "Not modifiable; guide KRAS inhibitor co-targeting"
+          },
+          {
+            "if_changed": "MSI-H (hypothetical)",
+            "predicted_delta_pfs": "+5.1 months",
+            "required_action": "MSI testing confirmation; if MSI-H add pembrolizumab"
+          }
+        ],
+        "xai_convergence": true,
+        "elapsed_sec": 0.0
+      }
+    }
+  },
+  "errors": {},
+  "overall_confidence": "MEDIUM_FULL"
+}

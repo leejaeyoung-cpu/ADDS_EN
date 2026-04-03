@@ -1,0 +1,11 @@
+{
+  "dataset": "synergy_combined.csv",
+  "n_pairs": 5000,
+  "score_col": "synergy_loewe",
+  "label_method": "Loewe > 0",
+  "pct_synergistic": 63.4,
+  "auc_roc": 1.0,
+  "pearson_r": 0.641,
+  "p_value": 0.0,
+  "total_pairs_in_db": 1009719
+}

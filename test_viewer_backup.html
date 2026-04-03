@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDS 3D Organ Viewer - Test</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #fff;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #viewer {
+            flex: 1;
+            position: relative;
+        }
+
+        #controls {
+            width: 300px;
+            background: #1a1a1a;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        #status {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .organ-control {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #2a2a2a;
+            border-radius: 8px;
+        }
+
+        .organ-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        button.hidden {
+            background: #f44336;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="viewer">
+            <div id="status">
+                <div id="loading">Loading...</div>
+                <div id="info" style="display:none;">
+                    <div>Meshes loaded: <span id="mesh-count">0</span></div>
+                    <div>Vertices: <span id="vertex-count">0</span></div>
+                    <div>Faces: <span id="face-count">0</span></div>
+                </div>
+            </div>
+        </div>
+        <div id="controls">
+            <h2>Organ Controls</h2>
+            <div id="control-panel"></div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const API_URL = 'http://localhost:8000';
+
+        // Scene setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000);
+
+        const camera = new THREE.PerspectiveCamera(
+            75,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            10000
+        );
+        camera.position.set(300, 300, 300);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth - 300, window.innerHeight);
+        document.getElementById('viewer').appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const light1 = new THREE.DirectionalLight(0xffffff, 0.8);
+        light1.position.set(1, 1, 1);
+        scene.add(light1);
+
+        const light2 = new THREE.DirectionalLight(0xffffff, 0.4);
+        light2.position.set(-1, -1, -1);
+        scene.add(light2);
+
+        // Mesh storage
+        const meshes = {};
+        let totalVertices = 0;
+        let totalFaces = 0;
+
+        // Load catalog
+        async function loadCatalog() {
+            try {
+                const response = await fetch(`${API_URL}/api/organ-meshes/catalog`);
+                const catalog = await response.json();
+
+                console.log('Catalog loaded:', catalog);
+
+                // Load organ meshes
+                for (const [organName, meshPath] of Object.entries(catalog.organs)) {
+                    await loadOrganMesh(organName);
+                }
+
+                // Load tumor meshes
+                for (const [organName, meshPath] of Object.entries(catalog.tumors)) {
+                    await loadTumorMesh(organName);
+                }
+
+                updateStatus();
+
+            } catch (error) {
+                console.error('Failed to load catalog:', error);
+                document.getElementById('loading').textContent = 'Error: ' + error.message;
+            }
+        }
+
+        async function loadOrganMesh(organName) {
+            try {
+                const response = await fetch(`${API_URL}/api/organ-meshes/organ/${organName}`);
+                const meshData = await response.json();
+
+                console.log(`Loading ${organName}:`, meshData.num_vertices, 'vertices');
+
+                // Create geometry
+                const geometry = new THREE.BufferGeometry();
+
+                const vertices = new Float32Array(meshData.vertices.flat());
+                const indices = new Uint32Array(meshData.faces.flat());
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+                geometry.setIndex(new THREE.BufferAttribute(indices, 1));
+                geometry.computeVertexNormals();
+
+                // Material
+                const material = new THREE.MeshPhongMaterial({
+                    color: new THREE.Color(meshData.color || '#FFFFFF'),
+                    opacity: 0.5,
+                    transparent: true,
+                    side: THREE.DoubleSide,
+                });
+
+                // Mesh
+                const mesh = new THREE.Mesh(geometry, material);
+                mesh.name = organName;
+                mesh.userData = { type: 'organ', name: organName };
+
+                scene.add(mesh);
+                meshes[organName] = mesh;
+
+                totalVertices += meshData.num_vertices;
+                totalFaces += meshData.num_faces;
+
+                createControl(organName, mesh, meshData.color || '#FFFFFF');
+
+            } catch (error) {
+                console.error(`Failed to load ${organName}:`, error);
+            }
+        }
+
+        async function loadTumorMesh(organName) {
+            try {
+                const response = await fetch(`${API_URL}/api/organ-meshes/tumor/${organName}`);
+                const meshData = await response.json();
+
+                console.log(`Loading ${organName} tumors:`, meshData.num_vertices, 'vertices');
+
+                const geometry = new THREE.BufferGeometry();
+
+                const vertices = new Float32Array(meshData.vertices.flat());
+                const indices = new Uint32Array(meshData.faces.flat());
+
+                geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
+                geometry.setIndex(new THREE.BufferAttribute(indices, 1));
+                geometry.computeVertexNormals();
+
+                const material = new THREE.MeshPhongMaterial({
+                    color: new THREE.Color('#FF0000'),
+                    opacity: 0.8,
+                    transparent: true,
+                    side: THREE.DoubleSide,
+                });
+
+                const mesh = new THREE.Mesh(geometry, material);
+                mesh.name = `${organName}_tumors`;
+                mesh.userData = { type: 'tumor', organ: organName };
+
+                scene.add(mesh);
+                meshes[`${organName}_tumors`] = mesh;
+
+                totalVertices += meshData.num_vertices;
+                totalFaces += meshData.num_faces;
+
+                createControl(`${organName}_tumors`, mesh, '#FF0000', true);
+
+            } catch (error) {
+                console.error(`Failed to load ${organName} tumors:`, error);
+            }
+        }
+
+        function createControl(name, mesh, color, isTumor = false) {
+            const controlPanel = document.getElementById('control-panel');
+
+            const control = document.createElement('div');
+            control.className = 'organ-control';
+            control.style.borderLeft = `4px solid ${color}`;
+
+            const nameDiv = document.createElement('div');
+            nameDiv.className = 'organ-name';
+            nameDiv.textContent = isTumor ? `${name} (Tumor)` : name;
+            control.appendChild(nameDiv);
+
+            const toggleBtn = document.createElement('button');
+            toggleBtn.textContent = 'Hide';
+            toggleBtn.onclick = () => {
+                mesh.visible = !mesh.visible;
+                toggleBtn.textContent = mesh.visible ? 'Hide' : 'Show';
+                toggleBtn.className = mesh.visible ? '' : 'hidden';
+            };
+            control.appendChild(toggleBtn);
+
+            const opacityLabel = document.createElement('div');
+            opacityLabel.textContent = 'Opacity: 50%';
+            opacityLabel.style.marginTop = '10px';
+            opacityLabel.style.fontSize = '12px';
+            control.appendChild(opacityLabel);
+
+            const opacitySlider = document.createElement('input');
+            opacitySlider.type = 'range';
+            opacitySlider.min = '0';
+            opacitySlider.max = '100';
+            opacitySlider.value = isTumor ? '80' : '50';
+            opacitySlider.oninput = (e) => {
+                const opacity = e.target.value / 100;
+                mesh.material.opacity = opacity;
+                opacityLabel.textContent = `Opacity: ${e.target.value}%`;
+            };
+            control.appendChild(opacitySlider);
+
+            controlPanel.appendChild(control);
+        }
+
+        function updateStatus() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('info').style.display = 'block';
+            document.getElementById('mesh-count').textContent = Object.keys(meshes).length;
+            document.getElementById('vertex-count').textContent = totalVertices.toLocaleString();
+            document.getElementById('face-count').textContent = totalFaces.toLocaleString();
+        }
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            camera.aspect = (window.innerWidth - 300) / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth - 300, window.innerHeight);
+        });
+
+        // Start
+        loadCatalog();
+        animate();
+
+        console.log('Viewer initialized');
+    </script>
+</body>
+
+</html>

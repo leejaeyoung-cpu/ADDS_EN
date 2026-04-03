@@ -1,0 +1,460 @@
+{
+    "drug_target_mapping": {
+        "Cetuximab": {
+            "targets": [
+                "EGFR"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Monoclonal antibody",
+            "indications": [
+                "Colorectal cancer",
+                "Head and neck cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "EGFR expression",
+                    "RAS wild-type"
+                ],
+                "negative": [
+                    "KRAS mutation",
+                    "NRAS mutation"
+                ]
+            }
+        },
+        "Bevacizumab": {
+            "targets": [
+                "VEGF-A"
+            ],
+            "pathways": [
+                "VEGF_Angiogenesis"
+            ],
+            "molecule_type": "Monoclonal antibody",
+            "indications": [
+                "Colorectal cancer",
+                "Lung cancer",
+                "Glioblastoma",
+                "Renal cell carcinoma"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "VEGF expression",
+                    "High microvessel density"
+                ],
+                "negative": []
+            }
+        },
+        "Trastuzumab": {
+            "targets": [
+                "HER2"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Monoclonal antibody",
+            "indications": [
+                "Breast cancer",
+                "Gastric cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "HER2 amplification (IHC 3+ or FISH+)"
+                ],
+                "negative": []
+            }
+        },
+        "Pembrolizumab": {
+            "targets": [
+                "PD-1"
+            ],
+            "pathways": [
+                "Immune_Checkpoint"
+            ],
+            "molecule_type": "Monoclonal antibody",
+            "indications": [
+                "MSI-H/dMMR tumors",
+                "High TMB tumors",
+                "Melanoma",
+                "Lung cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "MSI-H",
+                    "dMMR",
+                    "High TMB",
+                    "PD-L1 CPS ≥1"
+                ],
+                "negative": []
+            }
+        },
+        "Alpelisib": {
+            "targets": [
+                "PI3Kα"
+            ],
+            "pathways": [
+                "PI3K_AKT_mTOR"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Breast cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "PIK3CA mutation",
+                    "ER+/HER2-"
+                ],
+                "negative": []
+            }
+        },
+        "Encorafenib": {
+            "targets": [
+                "BRAF"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Melanoma",
+                "Colorectal cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "BRAF V600E mutation"
+                ],
+                "negative": []
+            }
+        },
+        "Trametinib": {
+            "targets": [
+                "MEK1",
+                "MEK2"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Melanoma"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "BRAF V600 mutation"
+                ],
+                "negative": []
+            }
+        },
+        "Sotorasib": {
+            "targets": [
+                "KRAS G12C"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Lung cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "KRAS G12C mutation"
+                ],
+                "negative": []
+            }
+        },
+        "Everolimus": {
+            "targets": [
+                "mTOR"
+            ],
+            "pathways": [
+                "PI3K_AKT_mTOR"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Renal cell carcinoma",
+                "Breast cancer",
+                "Neuroendocrine tumors"
+            ],
+            "biomarkers": {
+                "positive": [],
+                "negative": []
+            }
+        },
+        "Ruxolitinib": {
+            "targets": [
+                "JAK1",
+                "JAK2"
+            ],
+            "pathways": [
+                "JAK_STAT"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Myelofibrosis",
+                "Polycythemia vera"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "JAK2 V617F mutation"
+                ],
+                "negative": []
+            }
+        },
+        "Idasanutlin": {
+            "targets": [
+                "MDM2"
+            ],
+            "pathways": [
+                "p53_MDM2"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Acute myeloid leukemia"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "TP53 wild-type",
+                    "MDM2 amplification"
+                ],
+                "negative": [
+                    "TP53 mutation"
+                ]
+            }
+        },
+        "Sorafenib": {
+            "targets": [
+                "VEGFR",
+                "PDGFR",
+                "RAF"
+            ],
+            "pathways": [
+                "VEGF_Angiogenesis",
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Multi-kinase inhibitor",
+            "indications": [
+                "Renal cell carcinoma",
+                "Hepatocellular carcinoma",
+                "Thyroid cancer"
+            ],
+            "biomarkers": {
+                "positive": [],
+                "negative": []
+            }
+        },
+        "Lapatinib": {
+            "targets": [
+                "EGFR",
+                "HER2"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Dual TKI",
+            "indications": [
+                "Breast cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "HER2 amplification"
+                ],
+                "negative": []
+            }
+        },
+        "Cabozantinib": {
+            "targets": [
+                "VEGFR2",
+                "MET",
+                "AXL"
+            ],
+            "pathways": [
+                "VEGF_Angiogenesis",
+                "RTK_RAS_MAPK"
+            ],
+            "molecule_type": "Multi-kinase inhibitor",
+            "indications": [
+                "Renal cell carcinoma",
+                "Hepatocellular carcinoma",
+                "Thyroid cancer"
+            ],
+            "biomarkers": {
+                "positive": [],
+                "negative": []
+            }
+        },
+        "Palbociclib": {
+            "targets": [
+                "CDK4",
+                "CDK6"
+            ],
+            "pathways": [
+                "Cell_Cycle"
+            ],
+            "molecule_type": "Small molecule",
+            "indications": [
+                "Breast cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "ER+/HER2-",
+                    "Rb intact"
+                ],
+                "negative": [
+                    "Rb loss"
+                ]
+            }
+        },
+        "Olaparib": {
+            "targets": [
+                "PARP1",
+                "PARP2"
+            ],
+            "pathways": [
+                "DNA_Repair"
+            ],
+            "molecule_type": "PARP inhibitor",
+            "indications": [
+                "Ovarian cancer",
+                "Breast cancer",
+                "Prostate cancer",
+                "Pancreatic cancer"
+            ],
+            "biomarkers": {
+                "positive": [
+                    "BRCA1/2 mutation",
+                    "HRD"
+                ],
+                "negative": []
+            }
+        }
+    },
+    "synergistic_combinations": [
+        {
+            "combination": [
+                "Encorafenib",
+                "Cetuximab"
+            ],
+            "pathways": [
+                "RTK_RAS_MAPK dual blockade"
+            ],
+            "indications": [
+                "BRAF V600E colorectal cancer"
+            ],
+            "synergy_mechanism": "Prevents EGFR-mediated resistance to BRAF inhibition",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Kopetz et al., NEJM 2019"
+            ]
+        },
+        {
+            "combination": [
+                "Encorafenib",
+                "Binimetinib"
+            ],
+            "pathways": [
+                "MAPK vertical inhibition"
+            ],
+            "indications": [
+                "BRAF V600 melanoma"
+            ],
+            "synergy_mechanism": "Dual BRAF + MEK blockade prevents rebound signaling",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Dummer et al., Lancet Oncol 2018"
+            ]
+        },
+        {
+            "combination": [
+                "Alpelisib",
+                "Fulvestrant"
+            ],
+            "pathways": [
+                "PI3K inhibition + ER degradation"
+            ],
+            "indications": [
+                "PIK3CA-mutant, ER+ breast cancer"
+            ],
+            "synergy_mechanism": "PI3K inhibition overcomes endocrine resistance",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "André et al., NEJM 2019"
+            ]
+        },
+        {
+            "combination": [
+                "Bevacizumab",
+                "FOLFOX"
+            ],
+            "pathways": [
+                "Angiogenesis inhibition + DNA damage"
+            ],
+            "indications": [
+                "Metastatic colorectal cancer"
+            ],
+            "synergy_mechanism": "Anti-VEGF normalizes vasculature, improves chemotherapy delivery",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Hurwitz et al., NEJM 2004"
+            ]
+        },
+        {
+            "combination": [
+                "Trastuzumab",
+                "Pertuzumab",
+                "Docetaxel"
+            ],
+            "pathways": [
+                "Dual HER2 blockade + chemotherapy"
+            ],
+            "indications": [
+                "HER2+ breast cancer"
+            ],
+            "synergy_mechanism": "Complementary HER2 dimerization inhibition",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Swain et al., NEJM 2015"
+            ]
+        },
+        {
+            "combination": [
+                "Olaparib",
+                "Bevacizumab"
+            ],
+            "pathways": [
+                "PARP inhibition + anti-angiogenesis"
+            ],
+            "indications": [
+                "Ovarian cancer (HRD)"
+            ],
+            "synergy_mechanism": "VEGF inhibition enhances DNA repair deficiency",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Ray-Coquard et al., NEJM 2019"
+            ]
+        },
+        {
+            "combination": [
+                "Palbociclib",
+                "Letrozole"
+            ],
+            "pathways": [
+                "CDK4/6 inhibition + aromatase inhibition"
+            ],
+            "indications": [
+                "ER+ breast cancer"
+            ],
+            "synergy_mechanism": "CDK4/6 inhibition blocks ER-driven proliferation",
+            "evidence_level": "Level I (FDA approved)",
+            "references": [
+                "Finn et al., NEJM 2016"
+            ]
+        }
+    ],
+    "metadata": {
+        "version": "1.0",
+        "last_updated": "2026-01-14",
+        "total_drugs": 16,
+        "total_combinations": 7
+    }
+}

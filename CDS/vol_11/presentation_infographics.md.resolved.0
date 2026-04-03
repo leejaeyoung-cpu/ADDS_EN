@@ -1,0 +1,26 @@
+# PPT 삽입용 프레젠테이션 흐름 & 인포그래픽 이미지 팩
+
+이전의 다소 추상적인 포스터 이미지를 대체하여, 내용을 직관적으로 전달할 수 있도록 깔끔한 **'플랫 디자인 기반의 시각화 분석 프로세스(인포그래픽)'** 3종을 새롭게 자동 생성(나노 바나나)했습니다. 
+
+PPT 슬라이드 디자인에 바로 녹아들 수 있도록 흰색 단색 배경과 모던한 벡터 아이콘 스타일을 채택했습니다. 이전 단계에서 정리해 드린 Mermaid 텍스트 흐름도와 동일한 내용을 시각적으로 대체할 수 있습니다!
+
+---
+
+### 1. 다중모달 AI 기반 종합 아키텍처 시스템 프름 (Architecture Flow)
+*(임상/CT/병리 데이터가 왼쪽에서 취합되어 중앙의 AI 코어로 진입하여 임상 리포트로 출력되는 전체 시스템 흐름도)*
+![Architecture Flow](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\adds_v1_architecture_flow_1773824472805.png)
+
+---
+
+### 2. 오가노이드(PDO) 기반 약물 반응 검증 사이클 (Validation Flow)
+*(환자 조직 생검 아이콘에서 출발해 샬레(오가노이드 배양), 엑스비보 약물 테스트 과정을 거쳐 다시 피드백되는 순환 연구 로직)*
+![PDO Validation Workflow](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\pdo_validation_workflow_1773824487399.png)
+
+---
+
+### 3. 연구 프로토타입부터 SaMD(의료기기) 상용화까지의 타임라인 (Timeline Roadmap)
+*(수평형 마일스톤 이미지로써, 단순 연구 단계(톱니바퀴)를 지나 품질관리(QA 체크리스트), 임상실증 단계를 거쳐 최종 인허가 인증(방패)으로 향하는 타임라인을 표현)*
+![SaMD Timeline Roadmap](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\samd_timeline_roadmap_1773824499914.png)
+
+---
+*이미지에 우클릭하여 직접 복사 후 기존 만들어둔 PPT(`ADDS_V1_Pitch_Final.pptx`) 해당 슬라이드 배경에 꽉 차게 첨부하시면, 가장 가독성 높은 발표 자료가 완성됩니다!*

@@ -1,0 +1,67 @@
+{
+  "ok": 62,
+  "warn": 8,
+  "fail": 2,
+  "issues": [
+    {
+      "level": "WARN",
+      "cat": "XAI",
+      "finding": "LIME implementation is a custom Ridge approximation, NOT the official lime package",
+      "detail": "This is a documented simplification. Valid for local linear attribution but less robust than official LIME."
+    },
+    {
+      "level": "WARN",
+      "cat": "XAI",
+      "finding": "Grad-CAM implementation is a finite-difference proxy, NOT a true neural network Grad-CAM",
+      "detail": "Report calls it \"proxy\" -- correctly labeled. Valid for tree models but NOT equivalent to CNN Grad-CAM."
+    },
+    {
+      "level": "WARN",
+      "cat": "XAI",
+      "finding": "Counterfactual is a manual feature-pivot, NOT a formal CF algorithm (DICE/Wachter)",
+      "detail": "Valid for clinical illustration but may not find nearest CF on data manifold."
+    },
+    {
+      "level": "FAIL",
+      "cat": "XAI",
+      "finding": "5/20 CIs invalid (pred outside CI)",
+      "detail": ""
+    },
+    {
+      "level": "FAIL",
+      "cat": "PhysEval",
+      "finding": "ALL 45 physician responses are SYNTHETIC SIMULATION -- NOT real physicians",
+      "detail": "Report must explicitly state: physician evaluation is a SIMULATION, not a real user study. Reporting as clinical evidence would be misleading."
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "finding": "NPS Promoters mere 1/45 (2%) -- extremely low adoption signal",
+      "detail": "This is realistic but should be flagged: model is not yet clinically persuasive."
+    },
+    {
+      "level": "WARN",
+      "cat": "Provenance",
+      "finding": "ALL 26 patient KRAS values are DL-imputed (not measured clinically)",
+      "detail": "Must be labeled as imputed/synthetic in any publication. Cannot be reported as measured values."
+    },
+    {
+      "level": "WARN",
+      "cat": "Provenance",
+      "finding": "Cohort v4 PFS/OS outcomes are formula-generated (arm x kras x prpc x msi parameters)",
+      "detail": "NOT from real clinical trial data. Model trained on these cannot validly claim clinical predictive performance. Must be presented as illustrative simulation only."
+    },
+    {
+      "level": "WARN",
+      "cat": "ModelHonesty",
+      "finding": "OS/PFS model R2=0.056 -- essentially no predictive power",
+      "detail": "The explanation \"synthetic cohort noise\" is valid but must be prominently stated. This model should NOT be used for clinical decision support in current form."
+    },
+    {
+      "level": "WARN",
+      "cat": "ModelHonesty",
+      "finding": "Synergy model R2=0.996 trained partially on synthetic/curated Bliss data",
+      "detail": "High R2 may partly reflect circular validation: synthetic targets generated with similar distributions to training features. External validation on independent lab data required."
+    }
+  ]
+}

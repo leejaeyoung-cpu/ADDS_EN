@@ -1,0 +1,68 @@
+{
+  "ok": 38,
+  "warn": 10,
+  "fail": 0,
+  "verdict": "PASS",
+  "issues": [
+    {
+      "level": "WARN",
+      "cat": "LIME",
+      "msg": "ALL attributions in same direction -- highly suspicious, suggests degenerate model",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "Bliss",
+      "msg": "Internal Bliss DIFFERENT from literature (p=0.0000) -- bias confirmed",
+      "detail": "Internal mean=17.4 vs lit mean=9.7 (overclaim by +7.8)"
+    },
+    {
+      "level": "WARN",
+      "cat": "Bliss",
+      "msg": "Internal synergy inflated by +7.8 Bliss units vs literature",
+      "detail": "Published papers using internal Bliss values must note this upward bias."
+    },
+    {
+      "level": "WARN",
+      "cat": "KRAS",
+      "msg": "5 alleles bootstrap CI misses meta frequency",
+      "detail": "Expected: n=26 too small for stable freq estimate. Must report as \"imputed, uncertain\"."
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "D4=3.38 -- check if report uses corrected value 3.00",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "PhysEval",
+      "msg": "LIME not top anymore: Counterfactual (3.84)",
+      "detail": ""
+    },
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "OS/PFS R2=0.303 is an improvement (from 0.056) but still moderate",
+      "detail": "This is because arm effect was hard-coded into synthetic cohort -- the improvement reflects data redesign, NOT real clinical signal improvement. Must be disclosed as \"improved synthetic design, not real RCT validation\"."
+    },
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "Internal Bliss mean 17.4 vs literature 9.7 (+7.7 units, p<0.0001)",
+      "detail": "Any claims using internal Bliss synergy values overstate synergy by ~80%. Downward recalibration or explicit bias disclosure required for publication."
+    },
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "Official LIME Cmax direction still not consistently positive (50/50)",
+      "detail": "This reflects that the GBM v5 model still does not fully capture PK-outcome mechanism even with improved cohort. Cmax frequency alone is not sufficient evidence."
+    },
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "Near-CF mean delta=+4.71 may be inflated",
+      "detail": "The greedy algorithm is designed to find any feature change that increases prediction. If the model is noisy, small feature perturbations may accidentally land on noise peaks. Validate with held-out patients to confirm delta is clinically meaningful."
+    }
+  ]
+}

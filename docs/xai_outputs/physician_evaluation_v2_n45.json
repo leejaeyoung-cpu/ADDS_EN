@@ -1,0 +1,902 @@
+[
+  {
+    "eval_id": "PE001",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Samsung Medical Center",
+    "years_experience": 22,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "GradCAM_saliency",
+    "scores": {
+      "D1_clinical_relevance": 3.9,
+      "D2_trust": 4.0,
+      "D3_understandability": 3.5,
+      "D4_actionability": 3.2,
+      "D5_time_efficiency": 4.3,
+      "D6_patient_safety_alert": 3.7
+    },
+    "composite_score_5": 3.77,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE002",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 9,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.8,
+      "D2_trust": 4.1,
+      "D3_understandability": 4.2,
+      "D4_actionability": 3.4,
+      "D5_time_efficiency": 3.8,
+      "D6_patient_safety_alert": 3.3
+    },
+    "composite_score_5": 3.77,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE003",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 2,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.0,
+      "D2_trust": 3.8,
+      "D3_understandability": 3.8,
+      "D4_actionability": 3.3,
+      "D5_time_efficiency": 2.9,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 3.6,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE004",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 21,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.1,
+      "D2_trust": 3.3,
+      "D3_understandability": 3.6,
+      "D4_actionability": 3.2,
+      "D5_time_efficiency": 2.9,
+      "D6_patient_safety_alert": 4.0
+    },
+    "composite_score_5": 3.52,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE005",
+    "physician_role": "Attending Physician",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 15,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.3,
+      "D2_trust": 3.3,
+      "D3_understandability": 3.4,
+      "D4_actionability": 2.7,
+      "D5_time_efficiency": 5.0,
+      "D6_patient_safety_alert": 3.2
+    },
+    "composite_score_5": 3.48,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE006",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Samsung Medical Center",
+    "years_experience": 23,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 4.5,
+      "D2_trust": 3.9,
+      "D3_understandability": 3.6,
+      "D4_actionability": 4.0,
+      "D5_time_efficiency": 3.7,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.93,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE007",
+    "physician_role": "Gastroenterologist",
+    "institution": "Samsung Medical Center",
+    "years_experience": 17,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 3.8,
+      "D2_trust": 3.5,
+      "D3_understandability": 3.7,
+      "D4_actionability": 2.9,
+      "D5_time_efficiency": 2.4,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.37,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE008",
+    "physician_role": "Attending Physician",
+    "institution": "Inha University Hospital",
+    "years_experience": 4,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.7,
+      "D3_understandability": 3.8,
+      "D4_actionability": 3.2,
+      "D5_time_efficiency": 3.6,
+      "D6_patient_safety_alert": 3.6
+    },
+    "composite_score_5": 3.6,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE009",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Samsung Medical Center",
+    "years_experience": 18,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.8,
+      "D2_trust": 3.7,
+      "D3_understandability": 3.3,
+      "D4_actionability": 3.2,
+      "D5_time_efficiency": 4.1,
+      "D6_patient_safety_alert": 3.6
+    },
+    "composite_score_5": 3.62,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE010",
+    "physician_role": "Attending Physician",
+    "institution": "Samsung Medical Center",
+    "years_experience": 8,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 2.9,
+      "D2_trust": 3.0,
+      "D3_understandability": 3.2,
+      "D4_actionability": 2.4,
+      "D5_time_efficiency": 4.3,
+      "D6_patient_safety_alert": 2.3
+    },
+    "composite_score_5": 3.02,
+    "nps_class": "Detractor",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE011",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Samsung Medical Center",
+    "years_experience": 27,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.2,
+      "D2_trust": 3.8,
+      "D3_understandability": 3.6,
+      "D4_actionability": 3.5,
+      "D5_time_efficiency": 3.3,
+      "D6_patient_safety_alert": 4.2
+    },
+    "composite_score_5": 3.77,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE012",
+    "physician_role": "Attending Physician",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 26,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.1,
+      "D3_understandability": 4.1,
+      "D4_actionability": 3.3,
+      "D5_time_efficiency": 3.5,
+      "D6_patient_safety_alert": 3.5
+    },
+    "composite_score_5": 3.53,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE013",
+    "physician_role": "Gastroenterologist",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 6,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.0,
+      "D2_trust": 4.0,
+      "D3_understandability": 3.7,
+      "D4_actionability": 3.2,
+      "D5_time_efficiency": 2.6,
+      "D6_patient_safety_alert": 4.8
+    },
+    "composite_score_5": 3.72,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE014",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Inha University Hospital",
+    "years_experience": 25,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.3,
+      "D2_trust": 3.8,
+      "D3_understandability": 4.0,
+      "D4_actionability": 3.6,
+      "D5_time_efficiency": 3.5,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 3.83,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE015",
+    "physician_role": "Attending Physician",
+    "institution": "Inha University Hospital",
+    "years_experience": 8,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.3,
+      "D3_understandability": 3.1,
+      "D4_actionability": 3.5,
+      "D5_time_efficiency": 2.9,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 3.38,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE016",
+    "physician_role": "Gastroenterologist",
+    "institution": "Samsung Medical Center",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "GradCAM_saliency",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.2,
+      "D3_understandability": 3.2,
+      "D4_actionability": 2.6,
+      "D5_time_efficiency": 3.2,
+      "D6_patient_safety_alert": 3.1
+    },
+    "composite_score_5": 3.17,
+    "nps_class": "Detractor",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE017",
+    "physician_role": "Medical Oncologist",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 15,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 4.4,
+      "D2_trust": 3.6,
+      "D3_understandability": 3.6,
+      "D4_actionability": 3.3,
+      "D5_time_efficiency": 4.2,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.83,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE018",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Asan Medical Center",
+    "years_experience": 10,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.0,
+      "D2_trust": 3.8,
+      "D3_understandability": 4.0,
+      "D4_actionability": 4.2,
+      "D5_time_efficiency": 3.1,
+      "D6_patient_safety_alert": 4.2
+    },
+    "composite_score_5": 3.88,
+    "nps_class": "Promoter",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE019",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Samsung Medical Center",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.8,
+      "D2_trust": 4.1,
+      "D3_understandability": 4.0,
+      "D4_actionability": 3.7,
+      "D5_time_efficiency": 3.2,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.95,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE020",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Samsung Medical Center",
+    "years_experience": 13,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.3,
+      "D2_trust": 3.5,
+      "D3_understandability": 4.3,
+      "D4_actionability": 2.5,
+      "D5_time_efficiency": 3.7,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.53,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE021",
+    "physician_role": "Gastroenterologist",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.1,
+      "D2_trust": 2.7,
+      "D3_understandability": 3.2,
+      "D4_actionability": 3.0,
+      "D5_time_efficiency": 3.9,
+      "D6_patient_safety_alert": 2.9
+    },
+    "composite_score_5": 3.13,
+    "nps_class": "Detractor",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE022",
+    "physician_role": "Attending Physician",
+    "institution": "Samsung Medical Center",
+    "years_experience": 20,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.2,
+      "D2_trust": 3.7,
+      "D3_understandability": 3.6,
+      "D4_actionability": 3.7,
+      "D5_time_efficiency": 2.7,
+      "D6_patient_safety_alert": 4.2
+    },
+    "composite_score_5": 3.68,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE023",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 23,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "GradCAM_saliency",
+    "scores": {
+      "D1_clinical_relevance": 3.9,
+      "D2_trust": 3.3,
+      "D3_understandability": 3.1,
+      "D4_actionability": 3.0,
+      "D5_time_efficiency": 3.4,
+      "D6_patient_safety_alert": 4.4
+    },
+    "composite_score_5": 3.52,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE024",
+    "physician_role": "Attending Physician",
+    "institution": "Asan Medical Center",
+    "years_experience": 9,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.7,
+      "D3_understandability": 4.1,
+      "D4_actionability": 3.8,
+      "D5_time_efficiency": 3.0,
+      "D6_patient_safety_alert": 3.7
+    },
+    "composite_score_5": 3.67,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE025",
+    "physician_role": "Medical Oncologist",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 15,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.2,
+      "D2_trust": 3.6,
+      "D3_understandability": 3.2,
+      "D4_actionability": 2.9,
+      "D5_time_efficiency": 3.8,
+      "D6_patient_safety_alert": 3.4
+    },
+    "composite_score_5": 3.35,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE026",
+    "physician_role": "Gastroenterologist",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 22,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.3,
+      "D3_understandability": 2.9,
+      "D4_actionability": 3.0,
+      "D5_time_efficiency": 3.5,
+      "D6_patient_safety_alert": 2.7
+    },
+    "composite_score_5": 3.18,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE027",
+    "physician_role": "Gastroenterologist",
+    "institution": "Asan Medical Center",
+    "years_experience": 27,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 4.1,
+      "D2_trust": 3.9,
+      "D3_understandability": 4.3,
+      "D4_actionability": 3.6,
+      "D5_time_efficiency": 3.7,
+      "D6_patient_safety_alert": 4.5
+    },
+    "composite_score_5": 4.02,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE028",
+    "physician_role": "Medical Oncologist",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 21,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.5,
+      "D2_trust": 3.5,
+      "D3_understandability": 4.1,
+      "D4_actionability": 3.9,
+      "D5_time_efficiency": 3.4,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 3.87,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE029",
+    "physician_role": "Medical Oncologist",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.6,
+      "D2_trust": 4.2,
+      "D3_understandability": 4.0,
+      "D4_actionability": 4.1,
+      "D5_time_efficiency": 3.7,
+      "D6_patient_safety_alert": 4.6
+    },
+    "composite_score_5": 4.2,
+    "nps_class": "Promoter",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE030",
+    "physician_role": "Gastroenterologist",
+    "institution": "Asan Medical Center",
+    "years_experience": 9,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 3.9,
+      "D2_trust": 3.7,
+      "D3_understandability": 3.0,
+      "D4_actionability": 3.4,
+      "D5_time_efficiency": 1.9,
+      "D6_patient_safety_alert": 4.1
+    },
+    "composite_score_5": 3.33,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE031",
+    "physician_role": "Medical Oncologist",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 19,
+    "ai_familiarity_1_5": 2,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.9,
+      "D2_trust": 4.4,
+      "D3_understandability": 4.6,
+      "D4_actionability": 3.7,
+      "D5_time_efficiency": 4.1,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 4.25,
+    "nps_class": "Promoter",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE032",
+    "physician_role": "Medical Oncologist",
+    "institution": "Asan Medical Center",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 5.0,
+      "D2_trust": 4.0,
+      "D3_understandability": 4.8,
+      "D4_actionability": 4.1,
+      "D5_time_efficiency": 3.9,
+      "D6_patient_safety_alert": 4.0
+    },
+    "composite_score_5": 4.3,
+    "nps_class": "Promoter",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE033",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 6,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.6,
+      "D2_trust": 3.5,
+      "D3_understandability": 4.0,
+      "D4_actionability": 3.3,
+      "D5_time_efficiency": 3.8,
+      "D6_patient_safety_alert": 3.7
+    },
+    "composite_score_5": 3.65,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE034",
+    "physician_role": "Attending Physician",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 18,
+    "ai_familiarity_1_5": 3,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.9,
+      "D2_trust": 3.8,
+      "D3_understandability": 3.5,
+      "D4_actionability": 3.6,
+      "D5_time_efficiency": 3.9,
+      "D6_patient_safety_alert": 4.0
+    },
+    "composite_score_5": 3.78,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE035",
+    "physician_role": "Attending Physician",
+    "institution": "Inha University Hospital",
+    "years_experience": 2,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 2.7,
+      "D3_understandability": 3.7,
+      "D4_actionability": 3.3,
+      "D5_time_efficiency": 3.5,
+      "D6_patient_safety_alert": 3.5
+    },
+    "composite_score_5": 3.4,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE036",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 9,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.3,
+      "D3_understandability": 3.4,
+      "D4_actionability": 3.7,
+      "D5_time_efficiency": 2.6,
+      "D6_patient_safety_alert": 3.9
+    },
+    "composite_score_5": 3.43,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE037",
+    "physician_role": "Colorectal Surgeon",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 26,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.5,
+      "D2_trust": 3.6,
+      "D3_understandability": 3.9,
+      "D4_actionability": 4.2,
+      "D5_time_efficiency": 3.6,
+      "D6_patient_safety_alert": 4.2
+    },
+    "composite_score_5": 4.0,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE038",
+    "physician_role": "Attending Physician",
+    "institution": "Samsung Medical Center",
+    "years_experience": 11,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.4,
+      "D2_trust": 3.2,
+      "D3_understandability": 3.0,
+      "D4_actionability": 2.8,
+      "D5_time_efficiency": 4.4,
+      "D6_patient_safety_alert": 3.2
+    },
+    "composite_score_5": 3.33,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE039",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 17,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.1,
+      "D2_trust": 3.4,
+      "D3_understandability": 4.2,
+      "D4_actionability": 4.0,
+      "D5_time_efficiency": 3.9,
+      "D6_patient_safety_alert": 4.5
+    },
+    "composite_score_5": 4.02,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE040",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 2,
+    "ai_familiarity_1_5": 5,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.7,
+      "D2_trust": 3.0,
+      "D3_understandability": 3.5,
+      "D4_actionability": 2.8,
+      "D5_time_efficiency": 3.7,
+      "D6_patient_safety_alert": 2.7
+    },
+    "composite_score_5": 3.23,
+    "nps_class": "Detractor",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE041",
+    "physician_role": "Medical Oncologist",
+    "institution": "Samsung Medical Center",
+    "years_experience": 24,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.6,
+      "D2_trust": 3.5,
+      "D3_understandability": 4.3,
+      "D4_actionability": 4.1,
+      "D5_time_efficiency": 3.9,
+      "D6_patient_safety_alert": 3.8
+    },
+    "composite_score_5": 4.03,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE042",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Samsung Medical Center",
+    "years_experience": 20,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "Counterfactual",
+    "scores": {
+      "D1_clinical_relevance": 4.6,
+      "D2_trust": 4.3,
+      "D3_understandability": 3.9,
+      "D4_actionability": 3.4,
+      "D5_time_efficiency": 3.5,
+      "D6_patient_safety_alert": 4.4
+    },
+    "composite_score_5": 4.02,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE043",
+    "physician_role": "Gastroenterologist",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 4,
+    "ai_familiarity_1_5": 1,
+    "xai_tool_evaluated": "LIME_attribution",
+    "scores": {
+      "D1_clinical_relevance": 3.2,
+      "D2_trust": 3.7,
+      "D3_understandability": 3.3,
+      "D4_actionability": 2.9,
+      "D5_time_efficiency": 3.1,
+      "D6_patient_safety_alert": 3.5
+    },
+    "composite_score_5": 3.28,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE044",
+    "physician_role": "Gastroenterologist",
+    "institution": "Seoul National University Hospital",
+    "years_experience": 7,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "None_control",
+    "scores": {
+      "D1_clinical_relevance": 3.4,
+      "D2_trust": 2.8,
+      "D3_understandability": 2.7,
+      "D4_actionability": 2.6,
+      "D5_time_efficiency": 4.4,
+      "D6_patient_safety_alert": 3.0
+    },
+    "composite_score_5": 3.15,
+    "nps_class": "Detractor",
+    "would_use_in_clinic_Y/N": "N",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  },
+  {
+    "eval_id": "PE045",
+    "physician_role": "Clinical Research Fellow",
+    "institution": "Yonsei Severance Hospital",
+    "years_experience": 13,
+    "ai_familiarity_1_5": 4,
+    "xai_tool_evaluated": "All_3",
+    "scores": {
+      "D1_clinical_relevance": 4.0,
+      "D2_trust": 3.5,
+      "D3_understandability": 4.0,
+      "D4_actionability": 4.1,
+      "D5_time_efficiency": 3.6,
+      "D6_patient_safety_alert": 4.6
+    },
+    "composite_score_5": 3.97,
+    "nps_class": "Passive",
+    "would_use_in_clinic_Y/N": "Y",
+    "simulation_basis": "Cai_2021_Sindhu_2022_meta_analysis_calibrated"
+  }
+]

@@ -1,0 +1,108 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project specific
+data/outputs/*
+!data/outputs/.gitkeep
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+logs/*
+!logs/.gitkeep
+models/*
+!models/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Backups
+*.bak
+*.backup
+ADDSbackup/
+
+# Docker
+.dockerignore
+
+# Fix scripts (not needed in container)
+fix_*.py
+add_*.py
+check_*.py
+debug_*.py
+temp_*.py
+test_*.py
+restore_*.py
+review_*.py
+verify_*.py
+apply_*.py
+move_*.py
+simple_*.py
+quick_*.py
+update_*.py
+compare_*.py
+extract_*.py
+final_*.py
+complete_*.py
+hybrid_*.py
+manual_*.py
+prepare_*.py
+scan_*.py
+surgical_*.py
+convert_*.py
+corrupted_*.txt
+actual_*.txt
+
+# Documentation (include selectively)
+*.md
+!README.md
+!API_GUIDE.md
+
+# Examples and tests
+examples/
+tests/
+notebooks/

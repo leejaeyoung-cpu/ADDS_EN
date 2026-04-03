@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDS vs OpenAI 비교 분석 - ADDS</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="comparison-page">
+        <div class="container">
+            <!-- Header -->
+            <div class="comparison-header">
+                <h1>이중 AI 추론 비교 분석</h1>
+                <p class="subtitle">ADDS Pathway 시스템 vs OpenAI GPT-4 Medical Analysis</p>
+                <div class="patient-info" id="patientInfo"></div>
+            </div>
+
+            <!-- Consensus Drugs -->
+            <div class="consensus-section" id="consensusSection">
+                <h2>합의 약물 (Consensus Drugs)</h2>
+                <div class="consensus-drugs" id="consensusDrugs"></div>
+                <div class="overlap-meter">
+                    <div class="overlap-label">Drug Overlap</div>
+                    <div class="overlap-bar">
+                        <div class="overlap-fill" id="overlapFill"></div>
+                    </div>
+                    <div class="overlap-percentage" id="overlapPercentage"></div>
+                </div>
+            </div>
+
+            <!-- Dual Panel Comparison -->
+            <div class="comparison-panels">
+                <!-- ADDS Panel -->
+                <div class="analysis-panel adds-panel">
+                    <div class="panel-header">
+                        <div class="system-badge adds-badge">ADDS</div>
+                        <h2>Pathway-Based Analysis</h2>
+                        <p>과학적 근거 기반 신호 전달 경로 분석</p>
+                    </div>
+
+                    <div class="panel-content" id="addsContent">
+                        <div class="loading">Loading ADDS results...</div>
+                    </div>
+                </div>
+
+                <!-- OpenAI Panel -->
+                <div class="analysis-panel openai-panel">
+                    <div class="panel-header">
+                        <div class="system-badge openai-badge">OpenAI GPT-4</div>
+                        <h2>LLM Medical Analysis</h2>
+                        <p>대규모 언어 모델 기반 종합 의료 판단</p>
+                    </div>
+
+                    <div class="panel-content" id="openaiContent">
+                        <div class="loading">Loading OpenAI results...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unique Recommendations -->
+            <div class="unique-section">
+                <div class="unique-box adds-unique">
+                    <h3>ADDS 고유 추천</h3>
+                    <div id="addsUnique" class="drug-list"></div>
+                </div>
+
+                <div class="unique-box openai-unique">
+                    <h3>OpenAI 고유 추천</h3>
+                    <div id="openaiUnique" class="drug-list"></div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-section">
+                <button onclick="window.print()" class="btn btn-secondary">
+                    리포트 인쇄
+                </button>
+                <button onclick="window.location.href='/'" class="btn btn-primary">
+                    홈으로
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        // Get analysis ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const analysisId = urlParams.get('id');
+
+        async function loadComparison() {
+            if (!analysisId) {
+                window.ADDS.showToast('분석 ID가 없습니다', 'error');
+                return;
+            }
+
+            try {
+                // Load comparison data
+                const response = await fetch(`/api/openai/analysis/${analysisId}/compare`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    renderComparison(data);
+                } else {
+                    window.ADDS.showToast('비교 데이터 로드 실패', 'error');
+                }
+            } catch (error) {
+                window.ADDS.showToast('서버 오류: ' + error.message, 'error');
+            }
+        }
+
+        function renderComparison(data) {
+            // Consensus drugs
+            const consensusDrugs = data.consensus_drugs || [];
+            document.getElementById('consensusDrugs').innerHTML = consensusDrugs.length > 0
+                ? consensusDrugs.map(drug => `<span class="drug-pill consensus-pill">${drug}</span>`).join('')
+                : '<p class="no-data">합의된 약물 없음</p>';
+
+            // Overlap meter
+            const overlap = (data.drug_overlap * 100).toFixed(0);
+            document.getElementById('overlapFill').style.width = overlap + '%';
+            document.getElementById('overlapPercentage').textContent = overlap + '%';
+
+            // ADDS Panel
+            const adds = data.adds || {};
+            document.getElementById('addsContent').innerHTML = `
+                <div class="result-section">
+                    <h4>추천 약물</h4>
+                    <div class="drug-list">
+                        ${(adds.recommended_drugs || []).map(drug =>
+                `<span class="drug-pill adds-drug">${drug}</span>`
+            ).join('')}
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h4>타겟 경로 (Targeted Pathways)</h4>
+                    <div class="pathway-list">
+                        ${(adds.targeted_pathways || []).map(pathway =>
+                `<span class="pathway-badge">${pathway}</span>`
+            ).join('')}
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h4>시너지 점수</h4>
+                    <div class="score-display">
+                        <div class="score-circle">${(adds.synergy_score || 0).toFixed(2)}</div>
+                        <div class="score-bar">
+                            <div class="score-fill" style="width: ${(adds.synergy_score || 0) * 100}%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h4>근거 (Rationale)</h4>
+                    <p class="rationale-text">${adds.rationale || 'N/A'}</p>
+                </div>
+
+                <div class="result-section">
+                    <h4>신뢰도 & 생존율</h4>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Confidence</div>
+                            <div class="metric-value">${((adds.confidence || 0) * 100).toFixed(0)}%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">5-Year Survival</div>
+                            <div class="metric-value">${((adds.estimated_survival || 0) * 100).toFixed(0)}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // OpenAI Panel
+            const openai = data.openai || {};
+            document.getElementById('openaiContent').innerHTML = `
+                <div class="result-section">
+                    <h4>추천 약물</h4>
+                    <div class="drug-list">
+                        ${(openai.recommended_drugs || []).map(drug =>
+                `<span class="drug-pill openai-drug">${drug}</span>`
+            ).join('')}
+                    </div>
+                </div>
+
+                <div class="result-section">
+                    <h4>치료 전략</h4>
+                    <div class="strategy-badge">${openai.treatment_strategy || 'N/A'}</div>
+                </div>
+
+                <div class="result-section">
+                    <h4>주요 고려사항</h4>
+                    <ul class="considerations-list">
+                        ${(openai.key_considerations || []).map(item =>
+                `<li>${item}</li>`
+            ).join('')}
+                    </ul>
+                </div>
+
+                <div class="result-section">
+                    <h4>근거 (Rationale)</h4>
+                    <p class="rationale-text">${openai.rationale || 'N/A'}</p>
+                </div>
+
+                <div class="result-section">
+                    <h4>신뢰도 & 생존율</h4>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <div class="metric-label">Confidence</div>
+                            <div class="metric-value">${((openai.confidence || 0) * 100).toFixed(0)}%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">5-Year Survival</div>
+                            <div class="metric-value">${((openai.estimated_survival || 0) * 100).toFixed(0)}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Unique recommendations
+            document.getElementById('addsUnique').innerHTML = (data.unique_to_adds || []).length > 0
+                ? (data.unique_to_adds || []).map(drug => `<span class="drug-pill adds-drug">${drug}</span>`).join('')
+                : '<p class="no-data">없음</p>';
+
+            document.getElementById('openaiUnique').innerHTML = (data.unique_to_openai || []).length > 0
+                ? (data.unique_to_openai || []).map(drug => `<span class="drug-pill openai-drug">${drug}</span>`).join('')
+                : '<p class="no-data">없음</p>';
+        }
+
+        // Load on page load
+        loadComparison();
+    </script>
+
+    <style>
+        .comparison-page {
+            min-height: 100vh;
+            background: var(--bg-light);
+            padding: var(--spacing-xl) var(--spacing-lg);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .comparison-header h1 {
+            color: var(--dark);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .consensus-section {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .consensus-section h2 {
+            color: var(--success);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .consensus-drugs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .drug-pill {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .consensus-pill {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .adds-drug {
+            background: #667eea;
+            color: var(--white);
+        }
+
+        .openai-drug {
+            background: #f093fb;
+            color: var(--white);
+        }
+
+        .overlap-meter {
+            margin-top: var(--spacing-lg);
+        }
+
+        .overlap-label {
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .overlap-bar {
+            height: 20px;
+            background: var(--border);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .overlap-fill {
+            height: 100%;
+            background: var(--gradient-success);
+            transition: width 1s ease-out;
+        }
+
+        .overlap-percentage {
+            text-align: right;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--success);
+        }
+
+        .comparison-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .analysis-panel {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .panel-header {
+            padding: var(--spacing-lg);
+            background: var(--gradient-primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .openai-panel .panel-header {
+            background: var(--gradient-secondary);
+        }
+
+        .system-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .adds-badge {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .openai-badge {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .panel-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .panel-header p {
+            opacity: 0.9;
+            font-size: 0.875rem;
+        }
+
+        .panel-content {
+            padding: var(--spacing-lg);
+        }
+
+        .result-section {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .result-section:last-child {
+            border-bottom: none;
+        }
+
+        .result-section h4 {
+            color: var(--dark-700);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1rem;
+        }
+
+        .drug-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .pathway-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+        }
+
+        .pathway-badge {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            background: var(--primary-light);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .score-display {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .score-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 12px;
+            background: var(--border);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: width 1s ease-out;
+        }
+
+        .strategy-badge {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--info);
+            color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        .considerations-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .considerations-list li {
+            padding: var(--spacing-sm);
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--spacing-xs);
+            border-left: 3px solid var(--warning);
+        }
+
+        .rationale-text {
+            color: var(--dark-600);
+            line-height: 1.6;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-md);
+        }
+
+        .metric {
+            text-align: center;
+            padding: var(--spacing-md);
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .unique-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .unique-box {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+        }
+
+        .unique-box h3 {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .adds-unique h3 {
+            color: #667eea;
+        }
+
+        .openai-unique h3 {
+            color: #f093fb;
+        }
+
+        .action-section {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .loading {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--gray);
+        }
+
+        .no-data {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        @media (max-width: 968px) {
+
+            .comparison-panels,
+            .unique-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .action-section {
+                display: none;
+            }
+        }
+    </style>
+</body>
+
+</html>

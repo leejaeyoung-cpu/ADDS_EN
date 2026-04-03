@@ -1,0 +1,377 @@
+{
+    "pathways": {
+        "RTK_RAS_MAPK": {
+            "name": "RTK/RAS/MAPK Signaling",
+            "description": "Regulates cell proliferation, differentiation, and survival",
+            "key_proteins": [
+                "EGFR",
+                "HER2",
+                "KRAS",
+                "BRAF",
+                "MEK",
+                "ERK"
+            ],
+            "alterations_in_cancer": [
+                "EGFR amplification/mutation",
+                "HER2 amplification",
+                "KRAS mutations (G12C, G12D, G12V)",
+                "BRAF V600E mutation",
+                "MEK mutations"
+            ],
+            "therapeutic_targets": {
+                "EGFR": {
+                    "drugs": [
+                        "Cetuximab",
+                        "Panitumumab",
+                        "Erlotinib",
+                        "Gefitinib",
+                        "Osimertinib"
+                    ],
+                    "mechanism": "EGFR tyrosine kinase inhibition"
+                },
+                "HER2": {
+                    "drugs": [
+                        "Trastuzumab",
+                        "Pertuzumab",
+                        "T-DM1",
+                        "Lapatinib"
+                    ],
+                    "mechanism": "HER2 receptor blockade"
+                },
+                "KRAS": {
+                    "drugs": [
+                        "Sotorasib",
+                        "Adagrasib"
+                    ],
+                    "mechanism": "KRAS G12C inhibition"
+                },
+                "BRAF": {
+                    "drugs": [
+                        "Vemurafenib",
+                        "Dabrafenib",
+                        "Encorafenib"
+                    ],
+                    "mechanism": "BRAF V600E inhibition"
+                },
+                "MEK": {
+                    "drugs": [
+                        "Trametinib",
+                        "Cobimetinib",
+                        "Binimetinib"
+                    ],
+                    "mechanism": "MEK inhibition"
+                }
+            },
+            "resistance_mechanisms": [
+                "Secondary mutations",
+                "Bypass pathway activation (PI3K/AKT)",
+                "Receptor upregulation"
+            ],
+            "combination_strategies": [
+                "BRAF + MEK inhibition",
+                "EGFR + MET inhibition",
+                "Vertical pathway blockade"
+            ]
+        },
+        "PI3K_AKT_mTOR": {
+            "name": "PI3K/AKT/mTOR Pathway",
+            "description": "Controls cell growth, metabolism, and survival",
+            "key_proteins": [
+                "PI3K",
+                "AKT",
+                "mTOR",
+                "PTEN"
+            ],
+            "alterations_in_cancer": [
+                "PIK3CA mutations",
+                "PTEN loss",
+                "AKT amplification",
+                "mTOR mutations"
+            ],
+            "therapeutic_targets": {
+                "PI3K": {
+                    "drugs": [
+                        "Alpelisib",
+                        "Copanlisib",
+                        "Idelalisib"
+                    ],
+                    "mechanism": "PI3K inhibition"
+                },
+                "AKT": {
+                    "drugs": [
+                        "Capivasertib",
+                        "Ipatasertib"
+                    ],
+                    "mechanism": "AKT inhibition"
+                },
+                "mTOR": {
+                    "drugs": [
+                        "Everolimus",
+                        "Temsirolimus",
+                        "Rapamycin"
+                    ],
+                    "mechanism": "mTOR inhibition"
+                }
+            },
+            "resistance_mechanisms": [
+                "Feedback activation of RTK",
+                "Crosstalk with MAPK pathway",
+                "Alternative survival pathways"
+            ],
+            "combination_strategies": [
+                "PI3K + CDK4/6 inhibition",
+                "mTOR + hormone therapy",
+                "PI3K + PARP inhibition"
+            ]
+        },
+        "JAK_STAT": {
+            "name": "JAK/STAT Signaling",
+            "description": "Mediates cytokine signaling and immune responses",
+            "key_proteins": [
+                "JAK1",
+                "JAK2",
+                "JAK3",
+                "STAT3",
+                "STAT5"
+            ],
+            "alterations_in_cancer": [
+                "JAK2 V617F mutation",
+                "STAT3 activation",
+                "Cytokine receptor mutations"
+            ],
+            "therapeutic_targets": {
+                "JAK": {
+                    "drugs": [
+                        "Ruxolitinib",
+                        "Fedratinib",
+                        "Tofacitinib"
+                    ],
+                    "mechanism": "JAK inhibition"
+                },
+                "STAT3": {
+                    "drugs": [
+                        "Napabucasin"
+                    ],
+                    "mechanism": "STAT3 inhibition"
+                },
+                "IL-6": {
+                    "drugs": [
+                        "Siltuximab",
+                        "Tocilizumab"
+                    ],
+                    "mechanism": "IL-6 receptor blockade"
+                }
+            },
+            "resistance_mechanisms": [
+                "Compensatory pathway activation",
+                "JAK2 secondary mutations"
+            ],
+            "combination_strategies": [
+                "JAK + chemotherapy",
+                "JAK + immunotherapy"
+            ]
+        },
+        "Hippo_YAP_TAZ": {
+            "name": "Hippo Signaling Pathway",
+            "description": "Regulates organ size, tissue regeneration, and tumorigenesis",
+            "key_proteins": [
+                "MST1/2",
+                "LATS1/2",
+                "YAP",
+                "TAZ"
+            ],
+            "alterations_in_cancer": [
+                "YAP/TAZ activation",
+                "LATS1/2 inactivation",
+                "NF2 loss"
+            ],
+            "therapeutic_targets": {
+                "YAP_TAZ": {
+                    "drugs": [
+                        "Verteporfin",
+                        "Statins"
+                    ],
+                    "mechanism": "YAP/TAZ-TEAD interaction disruption"
+                }
+            },
+            "resistance_mechanisms": [
+                "Alternative transcriptional programs"
+            ],
+            "combination_strategies": [
+                "Hippo + MAPK inhibition",
+                "Hippo + ER inhibition"
+            ]
+        },
+        "WNT_Beta_Catenin": {
+            "name": "WNT/β-catenin Pathway",
+            "description": "Controls stem cell maintenance and cell fate decisions",
+            "key_proteins": [
+                "WNT",
+                "LRP",
+                "Frizzled",
+                "β-catenin",
+                "APC",
+                "AXIN"
+            ],
+            "alterations_in_cancer": [
+                "APC mutations",
+                "CTNNB1 (β-catenin) mutations",
+                "AXIN mutations"
+            ],
+            "therapeutic_targets": {
+                "WNT": {
+                    "drugs": [
+                        "Vantictumab",
+                        "Ipafricept"
+                    ],
+                    "mechanism": "WNT ligand inhibition"
+                },
+                "Porcupine": {
+                    "drugs": [
+                        "LGK974",
+                        "ETC-159"
+                    ],
+                    "mechanism": "WNT secretion inhibition"
+                }
+            },
+            "resistance_mechanisms": [
+                "Alternative stem cell pathways"
+            ],
+            "combination_strategies": [
+                "WNT + chemotherapy",
+                "WNT + targeted therapy"
+            ]
+        },
+        "p53_MDM2": {
+            "name": "p53/MDM2 Pathway",
+            "description": "Tumor suppressor pathway regulating cell cycle and apoptosis",
+            "key_proteins": [
+                "p53",
+                "MDM2",
+                "MDM4"
+            ],
+            "alterations_in_cancer": [
+                "TP53 mutations (50% of cancers)",
+                "MDM2 amplification",
+                "MDM4 overexpression"
+            ],
+            "therapeutic_targets": {
+                "MDM2": {
+                    "drugs": [
+                        "Idasanutlin",
+                        "APG-115",
+                        "Milademetan"
+                    ],
+                    "mechanism": "MDM2-p53 interaction disruption"
+                },
+                "p53": {
+                    "drugs": [
+                        "APR-246",
+                        "COTI-2"
+                    ],
+                    "mechanism": "p53 reactivation"
+                }
+            },
+            "resistance_mechanisms": [
+                "p53 mutations",
+                "Alternative apoptosis pathways"
+            ],
+            "combination_strategies": [
+                "MDM2 + chemotherapy",
+                "p53 reactivation + DNA damage agents"
+            ]
+        },
+        "VEGF_Angiogenesis": {
+            "name": "VEGF/Angiogenesis Pathway",
+            "description": "Regulates blood vessel formation and tumor vascularization",
+            "key_proteins": [
+                "VEGF-A",
+                " VEGFR1",
+                "VEGFR2",
+                "PDGF",
+                "FGF"
+            ],
+            "alterations_in_cancer": [
+                "VEGF overexpression",
+                "Hypoxia-induced angiogenesis"
+            ],
+            "therapeutic_targets": {
+                "VEGF": {
+                    "drugs": [
+                        "Bevacizumab",
+                        "Aflibercept",
+                        "Ramucirumab"
+                    ],
+                    "mechanism": "VEGF ligand sequestration"
+                },
+                "VEGFR": {
+                    "drugs": [
+                        "Sorafenib",
+                        "Sunitinib",
+                        "Pazopanib",
+                        "Regorafenib",
+                        "Lenvatinib"
+                    ],
+                    "mechanism": "VEGFR tyrosine kinase inhibition"
+                },
+                "Multi-kinase": {
+                    "drugs": [
+                        "Cabozantinib",
+                        "Axitinib"
+                    ],
+                    "mechanism": "Multi-target anti-angiogenic"
+                }
+            },
+            "resistance_mechanisms": [
+                "Alternative pro-angiogenic factors",
+                "Vascular mimicry",
+                "Pericyte recruitment"
+            ],
+            "combination_strategies": [
+                "Anti-VEGF + chemotherapy",
+                "Anti-VEGF + immunotherapy",
+                "Multi-kinase + chemotherapy"
+            ]
+        }
+    },
+    "pathway_crosstalk": {
+        "MAPK_PI3K": {
+            "description": "Reciprocal feedback and compensation",
+            "clinical_significance": "MAPK inhibition can activate PI3K/AKT as resistance mechanism",
+            "combination_rationale": "Dual inhibition prevents bypass resistance"
+        },
+        "PI3K_ER": {
+            "description": "PI3K activation reduces hormone receptor sensitivity",
+            "clinical_significance": "Common in endocrine-resistant breast cancer",
+            "combination_rationale": "PI3K inhibitors + hormone therapy"
+        },
+        "VEGF_MAPK": {
+            "description": "Angiogenesis supports tumor growth driven by MAPK",
+            "clinical_significance": "Anti-angiogenic therapy enhances MAPK inhibitor efficacy",
+            "combination_rationale": "Anti-VEGF + BRAF/MEK inhibition"
+        },
+        "JAK_STAT_PI3K": {
+            "description": "Parallel activation by cytokines",
+            "clinical_significance": "Dual pathway activation in inflammation-driven cancers",
+            "combination_rationale": "JAK + PI3K inhibition"
+        },
+        "Hippo_MAPK": {
+            "description": "YAP/TAZ activation can bypass MAPK inhibition",
+            "clinical_significance": "Hippo pathway as resistance mechanism",
+            "combination_rationale": "YAP/TAZ + MAPK inhibitors"
+        }
+    },
+    "metadata": {
+        "version": "1.0",
+        "last_updated": "2026-01-14",
+        "sources": [
+            "KEGG Pathway Database",
+            "Reactome",
+            "PharmGKB",
+            "Nature Reviews Drug Discovery 2023-2026",
+            "Cancer Discovery 2023-2026"
+        ],
+        "total_pathways": 7,
+        "total_drugs": 80
+    }
+}

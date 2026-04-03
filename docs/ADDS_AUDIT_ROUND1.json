@@ -1,0 +1,294 @@
+{
+  "timestamp": "2026-03-10T00:30 KST",
+  "ok": 44,
+  "critical": 9,
+  "warn": 9,
+  "issues": [
+    {
+      "level": "CRITICAL",
+      "domain": "Patient",
+      "msg": "KRAS unknown in 26/26 patients",
+      "action": "Fill KRAS from DL"
+    },
+    {
+      "level": "WARN",
+      "domain": "Patient",
+      "msg": "Radiology sparse: 0/26",
+      "action": "Generate synthetic CT features"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Patient",
+      "msg": "ORR missing 26/26",
+      "action": "DL imputation"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Patient",
+      "msg": "PFS missing 26/26",
+      "action": "DL imputation"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Patient",
+      "msg": "OS missing 26/26",
+      "action": "DL imputation"
+    },
+    {
+      "level": "WARN",
+      "domain": "Patient",
+      "msg": "Image quality flag missing 26/26",
+      "action": "Add quality flags"
+    },
+    {
+      "level": "WARN",
+      "domain": "Bliss",
+      "msg": "No antagonism records -- unrealistically all positive",
+      "action": "Add known antagonistic pairs"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Cohort",
+      "msg": "No patient-level toxicity fields in cohort",
+      "action": "Add per-patient AE profile"
+    },
+    {
+      "level": "WARN",
+      "domain": "Cohort",
+      "msg": "No cytokine features",
+      "action": "Add IL-6/TNF/IFN-g"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Cohort",
+      "msg": "No ctDNA field",
+      "action": "Add ctDNA VAF -- critical liquid biopsy marker"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "Cohort",
+      "msg": "No PK/PD parameters (AUC/Cmax/t_half)",
+      "action": "Add PK from DL simulation"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "TCGA",
+      "msg": "No treatment arm field",
+      "action": "Add treatment history"
+    },
+    {
+      "level": "WARN",
+      "domain": "TCGA",
+      "msg": "No CEA in TCGA",
+      "action": "Add CEA from literature median imputation"
+    },
+    {
+      "level": "WARN",
+      "domain": "DL",
+      "msg": "No PK/PD features in model",
+      "action": "Add AUC/Cmax to feature vector"
+    },
+    {
+      "level": "WARN",
+      "domain": "DL",
+      "msg": "Model is tabular-only, no image modality",
+      "action": "Add CT/pathology embedding"
+    },
+    {
+      "level": "CRITICAL",
+      "domain": "DL",
+      "msg": "No OS/PFS prediction model",
+      "action": "Build survival DL model"
+    },
+    {
+      "level": "WARN",
+      "domain": "Molecular",
+      "msg": "No protein structure files",
+      "action": "Add PrPc/RPSA PDB structures"
+    },
+    {
+      "level": "WARN",
+      "domain": "DrugComb",
+      "msg": "KRAS inhibitor coverage: []",
+      "action": "Add MRTX1133/AMG510"
+    }
+  ],
+  "ok_items": [
+    {
+      "domain": "Patient",
+      "msg": "Age diversity OK: [55-85]"
+    },
+    {
+      "domain": "Patient",
+      "msg": "Gender diverse: {'Male', 'Female'}"
+    },
+    {
+      "domain": "Patient",
+      "msg": "Stage diversity: ['I', 'II', 'III', 'IV']"
+    },
+    {
+      "domain": "Patient",
+      "msg": "Completeness mean=0.955"
+    },
+    {
+      "domain": "Patient",
+      "msg": "ai_report: all 26 filled"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Total >= 100 records"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "KRAS alleles covered: 5"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Pritamab combos: 60"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Pritamab+FOLFOXIRI exists"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Clinical phase data referenced"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Bliss value spread (std=5.1) adequate"
+    },
+    {
+      "domain": "Bliss",
+      "msg": "Cell lines: 10"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "n=1000 (>= 1000)"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "arm: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "kras_allele: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "orr: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "dcr: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "dl_pfs_months: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "dl_os_months: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "bliss_score_predicted: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "prpc_expression: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "prpc_expression_level: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "cea_baseline: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "msi_status: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "dl_confidence: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "best_pct_change: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "chemo_drug: 100% filled"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "CEA baseline present"
+    },
+    {
+      "domain": "Cohort",
+      "msg": "KRAS allele diversity: {'G12D', 'G12C', 'WT', 'G12V', 'G13D'}"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "n=594"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "KRAS 100%% filled"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "MSI >= 90%% filled"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "PrPc >= 90%% filled"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "OS/survival field present"
+    },
+    {
+      "domain": "TCGA",
+      "msg": "PFS/DFS/RFS field present"
+    },
+    {
+      "domain": "DL",
+      "msg": "Model exists: synergy_mlp_v3.pt (231 KB)"
+    },
+    {
+      "domain": "DL",
+      "msg": "r2_5cv=0.996 (EXCELLENT)"
+    },
+    {
+      "domain": "DL",
+      "msg": "rho=0.989 (EXCELLENT)"
+    },
+    {
+      "domain": "DL",
+      "msg": "Feature dim=57 (adequate)"
+    },
+    {
+      "domain": "PKPD",
+      "msg": "PK/PD files found: 117"
+    },
+    {
+      "domain": "IC50",
+      "msg": "IC50/viability files found: 11"
+    },
+    {
+      "domain": "IC50",
+      "msg": "GDSC data found: 1 files"
+    },
+    {
+      "domain": "Molecular",
+      "msg": "SMILES: 38 drugs"
+    },
+    {
+      "domain": "DrugComb",
+      "msg": "synergy_combined.csv (49 MB) -- main large DB"
+    }
+  ]
+}

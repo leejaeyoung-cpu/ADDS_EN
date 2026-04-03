@@ -1,0 +1,6 @@
+# Task: Create Final Presentation from Base File
+
+- [x] Inspect the base PPTX file ("임상수요형중개연구 발표평가 준비.pptx").
+- [x] Write Python script to append the SaMD and AI roadmap slides to the base PPTX.
+- [x] Run the script to generate `ADDS_V1_Pitch_Final.pptx`.
+- [x] Notify the user to review the final presentation.

@@ -1,0 +1,1457 @@
+[
+  {
+    "patient_id": "C0181",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_original": 8.46,
+    "pfs_cf": 10.6,
+    "pfs_delta": 2.14,
+    "n_iter": 4,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 6.14,
+        "cf_value": 5.54,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.478,
+        "cf_value": 0.178,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9597,
+        "cf_value": 0.3597,
+        "delta": -0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0091",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 9.81,
+    "pfs_cf": 10.87,
+    "pfs_delta": 1.07,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 7.55,
+        "cf_value": 7.85,
+        "delta": 0.3
+      },
+      "ORR": {
+        "original": 0.403,
+        "cf_value": 0.103,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8597,
+        "cf_value": 1.1597,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0230",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 8.97,
+    "pfs_cf": 10.43,
+    "pfs_delta": 1.46,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.461,
+        "cf_value": 0.761,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.0737,
+        "cf_value": 0.7737,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0116",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 9.04,
+    "pfs_cf": 11.4,
+    "pfs_delta": 2.36,
+    "n_iter": 9,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 19.98,
+        "cf_value": 23.28,
+        "delta": 3.3
+      },
+      "ORR": {
+        "original": 0.393,
+        "cf_value": 0.693,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.6423,
+        "cf_value": 0.9423,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0661",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_original": 7.88,
+    "pfs_cf": 9.18,
+    "pfs_delta": 1.3,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 14.45,
+        "cf_value": 15.05,
+        "delta": 0.6
+      },
+      "ORR": {
+        "original": 0.274,
+        "cf_value": 0.574,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 2.0,
+        "cf_value": 1.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0442",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_original": 9.28,
+    "pfs_cf": 10.3,
+    "pfs_delta": 1.02,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 15.77,
+        "cf_value": 15.17,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.294,
+        "cf_value": 0.594,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0290",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.02,
+    "pfs_cf": 12.12,
+    "pfs_delta": 1.1,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.0222,
+        "cf_value": 0.4222,
+        "delta": -0.6
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 2.0,
+        "cf_value": 2.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0429",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.73,
+    "pfs_cf": 12.67,
+    "pfs_delta": 0.94,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9577,
+        "cf_value": 0.3577,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0350",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 13.66,
+    "pfs_cf": 14.4,
+    "pfs_delta": 0.74,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8287,
+        "cf_value": 0.5287,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0095",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 11.55,
+    "pfs_cf": 12.14,
+    "pfs_delta": 0.58,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 19.73,
+        "cf_value": 20.63,
+        "delta": 0.9
+      },
+      "ORR": {
+        "original": 0.472,
+        "cf_value": 0.772,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0026",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_original": 8.03,
+    "pfs_cf": 10.13,
+    "pfs_delta": 2.1,
+    "n_iter": 6,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 18.1,
+        "cf_value": 19.9,
+        "delta": 1.8
+      },
+      "ORR": {
+        "original": 0.368,
+        "cf_value": 0.668,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8583,
+        "cf_value": 1.1583,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0165",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 8.22,
+    "pfs_cf": 9.87,
+    "pfs_delta": 1.65,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 21.44,
+        "cf_value": 20.84,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.39,
+        "cf_value": 0.69,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0162",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_original": 10.08,
+    "pfs_cf": 11.37,
+    "pfs_delta": 1.29,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.38,
+        "cf_value": 8.08,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8613,
+        "cf_value": 0.5613,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0621",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 12.31,
+    "pfs_cf": 12.79,
+    "pfs_delta": 0.49,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.24,
+        "cf_value": 7.94,
+        "delta": -0.3
+      },
+      "ORR": {
+        "original": 0.456,
+        "cf_value": 0.756,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.798,
+        "cf_value": 0.498,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0611",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.39,
+    "pfs_cf": 12.24,
+    "pfs_delta": 0.85,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.29,
+        "cf_value": 7.99,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9647,
+        "cf_value": 0.3647,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0171",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 11.17,
+    "pfs_cf": 11.67,
+    "pfs_delta": 0.5,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 20.53,
+        "cf_value": 21.13,
+        "delta": 0.6
+      },
+      "ORR": {
+        "original": 0.357,
+        "cf_value": 0.657,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.0968,
+        "cf_value": 0.7968,
+        "delta": -0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0447",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 10.13,
+    "pfs_cf": 11.16,
+    "pfs_delta": 1.03,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.18,
+        "cf_value": 7.88,
+        "delta": -0.3
+      },
+      "ORR": {
+        "original": 0.451,
+        "cf_value": 0.151,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8908,
+        "cf_value": 0.5908,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 1.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0013",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_original": 12.19,
+    "pfs_cf": 12.24,
+    "pfs_delta": 0.05,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.391,
+        "cf_value": 0.691,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0505",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 14.71,
+    "pfs_cf": 14.77,
+    "pfs_delta": 0.06,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 1.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0225",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_original": 8.38,
+    "pfs_cf": 10.38,
+    "pfs_delta": 2.0,
+    "n_iter": 4,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 15.99,
+        "cf_value": 16.29,
+        "delta": 0.3
+      },
+      "ORR": {
+        "original": 0.421,
+        "cf_value": 0.721,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8077,
+        "cf_value": 1.1077,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0146",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_original": 13.17,
+    "pfs_cf": 13.31,
+    "pfs_delta": 0.13,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.841,
+        "cf_value": 0.541,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0145",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_original": 9.81,
+    "pfs_cf": 9.93,
+    "pfs_delta": 0.13,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 18.72,
+        "cf_value": 18.42,
+        "delta": -0.3
+      },
+      "ORR": {
+        "original": 0.417,
+        "cf_value": 0.717,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0156",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 10.7,
+    "pfs_cf": 11.4,
+    "pfs_delta": 0.7,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 20.36,
+        "cf_value": 20.66,
+        "delta": 0.3
+      },
+      "ORR": {
+        "original": 0.427,
+        "cf_value": 0.727,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0276",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_original": 8.97,
+    "pfs_cf": 10.23,
+    "pfs_delta": 1.27,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.37,
+        "cf_value": 0.67,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8124,
+        "cf_value": 1.1124,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0633",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.08,
+    "pfs_cf": 12.11,
+    "pfs_delta": 1.03,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.76,
+        "cf_value": 9.36,
+        "delta": 0.6
+      },
+      "ORR": {
+        "original": 0.408,
+        "cf_value": 0.708,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9438,
+        "cf_value": 0.3438,
+        "delta": -0.6
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 2.0,
+        "cf_value": 2.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0270",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_original": 12.27,
+    "pfs_cf": 13.95,
+    "pfs_delta": 1.68,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 14.73,
+        "cf_value": 14.43,
+        "delta": -0.3
+      },
+      "ORR": {
+        "original": 0.393,
+        "cf_value": 0.693,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.0565,
+        "cf_value": 0.7565,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0172",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_original": 11.35,
+    "pfs_cf": 11.59,
+    "pfs_delta": 0.25,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 15.68,
+        "cf_value": 15.38,
+        "delta": -0.3
+      },
+      "ORR": {
+        "original": 0.379,
+        "cf_value": 0.679,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 2.0,
+        "cf_value": 1.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0043",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_original": 10.91,
+    "pfs_cf": 11.52,
+    "pfs_delta": 0.61,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.837,
+        "cf_value": 0.537,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0275",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_original": 10.71,
+    "pfs_cf": 11.19,
+    "pfs_delta": 0.49,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 16.77,
+        "cf_value": 16.17,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.317,
+        "cf_value": 0.617,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0207",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_original": 9.19,
+    "pfs_cf": 11.21,
+    "pfs_delta": 2.03,
+    "n_iter": 3,
+    "target_achieved": true,
+    "changes": {
+      "ORR": {
+        "original": 0.474,
+        "cf_value": 0.174,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.979,
+        "cf_value": 0.379,
+        "delta": -0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 1.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0133",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_original": 10.73,
+    "pfs_cf": 11.06,
+    "pfs_delta": 0.32,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.364,
+        "cf_value": 0.064,
+        "delta": -0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0077",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 14.39,
+    "pfs_cf": 14.52,
+    "pfs_delta": 0.13,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.429,
+        "cf_value": 0.729,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0161",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_original": 7.19,
+    "pfs_cf": 9.26,
+    "pfs_delta": 2.07,
+    "n_iter": 4,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 13.54,
+        "cf_value": 13.84,
+        "delta": 0.3
+      },
+      "ORR": {
+        "original": 0.327,
+        "cf_value": 0.627,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9222,
+        "cf_value": 1.2222,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0466",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 10.78,
+    "pfs_cf": 12.22,
+    "pfs_delta": 1.44,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 20.08,
+        "cf_value": 20.68,
+        "delta": 0.6
+      },
+      "ORR": {
+        "original": 0.426,
+        "cf_value": 0.726,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9439,
+        "cf_value": 1.2439,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0522",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 10.34,
+    "pfs_cf": 12.02,
+    "pfs_delta": 1.68,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 8.56,
+        "cf_value": 7.96,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.481,
+        "cf_value": 0.781,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8513,
+        "cf_value": 0.5513,
+        "delta": -0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0454",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 12.12,
+    "pfs_cf": 12.22,
+    "pfs_delta": 0.11,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 7.02,
+        "cf_value": 7.32,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9193,
+        "cf_value": 0.6193,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0645",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 9.51,
+    "pfs_cf": 10.63,
+    "pfs_delta": 1.12,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.377,
+        "cf_value": 0.677,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9485,
+        "cf_value": 1.2485,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0335",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 12.8,
+    "pfs_cf": 13.6,
+    "pfs_delta": 0.8,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 7.78,
+        "cf_value": 8.08,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.9494,
+        "cf_value": 0.3494,
+        "delta": -0.6
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0618",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 10.98,
+    "pfs_cf": 12.53,
+    "pfs_delta": 1.55,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 7.24,
+        "cf_value": 5.44,
+        "delta": -1.8
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8548,
+        "cf_value": 0.5548,
+        "delta": -0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0145",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.75,
+    "pfs_cf": 12.58,
+    "pfs_delta": 0.83,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 9.27,
+        "cf_value": 8.07,
+        "delta": -1.2
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8208,
+        "cf_value": 0.5208,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0013",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 8.92,
+    "pfs_cf": 10.53,
+    "pfs_delta": 1.61,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 21.2,
+        "cf_value": 20.6,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.482,
+        "cf_value": 0.782,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.8124,
+        "cf_value": 1.1124,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0071",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 10.56,
+    "pfs_cf": 10.86,
+    "pfs_delta": 0.29,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ORR": {
+        "original": 0.409,
+        "cf_value": 0.709,
+        "delta": 0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0096",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_original": 10.27,
+    "pfs_cf": 10.68,
+    "pfs_delta": 0.41,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 12.43,
+        "cf_value": 11.83,
+        "delta": -0.6
+      },
+      "ORR": {
+        "original": 0.381,
+        "cf_value": 0.681,
+        "delta": 0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0030",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 13.99,
+    "pfs_cf": 14.04,
+    "pfs_delta": 0.05,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0591",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_original": 10.15,
+    "pfs_cf": 11.18,
+    "pfs_delta": 1.04,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 18.76,
+        "cf_value": 20.56,
+        "delta": 1.8
+      },
+      "ORR": {
+        "original": 0.368,
+        "cf_value": 0.068,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.1809,
+        "cf_value": 0.8809,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 2.0,
+        "cf_value": 1.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "C0274",
+    "arm": "Control",
+    "kras": "G12D",
+    "pfs_original": 15.95,
+    "pfs_cf": 16.0,
+    "pfs_delta": 0.05,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.6691,
+        "cf_value": 0.3691,
+        "delta": -0.3
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0341",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_original": 11.93,
+    "pfs_cf": 13.46,
+    "pfs_delta": 1.53,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 7.25,
+        "cf_value": 5.45,
+        "delta": -1.8
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.1316,
+        "cf_value": 0.5316,
+        "delta": -0.6
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0355",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 14.12,
+    "pfs_cf": 14.83,
+    "pfs_delta": 0.71,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 20.74,
+        "cf_value": 21.34,
+        "delta": 0.6
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.7636,
+        "cf_value": 1.0636,
+        "delta": 0.3
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0632",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_original": 7.92,
+    "pfs_cf": 9.95,
+    "pfs_delta": 2.03,
+    "n_iter": 6,
+    "target_achieved": true,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 12.93,
+        "cf_value": 13.83,
+        "delta": 0.9
+      },
+      "ORR": {
+        "original": 0.376,
+        "cf_value": 0.676,
+        "delta": 0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 1.1249,
+        "cf_value": 0.8249,
+        "delta": -0.3
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      },
+      "Toxicity burden (G3/4 sum)": {
+        "original": 1.0,
+        "cf_value": 0.4,
+        "delta": -0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  },
+  {
+    "patient_id": "P0448",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_original": 9.51,
+    "pfs_cf": 11.49,
+    "pfs_delta": 1.98,
+    "n_iter": 200,
+    "target_achieved": false,
+    "changes": {
+      "Bliss synergy score": {
+        "original": 21.72,
+        "cf_value": 23.52,
+        "delta": 1.8
+      },
+      "ORR": {
+        "original": 0.389,
+        "cf_value": 0.089,
+        "delta": -0.3
+      },
+      "PK: Pritamab AUC (norm)": {
+        "original": 0.7938,
+        "cf_value": 1.3938,
+        "delta": 0.6
+      },
+      "ctDNA responder": {
+        "original": 0.0,
+        "cf_value": 0.6,
+        "delta": 0.6
+      }
+    },
+    "method": "DICE_greedy_gradient_free",
+    "note": "CF targets +2 months PFS via actionable feature changes only"
+  }
+]

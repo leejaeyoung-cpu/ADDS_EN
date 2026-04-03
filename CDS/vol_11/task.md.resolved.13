@@ -1,0 +1,6 @@
+# Task: Generate Presentation Flow Diagrams
+
+- [ ] Analyze the requirement for overall content flow vs poster images.
+- [ ] Create detailed Mermaid diagrams outlining the ADDS. V1 system architecture.
+- [ ] Create Mermaid diagrams for the SaMD certification timeline and PDO validation flow.
+- [ ] Present the diagrams to the user in a new artifact.

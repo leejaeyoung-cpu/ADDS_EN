@@ -1,0 +1,20 @@
+{
+  "ok": 47,
+  "warn": 2,
+  "fail": 0,
+  "verdict": "PASS -- publication-ready (with disclosures)",
+  "issues": [
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "No real patient data used -- all findings are synthetic-data derived",
+      "detail": "Required statement in any publication: \"All models trained on synthetically generated data. Clinical validation on real RCT cohorts is required before clinical application.\""
+    },
+    {
+      "level": "WARN",
+      "cat": "Honesty",
+      "msg": "Physician evaluation is 100% simulated -- IRB questionnaire ready but study not conducted",
+      "detail": "Required: Prospective IRB-approved physician evaluation study before reporting physician adoption rates."
+    }
+  ]
+}

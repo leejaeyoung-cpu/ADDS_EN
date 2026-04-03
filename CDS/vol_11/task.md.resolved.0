@@ -1,0 +1,7 @@
+# Task: Analyze Research and Development Plan
+
+- [ ] Extract and read text from the research plan PDF
+- [ ] Analyze the first part of the plan (lines 1-800)
+- [ ] Read and analyze the second part of the plan (lines 801-1335)
+- [ ] Synthesize key points: background, goals, schedule, AI model elements
+- [ ] Present the analysis to the user

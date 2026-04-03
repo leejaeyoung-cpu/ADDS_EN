@@ -1,0 +1,24 @@
+{
+  "ks_statistic": 0.755,
+  "p_value": 0.0,
+  "lit_mean": 9.68,
+  "lit_std": 4.38,
+  "internal_mean": 17.44,
+  "internal_std": 4.13,
+  "verdict": "DIFFERENT (p<0.05) -- internal may be biased",
+  "note": "KS test between literature-sourced and internally-generated Bliss values",
+  "kras_lit": [
+    "G12C",
+    "WT",
+    "G12D",
+    "G13D",
+    "G12V"
+  ],
+  "kras_internal": [
+    "G12C",
+    "G12D",
+    "G13D",
+    "G12V",
+    "WT"
+  ]
+}

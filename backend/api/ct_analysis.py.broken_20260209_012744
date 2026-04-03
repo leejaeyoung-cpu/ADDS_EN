@@ -1,0 +1,263 @@
+"""
+SIMPLIFIED CT Analysis API - Direct call to proven detection script
+"""
+from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi.responses import JSONResponse
+from typing import List
+import tempfile
+import shutil
+from pathlib import Path
+import logging
+import numpy as np
+
+router = APIRouter()
+logger = logging.getLogger(__name__)
+
+@router.post("/analyze")
+async def analyze_ct_scan(
+    patient_id: str,
+    files: List[UploadFile] = File(...)
+) -> JSONResponse:
+    """
+    Analyze CT scan using proven detection script
+    """
+    
+    if not files:
+        raise HTTPException(status_code=400, detail="No DICOM files provided")
+    
+    logger.info(f"Received CT analysis request for patient {patient_id}")
+    logger.info(f"Number of DICOM files: {len(files)}")
+    
+    # Create PERMANENT patient-specific directory (not temp!)
+    patient_output_dir = Path(f"outputs/{patient_id}")
+    patient_output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Also create segmentation subdirectory
+    segmentation_dir = patient_output_dir / "segmentation"
+    segmentation_dir.mkdir(exist_ok=True)
+    
+    # Create temp dir for DICOM upload only
+    # Create temp dir for DICOM upload only
+    temp_dir = Path(tempfile.mkdtemp(prefix=f"ct_{patient_id}_"))
+    
+    # Import nibabel at function level (needed throughout)
+    import nibabel as nib
+    
+    try:
+        # Save uploaded files to temp
+        dicom_paths = []
+        for file in files:
+            content = await file.read()
+            file_path = temp_dir / file.filename
+            with open(file_path, 'wb') as f:
+                f.write(content)
+            dicom_paths.append(file_path)
+        
+        logger.info(f"Saved {len(dicom_paths)} DICOM files to temp")
+        
+        # Check if NIfTI already exists in PERMANENT directory
+        permanent_nifti = patient_output_dir / "ct_volume.nii.gz"
+        
+        if not permanent_nifti.exists():
+            logger.info("Reconstructing volume from DICOM...")
+            from src.medical_imaging.ct_volume_reconstruction import CTVolumeReconstructor
+            reconstructor = CTVolumeReconstructor()
+            volume, metadata = reconstructor.reconstruct_3d_volume(temp_dir, normalize=False)
+            
+            spacing = metadata.get('spacing', (1.0, 1.0, 1.0))
+            affine = np.diag([spacing[0], spacing[1], spacing[2], 1.0])
+            nii = nib.Nifti1Image(volume, affine=affine)
+            
+            # Save to PERMANENT location
+            nib.save(nii, permanent_nifti)
+            logger.info(f"✓ Volume saved to PERMANENT location: {permanent_nifti}")
+        else:
+            logger.info(f"Using existing NIfTI: {permanent_nifti}")
+        
+        nifti_path = permanent_nifti
+        
+        # Generate STRICT organ mask (excludes bones, lungs, body exterior)
+        logger.info("Generating strict anatomical mask...")
+        from strict_anatomical_mask import estimate_colon_region_strict
+        
+        nii_volume = nib.load(nifti_path)
+        volume_data = nii_volume.get_fdata()
+        spacing_data = nii_volume.header.get_zooms()
+        
+        colon_mask = estimate_colon_region_strict(volume_data, spacing_data)
+        
+        # Save colon mask to PERMANENT location
+        colon_mask_path = segmentation_dir / "colon_mask.nii.gz"
+        mask_nii = nib.Nifti1Image(colon_mask.astype(np.uint8), nii_volume.affine)
+        nib.save(mask_nii, colon_mask_path)
+        logger.info(f"✓ Colon mask saved to PERMANENT location: {colon_mask_path}")
+        
+        # Call proven detection script
+        import sys
+        sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+        from detect_tumors_inha_corrected import run_detection
+        
+        output_dir = temp_dir / "results"
+        output_dir.mkdir(exist_ok=True)
+        
+        logger.info(f"Running detection with strict anatomical mask...")
+        result = run_detection(nifti_path, output_dir, organ_mask_path=colon_mask_path)
+        
+        if result['status'] == 'error':
+            raise Exception(result.get('message', 'Detection failed'))
+        
+        logger.info(f"Detection complete: {result['tumor_count']} tumor-positive slices")
+        
+        # 3D Clustering to group detections into actual tumors
+        logger.info("Performing 3D clustering...")
+        from tumor_3d_clustering import cluster_detections_3d, format_tumor_summary
+        
+        spacing_tuple = tuple(nii_volume.header.get_zooms())
+        tumors_3d = cluster_detections_3d(result['results'], spacing_tuple, max_distance_mm=20.0)
+        
+        total_detections = sum(len(r.get('detections', [])) for r in result['results'] if r.get('has_tumor'))
+        tumor_slices = sum(1 for r in result['results'] if r.get('has_tumor'))
+        
+        tumor_summary = format_tumor_summary(tumors_3d, total_detections, tumor_slices)
+        
+        logger.info(f"3D Clustering complete: {tumor_summary['tumor_count']} tumor candidates "
+                   f"({total_detections} detections)")
+        
+        # Generate tumor mask NIfTI for 3D visualization
+        logger.info("Generating tumor mask NIfTI...")
+        tumor_mask_3d = np.zeros_like(volume_data, dtype=np.uint8)
+        
+        # Fill mask from detection results
+        for r in result['results']:
+            if r.get('has_tumor') and 'detections' in r:
+                slice_idx = r['slice_idx']
+                for det in r['detections']:
+                    # Get bounding box
+                    x1, y1, x2, y2 = det['bbox']
+                    # Fill region (simple box for now)
+                    tumor_mask_3d[slice_idx, int(y1):int(y2), int(x1):int(x2)] = 1
+        
+        # Save tumor mask to PERMANENT location
+        tumor_mask_path = segmentation_dir / "tumor_mask.nii.gz"
+        tumor_mask_nii = nib.Nifti1Image(tumor_mask_3d, nii_volume.affine)
+        nib.save(tumor_mask_nii, tumor_mask_path)
+        logger.info(f"✓ Tumor mask saved to PERMANENT location: {tumor_mask_path}")
+        logger.info(f"  Tumor voxels: {tumor_mask_3d.sum()}")
+        
+        # Load images for display
+        analyzed_images = []
+        tumor_results = [r for r in result['results'] if r.get('has_tumor')]
+        
+        if len(tumor_results) > 0:
+            # Show top 5 tumor-positive slices
+            top5 = sorted(tumor_results, key=lambda x: x.get('max_confidence', 0), reverse=True)[:5]
+            logger.info(f"Selecting {len(top5)} tumor-positive slices")
+        else:
+            # No tumors detected - show representative slices from middle of volume
+            logger.info("No tumors detected - showing representative slices")
+            total_slices = len(result['results'])
+            if total_slices > 0:
+                # Pick 5 evenly spaced slices from volume
+                indices = [int(total_slices * i / 6) for i in range(1, 6)]
+                top5 = [result['results'][i] for i in indices if i < total_slices]
+            else:
+                top5 = []
+        
+        for r in top5:
+            img_path = output_dir / f"slice_{r['slice_idx']:03d}_detection.png"
+            if img_path.exists():
+                import base64
+                with open(img_path, 'rb') as f:
+                    b64 = base64.b64encode(f.read()).decode('utf-8')
+                    analyzed_images.append(f"data:image/png;base64,{b64}")
+            else:
+                logger.warning(f"Image not found: {img_path}")
+        
+        logger.info(f"Loaded {len(analyzed_images)} images")
+        
+        return JSONResponse(content={
+            'status': 'success',
+            'patient_id': patient_id,
+            'tumors_detected': tumor_summary['tumor_count'],
+            'total_detections': tumor_summary['total_detections'],
+            'tumor_slices': tumor_summary['tumor_slices'],
+            'total_slices': result['total_slices'],
+            'detection_rate': result['detection_rate'],
+            'largest_tumor_mm': tumor_summary['largest_tumor_mm'],
+            'total_volume_ml': tumor_summary['total_volume_ml'],
+            'summary_text': tumor_summary['summary_text'],
+            'top_tumors': tumor_summary.get('tumors', [])[:5],  # Top 5 for frontend
+            'analyzed_images': analyzed_images
+        })
+        
+    except Exception as e:
+        logger.error(f"Error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+        
+    finally:
+            pass
+
+@router.get("/{patient_id}/mesh3d")
+async def get_3d_meshes(
+    patient_id: str,
+    mesh_type: str = "all"
+) -> JSONResponse:
+    """
+    Get 3D mesh data for organs and tumors
+    
+    Args:
+        patient_id: Patient identifier
+        mesh_type: Type of meshes to return ("organs", "tumors", or "all")
+    
+    Returns:
+        JSON containing 3D mesh data with vertices, faces, and metadata
+    """
+    logger.info(f"3D mesh request for patient {patient_id}, type={mesh_type}")
+    
+    try:
+        # Import mesh generator
+        from backend.services.mesh_generator import generate_meshes_for_patient
+        
+        # Determine output directory based on patient ID
+        # For now, use the standard output directory
+        # In production, this would be patient-specific
+        ct_output_dir = Path("outputs/inha_ct_detection/3d_segmentation")
+        
+        if not ct_output_dir.exists():
+            raise HTTPException(
+                status_code=404,
+                detail=f"No CT analysis data found for patient {patient_id}"
+            )
+        
+        # Generate meshes
+        logger.info(f"Generating meshes from {ct_output_dir}")
+        mesh_data = generate_meshes_for_patient(ct_output_dir, patient_id)
+        
+        # Filter by mesh_type
+        if mesh_type == "organs":
+            response_data = {
+                'organs': mesh_data['organs'],
+                'metadata': mesh_data['metadata']
+            }
+        elif mesh_type == "tumors":
+            response_data = {
+                'tumors': mesh_data['tumors'],
+                'metadata': mesh_data['metadata']
+            }
+        else:  # "all"
+            response_data = mesh_data
+        
+        logger.info(
+            f"Returning {len(mesh_data['organs'])} organs, "
+            f"{len(mesh_data['tumors'])} tumors"
+        )
+        
+        return JSONResponse(content=response_data)
+        
+    except FileNotFoundError as e:
+        logger.error(f"File not found: {e}")
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        logger.error(f"Error generating meshes: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+

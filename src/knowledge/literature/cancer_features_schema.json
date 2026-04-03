@@ -1,0 +1,324 @@
+{
+    "description": "Standard schema for extractable cancer features from literature",
+    "version": "1.0",
+    "morphological_features": {
+        "nuclear_size": {
+            "unit": "μm",
+            "type": "numeric",
+            "description": "Mean nuclear diameter"
+        },
+        "nuclear_to_cytoplasmic_ratio": {
+            "range": [
+                0,
+                10
+            ],
+            "type": "numeric",
+            "description": "N/C ratio"
+        },
+        "cell_density": {
+            "unit": "cells/mm²",
+            "type": "numeric",
+            "description": "Cellularity"
+        },
+        "heterogeneity_index": {
+            "range": [
+                0,
+                1
+            ],
+            "type": "numeric",
+            "description": "Morphological heterogeneity score"
+        },
+        "gland_formation": {
+            "values": [
+                "well",
+                "moderate",
+                "poor",
+                "none"
+            ],
+            "type": "categorical",
+            "description": "Glandular differentiation"
+        },
+        "necrosis_percentage": {
+            "range": [
+                0,
+                100
+            ],
+            "unit": "%",
+            "type": "numeric"
+        },
+        "mitotic_index": {
+            "unit": "mitoses/HPF",
+            "type": "numeric",
+            "description": "Mitotic figures per high-power field"
+        }
+    },
+    "molecular_signatures": {
+        "ki67_index": {
+            "unit": "%",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric",
+            "description": "Proliferation marker"
+        },
+        "pd_l1_tps": {
+            "unit": "%",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric",
+            "description": "PD-L1 tumor proportion score"
+        },
+        "pd_l1_cps": {
+            "unit": "CPS",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric",
+            "description": "PD-L1 combined positive score"
+        },
+        "tmb": {
+            "unit": "mutations/Mb",
+            "type": "numeric",
+            "description": "Tumor mutational burden"
+        },
+        "msi_status": {
+            "values": [
+                "MSS",
+                "MSI-Low",
+                "MSI-High"
+            ],
+            "type": "categorical"
+        },
+        "her2_score": {
+            "values": [
+                "0",
+                "1+",
+                "2+",
+                "3+"
+            ],
+            "type": "categorical"
+        },
+        "tumor_infiltrating_lymphocytes": {
+            "range": [
+                0,
+                100
+            ],
+            "unit": "%",
+            "type": "numeric"
+        }
+    },
+    "pathway_activations": {
+        "mapk_erk_score": {
+            "range": [
+                0,
+                1
+            ],
+            "type": "numeric",
+            "description": "MAPK/ERK pathway activation"
+        },
+        "pi3k_akt_mtor_score": {
+            "range": [
+                0,
+                1
+            ],
+            "type": "numeric"
+        },
+        "p53_dysfunction": {
+            "type": "boolean",
+            "description": "p53 pathway inactivation"
+        },
+        "wnt_beta_catenin_score": {
+            "range": [
+                0,
+                1
+            ],
+            "type": "numeric"
+        },
+        "nfkb_score": {
+            "range": [
+                0,
+                1
+            ],
+            "type": "numeric"
+        },
+        "ddr_deficiency": {
+            "type": "boolean",
+            "description": "DNA damage response deficiency"
+        }
+    },
+    "genomic_features": {
+        "mutation_count": {
+            "type": "integer",
+            "description": "Total mutations detected"
+        },
+        "cnv_count": {
+            "type": "integer",
+            "description": "Copy number variations"
+        },
+        "fusion_count": {
+            "type": "integer"
+        },
+        "driver_mutations": {
+            "type": "array",
+            "item_type": "string",
+            "description": "List of driver gene mutations"
+        },
+        "actionable_mutations": {
+            "type": "array",
+            "item_type": "string"
+        }
+    },
+    "clinical_outcomes": {
+        "os_months": {
+            "unit": "months",
+            "type": "numeric",
+            "description": "Overall survival"
+        },
+        "pfs_months": {
+            "unit": "months",
+            "type": "numeric",
+            "description": "Progression-free survival"
+        },
+        "orr": {
+            "unit": "%",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric",
+            "description": "Objective response rate"
+        },
+        "dcr": {
+            "unit": "%",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric",
+            "description": "Disease control rate"
+        },
+        "grade_3_4_toxicity_rate": {
+            "unit": "%",
+            "range": [
+                0,
+                100
+            ],
+            "type": "numeric"
+        }
+    },
+    "cancer_specific": {
+        "gastric": {
+            "lauren_classification": {
+                "values": [
+                    "intestinal",
+                    "diffuse",
+                    "mixed"
+                ],
+                "type": "categorical"
+            },
+            "her2_status": {
+                "values": [
+                    "negative",
+                    "positive"
+                ],
+                "type": "categorical"
+            },
+            "ebv_status": {
+                "values": [
+                    "negative",
+                    "positive"
+                ],
+                "type": "categorical"
+            }
+        },
+        "ovarian": {
+            "histologic_subtype": {
+                "values": [
+                    "serous",
+                    "endometrioid",
+                    "clear_cell",
+                    "mucinous"
+                ],
+                "type": "categorical"
+            },
+            "brca_status": {
+                "values": [
+                    "wild-type",
+                    "BRCA1",
+                    "BRCA2"
+                ],
+                "type": "categorical"
+            },
+            "hrd_score": {
+                "range": [
+                    0,
+                    100
+                ],
+                "type": "numeric",
+                "description": "Homologous recombination deficiency score"
+            }
+        },
+        "liver": {
+            "bclc_stage": {
+                "values": [
+                    "0",
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                ],
+                "type": "categorical",
+                "description": "Barcelona Clinic Liver Cancer staging"
+            },
+            "afp_level": {
+                "unit": "ng/mL",
+                "type": "numeric"
+            },
+            "child_pugh_score": {
+                "values": [
+                    "A",
+                    "B",
+                    "C"
+                ],
+                "type": "categorical"
+            }
+        },
+        "renal": {
+            "fuhrman_grade": {
+                "values": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ],
+                "type": "categorical"
+            },
+            "clear_cell_vs_non_clear_cell": {
+                "values": [
+                    "clear_cell",
+                    "papillary",
+                    "chromophobe",
+                    "other"
+                ],
+                "type": "categorical"
+            }
+        },
+        "prostate": {
+            "gleason_score": {
+                "range": [
+                    6,
+                    10
+                ],
+                "type": "integer"
+            },
+            "psa_level": {
+                "unit": "ng/mL",
+                "type": "numeric"
+            }
+        }
+    }
+}

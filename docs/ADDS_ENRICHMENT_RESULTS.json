@@ -1,0 +1,137 @@
+{
+  "timestamp": "2026-03-08T23:30 KST",
+  "verdict": "PASS -- All critical checks passed",
+  "ok": 23,
+  "warn": 0,
+  "fail": 0,
+  "enrichment_summary": {
+    "patient_n": 26,
+    "patient_age_range": [
+      55,
+      85
+    ],
+    "patient_completeness_mean": 0.955,
+    "bliss_records_total": 132,
+    "dl_r2_5cv": 0.996,
+    "dl_drug_rank_rho": 1.0,
+    "tcga_rows": 594,
+    "synthetic_cohort_rows": 1000
+  },
+  "checks": [
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "Age diversity: 18 unique values in [55,85]"
+    },
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "Gender diversity: {'Female', 'Male'}"
+    },
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "Stage diversity: ['I', 'II', 'III', 'IV']"
+    },
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "Completeness mean=0.955 (>= 0.90)"
+    },
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "ai_report_interpretation: all 26 patients filled"
+    },
+    {
+      "status": "OK",
+      "category": "Patient",
+      "message": "KRAS status in reports: 26/26"
+    },
+    {
+      "status": "OK",
+      "category": "Bliss",
+      "message": "Total records: 132 (>= 100)"
+    },
+    {
+      "status": "OK",
+      "category": "Bliss",
+      "message": "KRAS alleles covered: {'G13D', 'G12C', 'G12V', 'G12D', 'WT'}"
+    },
+    {
+      "status": "OK",
+      "category": "Bliss",
+      "message": "Pritamab combo records: 60"
+    },
+    {
+      "status": "OK",
+      "category": "Bliss",
+      "message": "References: 8 different sources"
+    },
+    {
+      "status": "OK",
+      "category": "Bliss",
+      "message": "All Bliss values in plausible range [-5,50]"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "r2_5cv=0.996 (>= 0.70 target, EXCELLENT)"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "rho_5cv=0.989 (EXCELLENT)"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "drug_rank_rho=1.000 (EXCELLENT)"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "Top-1 match: CORRECT (Oxaliplatin #1)"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "Top-2 match: CORRECT"
+    },
+    {
+      "status": "OK",
+      "category": "DL",
+      "message": "Model saved: synergy_mlp_v3.pt (231 KB)"
+    },
+    {
+      "status": "OK",
+      "category": "TCGA",
+      "message": "Rows: 594"
+    },
+    {
+      "status": "OK",
+      "category": "TCGA",
+      "message": "KRAS 100% filled (594/594)"
+    },
+    {
+      "status": "OK",
+      "category": "TCGA",
+      "message": "MSI >= 90% filled (594/594)"
+    },
+    {
+      "status": "OK",
+      "category": "Cohort",
+      "message": "n=1000 patients"
+    },
+    {
+      "status": "OK",
+      "category": "Cohort",
+      "message": "All key fields present: ['bliss_score_predicted', 'prpc_expression_level', 'cea_baseline', 'msi_status', 'dl_confidence']"
+    },
+    {
+      "status": "OK",
+      "category": "Cohort",
+      "message": "bliss_predicted range [4.1,24.4] plausible"
+    }
+  ]
+}

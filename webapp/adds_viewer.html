@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADDS — AI-Driven Diagnostic & Decision Support System</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f4e 50%, #0d1b3e 100%);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .container { display: flex; height: 100vh; }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: 300px;
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(255,255,255,0.08);
+            overflow-y: auto;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-header {
+            padding: 24px 20px 20px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.3) 0%, rgba(118,75,162,0.3) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-header .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 6px;
+        }
+
+        .logo-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.3px;
+        }
+
+        .sidebar-header p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 4px;
+        }
+
+        .section {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .section-title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 12px;
+        }
+
+        /* Patient Card */
+        .patient-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .patient-card .patient-id {
+            font-size: 15px;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 6px;
+        }
+
+        .patient-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .patient-meta span {
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .patient-meta strong { color: rgba(255,255,255,0.85); }
+
+        /* Timeline */
+        .timeline-control {
+            margin-bottom: 8px;
+        }
+
+        .timeline-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 6px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.15);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(102,126,234,0.6);
+        }
+
+        /* Layer items */
+        .layer-item {
+            display: flex;
+            align-items: center;
+            padding: 9px 10px;
+            margin-bottom: 6px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .layer-item:hover {
+            background: rgba(255,255,255,0.09);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .layer-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .layer-name {
+            flex: 1;
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+        }
+
+        .layer-toggle {
+            width: 32px;
+            height: 18px;
+            background: #667eea;
+            border-radius: 9px;
+            position: relative;
+            transition: background 0.2s;
+        }
+
+        .layer-toggle::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .layer-toggle.off {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .layer-toggle.off::after {
+            transform: translateX(-14px);
+        }
+
+        /* Tumor stats */
+        .stat-card {
+            background: rgba(255, 80, 80, 0.08);
+            border: 1px solid rgba(255, 80, 80, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff6b6b;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 2px;
+        }
+
+        .change-positive { color: #4ade80; }
+        .change-negative { color: #ff6b6b; }
+
+        /* Morphology panel */
+        .morph-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .morph-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .morph-bar-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            width: 70px;
+            flex-shrink: 0;
+        }
+
+        .morph-bar-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .morph-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .morph-bar-val {
+            font-size: 11px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            width: 40px;
+            text-align: right;
+        }
+
+        /* Viewer */
+        .viewer-container {
+            flex: 1;
+            position: relative;
+        }
+
+        #viewer-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Toolbar */
+        .toolbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .toolbar-btn {
+            width: 44px;
+            height: 44px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+
+        .toolbar-btn:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+
+        .toolbar-btn.active {
+            background: rgba(102,126,234,0.4);
+            border-color: rgba(102,126,234,0.6);
+        }
+
+        /* Top info bar */
+        .top-bar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .info-chip {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .info-chip strong { color: #a78bfa; }
+
+        /* Bottom performance panel */
+        .bottom-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .perf-card {
+            flex: 1;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .perf-card .title {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 8px;
+        }
+
+        .perf-card .metric {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .perf-card .metric span {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .perf-card .sub {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+        }
+
+        .perf-card .badge {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .badge-green { background: rgba(74,222,128,0.15); color: #4ade80; }
+        .badge-blue  { background: rgba(96,165,250,0.15); color: #60a5fa; }
+        .badge-purple{ background: rgba(167,139,250,0.15); color: #a78bfa; }
+
+        /* Loading */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(255,255,255,0.15);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading p { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+        /* Controls hint */
+        .hint {
+            position: absolute;
+            bottom: 130px;
+            right: 20px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.25);
+            text-align: right;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ── SIDEBAR ── -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-badge">ADDS v1.0</span>
+            </div>
+            <h1>3D Medical Viewer</h1>
+            <p>AI-Driven Diagnostic & Decision Support</p>
+        </div>
+
+        <!-- Patient -->
+        <div class="section">
+            <div class="section-title">Patient</div>
+            <div class="patient-card">
+                <div class="patient-id" id="patient-id">PT-001740976</div>
+                <div class="patient-meta">
+                    <span>Diagnosis: <strong>Colorectal Cancer (CRC)</strong></span>
+                    <span>Stage: <strong>III-B</strong></span>
+                    <span>Scan Date: <strong id="scan-date">2025-09-30</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <div class="section-title">Treatment Timeline</div>
+            <div class="timeline-control">
+                <input type="range" id="timeline-slider" min="0" max="2" value="0" step="1">
+                <div class="timeline-label">
+                    <span>T0 Baseline</span>
+                    <span>T1 Wk 2</span>
+                    <span>T2 Wk 4</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layer Controls -->
+        <div class="section">
+            <div class="section-title">3D Layer Visibility</div>
+            <div class="layer-item" onclick="toggleLayer('colon', this)">
+                <div class="layer-dot" style="background:#ff9664;"></div>
+                <span class="layer-name">Colon</span>
+                <div class="layer-toggle" id="toggle-colon"></div>
+            </div>
+            <div class="layer-item" onclick="toggleLayer('liver', this)">
+                <div class="layer-dot" style="background:#964632;"></div>
+                <span class="layer-name">Liver</span>
+                <div class="layer-toggle" id="toggle-liver"></div>
+            </div>
+            <div class="layer-item" onclick="toggleLayer('kidneys', this)">
+                <div class="layer-dot" style="background:#c86496;"></div>
+                <span class="layer-name">Kidneys</span>
+                <div class="layer-toggle" id="toggle-kidneys"></div>
+            </div>
+            <div class="layer-item" onclick="toggleLayer('tumors', this)">
+                <div class="layer-dot" style="background:#ff3232;box-shadow:0 0 6px rgba(255,50,50,0.5);"></div>
+                <span class="layer-name">⚠ Tumors</span>
+                <div class="layer-toggle" id="toggle-tumors"></div>
+            </div>
+            <div style="margin-top:12px;">
+                <div class="section-title" style="margin-bottom:8px;">Global Opacity</div>
+                <input type="range" id="global-opacity" min="10" max="100" value="60">
+            </div>
+        </div>
+
+        <!-- Tumor Stats -->
+        <div class="section">
+            <div class="section-title">Tumor Detection (RECIST)</div>
+            <div class="stat-card">
+                <div class="stat-grid">
+                    <div class="stat-item">
+                        <div class="stat-value" id="tumor-count">5</div>
+                        <div class="stat-label">Lesions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="tumor-vol">9.16</div>
+                        <div class="stat-label">Vol (cm³)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="tumor-ld">49.1</div>
+                        <div class="stat-label">Max LD (mm)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value change-positive" id="tumor-change">−20.5%</div>
+                        <div class="stat-label">vs T0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HUVEC Morphology -->
+        <div class="section">
+            <div class="section-title">HUVEC Morphology (n=43,190)</div>
+            <div class="morph-bars">
+                <div class="morph-bar-item">
+                    <span class="morph-bar-label">Control</span>
+                    <div class="morph-bar-track">
+                        <div class="morph-bar-fill" style="width:46%;background:#4DBBD5;"></div>
+                    </div>
+                    <span class="morph-bar-val">1.831</span>
+                </div>
+                <div class="morph-bar-item">
+                    <span class="morph-bar-label">Healthy</span>
+                    <div class="morph-bar-track">
+                        <div class="morph-bar-fill" style="width:47%;background:#00A087;"></div>
+                    </div>
+                    <span class="morph-bar-val">1.865</span>
+                </div>
+                <div class="morph-bar-item">
+                    <span class="morph-bar-label">HGPS</span>
+                    <div class="morph-bar-track">
+                        <div class="morph-bar-fill" style="width:48%;background:#E64B35;"></div>
+                    </div>
+                    <span class="morph-bar-val">1.902</span>
+                </div>
+                <div class="morph-bar-item">
+                    <span class="morph-bar-label">+MT-Exo</span>
+                    <div class="morph-bar-track">
+                        <div class="morph-bar-fill" style="width:50%;background:#F39B7F;"></div>
+                    </div>
+                    <span class="morph-bar-val">1.992★</span>
+                </div>
+            </div>
+            <div style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:8px;">★ p &lt; 0.001 vs Control (Welch's t-test)</div>
+        </div>
+    </div>
+
+    <!-- ── 3D VIEWER ── -->
+    <div class="viewer-container">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading 3D model...</p>
+        </div>
+
+        <canvas id="viewer-canvas"></canvas>
+
+        <!-- Top info bar -->
+        <div class="top-bar">
+            <div class="info-chip">Patient <strong id="chip-patient">PT-001740976</strong></div>
+            <div class="info-chip">Timepoint: <strong id="chip-timepoint">T0 (Baseline)</strong></div>
+            <div class="info-chip">Scan: <strong>2025-09-30</strong></div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <button class="toolbar-btn" onclick="resetCamera()" title="Reset Camera">🎯</button>
+            <button class="toolbar-btn" id="rotate-btn" onclick="toggleRotation()" title="Auto Rotate">🔄</button>
+            <button class="toolbar-btn" onclick="takeScreenshot()" title="Screenshot">📷</button>
+            <button class="toolbar-btn" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
+        </div>
+
+        <!-- Performance cards -->
+        <div class="bottom-panel">
+            <div class="perf-card">
+                <div class="title">CT Segmentation</div>
+                <div class="metric">82.9<span>% recall</span></div>
+                <div class="sub">Swin-UNETR 5-ch + nnUNet</div>
+                <div class="badge badge-blue">RECIST: 5 lesions</div>
+            </div>
+            <div class="perf-card">
+                <div class="title">Cell Morphology</div>
+                <div class="metric">43,190<span> cells</span></div>
+                <div class="sub">Cellpose cyto3 · GPU · 4 conditions</div>
+                <div class="badge badge-green">p &lt; 0.001 MT-Exo effect</div>
+            </div>
+            <div class="perf-card">
+                <div class="title">CDS API</div>
+                <div class="metric">&lt;200<span>ms</span></div>
+                <div class="sub">FastAPI · SQLite · Real-time</div>
+                <div class="badge badge-purple">REST · OpenAPI docs</div>
+            </div>
+            <div class="perf-card">
+                <div class="title">Throughput</div>
+                <div class="metric">~30<span>s/image</span></div>
+                <div class="sub">Cellpose segmentation on GPU</div>
+                <div class="badge badge-blue">CUDA 12.1 · RTX GPU</div>
+            </div>
+        </div>
+
+        <!-- Controls hint -->
+        <div class="hint">
+            Left drag: Rotate&nbsp;&nbsp;|&nbsp;&nbsp;Right drag: Pan&nbsp;&nbsp;|&nbsp;&nbsp;Scroll: Zoom
+        </div>
+    </div>
+</div>
+
+<!-- Three.js via importmap (r160 ESM) -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+// Expose globally so inline script can use them
+window.THREE = THREE;
+window.OrbitControls = OrbitControls;
+// Dispatch ready event
+window.dispatchEvent(new Event('three-ready'));
+</script>
+
+<script>
+// ── Scene Setup ──────────────────────────────────────────────
+let scene, camera, renderer, controls;
+let organMeshes = {};
+let tumorMeshes = [];
+let autoRotate  = false;
+let layerState  = { colon: true, liver: true, kidneys: true, tumors: true };
+
+function init() {
+    const canvas = document.getElementById('viewer-canvas');
+    canvas.width  = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
+    // Scene
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x080c1f);
+    scene.fog = new THREE.FogExp2(0x080c1f, 0.0012);
+
+    // Camera
+    camera = new THREE.PerspectiveCamera(45, canvas.width / canvas.height, 0.1, 3000);
+    camera.position.set(0, 180, 380);
+
+    // Renderer
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(canvas.width, canvas.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+
+    // Controls
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping  = true;
+    controls.dampingFactor  = 0.06;
+    controls.minDistance    = 80;
+    controls.maxDistance    = 700;
+
+    // Lights
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+
+    const sun = new THREE.DirectionalLight(0xffffff, 0.9);
+    sun.position.set(200, 300, 200);
+    sun.castShadow = true;
+    scene.add(sun);
+
+    const fill = new THREE.DirectionalLight(0x6699ff, 0.5);
+    fill.position.set(-150, 100, -200);
+    scene.add(fill);
+
+    const hemi = new THREE.HemisphereLight(0x334466, 0x111122, 0.4);
+    scene.add(hemi);
+
+    // Grid
+    const grid = new THREE.GridHelper(500, 30, 0x223355, 0x111833);
+    grid.position.y = -110;
+    scene.add(grid);
+
+    window.addEventListener('resize', onResize);
+    loadDemoData();
+    animate();
+
+    setTimeout(() => {
+        document.getElementById('loading').style.display = 'none';
+    }, 1800);
+}
+
+// ── Demo geometry (no API needed) ───────────────────────────
+function loadDemoData() {
+    // Colon (torus)
+    const colon = new THREE.Mesh(
+        new THREE.TorusGeometry(75, 22, 20, 120),
+        new THREE.MeshPhongMaterial({ color: 0xff9664, transparent: true, opacity: 0.55, side: THREE.DoubleSide })
+    );
+    colon.rotation.x = Math.PI / 2;
+    colon.castShadow = true;
+    scene.add(colon);
+    organMeshes['colon'] = colon;
+
+    // Liver
+    const liver = new THREE.Mesh(
+        new THREE.SphereGeometry(55, 32, 24),
+        new THREE.MeshPhongMaterial({ color: 0x7b3520, transparent: true, opacity: 0.55 })
+    );
+    liver.scale.set(1.6, 0.8, 1.1);
+    liver.position.set(55, 38, -10);
+    scene.add(liver);
+    organMeshes['liver'] = liver;
+
+    // Kidneys
+    const kidGeo = new THREE.SphereGeometry(22, 20, 16);
+    const kidMat = new THREE.MeshPhongMaterial({ color: 0xb05888, transparent: true, opacity: 0.6 });
+    [-1, 1].forEach(side => {
+        const k = new THREE.Mesh(kidGeo, kidMat);
+        k.scale.set(0.9, 1.3, 0.7);
+        k.position.set(side * 90, -10, -30);
+        scene.add(k);
+        organMeshes[`kidney_${side > 0 ? 'r' : 'l'}`] = k;
+    });
+
+    // Tumors (RECIST data: 5 lesions with real LD)
+    const tumorData = [
+        { pos: [20, -8, 35],  r: 18, ld: 36.5 },
+        { pos: [-28, 5, -22], r: 19.7, ld: 39.3 },
+        { pos: [10, -20, 10], r: 20.5, ld: 40.9 },
+        { pos: [35, 12, -15], r: 24.5, ld: 49.1 },
+        { pos: [-15, -5, 50], r: 22.4, ld: 44.8 },
+    ];
+
+    tumorData.forEach(({ pos, r, ld }) => {
+        const mesh = new THREE.Mesh(
+            new THREE.SphereGeometry(r * 0.55, 32, 32),
+            new THREE.MeshPhongMaterial({
+                color: 0xff2222,
+                emissive: 0xaa0000,
+                emissiveIntensity: 0.35,
+                transparent: true,
+                opacity: 0.88,
+                shininess: 80,
+            })
+        );
+        mesh.position.set(...pos);
+        mesh.castShadow = true;
+        mesh.userData.ld = ld;
+        scene.add(mesh);
+        tumorMeshes.push(mesh);
+    });
+
+    // Particle field (background depth)
+    const particles = new THREE.BufferGeometry();
+    const pts = [];
+    for (let i = 0; i < 800; i++) {
+        pts.push((Math.random() - 0.5) * 600, (Math.random() - 0.5) * 400, (Math.random() - 0.5) * 600);
+    }
+    particles.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+    scene.add(new THREE.Points(particles,
+        new THREE.PointsMaterial({ color: 0x334477, size: 0.8, transparent: true, opacity: 0.5 })));
+}
+
+// ── Animation ───────────────────────────────────────────────
+function animate() {
+    requestAnimationFrame(animate);
+    if (autoRotate) scene.rotation.y += 0.004;
+
+    const t = Date.now() * 0.001;
+    tumorMeshes.forEach((m, i) => {
+        const s = 1 + Math.sin(t * 1.8 + i * 1.2) * 0.07;
+        m.scale.setScalar(s);
+        m.material.emissiveIntensity = 0.2 + Math.sin(t * 2 + i) * 0.15;
+    });
+
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+function onResize() {
+    const canvas = document.getElementById('viewer-canvas');
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+}
+
+// ── Controls ─────────────────────────────────────────────────
+function toggleLayer(name, el) {
+    layerState[name] = !layerState[name];
+    const toggle = document.getElementById(`toggle-${name}`);
+    toggle.classList.toggle('off', !layerState[name]);
+
+    if (name === 'tumors') {
+        tumorMeshes.forEach(m => m.visible = layerState[name]);
+    } else if (name === 'kidneys') {
+        ['kidney_r', 'kidney_l'].forEach(k => {
+            if (organMeshes[k]) organMeshes[k].visible = layerState[name];
+        });
+    } else {
+        if (organMeshes[name]) organMeshes[name].visible = layerState[name];
+    }
+}
+
+function resetCamera() {
+    camera.position.set(0, 180, 380);
+    controls.reset();
+}
+
+function toggleRotation() {
+    autoRotate = !autoRotate;
+    document.getElementById('rotate-btn').classList.toggle('active', autoRotate);
+}
+
+function takeScreenshot() {
+    renderer.render(scene, camera);
+    const a = document.createElement('a');
+    a.download = 'ADDS_3D_CT_Viewer.png';
+    a.href = renderer.domElement.toDataURL('image/png');
+    a.click();
+}
+
+function toggleFullscreen() {
+    !document.fullscreenElement
+        ? document.documentElement.requestFullscreen()
+        : document.exitFullscreen();
+}
+
+// ── Timeline slider ──────────────────────────────────────────
+const timepointData = [
+    { label: 'T0 (Baseline)', date: '2025-09-30', change: '—', tumors: 5, vol: 9.16, ld: 49.1 },
+    { label: 'T1 (Week 2)',   date: '2025-10-14', change: '−12.3%', tumors: 5, vol: 8.03, ld: 44.2 },
+    { label: 'T2 (Week 4)',   date: '2025-10-28', change: '−20.5%', tumors: 5, vol: 7.28, ld: 39.8 },
+];
+
+document.getElementById('timeline-slider').addEventListener('input', e => {
+    const d = timepointData[e.target.value];
+    document.getElementById('chip-timepoint').textContent = d.label;
+    document.getElementById('scan-date').textContent = d.date;
+    document.getElementById('tumor-vol').textContent  = d.vol.toFixed(2);
+    document.getElementById('tumor-ld').textContent   = d.ld.toFixed(1);
+    const el = document.getElementById('tumor-change');
+    el.textContent = d.change;
+    el.className   = d.change.startsWith('−') ? 'stat-value change-positive' : 'stat-value';
+});
+
+document.getElementById('global-opacity').addEventListener('input', e => {
+    const op = e.target.value / 100;
+    Object.values(organMeshes).forEach(m => { if (m.material) m.material.opacity = op * 0.65; });
+});
+
+window.addEventListener('three-ready', init);
+</script>
+</body>
+</html>

@@ -1,0 +1,952 @@
+[
+  {
+    "patient_id": "C0181",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.42,
+    "local_intercept": 42.5233,
+    "top_attributions": {
+      "Bliss synergy score": -1.2105,
+      "TNF-a (pg/mL)": -1.044,
+      "ctDNA VAF (baseline)": 0.5784,
+      "Pritamab component": -0.1579,
+      "ctDNA responder": 0.1348
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0091",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.51,
+    "local_intercept": 17.4198,
+    "top_attributions": {
+      "TNF-a (pg/mL)": -0.6609,
+      "Bliss synergy score": 0.5749,
+      "ctDNA VAF (baseline)": 0.1791,
+      "PK: Pritamab Cmax": 0.1619,
+      "Best % change": -0.1608
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0230",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 11.97,
+    "local_intercept": 12.8733,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.2715,
+      "ctDNA VAF (baseline)": 0.249,
+      "CEA baseline (ng/mL)": 0.2176,
+      "PK: Pritamab Cmax": -0.1955,
+      "IL-6 (pg/mL)": 0.1555
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0116",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 13.17,
+    "local_intercept": 15.7435,
+    "top_attributions": {
+      "Bliss synergy score": 0.269,
+      "TNF-a (pg/mL)": -0.241,
+      "ctDNA responder": -0.1749,
+      "Arm (encoded)": 0.1319,
+      "MSI-H status": 0.1089
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0661",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 10.87,
+    "local_intercept": 0.8395,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": 0.2441,
+      "TNF-a (pg/mL)": 0.1446,
+      "Bliss synergy score": 0.1271,
+      "Pritamab component": 0.1092,
+      "PK: Pritamab Cmax": 0.0912
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0442",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 14.01,
+    "local_intercept": 5.8394,
+    "top_attributions": {
+      "KRAS allele": -0.4136,
+      "ctDNA VAF (baseline)": 0.4038,
+      "Toxicity burden (G3/4 sum)": 0.2497,
+      "Bliss synergy score": 0.1792,
+      "Arm (encoded)": -0.1728
+    },
+    "dominant_feature": "KRAS allele",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0290",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.15,
+    "local_intercept": 6.5044,
+    "top_attributions": {
+      "Bliss synergy score": 0.538,
+      "KRAS allele": -0.28,
+      "PK: Pritamab Cmax": 0.2304,
+      "TNF-a (pg/mL)": 0.1517,
+      "ctDNA responder": 0.1267
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0429",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 13.94,
+    "local_intercept": -3.7012,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.7195,
+      "KRAS allele": 0.5503,
+      "IL-6 (pg/mL)": 0.2806,
+      "ctDNA responder": 0.2407,
+      "Bliss synergy score": -0.1904
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0350",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 16.86,
+    "local_intercept": 6.7853,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.6247,
+      "ctDNA VAF (baseline)": 0.416,
+      "Toxicity burden (G3/4 sum)": -0.385,
+      "KRAS allele": -0.2941,
+      "Bliss synergy score": 0.2428
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0095",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 16.0,
+    "local_intercept": -23.0022,
+    "top_attributions": {
+      "Bliss synergy score": 0.9662,
+      "ctDNA VAF (baseline)": 0.7914,
+      "KRAS allele": 0.2895,
+      "Best % change": -0.2087,
+      "IL-6 (pg/mL)": 0.1966
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0026",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 8.02,
+    "local_intercept": -2.9564,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": -0.6199,
+      "PK: Pritamab Cmax": 0.449,
+      "KRAS allele": -0.4132,
+      "Arm (encoded)": -0.1449,
+      "MSI-H status": -0.1253
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0165",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 10.1,
+    "local_intercept": -0.0895,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.4316,
+      "Toxicity burden (G3/4 sum)": -0.2513,
+      "TNF-a (pg/mL)": 0.2231,
+      "ctDNA VAF (baseline)": 0.1512,
+      "Pritamab component": -0.1323
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0162",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.32,
+    "local_intercept": 16.148,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.3228,
+      "TNF-a (pg/mL)": 0.202,
+      "MSI-H status": -0.1472,
+      "Bliss synergy score": 0.1434,
+      "Pritamab component": -0.1254
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0621",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.45,
+    "local_intercept": 13.1003,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.2914,
+      "CEA baseline (ng/mL)": 0.2669,
+      "KRAS allele": 0.2252,
+      "Toxicity burden (G3/4 sum)": -0.1447,
+      "Bliss synergy score": 0.0844
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0611",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 14.84,
+    "local_intercept": 8.1247,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.2742,
+      "ctDNA VAF (baseline)": 0.2602,
+      "Toxicity burden (G3/4 sum)": -0.2561,
+      "PK: Pritamab Cmax": 0.1895,
+      "KRAS allele": -0.1506
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0171",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 9.92,
+    "local_intercept": 30.9747,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.5196,
+      "ctDNA VAF (baseline)": -0.1986,
+      "KRAS allele": -0.1758,
+      "IL-6 (pg/mL)": -0.1398,
+      "Bliss synergy score": -0.1388
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0447",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 15.34,
+    "local_intercept": 15.8826,
+    "top_attributions": {
+      "Bliss synergy score": 0.2787,
+      "IL-6 (pg/mL)": -0.2601,
+      "KRAS allele": 0.1466,
+      "ctDNA responder": 0.1321,
+      "PK: Pritamab Cmax": 0.113
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0013",
+    "arm": "Pritamab",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 11.38,
+    "local_intercept": 12.74,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": 0.3681,
+      "IL-6 (pg/mL)": -0.1427,
+      "PK: Pritamab Cmax": 0.1397,
+      "Best % change": -0.1378,
+      "MSI-H status": -0.1359
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0505",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 25.76,
+    "local_intercept": 22.4281,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.6394,
+      "Bliss synergy score": 0.5127,
+      "ctDNA VAF (baseline)": -0.3607,
+      "IL-6 (pg/mL)": -0.3521,
+      "KRAS allele": 0.2689
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0225",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 11.29,
+    "local_intercept": 8.2919,
+    "top_attributions": {
+      "CEA baseline (ng/mL)": 0.2524,
+      "Toxicity burden (G3/4 sum)": -0.2274,
+      "KRAS allele": -0.2209,
+      "PK: Pritamab Cmax": 0.2184,
+      "Pritamab component": 0.1871
+    },
+    "dominant_feature": "CEA baseline (ng/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0146",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 15.54,
+    "local_intercept": 11.5711,
+    "top_attributions": {
+      "Bliss synergy score": 0.41,
+      "IL-6 (pg/mL)": 0.3085,
+      "PK: Pritamab Cmax": -0.239,
+      "ctDNA VAF (baseline)": 0.2214,
+      "Toxicity burden (G3/4 sum)": -0.1915
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0145",
+    "arm": "Control",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 11.52,
+    "local_intercept": 10.221,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.4466,
+      "KRAS allele": -0.3846,
+      "ctDNA VAF (baseline)": -0.2851,
+      "Toxicity burden (G3/4 sum)": 0.2376,
+      "Pritamab component": 0.173
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0156",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 10.31,
+    "local_intercept": 6.341,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.5232,
+      "ctDNA VAF (baseline)": 0.3831,
+      "PK: Pritamab Cmax": -0.3283,
+      "Bliss synergy score": 0.2883,
+      "Toxicity burden (G3/4 sum)": 0.2585
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0276",
+    "arm": "Pritamab",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 16.84,
+    "local_intercept": 16.6725,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": 0.4986,
+      "Toxicity burden (G3/4 sum)": 0.4227,
+      "Bliss synergy score": -0.3284,
+      "IL-6 (pg/mL)": -0.3036,
+      "KRAS allele": -0.2697
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0633",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 13.57,
+    "local_intercept": 3.0541,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.3306,
+      "ctDNA VAF (baseline)": 0.2338,
+      "Best % change": -0.1752,
+      "CEA baseline (ng/mL)": 0.15,
+      "Bliss synergy score": 0.1172
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0270",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 13.15,
+    "local_intercept": 11.9492,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": 0.1996,
+      "TNF-a (pg/mL)": 0.179,
+      "PK: Pritamab Cmax": -0.142,
+      "Pritamab component": -0.13,
+      "ctDNA responder": 0.1298
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0172",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 9.14,
+    "local_intercept": -15.1304,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.4629,
+      "KRAS allele": -0.3832,
+      "Bliss synergy score": 0.3208,
+      "ctDNA VAF (baseline)": 0.2944,
+      "CEA baseline (ng/mL)": 0.2094
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0043",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 14.71,
+    "local_intercept": 15.9295,
+    "top_attributions": {
+      "KRAS allele": 0.3566,
+      "PK: Pritamab Cmax": -0.2803,
+      "IL-6 (pg/mL)": -0.2309,
+      "TNF-a (pg/mL)": 0.2289,
+      "Pritamab component": 0.1415
+    },
+    "dominant_feature": "KRAS allele",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0275",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 7.18,
+    "local_intercept": 31.8123,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.4449,
+      "Best % change": -0.36,
+      "CEA baseline (ng/mL)": -0.254,
+      "Toxicity burden (G3/4 sum)": 0.1923,
+      "KRAS allele": -0.1832
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0207",
+    "arm": "Control",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 10.44,
+    "local_intercept": 22.7218,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.5925,
+      "TNF-a (pg/mL)": 0.429,
+      "Bliss synergy score": -0.2798,
+      "Pritamab component": -0.1969,
+      "Toxicity burden (G3/4 sum)": 0.1893
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0133",
+    "arm": "Control",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 10.46,
+    "local_intercept": 6.5409,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.5101,
+      "Bliss synergy score": 0.2522,
+      "Best % change": -0.1821,
+      "Toxicity burden (G3/4 sum)": -0.1623,
+      "ctDNA VAF (baseline)": 0.1532
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0077",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 19.51,
+    "local_intercept": 15.5702,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": 0.3562,
+      "Bliss synergy score": 0.3229,
+      "IL-6 (pg/mL)": -0.2837,
+      "Arm (encoded)": -0.1478,
+      "Pritamab component": 0.14
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0161",
+    "arm": "Pritamab",
+    "kras_allele": "G12C",
+    "pfs_predicted_months": 14.46,
+    "local_intercept": 12.0722,
+    "top_attributions": {
+      "KRAS allele": -0.3989,
+      "Bliss synergy score": 0.2125,
+      "PK: Pritamab Cmax": 0.1428,
+      "MSI-H status": 0.1278,
+      "TNF-a (pg/mL)": 0.1208
+    },
+    "dominant_feature": "KRAS allele",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0466",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 9.27,
+    "local_intercept": -8.3676,
+    "top_attributions": {
+      "Bliss synergy score": 0.3205,
+      "TNF-a (pg/mL)": 0.2887,
+      "CEA baseline (ng/mL)": 0.2648,
+      "PK: Pritamab Cmax": 0.2141,
+      "Toxicity burden (G3/4 sum)": -0.1747
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0522",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 14.0,
+    "local_intercept": 22.1957,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.3517,
+      "ctDNA responder": -0.1876,
+      "TNF-a (pg/mL)": -0.1799,
+      "Bliss synergy score": 0.1614,
+      "IL-6 (pg/mL)": -0.1408
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0454",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 12.4,
+    "local_intercept": 12.9403,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": -0.9876,
+      "Bliss synergy score": 0.2791,
+      "KRAS allele": 0.2393,
+      "Pritamab component": 0.0808,
+      "DL confidence": 0.0735
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0645",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 11.59,
+    "local_intercept": 10.8401,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.1455,
+      "TNF-a (pg/mL)": -0.0968,
+      "Bliss synergy score": 0.0821,
+      "Toxicity burden (G3/4 sum)": 0.0643,
+      "Pritamab component": -0.0605
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0335",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 19.08,
+    "local_intercept": 6.629,
+    "top_attributions": {
+      "Bliss synergy score": 0.5871,
+      "ctDNA VAF (baseline)": -0.3402,
+      "MSI-H status": -0.2051,
+      "PK: Pritamab Cmax": 0.1961,
+      "Pritamab component": 0.1716
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0618",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 14.85,
+    "local_intercept": 10.2469,
+    "top_attributions": {
+      "Bliss synergy score": 0.6567,
+      "KRAS allele": -0.18,
+      "Pritamab component": 0.1734,
+      "Arm (encoded)": -0.1213,
+      "TNF-a (pg/mL)": -0.1086
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0145",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 11.79,
+    "local_intercept": 16.3641,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": -0.6463,
+      "KRAS allele": 0.2709,
+      "Pritamab component": -0.1674,
+      "IL-6 (pg/mL)": 0.1254,
+      "Arm (encoded)": -0.0968
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0013",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 17.76,
+    "local_intercept": 20.534,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.7563,
+      "ctDNA VAF (baseline)": -0.4324,
+      "KRAS allele": 0.4021,
+      "TNF-a (pg/mL)": 0.2288,
+      "Toxicity burden (G3/4 sum)": -0.1544
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0071",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 13.49,
+    "local_intercept": 9.0973,
+    "top_attributions": {
+      "PK: Pritamab Cmax": 0.1602,
+      "Bliss synergy score": 0.1599,
+      "ctDNA VAF (baseline)": 0.1278,
+      "PK: Pritamab AUC (norm)": 0.0822,
+      "KRAS allele": -0.0494
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0096",
+    "arm": "Pritamab",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 8.62,
+    "local_intercept": -2.5707,
+    "top_attributions": {
+      "TNF-a (pg/mL)": 0.6718,
+      "KRAS allele": -0.2191,
+      "IL-6 (pg/mL)": -0.1334,
+      "Toxicity burden (G3/4 sum)": -0.0947,
+      "Bliss synergy score": 0.0934
+    },
+    "dominant_feature": "TNF-a (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0030",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 14.31,
+    "local_intercept": 18.9364,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": -0.5722,
+      "KRAS allele": 0.2345,
+      "Bliss synergy score": 0.1684,
+      "Best % change": -0.1643,
+      "IL-6 (pg/mL)": -0.1419
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0591",
+    "arm": "Pritamab",
+    "kras_allele": "G12V",
+    "pfs_predicted_months": 12.82,
+    "local_intercept": 16.9418,
+    "top_attributions": {
+      "IL-6 (pg/mL)": -0.4807,
+      "Toxicity burden (G3/4 sum)": -0.394,
+      "Bliss synergy score": 0.357,
+      "MSI-H status": -0.1855,
+      "ctDNA responder": 0.1152
+    },
+    "dominant_feature": "IL-6 (pg/mL)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "C0274",
+    "arm": "Control",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 17.4,
+    "local_intercept": 6.1943,
+    "top_attributions": {
+      "Bliss synergy score": 0.4606,
+      "Toxicity burden (G3/4 sum)": 0.2764,
+      "Arm (encoded)": 0.2329,
+      "CEA baseline (ng/mL)": 0.1902,
+      "PK: Pritamab Cmax": -0.1465
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0341",
+    "arm": "Pritamab",
+    "kras_allele": "WT",
+    "pfs_predicted_months": 11.84,
+    "local_intercept": 3.2523,
+    "top_attributions": {
+      "IL-6 (pg/mL)": 0.5226,
+      "Arm (encoded)": -0.2245,
+      "ctDNA VAF (baseline)": -0.202,
+      "ctDNA responder": -0.1242,
+      "Toxicity burden (G3/4 sum)": 0.1181
+    },
+    "dominant_feature": "IL-6 (pg/mL)",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0355",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 22.46,
+    "local_intercept": 34.3395,
+    "top_attributions": {
+      "Bliss synergy score": 1.043,
+      "IL-6 (pg/mL)": -0.6802,
+      "PK: Pritamab Cmax": -0.3807,
+      "Pritamab component": 0.2178,
+      "Toxicity burden (G3/4 sum)": 0.1992
+    },
+    "dominant_feature": "Bliss synergy score",
+    "dominant_direction": "positive",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0632",
+    "arm": "Pritamab",
+    "kras_allele": "G13D",
+    "pfs_predicted_months": 10.05,
+    "local_intercept": 16.499,
+    "top_attributions": {
+      "PK: Pritamab Cmax": -0.5277,
+      "ctDNA VAF (baseline)": 0.307,
+      "Bliss synergy score": 0.2286,
+      "KRAS allele": -0.1228,
+      "CEA baseline (ng/mL)": 0.1148
+    },
+    "dominant_feature": "PK: Pritamab Cmax",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  },
+  {
+    "patient_id": "P0448",
+    "arm": "Pritamab",
+    "kras_allele": "G12D",
+    "pfs_predicted_months": 14.7,
+    "local_intercept": 52.9966,
+    "top_attributions": {
+      "ctDNA VAF (baseline)": -0.83,
+      "Bliss synergy score": -0.6742,
+      "Toxicity burden (G3/4 sum)": -0.4451,
+      "ctDNA responder": -0.2178,
+      "IL-6 (pg/mL)": 0.1561
+    },
+    "dominant_feature": "ctDNA VAF (baseline)",
+    "dominant_direction": "negative",
+    "xai_method": "LIME_Ridge_local_linear",
+    "n_perturbations": 200,
+    "confidence_note": "Local approximation valid within sigma=0.10 of feature space"
+  }
+]

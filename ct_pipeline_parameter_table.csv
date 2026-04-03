@@ -1,0 +1,28 @@
+Section,Parameter,Our_Value,Literature_Value,Gap,Fix_Priority,Fix_Type,Source
+HU_threshold,lower_bound_HU,25,−50 to −30 (mucin range),wrong range,HIGH,immediate,AJR2020_mCRC
+HU_threshold,upper_bound_HU,200,80 (mucinous soft tissue),too wide,HIGH,immediate,AJR2020_mCRC
+HU_threshold,mucinous_tissue_HU,not_used,−30 to +80,missing,HIGH,immediate,lit_consensus
+window_level,WL_display,60,60,OK,LOW,none,LITFL
+window_level,WW_display,400,300 (mucinous),slightly wide,LOW,minor,NIH2021
+contrast,primary_phase,Artery(25s),Portal(60-90s) for CRC,wrong phase,HIGH,data_acquisition,NIH_CT_Protocol
+contrast,secondary_phase,Delay,Delay ok (washout char),OK,MED,none,AJR_CRC
+contrast,delta_threshold_HU,10-30,N/A mucinous=non-enhancing,inapplicable,HIGH,algorithm,AJR2020
+morphology,bowel_wall_threshold_mm,not_used,5mm (colon threshold),missing,HIGH,add_feature,AJR2020_bowel
+morphology,min_area_vox,200,100 (5mm@1.67mm3),close,LOW,minor,consensus
+morphology,max_area_vox,62202,depends_on_GT,ok,LOW,none,derived
+segmentation,tool_used,remapped_nnunet,TotalSegmentator_v2,outdated,HIGH,upgrade,RSNA2023
+segmentation,organ_coverage_pct,13.8_of_GT,86%+ expected,CRITICAL,CRITICAL,upgrade,our_data
+segmentation,tool_Dice,unknown,0.943 (TotalSeg),unknown,HIGH,evaluate,RSNA2023
+detection,algorithm_type,HU_threshold,ML or radiomics,primitive,CRITICAL,upgrade,DL_meta2024
+detection,best_Dice,0.1389,0.5+ (clinical min),0.36 gap,CRITICAL,ML_required,lit_benchmark
+detection,approach,morphology,GLCM+texture first; then ML,inadequate,HIGH,add_radiomics,Radiomics2022
+registration,method,phase_cross_correlation,ANTs_SyN (abdominal),acceptable,MED,improve,NIH_ANTs2023
+registration,shift_px_measured,1.26,<3px = acceptable,OK,LOW,none,our_data
+RECIST,minimum_measurable_mm,not_implemented,10mm axial,missing,HIGH,add,RECIST1.1_2009
+RECIST,slice_thickness_max,5mm_DICOM,5mm,OK,LOW,none,RECIST1.1
+RECIST,reported_measure,volume_cm3,SLD (longest diameter),different,MED,add,RECIST1.1
+radiomics,GLCM_entropy,not_used,T-staging sens=72.1%,missing,HIGH,add,mdpi2022
+radiomics,wavelet_features,not_used,KRAS pred sens=88.9%,missing,MED,add,mdpi2023
+radiomics,feature_count,0,40-100 features typical,critical gap,HIGH,add,consensus
+deep_learning,implemented,NO,nnU-Net Task10 Dice=0.55+,critical gap,CRITICAL,implement,MSD2021
+deep_learning,expected_Dice_zero_shot,N/A,0.45-0.65,baseline,CRITICAL,implement,nnUNet2024

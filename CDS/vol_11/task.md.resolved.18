@@ -1,0 +1,6 @@
+# Task: Generate 15 PPT Presentation Images
+
+- [x] Define the 15-step presentation flow covering the entire ADDS. V1 research plan.
+- [x] Generate Images 1-8 (Title, Challenge, Biopsy Limits, Solution Concept, Data Integration, Digital Pathology, Biomarker, Risk Stratification).
+- [ ] Generate Images 9-15 (PDO, Drug Screening, Clinical Strategy, SaMD Roadmap, Validation, Security, Vision).
+- [ ] Compile the generated images into a structured markdown artifact for the user.

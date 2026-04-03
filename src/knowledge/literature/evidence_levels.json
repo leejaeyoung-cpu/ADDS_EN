@@ -1,0 +1,116 @@
+{
+    "description": "Evidence grading system for literature-derived data",
+    "version": "1.0",
+    "evidence_levels": {
+        "Level_I": {
+            "description": "Evidence from systematic reviews, meta-analyses, or multiple RCTs",
+            "weight": 1.0,
+            "examples": [
+                "Cochrane systematic reviews",
+                "Large multicenter phase III RCTs",
+                "Meta-analyses published in Nature/Cell/NEJM"
+            ]
+        },
+        "Level_II": {
+            "description": "Evidence from single RCT or well-designed cohort studies",
+            "weight": 0.8,
+            "examples": [
+                "Single phase III RCT",
+                "Large prospective cohort studies (N>500)"
+            ]
+        },
+        "Level_III": {
+            "description": "Evidence from case-control studies or retrospective cohorts",
+            "weight": 0.6,
+            "examples": [
+                "Retrospective cohort analyses",
+                "Case-control studies"
+            ]
+        },
+        "Level_IV": {
+            "description": "Evidence from case series or expert opinion",
+            "weight": 0.4,
+            "examples": [
+                "Case series",
+                "Expert consensus"
+            ]
+        },
+        "Preclinical": {
+            "description": "In vitro or animal model evidence",
+            "weight": 0.2,
+            "examples": [
+                "Cell line studies",
+                "PDX models",
+                "Animal studies"
+            ]
+        }
+    },
+    "journal_impact_tiers": {
+        "Tier_S": {
+            "journals": [
+                "Nature",
+                "Science",
+                "Cell",
+                "NEJM",
+                "Lancet",
+                "JAMA"
+            ],
+            "impact_multiplier": 1.2,
+            "description": "Top-tier general science and medical journals"
+        },
+        "Tier_A": {
+            "journals": [
+                "Nature Medicine",
+                "Nature Cancer",
+                "Cancer Cell",
+                "Cancer Discovery",
+                "JCO",
+                "Annals of Oncology",
+                "Lancet Oncology"
+            ],
+            "impact_multiplier": 1.1,
+            "description": "Top oncology-specific journals"
+        },
+        "Tier_B": {
+            "journals": [
+                "Clinical Cancer Research",
+                "Molecular Cancer Therapeutics",
+                "European Journal of Cancer",
+                "Cancer Research"
+            ],
+            "impact_multiplier": 1.0,
+            "description": "Respected oncology journals"
+        }
+    },
+    "confidence_scoring": {
+        "description": "Algorithm to compute confidence score for extracted features",
+        "formula": "confidence = evidence_level_weight × journal_tier_multiplier × sample_size_factor × replication_bonus",
+        "sample_size_factor": {
+            "N >= 500": 1.0,
+            "300 <= N < 500": 0.9,
+            "100 <= N < 300": 0.8,
+            "N < 100": 0.6
+        },
+        "replication_bonus": {
+            "description": "Bonus if finding is replicated across multiple independent studies",
+            "1_study": 1.0,
+            "2_studies": 1.1,
+            "3+_studies": 1.2
+        }
+    },
+    "quality_criteria": {
+        "inclusion_criteria": [
+            "Published in peer-reviewed journal",
+            "Sample size N >= 50 for clinical studies",
+            "Clear methodology described",
+            "Statistical significance reported (p-values or confidence intervals)",
+            "For Nature/Cell/Science tier: any sample size acceptable"
+        ],
+        "exclusion_criteria": [
+            "Preprints or non-peer-reviewed",
+            "Case reports (N < 10)",
+            "Studies with high risk of bias",
+            "Retracted papers"
+        ]
+    }
+}

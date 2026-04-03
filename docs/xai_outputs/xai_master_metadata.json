@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-03-10T16:30 KST",
+  "components": {
+    "LIME": {
+      "n_cases": 50,
+      "method": "Ridge_local_linear",
+      "file": "lime_attributions_n50.json"
+    },
+    "GradCAM_proxy": {
+      "n_cases": 30,
+      "method": "finite_diff_ReLU_saliency",
+      "file": "gradcam_saliency_n30.json"
+    },
+    "Counterfactual": {
+      "n_cases": 40,
+      "n_cf_types": 6,
+      "file": "counterfactual_analysis_n40.json"
+    },
+    "ModelConfidence": {
+      "n_cases": 20,
+      "method": "bootstrap_CI_95pct",
+      "file": "model_confidence_ci_n20.json"
+    },
+    "PhysicianEval": {
+      "n_respondents": 45,
+      "xai_tools": 5,
+      "dimensions": 6,
+      "file": "physician_evaluation_survey_n45.json"
+    }
+  },
+  "clinical_utility_verdict": {
+    "composite_score": 3.6,
+    "clinic_adoption_rate_pct": 62.2,
+    "nps_promoter_rate_pct": 2.2,
+    "highest_rated_xai": "LIME_attribution",
+    "lowest_rated": "None_control"
+  }
+}

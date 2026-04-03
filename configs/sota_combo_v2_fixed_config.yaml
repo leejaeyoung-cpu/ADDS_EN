@@ -1,0 +1,82 @@
+# SOTA Training Configuration v2.0 - ComboLoss (2026 SOTA)
+# Optimized with research-backed ComboLoss for maximum performance
+
+model:
+  type: "swin_unetr"
+  img_size: [96, 96, 96]
+  in_channels: 3  # Multi-window (Soft Tissue, Abdominal, Liver)
+  out_channels: 2
+  feature_size: 48
+  use_pretrained: false
+  use_checkpoint: true
+
+data:
+  root: "data/medical_decathlon/Task10_Colon"
+  target_spacing: [1.5, 1.5, 2.0]
+  patch_size: [96, 96, 96]
+  n_folds: 5
+  use_cache: false
+  # 3D Context Settings
+  use_3d_context: true
+  context_size: 5
+  tumor_focused_sampling: true  # Force tumor patches
+
+training:
+  batch_size: 2
+  num_epochs: 100  # Adjusted for practical performance (3-4 hours)
+  learning_rate: 0.00005  # FIXED: Reduced from 1e-4 to prevent overfitting
+  weight_decay: 0.00001
+  gradient_accumulation_steps: 4  # Effective batch = 8
+  use_amp: true
+  early_stopping_patience: 30  # FIXED: Reduced from 50 for faster intervention
+  val_interval: 1  # FIXED: Validate EVERY epoch (critical!)
+
+optimizer:
+  type: "AdamW"
+  betas: [0.9, 0.999]
+  eps: 0.00000001
+
+scheduler:
+  type: "CosineAnnealingWarmRestarts"
+  T_0: 50  # Restart every 50 epochs
+  T_mult: 2
+  eta_min: 0.000001
+
+loss:
+  type: "ComboLoss"  # NEW: 2026 SOTA
+  # Research-backed optimal weights
+  dice_weight: 0.6      # FIXED: Increased from 0.5 (more focus on overlap)
+  focal_weight: 0.3     # Unchanged
+  boundary_weight: 0.1  # FIXED: Reduced from 0.2 (less aggressive)
+  # Individual loss parameters
+  focal_alpha: 0.75     # Higher weight to minority class (tumor)
+  focal_gamma: 2.5      # More focus on hard examples
+  dice_smooth: 0.00001
+  boundary_strength: 10.0  # 10x weight on boundaries
+
+augmentation:
+  rotation_range: [-15, 15]
+  scaling_range: [0.9, 1.1]
+  elastic_alpha: 10
+  elastic_sigma: 3
+  intensity_shift_range: 0.1
+  noise_std: 0.01
+  augmentation_prob: 0.5
+
+logging:
+  log_dir: "runs/sota_combo_v2"
+  checkpoint_dir: "models/sota_combo_v2"
+  save_interval: 5
+  log_interval: 10
+  max_checkpoints_to_keep: 15  # Keep more checkpoints
+
+# Experiment tracking (W&B ready)
+wandb:
+  enabled: false  # Set to true after 'wandb login'
+  project: "adds-tumor-segmentation"
+  entity: "inha-biomedical"
+  name: "swin_unetr_combo_v2"
+
+device: "cuda"
+num_workers: 0
+pin_memory: true

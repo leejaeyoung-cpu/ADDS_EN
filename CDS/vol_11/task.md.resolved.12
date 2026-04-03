@@ -1,0 +1,5 @@
+# Task: Generate Slide Images
+
+- [x] Write prompts for custom presentation images.
+- [x] Generate 4 high-quality presentation images (Multimodal AI, SaMD Roadmap, Cybersecurity, Vision).
+- [x] List the generated images for the user so they can insert them into their PPT.

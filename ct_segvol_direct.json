@@ -1,0 +1,64 @@
+{
+  "S3_organ": {
+    "Dice": 0.1389
+  },
+  "SAM_GTbbox": {
+    "Dice": 0.0649
+  },
+  "nnUNet": {
+    "Dice": 0.0
+  },
+  "YOLO": {
+    "Dice": 0.0124
+  },
+  "SegVol_colon_cancer": {
+    "Dice": 0.0016,
+    "IoU": 0.0008,
+    "Prec": 0.0008,
+    "Rec": 0.6144,
+    "TP": 12738.0,
+    "FP": 15612490.0,
+    "FN": 7996.0,
+    "vol_cm3": 26045.86
+  },
+  "SegVol_rectal_cancer": {
+    "Dice": 0.0016,
+    "IoU": 0.0008,
+    "Prec": 0.0008,
+    "Rec": 0.5131,
+    "TP": 10639.0,
+    "FP": 13278274.0,
+    "FN": 10095.0,
+    "vol_cm3": 22151.43
+  },
+  "SegVol_colon_tumor": {
+    "Dice": 0.0016,
+    "IoU": 0.0008,
+    "Prec": 0.0008,
+    "Rec": 0.5775,
+    "TP": 11974.0,
+    "FP": 14757803.0,
+    "FN": 8760.0,
+    "vol_cm3": 24619.9
+  },
+  "SegVol_mucinous_colorectal_cancer": {
+    "Dice": 0.0016,
+    "IoU": 0.0008,
+    "Prec": 0.0008,
+    "Rec": 0.4424,
+    "TP": 9172.0,
+    "FP": 11755126.0,
+    "FN": 11562.0,
+    "vol_cm3": 19610.03
+  },
+  "SegVol_colorectal_carcinoma": {
+    "Dice": 0.0016,
+    "IoU": 0.0008,
+    "Prec": 0.0008,
+    "Rec": 0.494,
+    "TP": 10242.0,
+    "FP": 12861798.0,
+    "FN": 10492.0,
+    "vol_cm3": 21456.54
+  }
+}

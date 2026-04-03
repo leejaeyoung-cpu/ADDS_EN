@@ -1,0 +1,23 @@
+# CT 데이터 고급 전처리 Task
+
+## 현황 파악
+- [x] 기존 전처리 파일 3개 확인 ([ct_advanced_preprocessing.py](file:///f:/ADDS/src/medical_imaging/ct_advanced_preprocessing.py), [preprocessing_pipeline.py](file:///f:/ADDS/src/medical_imaging/data/preprocessing_pipeline.py), [ct_preprocessor.py](file:///f:/ADDS/src/preprocessing/ct_preprocessor.py))
+- [x] Inha CT 분석 KI 리뷰 (TotalSegmentator, NIfTI 파이프라인 등)
+
+## 요구사항 분석
+- [x] 사용자 방향 확인 (1~4 전부 구현)
+
+## 계획 수립
+- [x] 구현 계획 작성
+- [x] 사용자 승인 (LGTM)
+
+## 실행
+- [/] Stage 9/10 추가 ([ct_advanced_preprocessing.py](file:///f:/ADDS/src/medical_imaging/ct_advanced_preprocessing.py) 업그레이드)
+- [ ] 배치 엔진 (`ct_batch_preprocessor.py`) 생성
+- [ ] 데이터셋 빌더 (`ct_dataset_builder.py`) 생성
+- [ ] 대시보드 생성기 (`ct_preprocessing_dashboard.py`) 생성
+- [ ] CLI 진입점 (`run_ct_advanced_preprocessing.py`) 생성
+
+## 검증
+- [ ] 파이프라인 실행 테스트 (phantom + 실제 데이터)
+- [ ] 결과 시각화 확인

@@ -1,0 +1,66 @@
+# 15-Step Full Presentation Image Pack (ADDS. V1)
+
+요청하신 **"전체 PPT 흐름에 맞는 15장의 상세 발표용 시각화 로드맵 이미지"** 세트입니다. 연구 배경부터 다중모달 AI 기술, 오가노이드 실증, 인허가 체계, 그리고 미래 비전까지 슬라이드별 핵심 내용을 바로 직관적으로 이해할 수 있도록 구성(나노 바나나 생성)했습니다. 각 이미지를 슬라이드 순서에 맞게 활용하시면 됩니다.
+
+---
+
+### Part 1. 도입 및 문제 제기 (Introduction & Problem)
+**1. 타이틀 (Title)** : 정밀 종양학 AI 과제를 상징하는 첨단 디지털 DNA 디자인
+![Slide 01](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_01_title_1773824688594.png)
+
+**2. 미충족 의료 수요 (Challenge)** : 복잡한 암 종양 미세환경과 기존 표준 항암치료의 한계
+![Slide 02](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_02_challenge_1773824704286.png)
+
+**3. 기존 진단의 한계 (Limits of Biopsy)** : 거대한 암 덩어리 내 단일 생검이 가지는 공간적 이질성의 취약점
+![Slide 03](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_03_biopsy_limits_1773824718070.png)
+
+---
+
+### Part 2. 핵심 기술 및 시스템 (Core AI Solution)
+**4. 우리의 해결책 (ADDS. V1 Concept)** : 임상 의사결정을 돕는 첨단 AI 플랫폼 대시보드
+![Slide 04](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_04_adds_v1_concept_1773824732798.png)
+
+**5. 다중모달 데이터 통합 (Data Integration)** : 환자 임상, CT, 병리 슬라이드가 하나의 AI 코어로 융합되는 과정
+![Slide 05](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_05_data_integration_1773824747309.png)
+
+**6. 디지털 병리 AI 분석 (Digital Pathology)** : WSI 상에서 세포들을 자동 분할하고 정량화하는 AI 시스템
+![Slide 06](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_06_digital_pathology_1773824762234.png)
+
+---
+
+### Part 3. 바이오마커 발굴 및 위험 평가 (Biomarkers & Risk)
+**7. PrPᶜ 바이오마커 (Biomarker Mechanism)** : 암세포 유래 PrPᶜ 단백질이 주변 혈관 침윤에 관여하는 기전
+![Slide 07](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_07_prpc_biomarker_1773824780573.png)
+
+**8. 조기 진행 고위험군 계층화 (Risk Stratification)** : 데이터를 기반으로 추출한 환자의 생존/진행 위험 곡선(Kaplan-Meier 등)
+![Slide 08](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_08_risk_stratification_1773824794736.png)
+
+---
+
+### Part 4. 실증 및 검증 (Validation Pipeline)
+**9. 오가노이드 구축 (PDO Development)** : AI 예측 신뢰도 확보를 위한 환자 유래 오가노이드(PDO) 배양 과정
+![Slide 09](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_09_pdo_validation_1773824835784.png)
+
+**10. 약물 반응 스크리닝 (Drug Screening)** : Ex Vivo 기법을 통한 정밀 약물 스크리닝 및 반응성(IC50) 검증 실증
+![Slide 10](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_10_drug_screening_1773824853910.png)
+
+**11. 다학제 진료 지원 (Clinical Decision)** : 의사에게 최종적으로 "가장 유효한 Top 1 병용 항암 전략"을 제안해 주는 최종 화면
+![Slide 11](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_11_clinical_decision_1773824869018.png)
+
+---
+
+### Part 5. 상용화 로드맵 및 향후 비전 (Commercialization & Vision)
+**12. 디지털 의료기기 인허가 체계 (SaMD Roadmap)** : 코딩된 소프트웨어가 식약처 허가 기준 등의 품질 규격을 통과해 하나의 실체적 의료기기로 인정받는 로드맵
+![Slide 12](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_12_samd_roadmap_1773824883766.png)
+
+**13. 소프트웨어 기술문서 & V&V (Validation)** : 성능과 시험 결과가 코드 기어, 테스트 단계를 거치며 공식적으로 증명(Certification)되는 과정
+![Slide 13](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_13_technical_validation_1773824898678.png)
+
+**14. 사용적합성 & 사이버보안 (Cybersecurity)** : 강력한 데이터 종단 간 암호화, 개인정보 보호 및 원천적 오류 통제 시스템
+![Slide 14](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_14_cybersecurity_1773824913725.png)
+
+**15. 최종 비전과 성과 (Vision & Outcome)** : 적합성 높은 항암 치료로 결국 환자의 생존율과 삶의 질이 개선된 긍정적이고 따뜻한 첨단 병원의 미래 비전
+![Slide 15](C:\Users\brook\.gemini\antigravity\brain\c7212d0b-7abc-4f47-a237-390f57a10e08\ppt_15_future_vision_1773824926817.png)
+
+---
+*각 이미지를 복사하여 완성된 15슬라이드짜리 피치덱 기본 탬플릿에 하나씩 배치하시면 강력하고 설득력 있는 스토리의 자료가 완성됩니다.*

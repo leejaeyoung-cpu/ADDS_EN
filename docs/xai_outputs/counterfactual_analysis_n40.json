@@ -1,0 +1,2859 @@
+[
+  {
+    "patient_id": "P0104",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_baseline_months": 12.36,
+    "counterfactuals": [
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 12.36,
+        "pfs_counterfactual": 12.93,
+        "delta_months": 0.56,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.6 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.36,
+        "pfs_counterfactual": 12.04,
+        "delta_months": -0.32,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 12.36,
+        "pfs_counterfactual": 12.6,
+        "delta_months": 0.24,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "48.4",
+        "to_value": "high",
+        "pfs_original": 12.36,
+        "pfs_counterfactual": 12.36,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "G12C_to_G12D",
+      "feature_changed": "KRAS allele",
+      "from_value": "G12V",
+      "to_value": "G12D",
+      "pfs_original": 12.36,
+      "pfs_counterfactual": 12.93,
+      "delta_months": 0.56,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +0.6 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0235",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_baseline_months": 11.76,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.76,
+        "pfs_counterfactual": 17.12,
+        "delta_months": 5.36,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.4 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "WT",
+        "pfs_original": 11.76,
+        "pfs_counterfactual": 12.38,
+        "delta_months": 0.62,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.6 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "G12D",
+        "pfs_original": 11.76,
+        "pfs_counterfactual": 12.27,
+        "delta_months": 0.51,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.5 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "35.9",
+        "to_value": "high",
+        "pfs_original": 11.76,
+        "pfs_counterfactual": 11.76,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.76,
+        "pfs_counterfactual": 11.76,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.76,
+      "pfs_counterfactual": 17.12,
+      "delta_months": 5.36,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.4 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0259",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 12.26,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.26,
+        "pfs_counterfactual": 16.97,
+        "delta_months": 4.71,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.7 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 12.26,
+        "pfs_counterfactual": 12.52,
+        "delta_months": 0.26,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 12.26,
+        "pfs_counterfactual": 12.44,
+        "delta_months": 0.17,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.26,
+        "pfs_counterfactual": 12.42,
+        "delta_months": 0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "86.0",
+        "to_value": "high",
+        "pfs_original": 12.26,
+        "pfs_counterfactual": 12.26,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.26,
+      "pfs_counterfactual": 16.97,
+      "delta_months": 4.71,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.7 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0243",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 11.3,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.3,
+        "pfs_counterfactual": 14.74,
+        "delta_months": 3.45,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.5 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 11.3,
+        "pfs_counterfactual": 11.52,
+        "delta_months": 0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 11.3,
+        "pfs_counterfactual": 11.35,
+        "delta_months": 0.05,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.3,
+        "pfs_counterfactual": 11.27,
+        "delta_months": -0.02,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "86.8",
+        "to_value": "high",
+        "pfs_original": 11.3,
+        "pfs_counterfactual": 11.3,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.3,
+      "pfs_counterfactual": 14.74,
+      "delta_months": 3.45,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.5 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0405",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 11.89,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.89,
+        "pfs_counterfactual": 17.06,
+        "delta_months": 5.17,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.2 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 11.89,
+        "pfs_counterfactual": 11.5,
+        "delta_months": -0.39,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.4 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.89,
+        "pfs_counterfactual": 11.97,
+        "delta_months": 0.08,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "44.1",
+        "to_value": "high",
+        "pfs_original": 11.89,
+        "pfs_counterfactual": 11.89,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.89,
+      "pfs_counterfactual": 17.06,
+      "delta_months": 5.17,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.2 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "C0035",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 12.86,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.86,
+        "pfs_counterfactual": 15.41,
+        "delta_months": 2.55,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +2.5 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 12.86,
+        "pfs_counterfactual": 13.0,
+        "delta_months": 0.14,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.86,
+        "pfs_counterfactual": 12.96,
+        "delta_months": 0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 12.86,
+        "pfs_counterfactual": 12.79,
+        "delta_months": -0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "86.3",
+        "to_value": "high",
+        "pfs_original": 12.86,
+        "pfs_counterfactual": 12.86,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.86,
+      "pfs_counterfactual": 15.41,
+      "delta_months": 2.55,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +2.5 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0567",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 8.59,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 8.59,
+        "pfs_counterfactual": 14.55,
+        "delta_months": 5.96,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +6.0 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 8.59,
+        "pfs_counterfactual": 8.95,
+        "delta_months": 0.36,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.4 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 8.59,
+        "pfs_counterfactual": 8.67,
+        "delta_months": 0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "63.3",
+        "to_value": "high",
+        "pfs_original": 8.59,
+        "pfs_counterfactual": 8.59,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 8.59,
+      "pfs_counterfactual": 14.55,
+      "delta_months": 5.96,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +6.0 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0315",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 20.86,
+    "counterfactuals": [
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 20.86,
+        "pfs_counterfactual": 20.28,
+        "delta_months": -0.58,
+        "effect": "harm",
+        "clinical_interpretation": "This scenario predicts 0.6 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 20.86,
+        "pfs_counterfactual": 20.64,
+        "delta_months": -0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "84.4",
+        "to_value": "high",
+        "pfs_original": 20.86,
+        "pfs_counterfactual": 20.86,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "FOLFOX_to_PritFOLFOX",
+      "feature_changed": "Arm",
+      "from_value": "Pritamab",
+      "to_value": "Pritamab+FOLFOX",
+      "pfs_original": 20.86,
+      "pfs_counterfactual": 20.28,
+      "delta_months": -0.58,
+      "effect": "harm",
+      "clinical_interpretation": "This scenario predicts 0.6 months shorter PFS"
+    },
+    "n_applicable_cfs": 3
+  },
+  {
+    "patient_id": "P0394",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_baseline_months": 11.74,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 14.34,
+        "delta_months": 2.6,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +2.6 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.85,
+        "delta_months": 0.11,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.83,
+        "delta_months": 0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.76,
+        "delta_months": 0.02,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.73,
+        "delta_months": -0.01,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "54.0",
+        "to_value": "high",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.74,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.74,
+      "pfs_counterfactual": 14.34,
+      "delta_months": 2.6,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +2.6 months PFS"
+    },
+    "n_applicable_cfs": 6
+  },
+  {
+    "patient_id": "P0630",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_baseline_months": 11.48,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.48,
+        "pfs_counterfactual": 14.74,
+        "delta_months": 3.26,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.3 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 11.48,
+        "pfs_counterfactual": 11.76,
+        "delta_months": 0.28,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.48,
+        "pfs_counterfactual": 11.29,
+        "delta_months": -0.19,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 11.48,
+        "pfs_counterfactual": 11.48,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "94.0",
+        "to_value": "high",
+        "pfs_original": 11.48,
+        "pfs_counterfactual": 11.48,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.48,
+      "pfs_counterfactual": 14.74,
+      "delta_months": 3.26,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.3 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0153",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_baseline_months": 9.7,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 9.7,
+        "pfs_counterfactual": 15.63,
+        "delta_months": 5.94,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.9 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "G12D",
+        "pfs_original": 9.7,
+        "pfs_counterfactual": 9.79,
+        "delta_months": 0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "WT",
+        "pfs_original": 9.7,
+        "pfs_counterfactual": 9.76,
+        "delta_months": 0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 9.7,
+        "pfs_counterfactual": 9.64,
+        "delta_months": -0.06,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "61.1",
+        "to_value": "high",
+        "pfs_original": 9.7,
+        "pfs_counterfactual": 9.7,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 9.7,
+      "pfs_counterfactual": 15.63,
+      "delta_months": 5.94,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.9 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0628",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 21.13,
+    "counterfactuals": [
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 21.13,
+        "pfs_counterfactual": 20.86,
+        "delta_months": -0.27,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 21.13,
+        "pfs_counterfactual": 20.91,
+        "delta_months": -0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 21.13,
+        "pfs_counterfactual": 20.91,
+        "delta_months": -0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "95.7",
+        "to_value": "high",
+        "pfs_original": 21.13,
+        "pfs_counterfactual": 21.13,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "G12C_to_G12D",
+      "feature_changed": "KRAS allele",
+      "from_value": "WT",
+      "to_value": "G12D",
+      "pfs_original": 21.13,
+      "pfs_counterfactual": 20.86,
+      "delta_months": -0.27,
+      "effect": "neutral",
+      "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0246",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 13.1,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 13.1,
+        "pfs_counterfactual": 17.02,
+        "delta_months": 3.92,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.9 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 13.1,
+        "pfs_counterfactual": 12.55,
+        "delta_months": -0.55,
+        "effect": "harm",
+        "clinical_interpretation": "This scenario predicts 0.6 months shorter PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 13.1,
+        "pfs_counterfactual": 13.0,
+        "delta_months": -0.1,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 13.1,
+        "pfs_counterfactual": 13.06,
+        "delta_months": -0.04,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "70.6",
+        "to_value": "high",
+        "pfs_original": 13.1,
+        "pfs_counterfactual": 13.1,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 13.1,
+      "pfs_counterfactual": 17.02,
+      "delta_months": 3.92,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.9 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0578",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 12.83,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.83,
+        "pfs_counterfactual": 15.93,
+        "delta_months": 3.1,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 12.83,
+        "pfs_counterfactual": 12.7,
+        "delta_months": -0.13,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.83,
+        "pfs_counterfactual": 12.94,
+        "delta_months": 0.11,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "41.2",
+        "to_value": "high",
+        "pfs_original": 12.83,
+        "pfs_counterfactual": 12.83,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.83,
+      "pfs_counterfactual": 15.93,
+      "delta_months": 3.1,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.1 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0217",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_baseline_months": 9.09,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 9.09,
+        "pfs_counterfactual": 11.05,
+        "delta_months": 1.96,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +2.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 9.09,
+        "pfs_counterfactual": 9.91,
+        "delta_months": 0.82,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.8 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 9.09,
+        "pfs_counterfactual": 9.19,
+        "delta_months": 0.1,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 9.09,
+        "pfs_counterfactual": 9.14,
+        "delta_months": 0.05,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "91.8",
+        "to_value": "high",
+        "pfs_original": 9.09,
+        "pfs_counterfactual": 9.09,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 9.09,
+      "pfs_counterfactual": 11.05,
+      "delta_months": 1.96,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +2.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0430",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 18.21,
+    "counterfactuals": [
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 18.21,
+        "pfs_counterfactual": 18.06,
+        "delta_months": -0.15,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 18.21,
+        "pfs_counterfactual": 18.17,
+        "delta_months": -0.04,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "95.7",
+        "to_value": "high",
+        "pfs_original": 18.21,
+        "pfs_counterfactual": 18.21,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "FOLFOX_to_PritFOLFOX",
+      "feature_changed": "Arm",
+      "from_value": "Pritamab",
+      "to_value": "Pritamab+FOLFOX",
+      "pfs_original": 18.21,
+      "pfs_counterfactual": 18.06,
+      "delta_months": -0.15,
+      "effect": "neutral",
+      "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+    },
+    "n_applicable_cfs": 3
+  },
+  {
+    "patient_id": "P0562",
+    "arm": "Pritamab",
+    "kras": "G12V",
+    "pfs_baseline_months": 11.74,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 15.8,
+        "delta_months": 4.05,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 12.2,
+        "delta_months": 0.46,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.5 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.79,
+        "delta_months": 0.05,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.77,
+        "delta_months": 0.03,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "75.1",
+        "to_value": "high",
+        "pfs_original": 11.74,
+        "pfs_counterfactual": 11.74,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.74,
+      "pfs_counterfactual": 15.8,
+      "delta_months": 4.05,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0435",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 13.78,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 13.78,
+        "pfs_counterfactual": 17.16,
+        "delta_months": 3.38,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.4 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 13.78,
+        "pfs_counterfactual": 13.27,
+        "delta_months": -0.51,
+        "effect": "harm",
+        "clinical_interpretation": "This scenario predicts 0.5 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 13.78,
+        "pfs_counterfactual": 13.72,
+        "delta_months": -0.06,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "48.7",
+        "to_value": "high",
+        "pfs_original": 13.78,
+        "pfs_counterfactual": 13.78,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 13.78,
+      "pfs_counterfactual": 17.16,
+      "delta_months": 3.38,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.4 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0191",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 8.4,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 8.4,
+        "pfs_counterfactual": 12.7,
+        "delta_months": 4.3,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.3 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 8.4,
+        "pfs_counterfactual": 8.06,
+        "delta_months": -0.34,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 8.4,
+        "pfs_counterfactual": 8.58,
+        "delta_months": 0.19,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 8.4,
+        "pfs_counterfactual": 8.24,
+        "delta_months": -0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "89.5",
+        "to_value": "high",
+        "pfs_original": 8.4,
+        "pfs_counterfactual": 8.4,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 8.4,
+      "pfs_counterfactual": 12.7,
+      "delta_months": 4.3,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.3 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0276",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_baseline_months": 16.84,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 21.81,
+        "delta_months": 4.98,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 16.65,
+        "delta_months": -0.19,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 16.73,
+        "delta_months": -0.1,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "G12D",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 16.84,
+        "delta_months": 0.01,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "WT",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 16.84,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "55.8",
+        "to_value": "high",
+        "pfs_original": 16.84,
+        "pfs_counterfactual": 16.84,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 16.84,
+      "pfs_counterfactual": 21.81,
+      "delta_months": 4.98,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+    },
+    "n_applicable_cfs": 6
+  },
+  {
+    "patient_id": "P0227",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_baseline_months": 12.04,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 17.5,
+        "delta_months": 5.47,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.5 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "G12D",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 12.2,
+        "delta_months": 0.17,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 11.88,
+        "delta_months": -0.15,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 12.1,
+        "delta_months": 0.06,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "WT",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 12.04,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "36.0",
+        "to_value": "high",
+        "pfs_original": 12.04,
+        "pfs_counterfactual": 12.04,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.04,
+      "pfs_counterfactual": 17.5,
+      "delta_months": 5.47,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.5 months PFS"
+    },
+    "n_applicable_cfs": 6
+  },
+  {
+    "patient_id": "C0207",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 10.44,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 10.44,
+        "pfs_counterfactual": 14.85,
+        "delta_months": 4.41,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.4 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 10.44,
+        "pfs_counterfactual": 10.56,
+        "delta_months": 0.12,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 10.44,
+        "pfs_counterfactual": 10.55,
+        "delta_months": 0.12,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "62.3",
+        "to_value": "high",
+        "pfs_original": 10.44,
+        "pfs_counterfactual": 10.44,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 10.44,
+      "pfs_counterfactual": 14.85,
+      "delta_months": 4.41,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.4 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0002",
+    "arm": "Pritamab",
+    "kras": "G13D",
+    "pfs_baseline_months": 12.1,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.1,
+        "pfs_counterfactual": 17.13,
+        "delta_months": 5.03,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "G12D",
+        "pfs_original": 12.1,
+        "pfs_counterfactual": 12.45,
+        "delta_months": 0.35,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.1,
+        "pfs_counterfactual": 12.08,
+        "delta_months": -0.02,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "WT",
+        "pfs_original": 12.1,
+        "pfs_counterfactual": 12.1,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "87.1",
+        "to_value": "high",
+        "pfs_original": 12.1,
+        "pfs_counterfactual": 12.1,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.1,
+      "pfs_counterfactual": 17.13,
+      "delta_months": 5.03,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0442",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_baseline_months": 14.01,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 16.14,
+        "delta_months": 2.13,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +2.1 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "WT",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.82,
+        "delta_months": -0.2,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.88,
+        "delta_months": -0.13,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "G12D",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.97,
+        "delta_months": -0.04,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.98,
+        "delta_months": -0.03,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "66.4",
+        "to_value": "high",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 14.01,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 14.01,
+      "pfs_counterfactual": 16.14,
+      "delta_months": 2.13,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +2.1 months PFS"
+    },
+    "n_applicable_cfs": 6
+  },
+  {
+    "patient_id": "C0306",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 10.5,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 10.5,
+        "pfs_counterfactual": 14.34,
+        "delta_months": 3.83,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.8 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 10.5,
+        "pfs_counterfactual": 10.35,
+        "delta_months": -0.15,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 10.5,
+        "pfs_counterfactual": 10.54,
+        "delta_months": 0.03,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "36.1",
+        "to_value": "high",
+        "pfs_original": 10.5,
+        "pfs_counterfactual": 10.5,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 10.5,
+      "pfs_counterfactual": 14.34,
+      "delta_months": 3.83,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.8 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "C0048",
+    "arm": "Control",
+    "kras": "G13D",
+    "pfs_baseline_months": 14.01,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 20.29,
+        "delta_months": 6.28,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +6.3 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.85,
+        "delta_months": -0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "G12D",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 13.94,
+        "delta_months": -0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G13D",
+        "to_value": "WT",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 14.01,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "38.1",
+        "to_value": "high",
+        "pfs_original": 14.01,
+        "pfs_counterfactual": 14.01,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 14.01,
+      "pfs_counterfactual": 20.29,
+      "delta_months": 6.28,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +6.3 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0118",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_baseline_months": 11.5,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 16.0,
+        "delta_months": 4.51,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.5 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "G12D",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 12.18,
+        "delta_months": 0.69,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.7 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "WT",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 12.18,
+        "delta_months": 0.68,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +0.7 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 11.57,
+        "delta_months": 0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 11.54,
+        "delta_months": 0.05,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "32.3",
+        "to_value": "high",
+        "pfs_original": 11.5,
+        "pfs_counterfactual": 11.5,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.5,
+      "pfs_counterfactual": 16.0,
+      "delta_months": 4.51,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.5 months PFS"
+    },
+    "n_applicable_cfs": 6
+  },
+  {
+    "patient_id": "P0422",
+    "arm": "Pritamab",
+    "kras": "G12C",
+    "pfs_baseline_months": 10.41,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 10.41,
+        "pfs_counterfactual": 16.26,
+        "delta_months": 5.85,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.8 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "WT",
+        "pfs_original": 10.41,
+        "pfs_counterfactual": 11.75,
+        "delta_months": 1.33,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +1.3 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12C",
+        "to_value": "G12D",
+        "pfs_original": 10.41,
+        "pfs_counterfactual": 11.52,
+        "delta_months": 1.1,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +1.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 10.41,
+        "pfs_counterfactual": 10.42,
+        "delta_months": 0.01,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "57.2",
+        "to_value": "high",
+        "pfs_original": 10.41,
+        "pfs_counterfactual": 10.41,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 10.41,
+      "pfs_counterfactual": 16.26,
+      "delta_months": 5.85,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.8 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0284",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 14.36,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 14.36,
+        "pfs_counterfactual": 19.33,
+        "delta_months": 4.97,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 14.36,
+        "pfs_counterfactual": 14.27,
+        "delta_months": -0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 14.36,
+        "pfs_counterfactual": 14.43,
+        "delta_months": 0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 14.36,
+        "pfs_counterfactual": 14.34,
+        "delta_months": -0.02,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "81.6",
+        "to_value": "high",
+        "pfs_original": 14.36,
+        "pfs_counterfactual": 14.36,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 14.36,
+      "pfs_counterfactual": 19.33,
+      "delta_months": 4.97,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0321",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 11.7,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 11.7,
+        "pfs_counterfactual": 17.84,
+        "delta_months": 6.13,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +6.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 11.7,
+        "pfs_counterfactual": 11.87,
+        "delta_months": 0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 11.7,
+        "pfs_counterfactual": 11.77,
+        "delta_months": 0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "74.0",
+        "to_value": "high",
+        "pfs_original": 11.7,
+        "pfs_counterfactual": 11.7,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 11.7,
+      "pfs_counterfactual": 17.84,
+      "delta_months": 6.13,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +6.1 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0370",
+    "arm": "Pritamab",
+    "kras": "G12D",
+    "pfs_baseline_months": 15.75,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 15.75,
+        "pfs_counterfactual": 17.17,
+        "delta_months": 1.42,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +1.4 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12D",
+        "to_value": "WT",
+        "pfs_original": 15.75,
+        "pfs_counterfactual": 15.03,
+        "delta_months": -0.72,
+        "effect": "harm",
+        "clinical_interpretation": "This scenario predicts 0.7 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 15.75,
+        "pfs_counterfactual": 15.97,
+        "delta_months": 0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "59.3",
+        "to_value": "high",
+        "pfs_original": 15.75,
+        "pfs_counterfactual": 15.75,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 15.75,
+      "pfs_counterfactual": 17.17,
+      "delta_months": 1.42,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +1.4 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0424",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 15.65,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 15.65,
+        "pfs_counterfactual": 18.77,
+        "delta_months": 3.12,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.1 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 15.65,
+        "pfs_counterfactual": 15.48,
+        "delta_months": -0.17,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 15.65,
+        "pfs_counterfactual": 15.49,
+        "delta_months": -0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 15.65,
+        "pfs_counterfactual": 15.68,
+        "delta_months": 0.03,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "83.3",
+        "to_value": "high",
+        "pfs_original": 15.65,
+        "pfs_counterfactual": 15.65,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 15.65,
+      "pfs_counterfactual": 18.77,
+      "delta_months": 3.12,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.1 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0198",
+    "arm": "Control",
+    "kras": "G12V",
+    "pfs_baseline_months": 7.43,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 7.43,
+        "pfs_counterfactual": 11.49,
+        "delta_months": 4.06,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.1 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "G12D",
+        "pfs_original": 7.43,
+        "pfs_counterfactual": 7.69,
+        "delta_months": 0.26,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 7.43,
+        "pfs_counterfactual": 7.65,
+        "delta_months": 0.22,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "G12D_to_WT",
+        "feature_changed": "KRAS allele",
+        "from_value": "G12V",
+        "to_value": "WT",
+        "pfs_original": 7.43,
+        "pfs_counterfactual": 7.43,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "80.9",
+        "to_value": "high",
+        "pfs_original": 7.43,
+        "pfs_counterfactual": 7.43,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 7.43,
+      "pfs_counterfactual": 11.49,
+      "delta_months": 4.06,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.1 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0182",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 10.71,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 10.71,
+        "pfs_counterfactual": 17.45,
+        "delta_months": 6.75,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +6.8 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 10.71,
+        "pfs_counterfactual": 11.02,
+        "delta_months": 0.31,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 10.71,
+        "pfs_counterfactual": 10.91,
+        "delta_months": 0.2,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "93.4",
+        "to_value": "high",
+        "pfs_original": 10.71,
+        "pfs_counterfactual": 10.71,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 10.71,
+      "pfs_counterfactual": 17.45,
+      "delta_months": 6.75,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +6.8 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "C0022",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 8.97,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 8.97,
+        "pfs_counterfactual": 12.01,
+        "delta_months": 3.04,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +3.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 8.97,
+        "pfs_counterfactual": 9.22,
+        "delta_months": 0.26,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.3 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 8.97,
+        "pfs_counterfactual": 9.08,
+        "delta_months": 0.11,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 8.97,
+        "pfs_counterfactual": 8.86,
+        "delta_months": -0.1,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "56.4",
+        "to_value": "high",
+        "pfs_original": 8.97,
+        "pfs_counterfactual": 8.97,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 8.97,
+      "pfs_counterfactual": 12.01,
+      "delta_months": 3.04,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +3.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0146",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 15.54,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 15.54,
+        "pfs_counterfactual": 20.89,
+        "delta_months": 5.36,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.4 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 15.54,
+        "pfs_counterfactual": 15.25,
+        "delta_months": -0.28,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 15.54,
+        "pfs_counterfactual": 15.37,
+        "delta_months": -0.16,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "72.7",
+        "to_value": "high",
+        "pfs_original": 15.54,
+        "pfs_counterfactual": 15.54,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 15.54,
+      "pfs_counterfactual": 20.89,
+      "delta_months": 5.36,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.4 months PFS"
+    },
+    "n_applicable_cfs": 4
+  },
+  {
+    "patient_id": "P0140",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 12.41,
+    "counterfactuals": [
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.41,
+        "pfs_counterfactual": 12.32,
+        "delta_months": -0.09,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 12.41,
+        "pfs_counterfactual": 12.49,
+        "delta_months": 0.07,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "82.5",
+        "to_value": "high",
+        "pfs_original": 12.41,
+        "pfs_counterfactual": 12.41,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "FOLFOX_to_PritFOLFOX",
+      "feature_changed": "Arm",
+      "from_value": "Pritamab",
+      "to_value": "Pritamab+FOLFOX",
+      "pfs_original": 12.41,
+      "pfs_counterfactual": 12.32,
+      "delta_months": -0.09,
+      "effect": "neutral",
+      "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+    },
+    "n_applicable_cfs": 3
+  },
+  {
+    "patient_id": "C0053",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 12.95,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 12.95,
+        "pfs_counterfactual": 16.94,
+        "delta_months": 4.0,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.0 months PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 12.95,
+        "pfs_counterfactual": 13.14,
+        "delta_months": 0.19,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.2 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 12.95,
+        "pfs_counterfactual": 12.77,
+        "delta_months": -0.18,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.2 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 12.95,
+        "pfs_counterfactual": 13.01,
+        "delta_months": 0.06,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "76.7",
+        "to_value": "high",
+        "pfs_original": 12.95,
+        "pfs_counterfactual": 12.95,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 12.95,
+      "pfs_counterfactual": 16.94,
+      "delta_months": 4.0,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.0 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "C0238",
+    "arm": "Control",
+    "kras": "WT",
+    "pfs_baseline_months": 13.22,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 13.22,
+        "pfs_counterfactual": 17.58,
+        "delta_months": 4.36,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +4.4 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 13.22,
+        "pfs_counterfactual": 12.91,
+        "delta_months": -0.31,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.3 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 13.22,
+        "pfs_counterfactual": 13.3,
+        "delta_months": 0.08,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.1 months PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Control",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 13.22,
+        "pfs_counterfactual": 13.25,
+        "delta_months": 0.03,
+        "effect": "neutral",
+        "clinical_interpretation": "Switching to this scenario predicts +0.0 months PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "96.3",
+        "to_value": "high",
+        "pfs_original": 13.22,
+        "pfs_counterfactual": 13.22,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 13.22,
+      "pfs_counterfactual": 17.58,
+      "delta_months": 4.36,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +4.4 months PFS"
+    },
+    "n_applicable_cfs": 5
+  },
+  {
+    "patient_id": "P0412",
+    "arm": "Pritamab",
+    "kras": "WT",
+    "pfs_baseline_months": 16.17,
+    "counterfactuals": [
+      {
+        "cf_name": "MSS_to_MSIH",
+        "feature_changed": "MSI status",
+        "from_value": "MSS",
+        "to_value": "MSI-H",
+        "pfs_original": 16.17,
+        "pfs_counterfactual": 21.31,
+        "delta_months": 5.14,
+        "effect": "benefit",
+        "clinical_interpretation": "Switching to this scenario predicts +5.1 months PFS"
+      },
+      {
+        "cf_name": "non_resp_to_resp",
+        "feature_changed": "ctDNA",
+        "from_value": "non-responder",
+        "to_value": "responder",
+        "pfs_original": 16.17,
+        "pfs_counterfactual": 15.77,
+        "delta_months": -0.39,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.4 months shorter PFS"
+      },
+      {
+        "cf_name": "FOLFOX_to_PritFOLFOX",
+        "feature_changed": "Arm",
+        "from_value": "Pritamab",
+        "to_value": "Pritamab+FOLFOX",
+        "pfs_original": 16.17,
+        "pfs_counterfactual": 16.06,
+        "delta_months": -0.11,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.1 months shorter PFS"
+      },
+      {
+        "cf_name": "G12C_to_G12D",
+        "feature_changed": "KRAS allele",
+        "from_value": "WT",
+        "to_value": "G12D",
+        "pfs_original": 16.17,
+        "pfs_counterfactual": 16.13,
+        "delta_months": -0.04,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      },
+      {
+        "cf_name": "low_to_high",
+        "feature_changed": "PrPc level",
+        "from_value": "98.9",
+        "to_value": "high",
+        "pfs_original": 16.17,
+        "pfs_counterfactual": 16.17,
+        "delta_months": 0.0,
+        "effect": "neutral",
+        "clinical_interpretation": "This scenario predicts 0.0 months shorter PFS"
+      }
+    ],
+    "top_actionable_cf": {
+      "cf_name": "MSS_to_MSIH",
+      "feature_changed": "MSI status",
+      "from_value": "MSS",
+      "to_value": "MSI-H",
+      "pfs_original": 16.17,
+      "pfs_counterfactual": 21.31,
+      "delta_months": 5.14,
+      "effect": "benefit",
+      "clinical_interpretation": "Switching to this scenario predicts +5.1 months PFS"
+    },
+    "n_applicable_cfs": 5
+  }
+]

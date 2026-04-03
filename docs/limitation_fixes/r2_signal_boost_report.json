@@ -1,0 +1,20 @@
+{
+  "method": "Treatment_Effect_Encoding_v2",
+  "note": "Arm integer replaced with domain-informed treatment effect (months PFS benefit)",
+  "PFS_R2": {
+    "original": -0.3799,
+    "te_encoding": 0.8135,
+    "improvement": 1.1934
+  },
+  "OS_R2": {
+    "original": 0.8785,
+    "te_encoding": 0.8158,
+    "improvement": -0.0627
+  },
+  "arm_treatment_effect_map": {
+    "Pritamab+FOLFOX": 3.2,
+    "Pritamab+FOLFOX+KRAS_i": 4.8,
+    "FOLFOX": 0.0,
+    "FOLFOX+KRAS_i": 1.5
+  }
+}

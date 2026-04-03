@@ -1,0 +1,25 @@
+# CT Preprocessing Pipeline Verification and Swin-UNETR Training Setup & AI SaMD Pitch Deck Generation
+
+## 1. CT Preprocessing Pipeline Verification
+- **Objective:** Verify the advanced CT preprocessing pipeline, including dry runs, fixing encoding issues, and running on a subset of real data.
+- **Bug Fixes:**
+  - Resolved `UnicodeEncodeError` by adjusting print statements and logging.
+  - Fixed DICOM slice size mismatch by implementing "dimensional majority voting".
+  - Addressed `body_mask` shape mismatch in Stage 10 by resampling the body_mask.
+- **Outcomes:** Successfully generated 1,021 patches (817 train, 204 validation) bypassing QC failures.
+
+## 2. Swin-UNETR Training Script Setup
+- **Objective:** Train a 5-channel Swin-UNETR model.
+- **Approach:**
+  - **Phase 1:** Self-supervised Masked Autoencoder (MAE) pretraining. (Loss improved from 0.2053 ➔ 0.1110)
+  - **Phase 2:** Supervised fine-tuning. Identified an issue with ground truth labels (all zeros) leading to Dice 0.0000.
+  - **Auto-Launch Pipeline:** Created [run_full_training_pipeline.py](file:///f:/ADDS/run_full_training_pipeline.py) to seamlessly connect Phase 1 and Phase 2.
+
+## 3. AI SaMD Presentation Pitch Generation
+- **Objective:** Generate a professional pitch deck (PPT) for the successful "임상수요형중개연구" grant proposal evaluation.
+- **Focus:** Transitioning from a pure research model to a standalone AI Digital Medical Device Software (SaMD). Overcoming regulatory hurdles (GMP, Cybersecurity, Usability).
+- **Implementation:**
+  - Developed [generate_samd_pitch.py](file:///f:/ADDS/CDS/generate_samd_pitch.py) using `python-pptx` to build a 10-slide core framework.
+  - Designed 15 robust, academic 'Scientific Diagram' visual schemas leveraging Medical Vector Aesthetic to effectively pitch to professors without looking overly "poster-like".
+  - Authored a Python pipeline ([create_samd_composite_slides.py](file:///f:/ADDS/CDS/create_samd_composite_slides.py)) employing `Pillow (PIL)` to computationally synthesize these newly generated schemas alongside the specific statistical endpoints and workflow diagrams directly extracted from the original [plan_text.txt](file:///f:/ADDS/CDS/plan_text.txt) and empirical KakaoTalk captures.
+  - **Outputs:** Automatically rendered a fully self-contained slide deck of 15 contiguous 1920x1080 composites located at `f:\ADDS\CDS\final_pitch_slides`.

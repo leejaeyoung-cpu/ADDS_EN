@@ -1,0 +1,36 @@
+{
+  "round": 3,
+  "timestamp": "2026-03-10T01:00 KST",
+  "results": {
+    "patient": {
+      "n": 26,
+      "kras": 26,
+      "orr": 26,
+      "ct": 26,
+      "toxicity": 26
+    },
+    "bliss": {
+      "n": 136,
+      "antagonism": 4
+    },
+    "tcga": {
+      "n": 594,
+      "arm": 594,
+      "cea": 594
+    },
+    "cohort": {
+      "n": 1000,
+      "ctdna": 1000,
+      "pk": 1000,
+      "toxicity": 1000
+    },
+    "dl": {
+      "synergy_r2": 0.996,
+      "pfs_r2": 0.056,
+      "os_r2": 0.066
+    }
+  },
+  "remaining": [
+    "PFS model R2=0.056 < 0.70 (DL-generated cohort: inherently noisy)"
+  ]
+}

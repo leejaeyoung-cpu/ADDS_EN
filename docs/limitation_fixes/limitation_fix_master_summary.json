@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-03-11T15:10 KST",
+  "output_dir": "f:\\ADDS\\docs\\limitation_fixes",
+  "fixes": {
+    "Fix_1_LIME": {
+      "status": "Already completed (prev session)",
+      "file": "lime_attributions_n50.json"
+    },
+    "Fix_2_SHAP": {
+      "status": "DONE",
+      "file": "shap_tree_report.json + shap_tree_summary.png"
+    },
+    "Fix_3_DICE_CF": {
+      "status": "DONE",
+      "file": "dice_cf_outputs_n50.json",
+      "target_achieved_rate": "7/50"
+    },
+    "Fix_4_R2_boost": {
+      "status": "DONE",
+      "file": "r2_signal_boost_report.json",
+      "pfs_r2": {
+        "original": -0.3799,
+        "te_encoding": 0.8135,
+        "improvement": 1.1934
+      },
+      "os_r2": {
+        "original": 0.8785,
+        "te_encoding": 0.8158,
+        "improvement": -0.0627
+      }
+    },
+    "Fix_5_Synergy_ext": {
+      "status": "DONE",
+      "file": "synergy_external_validation.json"
+    },
+    "Fix_6_Bliss_ONeil": {
+      "status": "DONE",
+      "file": "bliss_oneil_crossval.json",
+      "pearson_r": 0.8337
+    },
+    "Fix_7_PhysEval": {
+      "status": "DONE",
+      "file": "physician_eval_irb_ready_n60.json",
+      "n": 60,
+      "adopt_rate": "33/60",
+      "mean_score": 3.51
+    },
+    "Fix_8_KRAS_MI": {
+      "status": "DONE",
+      "file": "kras_imputation_uncertainty.json",
+      "mean_pfs_sd": 0.1381
+    }
+  }
+}

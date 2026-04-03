@@ -1,0 +1,42 @@
+# Code Owners
+# ADDS Repository — Code Ownership Map
+# Format: <pattern> <owner>
+
+# Global ownership
+* @leejaeyoung-cpu
+
+# CT Analysis Pipeline
+/src/medical_imaging/ @leejaeyoung-cpu
+/ct_pipeline*.py @leejaeyoung-cpu
+/detect_tumors*.py @leejaeyoung-cpu
+/batch_tumor*.py @leejaeyoung-cpu
+
+# Cellpose / Pathology
+/src/pathology/ @leejaeyoung-cpu
+/analysis/huvec/ @leejaeyoung-cpu
+/verify_cellpose_pipeline.py @leejaeyoung-cpu
+
+# Backend API
+/backend/ @leejaeyoung-cpu
+/backend/api/ @leejaeyoung-cpu
+/backend/services/ @leejaeyoung-cpu
+
+# Drug Synergy & Knowledge Base
+/src/knowledge/ @leejaeyoung-cpu
+/src/knowledge_base/ @leejaeyoung-cpu
+/src/recommendation/ @leejaeyoung-cpu
+/src/protein/ @leejaeyoung-cpu
+/pritamab/ @leejaeyoung-cpu
+/prpc/ @leejaeyoung-cpu
+
+# Documentation
+/docs/ @leejaeyoung-cpu
+/README.md @leejaeyoung-cpu
+/.github/ @leejaeyoung-cpu
+
+# CI/CD & Infrastructure
+/.github/workflows/ @leejaeyoung-cpu
+/Dockerfile @leejaeyoung-cpu
+/docker-compose*.yml @leejaeyoung-cpu
+/pyproject.toml @leejaeyoung-cpu
+/requirements*.txt @leejaeyoung-cpu

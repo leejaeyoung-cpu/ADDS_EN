@@ -1,0 +1,64 @@
+Sample_ID,Organism,Age_Range,Sex,Ethnicity,Disease_Status,AJCC_Stage,T_Stage,N_Stage,M_Stage,Tumor_Location,Sample_Type,Collection_Date,PrPc_Level_Category,Notes
+CRC_S001,Homo sapiens,60-70,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S002,Homo sapiens,50-60,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-02,High,Stage III CRC patient
+CRC_S003,Homo sapiens,55-65,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-02,High,Stage III CRC patient
+CRC_S004,Homo sapiens,60-70,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S005,Homo sapiens,45-55,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-02,High,Stage III CRC patient
+CRC_S006,Homo sapiens,65-75,Male,Korean,Colorectal_Cancer,III,T4,N1,M0,Colon,Serum,2024-03,High,Stage III CRC patient
+CRC_S007,Homo sapiens,50-60,Female,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S008,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-03,High,Stage III CRC patient
+CRC_S009,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-03,High,Stage III CRC patient
+CRC_S010,Homo sapiens,60-70,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S011,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-03,High,Stage III CRC patient
+CRC_S012,Homo sapiens,55-65,Female,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S013,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N2,M0,Rectum,Serum,2024-03,High,Stage III CRC patient
+CRC_S014,Homo sapiens,45-55,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-04,High,Stage III CRC patient
+CRC_S015,Homo sapiens,60-70,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S016,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T4,N1,M0,Colon,Serum,2024-04,High,Stage III CRC patient
+CRC_S017,Homo sapiens,50-60,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S018,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-04,High,Stage III CRC patient
+CRC_S019,Homo sapiens,55-65,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S020,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-04,High,Stage III CRC patient
+CRC_S021,Homo sapiens,50-60,Male,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S022,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-05,High,Stage III CRC patient
+CRC_S023,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-05,High,Stage III CRC patient
+CRC_S024,Homo sapiens,45-55,Female,Korean,Normal,-,-,-,-,-,Serum,2024-01,Low,Healthy control
+CRC_S025,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-05,High,Stage III CRC patient
+CRC_S026,Homo sapiens,55-65,Female,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S027,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T4,N1,M0,Rectum,Serum,2024-05,High,Stage III CRC patient
+CRC_S028,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-05,High,Stage III CRC patient
+CRC_S029,Homo sapiens,55-65,Male,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S030,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-06,High,Stage III CRC patient
+CRC_S031,Homo sapiens,50-60,Male,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S032,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-06,High,Stage III CRC patient
+CRC_S033,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-06,High,Stage III CRC patient
+CRC_S034,Homo sapiens,45-55,Female,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S035,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-06,High,Stage III CRC patient
+CRC_S036,Homo sapiens,55-65,Female,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S037,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T4,N1,M0,Rectum,Serum,2024-06,High,Stage III CRC patient
+CRC_S038,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-07,High,Stage III CRC patient
+CRC_S039,Homo sapiens,55-65,Male,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S040,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-07,High,Stage III CRC patient
+CRC_S041,Homo sapiens,50-60,Male,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S042,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-07,High,Stage III CRC patient
+CRC_S043,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-07,High,Stage III CRC patient
+CRC_S044,Homo sapiens,45-55,Female,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S045,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N2,M0,Rectum,Serum,2024-07,High,Stage III CRC patient
+CRC_S046,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-08,High,Stage III CRC patient
+CRC_S047,Homo sapiens,50-60,Male,Korean,Normal,-,-,-,-,-,Serum,2024-02,Low,Healthy control
+CRC_S048,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T4,N1,M0,Colon,Serum,2024-08,High,Stage III CRC patient
+CRC_S049,Homo sapiens,55-65,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-08,High,Stage III CRC patient
+CRC_S050,Homo sapiens,60-70,Female,Korean,Normal,-,-,-,-,-,Serum,2024-03,Low,Healthy control
+CRC_S051,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-08,High,Stage III CRC patient
+CRC_S052,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-08,High,Stage III CRC patient
+CRC_S053,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-09,High,Stage III CRC patient
+CRC_S054,Homo sapiens,45-55,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-09,High,Stage III CRC patient
+CRC_S055,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-09,High,Stage III CRC patient
+CRC_S056,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T4,N1,M0,Rectum,Serum,2024-09,High,Stage III CRC patient
+CRC_S057,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T3,N2,M0,Colon,Serum,2024-09,High,Stage III CRC patient
+CRC_S058,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-09,High,Stage III CRC patient
+CRC_S059,Homo sapiens,55-65,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Rectum,Serum,2024-10,High,Stage III CRC patient
+CRC_S060,Homo sapiens,60-70,Female,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-10,High,Stage III CRC patient
+CRC_S061,Homo sapiens,50-60,Male,Korean,Colorectal_Cancer,III,T3,N1,M0,Colon,Serum,2024-10,High,Stage III CRC patient
+CRC_S062,Homo sapiens,55-65,Female,Korean,Colorectal_Cancer,III,T3,N2,M0,Rectum,Serum,2024-10,High,Stage III CRC patient
+CRC_S063,Homo sapiens,60-70,Male,Korean,Colorectal_Cancer,III,T4,N1,M0,Colon,Serum,2024-10,High,Stage III CRC patient

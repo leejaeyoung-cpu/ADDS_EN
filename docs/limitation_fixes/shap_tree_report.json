@@ -1,0 +1,46 @@
+{
+  "method": "permutation_importance_fallback",
+  "note": "shap not available; using sklearn permutation importance",
+  "global_importance_top10": [
+    {
+      "feature": "MSI-H status",
+      "mean_imp": 0.07876
+    },
+    {
+      "feature": "PrPc expression level",
+      "mean_imp": 0.0
+    },
+    {
+      "feature": "PrPc expression (numeric)",
+      "mean_imp": 0.0
+    },
+    {
+      "feature": "Arm (encoded)",
+      "mean_imp": -0.00508
+    },
+    {
+      "feature": "Pritamab component",
+      "mean_imp": -0.00565
+    },
+    {
+      "feature": "ctDNA responder",
+      "mean_imp": -0.0062
+    },
+    {
+      "feature": "KRAS allele",
+      "mean_imp": -0.01505
+    },
+    {
+      "feature": "Bliss synergy score",
+      "mean_imp": -0.01628
+    },
+    {
+      "feature": "Toxicity burden (G3/4 sum)",
+      "mean_imp": -0.03272
+    },
+    {
+      "feature": "TNF-a (pg/mL)",
+      "mean_imp": -0.0658
+    }
+  ]
+}

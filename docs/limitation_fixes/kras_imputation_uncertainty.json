@@ -1,0 +1,1074 @@
+{
+  "n_patients_imputed": 30,
+  "n_imputation_runs_per_patient": 5,
+  "kras_population_prior": {
+    "G12D": 0.36,
+    "G12V": 0.22,
+    "G12C": 0.11,
+    "G13D": 0.09,
+    "G12A": 0.05,
+    "G12S": 0.04,
+    "G12R": 0.04,
+    "G13C": 0.03,
+    "Other": 0.06
+  },
+  "mean_PFS_std_across_patients": 0.1381,
+  "uncertainty_distribution": {
+    "low": 30,
+    "medium": 0,
+    "high": 0
+  },
+  "clinical_recommendation": "KRAS imputation uncertainty is acceptable (mean SD < 1.5 months). Patients with HIGH uncertainty class should be prioritized for KRAS assay re-testing.",
+  "patient_results": [
+    {
+      "patient_id": "C0128",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 9.736
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 9.736
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.764
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.764
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.849
+        }
+      ],
+      "pfs_mean": 9.77,
+      "pfs_std": 0.042,
+      "pfs_range": [
+        9.736,
+        9.849
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.11 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0047",
+      "original_kras": "G13D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.08
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 8.702
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.009
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.08
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.08
+        }
+      ],
+      "pfs_mean": 8.99,
+      "pfs_std": 0.147,
+      "pfs_range": [
+        8.702,
+        9.08
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.38 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0284",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.664
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 10.639
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 10.506
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 10.639
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 10.506
+        }
+      ],
+      "pfs_mean": 10.591,
+      "pfs_std": 0.07,
+      "pfs_range": [
+        10.506,
+        10.664
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.16 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0255",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 12.202
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 11.917
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 11.917
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 12.183
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 12.183
+        }
+      ],
+      "pfs_mean": 12.08,
+      "pfs_std": 0.134,
+      "pfs_range": [
+        11.917,
+        12.202
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.29 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0602",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12R",
+          "pfs_pred": 12.258
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 12.598
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 12.258
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 12.258
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 12.258
+        }
+      ],
+      "pfs_mean": 12.326,
+      "pfs_std": 0.136,
+      "pfs_range": [
+        12.258,
+        12.598
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.34 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0056",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12R",
+          "pfs_pred": 13.946
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 14.145
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 13.946
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 14.145
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 14.18
+        }
+      ],
+      "pfs_mean": 14.072,
+      "pfs_std": 0.104,
+      "pfs_range": [
+        13.946,
+        14.18
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.23 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0349",
+      "original_kras": "G12D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 11.434
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 11.661
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 11.661
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 11.434
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 11.434
+        }
+      ],
+      "pfs_mean": 11.525,
+      "pfs_std": 0.111,
+      "pfs_range": [
+        11.434,
+        11.661
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.23 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0496",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.026
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 9.642
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 9.642
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.97
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.993
+        }
+      ],
+      "pfs_mean": 9.855,
+      "pfs_std": 0.174,
+      "pfs_range": [
+        9.642,
+        10.026
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.38 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0021",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.08
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 8.175
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.08
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.08
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 8.175
+        }
+      ],
+      "pfs_mean": 8.118,
+      "pfs_std": 0.047,
+      "pfs_range": [
+        8.08,
+        8.175
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.10 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0130",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 12.98
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 12.98
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 12.996
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 13.09
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 13.012
+        }
+      ],
+      "pfs_mean": 13.012,
+      "pfs_std": 0.041,
+      "pfs_range": [
+        12.98,
+        13.09
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.11 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0586",
+      "original_kras": "G13D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 11.174
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 10.721
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 10.721
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 11.174
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 10.721
+        }
+      ],
+      "pfs_mean": 10.902,
+      "pfs_std": 0.222,
+      "pfs_range": [
+        10.721,
+        11.174
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.45 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0174",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 11.874
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 12.136
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 11.874
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 12.14
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 12.09
+        }
+      ],
+      "pfs_mean": 12.023,
+      "pfs_std": 0.123,
+      "pfs_range": [
+        11.874,
+        12.14
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.27 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0235",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.707
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 9.501
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.707
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.692
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.707
+        }
+      ],
+      "pfs_mean": 9.663,
+      "pfs_std": 0.081,
+      "pfs_range": [
+        9.501,
+        9.707
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.21 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0142",
+      "original_kras": "G12V",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 8.847
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.7
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 8.738
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 8.379
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.7
+        }
+      ],
+      "pfs_mean": 8.673,
+      "pfs_std": 0.156,
+      "pfs_range": [
+        8.379,
+        8.847
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.47 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0623",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.94
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.94
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.913
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.913
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.913
+        }
+      ],
+      "pfs_mean": 9.924,
+      "pfs_std": 0.013,
+      "pfs_range": [
+        9.913,
+        9.94
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.03 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0218",
+      "original_kras": "G12V",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.721
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.787
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 9.357
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.787
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 9.357
+        }
+      ],
+      "pfs_mean": 9.602,
+      "pfs_std": 0.201,
+      "pfs_range": [
+        9.357,
+        9.787
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.43 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0420",
+      "original_kras": "G13D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.92
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.859
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 9.437
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 9.437
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.989
+        }
+      ],
+      "pfs_mean": 9.728,
+      "pfs_std": 0.241,
+      "pfs_range": [
+        9.437,
+        9.989
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.55 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0347",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.417
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 10.488
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 10.488
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 10.488
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 10.488
+        }
+      ],
+      "pfs_mean": 10.474,
+      "pfs_std": 0.028,
+      "pfs_range": [
+        10.417,
+        10.488
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.07 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0605",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 11.431
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 11.193
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 11.193
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 11.431
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 11.193
+        }
+      ],
+      "pfs_mean": 11.288,
+      "pfs_std": 0.117,
+      "pfs_range": [
+        11.193,
+        11.431
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.24 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0092",
+      "original_kras": "G12D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.786
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.786
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 10.181
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 10.181
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.425
+        }
+      ],
+      "pfs_mean": 10.072,
+      "pfs_std": 0.25,
+      "pfs_range": [
+        9.786,
+        10.425
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.64 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0226",
+      "original_kras": "G12D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.032
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.619
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.032
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 8.836
+        },
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 8.836
+        }
+      ],
+      "pfs_mean": 8.871,
+      "pfs_std": 0.153,
+      "pfs_range": [
+        8.619,
+        9.032
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.41 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0213",
+      "original_kras": "G12V",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.036
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 10.052
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.884
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 10.048
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.036
+        }
+      ],
+      "pfs_mean": 10.011,
+      "pfs_std": 0.064,
+      "pfs_range": [
+        9.884,
+        10.052
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.17 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0371",
+      "original_kras": "G12V",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 8.183
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.079
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 8.183
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 8.532
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 8.079
+        }
+      ],
+      "pfs_mean": 8.211,
+      "pfs_std": 0.167,
+      "pfs_range": [
+        8.079,
+        8.532
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.45 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0452",
+      "original_kras": "G12D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 9.993
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.909
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.272
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 9.993
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.272
+        }
+      ],
+      "pfs_mean": 10.088,
+      "pfs_std": 0.153,
+      "pfs_range": [
+        9.909,
+        10.272
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.36 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0127",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.291
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 10.291
+        },
+        {
+          "imputed_kras": "G12A",
+          "pfs_pred": 9.958
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 9.958
+        },
+        {
+          "imputed_kras": "G12R",
+          "pfs_pred": 9.958
+        }
+      ],
+      "pfs_mean": 10.091,
+      "pfs_std": 0.163,
+      "pfs_range": [
+        9.958,
+        10.291
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.33 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0579",
+      "original_kras": "G12D",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 11.707
+        },
+        {
+          "imputed_kras": "G12R",
+          "pfs_pred": 12.281
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 12.281
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 11.719
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 12.281
+        }
+      ],
+      "pfs_mean": 12.054,
+      "pfs_std": 0.278,
+      "pfs_range": [
+        11.707,
+        12.281
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.57 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0010",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 6.959
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 7.915
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 7.964
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 6.959
+        },
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 7.964
+        }
+      ],
+      "pfs_mean": 7.552,
+      "pfs_std": 0.485,
+      "pfs_range": [
+        6.959,
+        7.964
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 1.01 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "C0187",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 12.545
+        },
+        {
+          "imputed_kras": "G13C",
+          "pfs_pred": 12.545
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 12.754
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 12.545
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 12.728
+        }
+      ],
+      "pfs_mean": 12.623,
+      "pfs_std": 0.096,
+      "pfs_range": [
+        12.545,
+        12.754
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.21 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0234",
+      "original_kras": "G12C",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "G12D",
+          "pfs_pred": 9.8
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.708
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.876
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 9.708
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 9.876
+        }
+      ],
+      "pfs_mean": 9.794,
+      "pfs_std": 0.075,
+      "pfs_range": [
+        9.708,
+        9.876
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.17 months across KRAS allele assignments (population prior used)"
+    },
+    {
+      "patient_id": "P0201",
+      "original_kras": "WT",
+      "n_imputations": 5,
+      "imputation_runs": [
+        {
+          "imputed_kras": "Other",
+          "pfs_pred": 11.237
+        },
+        {
+          "imputed_kras": "G12C",
+          "pfs_pred": 11.237
+        },
+        {
+          "imputed_kras": "G13D",
+          "pfs_pred": 11.406
+        },
+        {
+          "imputed_kras": "G12S",
+          "pfs_pred": 11.237
+        },
+        {
+          "imputed_kras": "G12V",
+          "pfs_pred": 11.342
+        }
+      ],
+      "pfs_mean": 11.292,
+      "pfs_std": 0.07,
+      "pfs_range": [
+        11.237,
+        11.406
+      ],
+      "uncertainty_class": "low",
+      "uncertainty_note": "5-run MI: PFS varies by 0.17 months across KRAS allele assignments (population prior used)"
+    }
+  ]
+}

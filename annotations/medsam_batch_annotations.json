@@ -1,0 +1,302 @@
+{
+  "20001.dcm": {
+    "file": "20001.dcm",
+    "point": [
+      425,
+      670
+    ],
+    "mask_shape": [
+      1376,
+      835
+    ],
+    "mask_size": 714860,
+    "score": 1.00884211063385,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20001.png"
+  },
+  "20005.dcm": {
+    "file": "20005.dcm",
+    "point": [
+      271,
+      312
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 4526,
+    "score": 0.8644630908966064,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20005.png"
+  },
+  "20009.dcm": {
+    "file": "20009.dcm",
+    "point": [
+      284,
+      295
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 103330,
+    "score": 0.872295618057251,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20009.png"
+  },
+  "20013.dcm": {
+    "file": "20013.dcm",
+    "point": [
+      269,
+      291
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 33827,
+    "score": 0.8004884719848633,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20013.png"
+  },
+  "20017.dcm": {
+    "file": "20017.dcm",
+    "point": [
+      271,
+      344
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 2268,
+    "score": 0.9695438146591187,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20017.png"
+  },
+  "20021.dcm": {
+    "file": "20021.dcm",
+    "point": [
+      273,
+      358
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 274,
+    "score": 0.9815564155578613,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20021.png"
+  },
+  "20025.dcm": {
+    "file": "20025.dcm",
+    "point": [
+      264,
+      351
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 238,
+    "score": 0.9830097556114197,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20025.png"
+  },
+  "20029.dcm": {
+    "file": "20029.dcm",
+    "point": [
+      263,
+      339
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 4344,
+    "score": 0.9630837440490723,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20029.png"
+  },
+  "20033.dcm": {
+    "file": "20033.dcm",
+    "point": [
+      268,
+      332
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 2769,
+    "score": 1.0060063600540161,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20033.png"
+  },
+  "20037.dcm": {
+    "file": "20037.dcm",
+    "point": [
+      262,
+      342
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 416,
+    "score": 0.9546931385993958,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20037.png"
+  },
+  "20041.dcm": {
+    "file": "20041.dcm",
+    "point": [
+      261,
+      324
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 2661,
+    "score": 0.9900026917457581,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20041.png"
+  },
+  "20045.dcm": {
+    "file": "20045.dcm",
+    "point": [
+      265,
+      323
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 403,
+    "score": 0.9754003882408142,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20045.png"
+  },
+  "20049.dcm": {
+    "file": "20049.dcm",
+    "point": [
+      263,
+      320
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 497,
+    "score": 0.9388999342918396,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20049.png"
+  },
+  "20053.dcm": {
+    "file": "20053.dcm",
+    "point": [
+      262,
+      297
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 3196,
+    "score": 0.97754967212677,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20053.png"
+  },
+  "20057.dcm": {
+    "file": "20057.dcm",
+    "point": [
+      263,
+      316
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 369,
+    "score": 0.950883686542511,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20057.png"
+  },
+  "20061.dcm": {
+    "file": "20061.dcm",
+    "point": [
+      264,
+      304
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 2943,
+    "score": 0.9933952689170837,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20061.png"
+  },
+  "20065.dcm": {
+    "file": "20065.dcm",
+    "point": [
+      257,
+      314
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 483,
+    "score": 0.9786211252212524,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20065.png"
+  },
+  "20069.dcm": {
+    "file": "20069.dcm",
+    "point": [
+      257,
+      322
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 496,
+    "score": 0.9338586330413818,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20069.png"
+  },
+  "20073.dcm": {
+    "file": "20073.dcm",
+    "point": [
+      255,
+      330
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 407,
+    "score": 0.9432130455970764,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20073.png"
+  },
+  "20077.dcm": {
+    "file": "20077.dcm",
+    "point": [
+      254,
+      331
+    ],
+    "mask_shape": [
+      512,
+      512
+    ],
+    "mask_size": 109393,
+    "score": 0.9886171817779541,
+    "auto_point": true,
+    "visualization": "annotations\\batch_medsam\\annotation_20077.png"
+  }
+}

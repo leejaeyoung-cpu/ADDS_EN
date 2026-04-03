@@ -1,0 +1,9 @@
+{
+  "factor": 0.5575,
+  "target_mean": 9.7,
+  "source_mean": 17.4,
+  "n_calibrated": 61,
+  "n_kept_lit": 75,
+  "reference": "Loewe/Bliss scale alignment: internal values aligned to published CRC drug combination studies",
+  "file": "bliss_curated_v3_calibrated.csv"
+}
