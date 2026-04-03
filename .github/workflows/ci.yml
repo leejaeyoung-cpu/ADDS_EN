@@ -2,95 +2,64 @@ name: ADDS CI
 
 on:
   push:
-      branches: [ main, develop ]
-        pull_request:
-            branches: [ main, develop ]
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
 
-            env:
-              PYTHON_VERSION: '3.11'
+env:
+  PYTHON_VERSION: '3.11'
 
-              jobs:
-                lint:
-                    name: Syntax Check
-                        runs-on: ubuntu-latest
+jobs:
+  lint:
+    name: Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - name: Install ruff
+        run: pip install ruff==0.3.4
+      - name: Ruff check
+        run: |
+          ruff check src/ backend/ --select=E9,F821 --output-format=github || true
+          echo "Syntax check done"
 
-                            steps:
-                                  - uses: actions/checkout@v4
+  test-science:
+    name: Science Tests
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+      - name: Install deps
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements-ci.txt
+      - name: Setup env
+        run: |
+          mkdir -p data/samples logs
+          printf 'OPENAI_API_KEY=test\nDB_PATH=:memory:\n' > .env
+      - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python -m pytest tests/test_science_core.py -v --tb=short -p no:warnings
 
-                                        - uses: actions/setup-python@v5
-                                                with:
-                                                          python-version: ${{ env.PYTHON_VERSION }}
-                                                                    cache: 'pip'
-
-                                                                          - name: Install ruff
-                                                                                  run: pip install ruff==0.3.4
-
-                                                                                        - name: Ruff syntax check
-                                                                                                run: |
-                                                                                                          ruff check src/ backend/ \
-                                                                                                                      --select=E9,F821 \
-                                                                                                                                  --exclude="__pycache__,archive,nnUNet_*" \
-                                                                                                                                              --output-format=github || true
-                                                                                                                                                        echo "Syntax check complete"
-                                                                                                                                                        
-                                                                                                                                                          test-core:
-                                                                                                                                                              name: Core Unit Tests
-                                                                                                                                                                  runs-on: ubuntu-latest
-                                                                                                                                                                      needs: lint
-                                                                                                                                                                      
-                                                                                                                                                                          steps:
-                                                                                                                                                                                - uses: actions/checkout@v4
-                                                                                                                                                                                
-                                                                                                                                                                                      - uses: actions/setup-python@v5
-                                                                                                                                                                                              with:
-                                                                                                                                                                                                        python-version: ${{ env.PYTHON_VERSION }}
-                                                                                                                                                                                                                  cache: 'pip'
-                                                                                                                                                                                                                  
-                                                                                                                                                                                                                        - name: Install CI dependencies
-                                                                                                                                                                                                                                run: |
-                                                                                                                                                                                                                                          pip install --upgrade pip
-                                                                                                                                                                                                                                                    pip install -r requirements-ci.txt
-                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                          - name: Setup test environment
-                                                                                                                                                                                                                                                                  run: |
-                                                                                                                                                                                                                                                                            mkdir -p data/samples data/outputs logs backend/outputs
-                                                                                                                                                                                                                                                                                      cat > .env << 'EOF'
-                                                                                                                                                                                                                                                                                                OPENAI_API_KEY=test-key-dummy
-                                                                                                                                                                                                                                                                                                          DB_PATH=:memory:
-                                                                                                                                                                                                                                                                                                                    BACKEND_PORT=8000
-                                                                                                                                                                                                                                                                                                                              UI_PORT=8501
-                                                                                                                                                                                                                                                                                                                                        DEBUG=false
-                                                                                                                                                                                                                                                                                                                                                  EOF
-                                                                                                                                                                                                                                                                                                                                                  
-                                                                                                                                                                                                                                                                                                                                                        - name: Run science unit tests
-                                                                                                                                                                                                                                                                                                                                                                env:
-                                                                                                                                                                                                                                                                                                                                                                          PYTHONPATH: ${{ github.workspace }}:${{ github.workspace }}/src
-                                                                                                                                                                                                                                                                                                                                                                                  run: |
-                                                                                                                                                                                                                                                                                                                                                                                            python -m pytest tests/test_science_core.py \
-                                                                                                                                                                                                                                                                                                                                                                                                        -v \
-                                                                                                                                                                                                                                                                                                                                                                                                                    --tb=short \
-                                                                                                                                                                                                                                                                                                                                                                                                                                -p no:warnings
-                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                  security:
-                                                                                                                                                                                                                                                                                                                                                                                                                                      name: Security Scan
-                                                                                                                                                                                                                                                                                                                                                                                                                                          runs-on: ubuntu-latest
-                                                                                                                                                                                                                                                                                                                                                                                                                                              needs: lint
-                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                                                                                                                                  steps:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        - uses: actions/checkout@v4
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                                                                                                                                                                                                              - uses: actions/setup-python@v5
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                      with:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                python-version: ${{ env.PYTHON_VERSION }}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      - name: Install bandit
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              run: pip install bandit[toml]
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    - name: Security scan
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            run: |
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      bandit -r src/ backend/ \
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  -ll \
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              --exclude='*/tests/*,*/__pycache__/*,*/archive/*' \
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          --exit-zero
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    echo "Security scan complete"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install bandit
+        run: pip install bandit
+      - name: Run scan
+        run: bandit -r src/ backend/ -ll --exit-zero
