@@ -4,6 +4,12 @@ Connects to real backend API at /api/v1/energy/*
 No demo data — all predictions from live GNN model
 """
 
+import os as _os
+from pathlib import Path as _Path
+# ADDS_BASE_DIR environment variable overrides automatic detection
+BASE_DIR = _Path(_os.environ.get('ADDS_BASE_DIR', str(_Path(__file__).resolve().parents[2])))
+
+
 import streamlit as st
 import requests
 import json
@@ -385,10 +391,6 @@ def _show_pathway_graph():
 def _show_drugcomb_validation():
     """DrugComb cross-validation results."""
 
-import os as _os
-from pathlib import Path as _Path
-# ADDS_BASE_DIR environment variable overrides automatic detection
-BASE_DIR = _Path(_os.environ.get("ADDS_BASE_DIR", str(_Path(__file__).resolve().parent.parent)))
 
     st.markdown("### 📊 DrugComb 실데이터 교차 검증")
 
