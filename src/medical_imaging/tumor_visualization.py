@@ -3,6 +3,14 @@ Improved Tumor Visualization with Segmentation Mask
 종양의 정확한 모양을 픽셀 단위로 표시
 """
 
+import os as _os
+from pathlib import Path as _Path
+# ADDS_BASE_DIR environment variable overrides automatic detection
+BASE_DIR = _Path(_os.environ.get('ADDS_BASE_DIR', str(_Path(__file__).resolve().parents[2])))
+
+
+
+
 import numpy as np
 from PIL import Image, ImageDraw
 import cv2
@@ -209,10 +217,6 @@ if __name__ == "__main__":
     
     from medical_imaging.ct_analyzer import CTAnalyzer
 
-import os as _os
-from pathlib import Path as _Path
-# ADDS_BASE_DIR environment variable overrides automatic detection
-BASE_DIR = _Path(_os.environ.get("ADDS_BASE_DIR", str(_Path(__file__).resolve().parent.parent)))
 
     
     # Test image
