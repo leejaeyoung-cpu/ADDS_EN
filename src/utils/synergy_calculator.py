@@ -8,7 +8,10 @@ import pandas as pd
 from typing import Dict, List, Tuple, Optional, Union
 from scipy import optimize
 
-from utils import get_logger
+try:
+    from utils import get_logger
+except ImportError:
+    from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
