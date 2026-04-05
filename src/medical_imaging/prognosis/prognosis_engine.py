@@ -542,11 +542,12 @@ class PrognosisEngine:
         times = []
         probs = []
         
-        for key, prob in sorted(survival_probs.items()):
-            months = int(key.replace('mo', ''))
-            times.append(months)
-            probs.append(prob)
-        
+                # Sort by NUMERIC month value (not string) to avoid '12mo' < '6mo' bug
+                items = [(int(k.replace('mo', '')), v) for k, v in survival_probs.items()]
+                for months, prob in sorted(items, key=lambda x: x[0]):
+                                times.append(months)
+                                probs.append(prob)
+                    
         # Find where survival drops below 0.5
         for i in range(len(probs) - 1):
             if probs[i] >= 0.5 and probs[i+1] < 0.5:
