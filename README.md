@@ -2,9 +2,9 @@
 
 <img src="https://img.shields.io/badge/ADDS-v3.5.0-blueviolet?style=for-the-badge&logo=python" alt="ADDS Version"/>
 
-# ADDS â AI-Driven Drug Synergy & Diagnostic System
+# ADDS — AI-Driven Drug Synergy & Diagnostic System
 
-**ì ë° ì¢ìíì ìí ë©í°ëª¨ë¬ AI íë«í¼**  
+**정밀 종양학을 위한 멀티모달 AI 플랫폼**  
 *Multimodal AI Platform for Precision Oncology*
 
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -18,343 +18,343 @@
 
 <br/>
 
-> **ADDS**ë CT ë°©ì¬ì í, ì¸í¬ ííê³ì¸¡í, ì½ëí ëª¨ë¸ë§, ê¸°ê³íìµì íëì íµí© íë«í¼ì¼ë¡ ìµí©íì¬  
-> ëì¥ì(CRC) íìë¥¼ ìí ê°ì¸í í­ì ì½ë¬¼ ì¹µíì¼ì ì¶ì²íë ì ë° ì¢ìí AI ìì¤íìëë¤.
+> **ADDS**는 CT 방사선학, 세포 형태계측학, 약동학 모델링, 기계학습을 하나의 통합 플랫폼으로 융합하여  
+> 대장암(CRC) 환자를 위한 개인화 항암 약물 칵테일을 추천하는 정밀 종양학 AI 시스템입니다.
 
 </div>
 
 ---
 
-## ð ëª©ì°¨ / Table of Contents
+## 📌 목차 / Table of Contents
 
-- [ìì¤í ê°ì](#-ìì¤í-ê°ì--system-overview)
-- [ì ì²´ ìí¤íì²](#-ì ì²´-ìí¤íì²--architecture)
-- [íµì¬ ëª¨ë](#-íµì¬-ëª¨ë--core-modules)
-  - [CT ë¶ì íì´íë¼ì¸](#1-ct-ë¶ì-íì´íë¼ì¸)
-  - [Cellpose íë¯¸ê²½ ë¶ì](#2-cellpose-íë¯¸ê²½-ë¶ì)
-  - [KRAS-PrPc ì½ë¬¼ ìëì§](#3-kras-prpc-ì½ë¬¼-ìëì§)
-  - [ì½ëí (PK/PD) ëª¨ë¸ë§](#4-ì½ëí-pkpd-ëª¨ë¸ë§)
-  - [ìì ìì¬ê²°ì  ì§ì](#5-ìì-ìì¬ê²°ì -ì§ì-cds)
-  - [íì ê´ë¦¬ ìì¤í](#6-íµí©-íì-ê´ë¦¬-ìì¤í)
-- [ì±ë¥ ì§í](#-ì±ë¥-ì§í--performance-metrics)
-- [14ì°¨ì í¹ì§ ë²¡í°](#-14ì°¨ì-ë©í°ëª¨ë¬-í¹ì§-ë²¡í°)
-- [ì¤ì¹ ë° ì¤í](#-ì¤ì¹-ë°-ì¤í--installation)
-- [API ì°¸ì¡°](#-api-ì°¸ì¡°--api-reference)
-- [ë°ì´í° êµ¬ì¡°](#-ë°ì´í°-êµ¬ì¡°--data-structure)
-- [ì°êµ¬ ë°°ê²½](#-ì°êµ¬-ë°°ê²½--research-background)
-- [ì¸ì©](#-ì¸ì©--citation)
+- [시스템 개요](#-시스템-개요--system-overview)
+- [전체 아키텍처](#-전체-아키텍처--architecture)
+- [핵심 모듈](#-핵심-모듈--core-modules)
+  - [CT 분석 파이프라인](#1-ct-분석-파이프라인)
+  - [Cellpose 현미경 분석](#2-cellpose-현미경-분석)
+  - [KRAS-PrPc 약물 시너지](#3-kras-prpc-약물-시너지)
+  - [약동학 (PK/PD) 모델링](#4-약동학-pkpd-모델링)
+  - [임상 의사결정 지원](#5-임상-의사결정-지원-cds)
+  - [환자 관리 시스템](#6-통합-환자-관리-시스템)
+- [성능 지표](#-성능-지표--performance-metrics)
+- [14차원 특징 벡터](#-14차원-멀티모달-특징-벡터)
+- [설치 및 실행](#-설치-및-실행--installation)
+- [API 참조](#-api-참조--api-reference)
+- [데이터 구조](#-데이터-구조--data-structure)
+- [연구 배경](#-연구-배경--research-background)
+- [인용](#-인용--citation)
 
 ---
 
-## ð¬ ìì¤í ê°ì / System Overview
+## 🔬 시스템 개요 / System Overview
 
-ADDS (AI-Driven Drug Synergy) ë ì´íëíêµë³ìê³¼ì ê³µë ì°êµ¬ë¥¼ íµí´ ê°ë°ë **ì ë° ì¢ìí AI ìíê³**ìëë¤.
+ADDS (AI-Driven Drug Synergy) 는 인하대학교병원과의 공동 연구를 통해 개발된 **정밀 종양학 AI 생태계**입니다.
 
-### íµì¬ íì  í¬ì¸í¸
+### 핵심 혁신 포인트
 
-| íì  | ì¤ëª |
+| 혁신 | 설명 |
 |------|------|
-| **ë©í°ëª¨ë¬ ë°ì´í° ìµí©** | CT ë°©ì¬ì í + ì¸í¬ ë³ë¦¬í + ìì ë©íë°ì´í°ë¥¼ ë¨ì¼ 14ì°¨ì í¹ì§ ë²¡í°ë¡ íµí© |
-| **ì´ì¤ ì¶ë¡  ìì§** | ADDS ê²½ë¡ ê¸°ë° ìì§ + OpenAI GPT-4 ëì ì¤í ë° êµì°¨ ê²ì¦ |
-| **RAG ê¸°ë° ê·¼ê±° ìì±** | ìì¬ ìê²¬ìë¥¼ 1ìì íë¡¬íí¸ë¡ íì©íë ê²ì ì¦ê° ìì±(RAG) ìì¤í |
-| **PrPc ë°ì´ì¤ë§ì»¤ ë°ê²¬** | TCGA ë°ì´í°(n=2,285)ìì KRAS-RPSA ìê·¸ëë¡ì ê¸°ë° ì ê· ë°ì´ì¤ë§ì»¤ ë°ê²¬ |
-| **ì¤ìê° ìì ì ì©** | 15.67ì´ ë´ ìë-í¬-ìë ë¶ì ìë£ (530Ã751Ã750 ë³¼ë¥¨ ê¸°ì¤) |
+| **멀티모달 데이터 융합** | CT 방사선학 + 세포 병리학 + 임상 메타데이터를 단일 14차원 특징 벡터로 통합 |
+| **이중 추론 엔진** | ADDS 경로 기반 엔진 + OpenAI GPT-4 동시 실행 및 교차 검증 |
+| **RAG 기반 근거 생성** | 의사 소견서를 1순위 프롬프트로 활용하는 검색 증강 생성(RAG) 시스템 |
+| **PrPc 바이오마커 발견** | TCGA 데이터(n=2,285)에서 KRAS-RPSA 시그널로솜 기반 신규 바이오마커 발견 |
+| **실시간 임상 적용** | 15.67초 내 엔드-투-엔드 분석 완료 (530×751×750 볼륨 기준) |
 
 ---
 
-## ðï¸ ì ì²´ ìí¤íì² / Architecture
+## 🏗️ 전체 아키텍처 / Architecture
 
 ```
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-â                    ADDS Precision Oncology Platform v3.5             â
-â                      Inha University Hospital                        â
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-                                    â
-          âââââââââââââââââââââââââââ¼ââââââââââââââââââââââââââ
-          â¼                         â¼                         â¼
-  âââââââââââââââââ       âââââââââââââââââââ       ââââââââââââââââââ
-  â  Streamlit UI â       â  FastAPI Backend â       â  Data Layer    â
-  â  (Port 8505)  ââââââââºâ  (Port 8000)    ââââââââºâ  SQLite / NFS  â
-  â               â       â                 â       â                â
-  â â¢ íì ê´ë¦¬   â       â /api/v1/        â       â patients.db    â
-  â â¢ AI ë¶ì     â       â  ââ patients    â       â ct_data/       â
-  â â¢ ì½ë¬¼ ì¶ì²   â       â  ââ ct          â       â microscopy/    â
-  â â¢ ë³´ê³ ì ìì± â       â  ââ cellpose    â       â literature/    â
-  âââââââââââââââââ       â  ââ pharmacoki  â       ââââââââââââââââââ
-                          â  ââ adds        â
-                          â  ââ openai      â
-                          âââââââââââââââââââ
-                                    â
-         ââââââââââââââââââââââââââââ¼âââââââââââââââââââââââââââ
-         â¼                          â¼                          â¼
-ââââââââââââââââââ        âââââââââââââââââââ        ââââââââââââââââââ
-â  CT Pipeline   â        â Cellpose Pipelineâ        â  Drug Synergy  â
-â  (6 Stages)    â        â                 â        â  Engine        â
-â                â        â cyto3 Model     â        â                â
-â S1: DICOMâNIfTIâ        â â Segmentation  â        â KRAS-PrPc      â
-â S2: Organ Seg  â        â â Ki-67 Index   â        â Signalosome    â
-â S3: Tumor Det  â        â â Morphology    â        â                â
-â S4: Radiomics  â        â â Heterogeneity â        â Pritamab       â
-â S5: Staging    â        â                 â        â Prediction     â
-â S6: ADDS Integ â        â n=43,190 cells  â        â                â
-â                â        â analyzed        â        â PK/PD Modeling â
-â Acc: 98.65%    â        â                 â        â                â
-ââââââââââââââââââ        âââââââââââââââââââ        ââââââââââââââââââ
-         â                          â                          â
-         ââââââââââââââââââââââââââââ¼âââââââââââââââââââââââââââ
-                                    â¼
-                    âââââââââââââââââââââââââââââââââ
-                    â    14D Multimodal Feature      â
-                    â    Vector Fusion               â
-                    â                                â
-                    â  CT Radiomics (7D):            â
-                    â  Sphericity, Entropy,          â
-                    â  Contrast, Size, Circularity,  â
-                    â  Mean HU, Confidence           â
-                    â                                â
-                    â  Cell Culture (7D):            â
-                    â  Density, Drug Resistance,     â
-                    â  Proliferation, Complexity,    â
-                    â  Circularity, Clark-Evans,     â
-                    â  Viability                     â
-                    âââââââââââââââââââââââââââââââââ
-                                    â
-                    âââââââââââââââââ´ââââââââââââââââ
-                    â¼                               â¼
-         âââââââââââââââââââ             ââââââââââââââââââââ
-         â  ADDS Engine    â             â  OpenAI Engine   â
-         â  (Pathway-Based)â             â  (GPT-4 Medical) â
-         â                 â             â                  â
-         â KRAS/RAF/MEK/   â             â Clinical Summary â
-         â ERK Signaling   ââââ Cross âââºâ Treatment Plan   â
-         â Synergy Scoring â  Validate   â MDT Consensus    â
-         âââââââââââââââââââ             ââââââââââââââââââââ
-                    â                               â
-                    âââââââââââââââââ¬ââââââââââââââââ
-                                    â¼
-                    âââââââââââââââââââââââââââââââââ
-                    â   Final Drug Cocktail          â
-                    â   Recommendation               â
-                    â                                â
-                    â  FOLFOX + Bevacizumab          â
-                    â  + PK-Optimized Dosing         â
-                    â  + Outcome Simulation          â
-                    â   (ORR / PFS / OS)             â
-                    âââââââââââââââââââââââââââââââââ
+┌─────────────────────────────────────────────────────────────────────┐
+│                    ADDS Precision Oncology Platform v3.5             │
+│                      Inha University Hospital                        │
+└─────────────────────────────────────────────────────────────────────┘
+                                    │
+          ┌─────────────────────────┼─────────────────────────┐
+          ▼                         ▼                         ▼
+  ┌───────────────┐       ┌─────────────────┐       ┌────────────────┐
+  │  Streamlit UI │       │  FastAPI Backend │       │  Data Layer    │
+  │  (Port 8505)  │◄─────►│  (Port 8000)    │◄─────►│  SQLite / NFS  │
+  │               │       │                 │       │                │
+  │ • 환자 관리   │       │ /api/v1/        │       │ patients.db    │
+  │ • AI 분석     │       │  ├─ patients    │       │ ct_data/       │
+  │ • 약물 추천   │       │  ├─ ct          │       │ microscopy/    │
+  │ • 보고서 생성 │       │  ├─ cellpose    │       │ literature/    │
+  └───────────────┘       │  ├─ pharmacoki  │       └────────────────┘
+                          │  ├─ adds        │
+                          │  └─ openai      │
+                          └─────────────────┘
+                                    │
+         ┌──────────────────────────┼──────────────────────────┐
+         ▼                          ▼                          ▼
+┌────────────────┐        ┌─────────────────┐        ┌────────────────┐
+│  CT Pipeline   │        │ Cellpose Pipeline│        │  Drug Synergy  │
+│  (6 Stages)    │        │                 │        │  Engine        │
+│                │        │ cyto3 Model     │        │                │
+│ S1: DICOM→NIfTI│        │ → Segmentation  │        │ KRAS-PrPc      │
+│ S2: Organ Seg  │        │ → Ki-67 Index   │        │ Signalosome    │
+│ S3: Tumor Det  │        │ → Morphology    │        │                │
+│ S4: Radiomics  │        │ → Heterogeneity │        │ Pritamab       │
+│ S5: Staging    │        │                 │        │ Prediction     │
+│ S6: ADDS Integ │        │ n=43,190 cells  │        │                │
+│                │        │ analyzed        │        │ PK/PD Modeling │
+│ Acc: 98.65%    │        │                 │        │                │
+└────────────────┘        └─────────────────┘        └────────────────┘
+         │                          │                          │
+         └──────────────────────────┼──────────────────────────┘
+                                    ▼
+                    ┌───────────────────────────────┐
+                    │    14D Multimodal Feature      │
+                    │    Vector Fusion               │
+                    │                                │
+                    │  CT Radiomics (7D):            │
+                    │  Sphericity, Entropy,          │
+                    │  Contrast, Size, Circularity,  │
+                    │  Mean HU, Confidence           │
+                    │                                │
+                    │  Cell Culture (7D):            │
+                    │  Density, Drug Resistance,     │
+                    │  Proliferation, Complexity,    │
+                    │  Circularity, Clark-Evans,     │
+                    │  Viability                     │
+                    └───────────────────────────────┘
+                                    │
+                    ┌───────────────┴───────────────┐
+                    ▼                               ▼
+         ┌─────────────────┐             ┌──────────────────┐
+         │  ADDS Engine    │             │  OpenAI Engine   │
+         │  (Pathway-Based)│             │  (GPT-4 Medical) │
+         │                 │             │                  │
+         │ KRAS/RAF/MEK/   │             │ Clinical Summary │
+         │ ERK Signaling   │◄── Cross ──►│ Treatment Plan   │
+         │ Synergy Scoring │  Validate   │ MDT Consensus    │
+         └─────────────────┘             └──────────────────┘
+                    │                               │
+                    └───────────────┬───────────────┘
+                                    ▼
+                    ┌───────────────────────────────┐
+                    │   Final Drug Cocktail          │
+                    │   Recommendation               │
+                    │                                │
+                    │  FOLFOX + Bevacizumab          │
+                    │  + PK-Optimized Dosing         │
+                    │  + Outcome Simulation          │
+                    │   (ORR / PFS / OS)             │
+                    └───────────────────────────────┘
 ```
 
 ---
 
-## âï¸ íµì¬ ëª¨ë / Core Modules
+## ⚙️ 핵심 모듈 / Core Modules
 
-### 1. CT ë¶ì íì´íë¼ì¸
+### 1. CT 분석 파이프라인
 
-**6ë¨ê³ 3D CT ì¢ì ê²ì¶ ë° ë°©ì¬ì í ë¶ì íì´íë¼ì¸**
+**6단계 3D CT 종양 검출 및 방사선학 분석 파이프라인**
 
 ```
 Stage 1: 3D Volume Reconstruction
-    DICOM Series â 1mmÂ³ Isotropic NIfTI Volume
-    (SimpleITK, scipy ê¸°ë° ë¦¬ìíë§)
+    DICOM Series → 1mm³ Isotropic NIfTI Volume
+    (SimpleITK, scipy 기반 리샘플링)
 
 Stage 2: Anatomical Organ Segmentation
-    nnU-Net v2 â Colon / Liver / Lymph Node Parsing
+    nnU-Net v2 → Colon / Liver / Lymph Node Parsing
 
-Stage 3: Tumor Detection  â VerifiedCTDetector (98.65% Accuracy)
-    HU Thresholding: 60â120 HU (Arterial Phase)
+Stage 3: Tumor Detection  ← VerifiedCTDetector (98.65% Accuracy)
+    HU Thresholding: 60–120 HU (Arterial Phase)
     2D Slice-by-Slice Morphological Filtering
-    Min Size: 30 px (noise), 50 mmÂ³ (clinical threshold)
+    Min Size: 30 px (noise), 50 mm³ (clinical threshold)
 
 Stage 4: Radiomics Extraction
-    PyRadiomics â 100+ Phenotypic Features
+    PyRadiomics → 100+ Phenotypic Features
     (Sphericity, Entropy, GLCM Contrast, Surface Area...)
 
 Stage 5: Biomarker Prediction
     Malignancy Score / TNM Staging / MSI / KRAS Status
 
 Stage 6: ADDS Integration
-    Radiomics â PK Sensitivity Model â Drug Recommendation
+    Radiomics → PK Sensitivity Model → Drug Recommendation
 ```
 
-**ì£¼ì ì±ë¥ ì§í (ì´íëíêµë³ì ì½í¸í¸)**
+**주요 성능 지표 (인하대학교병원 코호트)**
 
-| ì§í | ê° |
+| 지표 | 값 |
 |------|-----|
-| ê²ì¶ ì íë | **98.65%** (74ê° ì¬ë¼ì´ì¤ ì¤ 73ê°) |
-| ì²ë¦¬ ìê° | **15.67ì´** (530Ã751Ã750 ë³¼ë¥¨) |
-| ì²ë¦¬ë | **33.8 ì¬ë¼ì´ì¤/ì´** |
-| HU íì§ ë²ì | 60â120 HU (ëë§¥ê¸°) |
-| ìµì ë³ë³ í¬ê¸° | 50 mmÂ³ |
+| 검출 정확도 | **98.65%** (74개 슬라이스 중 73개) |
+| 처리 시간 | **15.67초** (530×751×750 볼륨) |
+| 처리량 | **33.8 슬라이스/초** |
+| HU 탐지 범위 | 60–120 HU (동맥기) |
+| 최소 병변 크기 | 50 mm³ |
 
-ê´ë ¨ ì¤í¬ë¦½í¸:
+관련 스크립트:
 ```bash
-python ct_pipeline_v4.py                    # CT íì´íë¼ì¸ ë©ì¸
-python detect_tumors_inha_corrected.py      # ê²ì¦ë ê²ì¶ê¸° (98.65%)
-python ct_crc_detection_pipeline.py         # CRC í¹í íì´íë¼ì¸
-python batch_tumor_detection_dcm.py         # ë°°ì¹ ì²ë¦¬
+python ct_pipeline_v4.py                    # CT 파이프라인 메인
+python detect_tumors_inha_corrected.py      # 검증된 검출기 (98.65%)
+python ct_crc_detection_pipeline.py         # CRC 특화 파이프라인
+python batch_tumor_detection_dcm.py         # 배치 처리
 ```
 
 ---
 
-### 2. Cellpose íë¯¸ê²½ ë¶ì
+### 2. Cellpose 현미경 분석
 
-**HUVEC ì¸í¬ ííê³ì¸¡í ìëí ë¶ì (Cellpose cyto3 ëª¨ë¸ ê¸°ë°)**
+**HUVEC 세포 형태계측학 자동화 분석 (Cellpose cyto3 모델 기반)**
 
 ```
 Raw Microscopy Image
-       â
-       â¼
+       │
+       ▼
 CLAHE + Denoising (Preprocessing)
-       â
-       â¼
+       │
+       ▼
 Cellpose cyto3 Segmentation
-       â
-       âââ Cell Count & Density
-       âââ Elongation Ratio (ì¥ì¶/ë¨ì¶)
-       âââ Circularity Score
-       âââ Clark-Evans Index (êµ°ì§ ë¶í¬)
-       âââ Ki-67 Proliferation Index Estimation
-       âââ Tumor Heterogeneity Score
+       │
+       ├─→ Cell Count & Density
+       ├─→ Elongation Ratio (장축/단축)
+       ├─→ Circularity Score
+       ├─→ Clark-Evans Index (군집 분포)
+       ├─→ Ki-67 Proliferation Index Estimation
+       └─→ Tumor Heterogeneity Score
 ```
 
-**ë¶ì ê²°ê³¼ (HUVEC Serum ì¤í, n = 43,190 cells)**
+**분석 결과 (HUVEC Serum 실험, n = 43,190 cells)**
 
-| ì¡°ê±´ | ì¸í¬ ì | ì¥ì¶ë¹ | ì¸í¬ë©´ì  | í´ì |
+| 조건 | 세포 수 | 장축비 | 세포면적 | 해석 |
 |------|---------|--------|---------|------|
-| Control | 11,717 | 1.831 | 696 pxÂ² | ì ì§ ìí |
-| Healthy Serum | 6,538 | 1.865 | 618 pxÂ² | ì ì íì±í |
-| HGPS Serum | 13,676 | 1.902 | 756 pxÂ² | ë³ë¦¬ì  íì±í |
-| **HGPS + MT-Exo** | **11,259** | **1.992** | **775 pxÂ²** | **ìµë ë´í¼ íì±í** |
+| Control | 11,717 | 1.831 | 696 px² | 정지 상태 |
+| Healthy Serum | 6,538 | 1.865 | 618 px² | 정상 활성화 |
+| HGPS Serum | 13,676 | 1.902 | 756 px² | 병리적 활성화 |
+| **HGPS + MT-Exo** | **11,259** | **1.992** | **775 px²** | **최대 내피 활성화** |
 
-> MT-Exo ì²ë¦¬êµ°ìì ì¸í¬ ì¥ì¶ë¹ ì ìë¯¸í ì¦ê° (p < 0.001) â ë´í¼ì¸í¬ ì´ë ë¥ë ¥ ì¦ê° ìì¬
+> MT-Exo 처리군에서 세포 장축비 유의미한 증가 (p < 0.001) — 내피세포 이동 능력 증강 시사
 
-ê´ë ¨ ì¤í¬ë¦½í¸:
+관련 스크립트:
 ```bash
-python analysis/huvec/01_preprocess.py     # ì´ë¯¸ì§ ì ì²ë¦¬
-python analysis/huvec/02_cellpose_run.py   # Cellpose ì¸ë¶í
-python analysis/huvec/07_ppt_figures.py    # ë¼ë¬¸ì© Figure ìì±
-python verify_cellpose_pipeline.py          # íì´íë¼ì¸ ê²ì¦
+python analysis/huvec/01_preprocess.py     # 이미지 전처리
+python analysis/huvec/02_cellpose_run.py   # Cellpose 세분화
+python analysis/huvec/07_ppt_figures.py    # 논문용 Figure 생성
+python verify_cellpose_pipeline.py          # 파이프라인 검증
 ```
 
 ---
 
-### 3. KRAS-PrPc ì½ë¬¼ ìëì§
+### 3. KRAS-PrPc 약물 시너지
 
-**ê¸°ì  ê¸°ë° ì½ë¬¼ ìëì§ ìì¸¡ ìì§**
+**기전 기반 약물 시너지 예측 엔진**
 
-#### PrPc ì¡°ì§-íì²­ í¨ë¬ëì¤ í´ê²°
+#### PrPc 조직-혈청 패러독스 해결
 
-| ì¸¡ì  | CRC ì¡°ì§ | íì²­ | ê¸°ì  |
+| 측정 | CRC 조직 | 혈청 | 기전 |
 |------|---------|------|------|
-| PRNP mRNA | â ë®ì | â | ì¢ì ìµì  |
-| PrPc ë¨ë°±ì§ | â | ââ ëì | **ADAM10/17 ìë©** |
+| PRNP mRNA | ↓ 낮음 | — | 종양 억제 |
+| PrPc 단백질 | — | ↑↑ 높음 | **ADAM10/17 쉐딩** |
 
-> ADAM10/17 í¨ìê° ì¸í¬ë§ GPI-ìµì»¤ PrPcë¥¼ ì ë¨ â íë¥ë¡ ë°©ì¶  
-> TCGA ì¤ë°ì´í° ê²ì¦: n = 2,285 (BRCA, STAD, COAD, PAAD, READ)
+> ADAM10/17 효소가 세포막 GPI-앵커 PrPc를 절단 → 혈류로 방출  
+> TCGA 실데이터 검증: n = 2,285 (BRCA, STAD, COAD, PAAD, READ)
 
-#### KRAS-RPSA ìê·¸ëë¡ì ê²½ë¡
+#### KRAS-RPSA 시그널로솜 경로
 
 ```
 KRAS Mutation (G12D/G12V)
-       â
-       â¼
-RAF â MEK â ERK Activation
-       â
-       âââ PrPc-RPSA Complex Formation
-       â         â
-       â         âââ Laminin Binding (ì¸í¬ ì¹¨ì¤ ì´ì§)
-       â
-       âââ Downstream Survival Pathways
-                 â
-                 âââ mTOR Axis
-                 âââ PI3K/AKT
-                 âââ WNT/Î²-catenin
+       │
+       ▼
+RAF → MEK → ERK Activation
+       │
+       ├─→ PrPc-RPSA Complex Formation
+       │         │
+       │         └─→ Laminin Binding (세포 침윤 촉진)
+       │
+       └─→ Downstream Survival Pathways
+                 │
+                 ├─→ mTOR Axis
+                 ├─→ PI3K/AKT
+                 └─→ WNT/β-catenin
 ```
 
-#### ì½ë¬¼ ì§ì ë² ì´ì¤
+#### 약물 지식 베이스
 
-| ì§í | ê° |
+| 지표 | 값 |
 |------|-----|
-| ì´ ë¼ë¬¸ ì | 311í¸ (Nature/Cell/Science ë± Tier-1) |
-| ë°ì´í° ìí | 2,348 ìì ìí |
-| ë±ë¡ ì½ë¬¼ | 113ì¢ |
-| ìì© ê¸°ì  | 90ê° |
-| ë°ì´ì¤ë§ì»¤ | 69ê° |
-| ìëì§ ì¡°í© | 59ê° |
+| 총 논문 수 | 311편 (Nature/Cell/Science 등 Tier-1) |
+| 데이터 샘플 | 2,348 임상 샘플 |
+| 등록 약물 | 113종 |
+| 작용 기전 | 90개 |
+| 바이오마커 | 69개 |
+| 시너지 조합 | 59개 |
 
 ---
 
-### 4. ì½ëí (PK/PD) ëª¨ë¸ë§
+### 4. 약동학 (PK/PD) 모델링
 
-**íì ë§ì¶¤í í­ìì  ì©ë ìµì í 1-êµ¬í ëª¨ë¸**
+**환자 맞춤형 항암제 용량 최적화 1-구획 모델**
 
 $$C_{max} = \frac{D}{V_d} \cdot e^{-k_e \cdot t}$$
 
-| íë¼ë¯¸í° | ê³µì | ë¨ì |
+| 파라미터 | 공식 | 단위 |
 |---------|------|------|
-| **ì²­ìì¨ (Cl)** | $120.0 \times \max(0.7, 1.0 - \frac{V_{tumor}}{500})$ | mL/min |
-| **ë¶í¬ì©ì  (Vd)** | $45.0 + (V_{tumor} \times 0.5)$ | L |
-| **ë°ê°ê¸° (tÂ½)** | $0.693 \times \frac{V_d}{Cl \times 0.06}$ | hours |
-| **ìµì  ì©ë (D)** | $200.0 \times (1.0 + \frac{Ki67}{200})$ | mg/mÂ² |
+| **청소율 (Cl)** | $120.0 \times \max(0.7, 1.0 - \frac{V_{tumor}}{500})$ | mL/min |
+| **분포용적 (Vd)** | $45.0 + (V_{tumor} \times 0.5)$ | L |
+| **반감기 (t½)** | $0.693 \times \frac{V_d}{Cl \times 0.06}$ | hours |
+| **최적 용량 (D)** | $200.0 \times (1.0 + \frac{Ki67}{200})$ | mg/m² |
 
-**ìì  ì ì½ ì¡°ê±´:**
-- í¬ì¬ ê°ê²©: 6h â 24h (íë í´ë¨í)
-- ìµë ë°ìë¥ : 95% (ìì íì¤ì± ì ì§)
-- ì ì¥/ê° ê¸°ë¥ ëë¦¬ ì§í: `cl_factor` (ì¢ì ë¶ë´ ê¸°ë°)
+**안전 제약 조건:**
+- 투여 간격: 6h – 24h (하드 클램프)
+- 최대 반응률: 95% (임상 현실성 유지)
+- 신장/간 기능 대리 지표: `cl_factor` (종양 부담 기반)
 
 ---
 
-### 5. ìì ìì¬ê²°ì  ì§ì (CDS)
+### 5. 임상 의사결정 지원 (CDS)
 
-**ì´ì¤ ì¶ë¡  ìì§ ê¸°ë° êµì°¨ ê²ì¦ ìì¤í**
+**이중 추론 엔진 기반 교차 검증 시스템**
 
 ```
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-â            6-Step Dynamic Inference Pipeline             â
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+┌─────────────────────────────────────────────────────────┐
+│            6-Step Dynamic Inference Pipeline             │
+└─────────────────────────────────────────────────────────┘
 
 Step 0: RAG Analysis
-    ìì¬ ìê²¬ì â ìë¯¸ë¡ ì  ìì ì»¨íì¤í¸ ì¶ì¶
-    (ì¦ì, ë³ë ¥, íì ì í¸ë)
+    의사 소견서 → 의미론적 임상 컨텍스트 추출
+    (증상, 병력, 환자 선호도)
 
 Step 1: CT Analysis (Live API)
-    DICOM ìë¡ë â /api/v1/ct/analyze
-    ê²°ê³¼: ë°©ì¬ì í JSON + ìê°í ì´ë¯¸ì§ ì¤í¸ë¦¼
+    DICOM 업로드 → /api/v1/ct/analyze
+    결과: 방사선학 JSON + 시각화 이미지 스트림
 
-Step 2: Cell Analysis (ì¡°ê±´ë¶)
-    Cellpose ì¸ë¶í â Ki-67 ì ëí
-    (íë¯¸ê²½ ì´ë¯¸ì§ ìì¼ë©´ ê±´ëë)
+Step 2: Cell Analysis (조건부)
+    Cellpose 세분화 → Ki-67 정량화
+    (현미경 이미지 없으면 건너뜀)
 
 Step 3: Pharmacokinetics
-    CT + Cellpose ê²°ê³¼ â PK ìµì í íë¼ë¯¸í°
+    CT + Cellpose 결과 → PK 최적화 파라미터
 
 Step 4: ADDS Inference
-    ê²½ë¡ ê¸°ë° ê¸°ì  ì¶ì²
-    (RAG ì»¨íì¤í¸ + ë©í°ëª¨ë¬ ë°ì´í°)
+    경로 기반 기전 추천
+    (RAG 컨텍스트 + 멀티모달 데이터)
 
 Step 5: OpenAI Inference
-    GPT-4 ìì íµí© (ìì¬ ìê²¬ì 1ìì íë¡¬íí¸)
+    GPT-4 임상 통합 (의사 소견서 1순위 프롬프트)
 
 Step 6: Cross-Validation
-    ìê²¬ì â CT ê²°ê³¼ â ë³ë¦¬ ê²°ê³¼ ìë ì¼ì¹ì± ê²ì¦
+    소견서 ↔ CT 결과 ↔ 병리 결과 자동 일치성 검증
 ```
 
-**ìµì¢ ì¶ì² ìì±:**
-- ð¯ í­ìì  ì¹µíì¼ (ì: FOLFOX + Bevacizumab)
-- ð ìµì íë í¬ì¬ë ë° ê²½ë¡
-- ð ìí ìë®¬ë ì´ì (ORR / PFS / OS)
-- ð ì´ì¤ ë³´ê³ ì (ìë£ì§ ê¸°ì  ë³´ê³ ì + íì ê°ì´ë)
+**최종 추천 생성:**
+- 🎯 항암제 칵테일 (예: FOLFOX + Bevacizumab)
+- 💊 최적화된 투여량 및 경로
+- 📊 예후 시뮬레이션 (ORR / PFS / OS)
+- 📄 이중 보고서 (의료진 기술 보고서 + 환자 가이드)
 
 ---
 
-### 6. íµí© íì ê´ë¦¬ ìì¤í
+### 6. 통합 환자 관리 시스템
 
-**ìí°íë¼ì´ì¦ê¸ ìì ë°ì´í° ê´ë¦¬ (IPMS)**
+**엔터프라이즈급 임상 데이터 관리 (IPMS)**
 
 ```python
-# íì ID íì
+# 환자 ID 형식
 Patient ID: P-2026-001
 
-# íµì¬ ìì ë©íë°ì´í°
+# 핵심 임상 메타데이터
 {
   "tnm_stage": "T4N0M0",
   "msi_status": "MSS",
@@ -365,211 +365,211 @@ Patient ID: P-2026-001
 }
 ```
 
-| ê¸°ë¥ | ì¤ëª |
+| 기능 | 설명 |
 |------|------|
-| **íì CRUD** | P-YYYY-NNN íì ìêµ¬ ë ì½ë |
-| **ì¢ë¨ ì¶ì ** | ì¹ë£ ê²½ê³¼ì ë°ë¥¸ ë°ì´í° ì´ë ¥ ê´ë¦¬ |
-| **ë©í°ëª¨ë¬ ìë¡ë** | CT DICOM + íë¯¸ê²½ ì´ë¯¸ì§ + ìê²¬ì íµí© |
-| **ì¤ìê° ì§í** | ë¶ì ë¨ê³ë³ ì¤ìê° ìí ì¶ì  |
-| **PDF ë³´ê³ ì** | ìë ìì± (ìë£ì§ì© / íìì©) |
+| **환자 CRUD** | P-YYYY-NNN 형식 영구 레코드 |
+| **종단 추적** | 치료 경과에 따른 데이터 이력 관리 |
+| **멀티모달 업로드** | CT DICOM + 현미경 이미지 + 소견서 통합 |
+| **실시간 진행** | 분석 단계별 실시간 상태 추적 |
+| **PDF 보고서** | 자동 생성 (의료진용 / 환자용) |
 
 ---
 
-## ð ì±ë¥ ì§í / Performance Metrics
+## 📊 성능 지표 / Performance Metrics
 
-### CT ë¶ì ì±ë¥
+### CT 분석 성능
 ```
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-â  CT Detection Performance (Inha University Hospital) â
-â  âââââââââââââââââââââââââââââââââââââââââââââââââââ â
-â  Accuracy:      ââââââââââââââââââââ 98.65%         â
-â  Speed:         15.67s / patient (E2E)               â
-â  Throughput:    33.8 slices/sec                      â
-â  Volume Size:   530 Ã 751 Ã 750 voxels               â
-â  HU Range:      60 â 120 HU (arterial phase)         â
-â  Min Lesion:    50 mmÂ³                               â
-âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+┌─────────────────────────────────────────────────────┐
+│  CT Detection Performance (Inha University Hospital) │
+│  ─────────────────────────────────────────────────── │
+│  Accuracy:      ████████████████████ 98.65%         │
+│  Speed:         15.67s / patient (E2E)               │
+│  Throughput:    33.8 slices/sec                      │
+│  Volume Size:   530 × 751 × 750 voxels               │
+│  HU Range:      60 – 120 HU (arterial phase)         │
+│  Min Lesion:    50 mm³                               │
+└─────────────────────────────────────────────────────┘
 ```
 
-### ìì¤í ë²¤ì¹ë§í¬
-| êµ¬ì± | ì²ë¦¬ ìê° |
+### 시스템 벤치마크
+| 구성 | 처리 시간 |
 |------|---------|
-| CT E2E ë¶ì (íì¤) | ~45.2ì´ |
-| CT E2E ë¶ì (ìµì í) | **15.67ì´** |
-| Cellpose (GPU, 1ì¥) | ~3.2ì´ |
-| ì½ë¬¼ ì¶ì² ìì± | ~2.1ì´ |
-| ì ì²´ íì´íë¼ì¸ | **< 90ì´** |
+| CT E2E 분석 (표준) | ~45.2초 |
+| CT E2E 분석 (최적화) | **15.67초** |
+| Cellpose (GPU, 1장) | ~3.2초 |
+| 약물 추천 생성 | ~2.1초 |
+| 전체 파이프라인 | **< 90초** |
 
-### ì°êµ¬ ë°ì´í° ê·ëª¨
+### 연구 데이터 규모
 
-| ë°ì´í° ì í | ê·ëª¨ |
+| 데이터 유형 | 규모 |
 |------------|------|
-| HUVEC ë¶ì ì¸í¬ ì | **43,190ê°** |
-| TCGA PrPc ì¤ì  ìí | **2,285ê°** |
-| ë¼ë¬¸ ì§ì ë² ì´ì¤ | **311í¸** |
-| ì´í CT ì½í¸í¸ ë³¼ë¥¨ | 530Ã751Ã750 |
-| ìì ìí (ì ì²´) | **2,348ê°** |
+| HUVEC 분석 세포 수 | **43,190개** |
+| TCGA PrPc 실제 샘플 | **2,285개** |
+| 논문 지식 베이스 | **311편** |
+| 이하 CT 코호트 볼륨 | 530×751×750 |
+| 임상 샘플 (전체) | **2,348개** |
 
 ---
 
-## ð§¬ 14ì°¨ì ë©í°ëª¨ë¬ í¹ì§ ë²¡í°
+## 🧬 14차원 멀티모달 특징 벡터
 
 ```python
 feature_vector = {
-    # CT Radiomics (7D) â ê±°ìì  ìì í¹ì§
-    "sphericity":          float,  # ì¢ì êµ¬íë
-    "energy":              float,  # GLCM íì¤ì² ìëì§
-    "contrast":            float,  # ìì ëë¹ë
-    "tumor_size_mm2":      float,  # ì¢ì í¬ê¸° (mmÂ²)
-    "circularity":         float,  # ìíë
-    "mean_hu":             float,  # íê·  íì´ì¤íë ë¨ì
-    "detection_confidence":float,  # ê²ì¶ ì ë¢°ë
+    # CT Radiomics (7D) — 거시적 영상 특징
+    "sphericity":          float,  # 종양 구형도
+    "energy":              float,  # GLCM 텍스처 에너지
+    "contrast":            float,  # 영상 대비도
+    "tumor_size_mm2":      float,  # 종양 크기 (mm²)
+    "circularity":         float,  # 원형도
+    "mean_hu":             float,  # 평균 하운스필드 단위
+    "detection_confidence":float,  # 검출 신뢰도
 
-    # Cell Culture (7D) â ë¯¸ìì  ì¸í¬ í¹ì§
-    "cell_density":        float,  # ì¸í¬ ë°ë (cells/mmÂ²)
-    "drug_resistance":     float,  # ì½ë¬¼ ì í­ ì ì
-    "proliferation_score": float,  # Ki-67 ê¸°ë° ì¦ì ì§ì
-    "microenv_complexity": float,  # ë¯¸ì¸íê²½ ë³µì¡ë
-    "mean_circularity":    float,  # íê·  ì¸í¬ ìíë
-    "clark_evans_index":   float,  # ê³µê°ì  êµ°ì§ ì§ì
-    "estimated_viability": float,  # ìì ì¸í¬ ìì¡´ì¨
+    # Cell Culture (7D) — 미시적 세포 특징
+    "cell_density":        float,  # 세포 밀도 (cells/mm²)
+    "drug_resistance":     float,  # 약물 저항 점수
+    "proliferation_score": float,  # Ki-67 기반 증식 지수
+    "microenv_complexity": float,  # 미세환경 복잡도
+    "mean_circularity":    float,  # 평균 세포 원형도
+    "clark_evans_index":   float,  # 공간적 군집 지수
+    "estimated_viability": float,  # 예상 세포 생존율
 }
 ```
 
 ---
 
-## ð ì¤ì¹ ë° ì¤í / Installation
+## 🚀 설치 및 실행 / Installation
 
-### ìì¤í ìêµ¬ì¬í­
+### 시스템 요구사항
 
-| í­ëª© | ìµì | ê¶ì¥ |
+| 항목 | 최소 | 권장 |
 |------|------|------|
 | Python | 3.11 | 3.11+ |
 | GPU | CUDA 11.x | CUDA 12.8 (RTX 50-series) |
 | RAM | 16 GB | 32 GB |
 | VRAM | 8 GB | 16 GB |
-| ì ì¥ê³µê° | 50 GB | 200 GB |
+| 저장공간 | 50 GB | 200 GB |
 
-### ë¹ ë¥¸ ì¤ì¹
+### 빠른 설치
 
 ```bash
-# 1. ë í¬ì§í ë¦¬ í´ë¡ 
+# 1. 레포지토리 클론
 git clone https://github.com/leejaeyoung-cpu/ADDS.git
 cd ADDS
 
-# 2. ê°ìíê²½ ìì±
+# 2. 가상환경 생성
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# 3. ìì¡´ì± ì¤ì¹
+# 3. 의존성 설치
 pip install -r requirements.txt
 
-# 4. íê²½ ë³ì ì¤ì 
+# 4. 환경 변수 설정
 cp .env.example .env
-# .env íì¼ìì OPENAI_API_KEY, DB_PATH ë± ì¤ì 
+# .env 파일에서 OPENAI_API_KEY, DB_PATH 등 설정
 
-# 5. ë°ì´í°ë² ì´ì¤ ì´ê¸°í
+# 5. 데이터베이스 초기화
 cd backend
 python -c "from database_init import init_database; init_database()"
 cd ..
 ```
 
-### ìì¤í ì¤í
+### 시스템 실행
 
 ```bash
-# â ë°©ë² 1: íµí© ì¤í (ê¶ì¥)
-START_ALL.bat           # ë°±ìë(8000) + Streamlit UI(8505) ëì ì¤í
+# ✅ 방법 1: 통합 실행 (권장)
+START_ALL.bat           # 백엔드(8000) + Streamlit UI(8505) 동시 실행
 
-# â ë°©ë² 2: ìë ì¤í
-# í°ë¯¸ë 1 â ë°±ìë
+# ✅ 방법 2: 수동 실행
+# 터미널 1 — 백엔드
 cd backend
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
-# í°ë¯¸ë 2 â Streamlit UI
+# 터미널 2 — Streamlit UI
 python -m streamlit run src/ui/app.py --server.port 8505
 ```
 
-> **ì ê·¼ ì£¼ì:**
-> - ð¥ï¸ ìì UI: `http://localhost:8505`
-> - ð¡ API ìë²: `http://localhost:8000`
-> - ð API ë¬¸ì: `http://localhost:8000/docs`
+> **접근 주소:**
+> - 🖥️ 임상 UI: `http://localhost:8505`
+> - 📡 API 서버: `http://localhost:8000`
+> - 📚 API 문서: `http://localhost:8000/docs`
 
-### GPU ì¤ì  (RTX 50-series / Blackwell)
+### GPU 설정 (RTX 50-series / Blackwell)
 
 ```bash
-# PyTorch Nightly (cu128 ì§ì)
+# PyTorch Nightly (cu128 지원)
 pip install --pre torch torchvision torchaudio \
     --index-url https://download.pytorch.org/whl/nightly/cu128
 
-# GPU ìí íì¸
+# GPU 상태 확인
 python -c "import torch; print(f'CUDA: {torch.cuda.is_available()}, Device: {torch.cuda.get_device_name(0)}')"
 ```
 
 ---
 
-## ð ë°ì´í° êµ¬ì¡° / Data Structure
+## 📁 데이터 구조 / Data Structure
 
 ```
 ADDS/
-âââ ð src/                         â íµì¬ ìì¤ ëª¨ë
-â   âââ adds/                       â ADDS ì¶ë¡  ìì§
-â   âââ medical_imaging/            â CT íì´íë¼ì¸
-â   â   âââ detection/              â ì¢ì ê²ì¶ (SimpleHUDetector)
-â   â   âââ preprocessing/          â DICOM ì ì²ë¦¬
-â   â   âââ radiomics/              â ë°©ì¬ì í í¹ì§ ì¶ì¶
-â   â   âââ segmentation/           â ì¥ê¸° ë¶í 
-â   âââ pathology/                  â Cellpose íë¯¸ê²½ ë¶ì
-â   âââ clinical/                   â ìì ë°ì´í° ê´ë¦¬
-â   âââ ml/                         â ë¨¸ì ë¬ë ëª¨ë¸
-â   â   âââ fusion/                 â ë©í°ëª¨ë¬ ìµí©
-â   â   âââ survival/               â PFS/OS ìì¸¡
-â   âââ protein/                    â PrPc ë¨ë°±ì§ ë¶ì
-â   âââ recommendation/             â ì½ë¬¼ ì¶ì² ìì§
-â   âââ knowledge/                  â ì§ì ë² ì´ì¤ (311í¸ ë¼ë¬¸)
-â   âââ knowledge_base/             â êµ¬ì¡°íë ì½ë¬¼ DB
-â   âââ reporting/                  â PDF ë³´ê³ ì ìì±
-â   âââ visualization/              â ë°ì´í° ìê°í
-â   âââ xai/                        â ì¤ëª ê°ë¥ AI (XAI)
-â   âââ ui/                         â Streamlit UI ì»´í¬ëí¸
-â
-âââ ð backend/                     â FastAPI ë°±ìë
-â   âââ main.py                     â ì± ì§ìì 
-â   âââ api/                        â REST API ë¼ì°í°
-â   â   âââ ct_analysis.py          â  /api/v1/ct
-â   â   âââ patients.py             â  /api/v1/patients
-â   â   âââ pharmacokinetics.py     â  /api/v1/pharmacokinetics
-â   â   âââ adds_inference.py       â  /api/v1/adds
-â   â   âââ openai_inference.py     â  /api/v1/openai
-â   âââ services/                   â ë¹ì¦ëì¤ ë¡ì§ ìë¹ì¤
-â   â   âââ ct_pipeline_service.py
-â   â   âââ cell_culture_service.py
-â   â   âââ adds_service.py
-â   â   âââ openai_service.py
-â   âââ models/                     â SQLAlchemy ORM ëª¨ë¸
-â   âââ schemas/                    â Pydantic ì¤í¤ë§
-â
-âââ ð analysis/                    â ì°êµ¬ ë¶ì ì¤í¬ë¦½í¸
-â   âââ huvec/                      â HUVEC ì¸í¬ ë¶ì
-â   âââ ct/                         â CT ë¶ì íì´íë¼ì¸
-â   âââ pritamab/                   â Pritamab ì½ë¬¼ ìëì§
-â
-âââ ð figures/                     â ë¼ë¬¸ì© Figure (300 DPI)
-âââ ð docs/                        â ìì¤í ë¬¸ì
-âââ ð configs/                     â ì¤ì  íì¼
-âââ ð tests/                       â ì ë íì¤í¸
-âââ ð notebooks/                   â Jupyter ë¶ì ë¸í¸ë¶
-âââ ð data/samples/                â ìµëªíë ìí ë°ì´í°
-â
-âââ ð³ Dockerfile                   â ì»¨íì´ë ì´ë¯¸ì§
-âââ ð³ docker-compose.yml           â ìë¹ì¤ ì¤ì¼ì¤í¸ë ì´ì
-âââ ð requirements.txt             â Python ìì¡´ì±
-âââ ð pyproject.toml               â íë¡ì í¸ ì¤ì 
-âââ ð .env.example                 â íê²½ë³ì ííë¦¿
+├── 📂 src/                         ← 핵심 소스 모듈
+│   ├── adds/                       ← ADDS 추론 엔진
+│   ├── medical_imaging/            ← CT 파이프라인
+│   │   ├── detection/              ← 종양 검출 (SimpleHUDetector)
+│   │   ├── preprocessing/          ← DICOM 전처리
+│   │   ├── radiomics/              ← 방사선학 특징 추출
+│   │   └── segmentation/           ← 장기 분할
+│   ├── pathology/                  ← Cellpose 현미경 분석
+│   ├── clinical/                   ← 임상 데이터 관리
+│   ├── ml/                         ← 머신러닝 모델
+│   │   ├── fusion/                 ← 멀티모달 융합
+│   │   └── survival/               ← PFS/OS 예측
+│   ├── protein/                    ← PrPc 단백질 분석
+│   ├── recommendation/             ← 약물 추천 엔진
+│   ├── knowledge/                  ← 지식 베이스 (311편 논문)
+│   ├── knowledge_base/             ← 구조화된 약물 DB
+│   ├── reporting/                  ← PDF 보고서 생성
+│   ├── visualization/              ← 데이터 시각화
+│   ├── xai/                        ← 설명 가능 AI (XAI)
+│   └── ui/                         ← Streamlit UI 컴포넌트
+│
+├── 📂 backend/                     ← FastAPI 백엔드
+│   ├── main.py                     ← 앱 진입점
+│   ├── api/                        ← REST API 라우터
+│   │   ├── ct_analysis.py          ←  /api/v1/ct
+│   │   ├── patients.py             ←  /api/v1/patients
+│   │   ├── pharmacokinetics.py     ←  /api/v1/pharmacokinetics
+│   │   ├── adds_inference.py       ←  /api/v1/adds
+│   │   └── openai_inference.py     ←  /api/v1/openai
+│   ├── services/                   ← 비즈니스 로직 서비스
+│   │   ├── ct_pipeline_service.py
+│   │   ├── cell_culture_service.py
+│   │   ├── adds_service.py
+│   │   └── openai_service.py
+│   ├── models/                     ← SQLAlchemy ORM 모델
+│   └── schemas/                    ← Pydantic 스키마
+│
+├── 📂 analysis/                    ← 연구 분석 스크립트
+│   ├── huvec/                      ← HUVEC 세포 분석
+│   ├── ct/                         ← CT 분석 파이프라인
+│   └── pritamab/                   ← Pritamab 약물 시너지
+│
+├── 📂 figures/                     ← 논문용 Figure (300 DPI)
+├── 📂 docs/                        ← 시스템 문서
+├── 📂 configs/                     ← 설정 파일
+├── 📂 tests/                       ← 유닛 테스트
+├── 📂 notebooks/                   ← Jupyter 분석 노트북
+├── 📂 data/samples/                ← 익명화된 샘플 데이터
+│
+├── 🐳 Dockerfile                   ← 컨테이너 이미지
+├── 🐳 docker-compose.yml           ← 서비스 오케스트레이션
+├── 📋 requirements.txt             ← Python 의존성
+├── 📋 pyproject.toml               ← 프로젝트 설정
+└── 🔑 .env.example                 ← 환경변수 템플릿
 ```
 
 ---
 
-## ð¡ API ì°¸ì¡° / API Reference
+## 📡 API 참조 / API Reference
 
 ### Base URL
 
@@ -577,27 +577,27 @@ ADDS/
 http://localhost:8000/api/v1
 ```
 
-### íµì¬ ìëí¬ì¸í¸
+### 핵심 엔드포인트
 
-| Method | Endpoint | ì¤ëª |
+| Method | Endpoint | 설명 |
 |--------|---------|------|
-| `GET` | `/health` | ìì¤í ìí íì¸ |
-| `GET` | `/patients` | íì ëª©ë¡ ì¡°í |
-| `POST` | `/patients` | ì ê· íì ë±ë¡ |
-| `GET` | `/patients/{id}` | íì ìì¸ ì¡°í |
-| `POST` | `/ct/analyze` | CT DICOM ë¶ì ì¤í |
-| `GET` | `/ct/health` | CT íì´íë¼ì¸ ìí |
-| `GET` | `/ct/models/status` | nnU-Net ëª¨ë¸ ìí |
-| `POST` | `/pharmacokinetics/analyze` | PK íë¼ë¯¸í° ê³ì° |
-| `POST` | `/adds/infer` | ADDS ê²½ë¡ ê¸°ë° ì¶ë¡  |
-| `POST` | `/openai/infer` | GPT-4 ìì ì¶ë¡  |
+| `GET` | `/health` | 시스템 상태 확인 |
+| `GET` | `/patients` | 환자 목록 조회 |
+| `POST` | `/patients` | 신규 환자 등록 |
+| `GET` | `/patients/{id}` | 환자 상세 조회 |
+| `POST` | `/ct/analyze` | CT DICOM 분석 실행 |
+| `GET` | `/ct/health` | CT 파이프라인 상태 |
+| `GET` | `/ct/models/status` | nnU-Net 모델 상태 |
+| `POST` | `/pharmacokinetics/analyze` | PK 파라미터 계산 |
+| `POST` | `/adds/infer` | ADDS 경로 기반 추론 |
+| `POST` | `/openai/infer` | GPT-4 임상 추론 |
 
-### CT ë¶ì ìì²­ ìì
+### CT 분석 요청 예시
 
 ```python
 import requests
 
-# DICOM íì¼ ìë¡ë ë° ë¶ì
+# DICOM 파일 업로드 및 분석
 with open("tumor_series.dcm", "rb") as f:
     response = requests.post(
         "http://localhost:8000/api/v1/ct/analyze",
@@ -606,12 +606,12 @@ with open("tumor_series.dcm", "rb") as f:
     )
 
 result = response.json()
-print(f"ì¢ì ê²ì¶: {result['tumors_detected']}ê°")
-print(f"ì ë¢°ë: {result['confidence']:.2%}")
-print(f"TNM ì¶ì : {result['tnm_stage']}")
+print(f"종양 검출: {result['tumors_detected']}개")
+print(f"신뢰도: {result['confidence']:.2%}")
+print(f"TNM 추정: {result['tnm_stage']}")
 ```
 
-### PK ìµì í ìì²­ ìì
+### PK 최적화 요청 예시
 
 ```python
 pk_response = requests.post(
@@ -625,74 +625,74 @@ pk_response = requests.post(
 )
 
 pk = pk_response.json()
-print(f"ìµì  ì©ë: {pk['optimal_dose_mg_m2']} mg/mÂ²")
-print(f"ë°ê°ê¸°: {pk['half_life_hours']:.1f}ìê°")
-print(f"í¬ì¬ ê°ê²©: {pk['dosing_interval_hours']}ìê°")
+print(f"최적 용량: {pk['optimal_dose_mg_m2']} mg/m²")
+print(f"반감기: {pk['half_life_hours']:.1f}시간")
+print(f"투여 간격: {pk['dosing_interval_hours']}시간")
 ```
 
 ---
 
-## ð§ª ì°êµ¬ ë°°ê²½ / Research Background
+## 🧪 연구 배경 / Research Background
 
-### PrPc ë°ì´ì¤ë§ì»¤ ë°ê²¬ ì¬ì 
+### PrPc 바이오마커 발견 여정
 
-| ë²ì  | ì ëµ | ì½í¸í¸ | ëª©í | ê²°ê³¼ |
+| 버전 | 전략 | 코호트 | 목표 | 결과 |
 |------|------|--------|------|------|
-| v1.0 | ë¨ì¼ ë§ì»¤ (íì²­) | n=63 | Stage III CRC | â ê°­ ë°ê²¬ |
-| v2.0 | ë©í°ë§ì»¤ í¨ë | 20â30ê° | ì¼ë° GI ì | ð ì ëµ ì í |
-| **v3.0** | **AI-First / êµ­ê° ë°ì´ì¤ë°ì´í°** | **n=300â800** | **ì¡°ê¸° ê²ì¶** | â **ì§í ì¤** |
+| v1.0 | 단일 마커 (혈청) | n=63 | Stage III CRC | ❌ 갭 발견 |
+| v2.0 | 멀티마커 패널 | 20–30개 | 일반 GI 암 | 🔄 전략 전환 |
+| **v3.0** | **AI-First / 국가 바이오데이터** | **n=300–800** | **조기 검출** | ✅ **진행 중** |
 
-### ì§ì ë² ì´ì¤ êµ¬ì± (2026ë 2ì ê¸°ì¤)
-
-```
-ë¬¸í ì§ì ë² ì´ì¤ v2.0
-âââ Tier 1 (100í¸): Nature / Cell / Science / Nature Medicine
-âââ Tier 2 (100í¸): JCO / Cancer Research
-âââ Tier 3: The Biology of Cancer (Weinberg)
-
-íµê³:
-â¢ 311í¸ ë¼ë¬¸ (ì´ë¡ ê¸°ë° GPT-4 ì¶ì¶)
-â¢ 2,285 ì¤ì  TCGA ìí (BRCA, STAD, COAD, PAAD, READ)
-â¢ 113ì¢ ì½ë¬¼ / 90ê° ê¸°ì  / 69ê° ë°ì´ì¤ë§ì»¤
-â¢ 59ê° ìëì§ ì¡°í© ê²ì¦
-```
-
-### ìì íì¼ë¿ íë¡í ì½
+### 지식 베이스 구성 (2026년 2월 기준)
 
 ```
-íì¼ë¿ ì°êµ¬ ì¤ê³ (v1.0)
-â¢ ëìì¸: ì í¥ì  íì¼ë¿, N=100 (ì¦ë¡ 50, ëì¡° 50)
-â¢ ëª©í: Stage I 30% + Stage II 30% (ì¡°ê¸° ê²ì¶)
-â¢ Go/No-Go ê¸°ì¤: AUC â¥ 0.75
+문헌 지식 베이스 v2.0
+├── Tier 1 (100편): Nature / Cell / Science / Nature Medicine
+├── Tier 2 (100편): JCO / Cancer Research
+└── Tier 3: The Biology of Cancer (Weinberg)
 
-3ê°ì ë¡ëë§µ:
-â¢ Month 1: IRB ì ì¶ + ê³ì  ì¤ì 
-â¢ Month 2: ì¹ì¸ íë³´ + ì¬ì´í¸ íì±í
-â¢ Month 3: ë±ë¡ + Go/No-Go ê²°ì 
+통계:
+• 311편 논문 (초록 기반 GPT-4 추출)
+• 2,285 실제 TCGA 샘플 (BRCA, STAD, COAD, PAAD, READ)
+• 113종 약물 / 90개 기전 / 69개 바이오마커
+• 59개 시너지 조합 검증
+```
+
+### 임상 파일럿 프로토콜
+
+```
+파일럿 연구 설계 (v1.0)
+• 디자인: 전향적 파일럿, N=100 (증례 50, 대조 50)
+• 목표: Stage I 30% + Stage II 30% (조기 검출)
+• Go/No-Go 기준: AUC ≥ 0.75
+
+3개월 로드맵:
+• Month 1: IRB 제출 + 계정 설정
+• Month 2: 승인 확보 + 사이트 활성화
+• Month 3: 등록 + Go/No-Go 결정
 ```
 
 ---
 
-## â ï¸ ë°ì´í° ê°ì©ì± / Data Availability
+## ⚠️ 데이터 가용성 / Data Availability
 
-íì CT ë°ì´í° ë° ìì íë¯¸ê²½ ì´ë¯¸ì§ë ì´ ë í¬ì§í ë¦¬ì **í¬í¨ëì§ ììµëë¤:**
+환자 CT 데이터 및 원시 현미경 이미지는 이 레포지토리에 **포함되지 않습니다:**
 
-- ð **PHI ê·ì ** (Protected Health Information): ê°ì¸ê±´ê°ì ë³´ ë³´í¸ë²
-- ð **íì¼ í¬ê¸° ì í**: GitHub 100MB ì í (CT ë³¼ë¥¨ì ì GB)
-- ð¥ **ê¸°ê´ ì¹ì¸ íì**: ì´íëíêµë³ì IRB ì¹ì¸ ë°ì´í°
+- 🔒 **PHI 규정** (Protected Health Information): 개인건강정보 보호법
+- 📏 **파일 크기 제한**: GitHub 100MB 제한 (CT 볼륨은 수 GB)
+- 🏥 **기관 승인 필요**: 인하대학교병원 IRB 승인 데이터
 
-ì¬íì ìí ë°ì´í° ì ê·¼ì ì ììê² ë¬¸ìíì¸ì.  
-`data/samples/` ëë í ë¦¬ìë ìµëªíë ìê·ëª¨ ìíë§ í¬í¨ë©ëë¤.
+재현을 위한 데이터 접근은 저자에게 문의하세요.  
+`data/samples/` 디렉토리에는 익명화된 소규모 샘플만 포함됩니다.
 
 ---
 
-## ð ì¸ì© / Citation
+## 📄 인용 / Citation
 
-ì´ ì½ëë¥¼ ì°êµ¬ì ì¬ì©íì ë¤ë©´ ë¤ìì ì¸ì©í´ ì£¼ì¸ì:
+이 코드를 연구에 사용하신다면 다음을 인용해 주세요:
 
 ```bibtex
 @misc{adds2026,
-  title     = {ADDS: AI-Driven Drug Synergy and Diagnostic System â 
+  title     = {ADDS: AI-Driven Drug Synergy and Diagnostic System — 
                A Multimodal Precision Oncology Platform},
   author    = {Lee, Jaeyoung and others},
   year      = {2026},
@@ -703,24 +703,24 @@ print(f"í¬ì¬ ê°ê²©: {pk['dosing_interval_hours']}ìê°")
 
 ---
 
-## ð¤ ê¸°ì¬ / Contributing
+## 🤝 기여 / Contributing
 
-ê¸°ì¬ë¥¼ íìí©ëë¤! ì¸ë¶ ê°ì´ëë¼ì¸ì [CONTRIBUTING.md](.github/CONTRIBUTING.md)ë¥¼ ì°¸ì¡°íì¸ì.
+기여를 환영합니다! 세부 가이드라인은 [CONTRIBUTING.md](.github/CONTRIBUTING.md)를 참조하세요.
 
-**ë¹ ë¥¸ ê¸°ì¬ ê°ì´ë:**
-1. `Fork` â `Feature Branch` ìì± (`feat/my-feature`)
-2. ë³ê²½ì¬í­ ìì± + íì¤í¸ ì¶ê°
-3. `Pull Request` ìì± (PR ííë¦¿ ìì± íì)
-
----
-
-## ð ë³´ì / Security
-
-ë³´ì ì·¨ì½ì  ë°ê²¬ ì ê³µê° ì´ìë¥¼ ìì±íì§ ë§ê³ , [SECURITY.md](.github/SECURITY.md)ì ê°ì´ëë¼ì¸ì ë°ë¼ ë¹ê³µê° ë³´ê³ í´ ì£¼ì¸ì.
+**빠른 기여 가이드:**
+1. `Fork` → `Feature Branch` 생성 (`feat/my-feature`)
+2. 변경사항 작성 + 테스트 추가
+3. `Pull Request` 생성 (PR 템플릿 작성 필수)
 
 ---
 
-## â ï¸ Methodological Notes / ë°©ë²ë¡  ì£¼ì
+## 🔐 보안 / Security
+
+보안 취약점 발견 시 공개 이슈를 생성하지 말고, [SECURITY.md](.github/SECURITY.md)의 가이드라인에 따라 비공개 보고해 주세요.
+
+---
+
+## ⚠️ Methodological Notes / 방법론 주석
 
 > **Transparency Statement**: All performance metrics are reported with their methodological context and limitations. This section is intended to support scientific reproducibility and honest evaluation.
 
@@ -730,11 +730,11 @@ print(f"í¬ì¬ ê°ê²©: {pk['dosing_interval_hours']}ìê°")
 |------|--------|
 | **Dataset** | Inha University Hospital CRC cohort |
 | **Sample size** | N = 74 CT slices (single patient, arterial phase) |
-| **Method** | HU-threshold (60â120 HU) + morphological filtering + connected-component analysis |
+| **Method** | HU-threshold (60–120 HU) + morphological filtering + connected-component analysis |
 | **Ground truth** | Manual annotation by clinical radiologist |
 | **Metric** | Slice-level detection accuracy (correct slices / total slices) |
 | **95% CI** | [0.949, 1.000] (Wilson score interval) |
-| **â ï¸ Limitation** | Single-patient pilot study. Multi-center validation with Nâ¥200 patients is ongoing. This metric does NOT represent patient-level diagnostic accuracy. |
+| **⚠️ Limitation** | Single-patient pilot study. Multi-center validation with N≥200 patients is ongoing. This metric does NOT represent patient-level diagnostic accuracy. |
 
 ### Cell Morphometry (N = 43,190 cells)
 
@@ -742,10 +742,10 @@ print(f"í¬ì¬ ê°ê²©: {pk['dosing_interval_hours']}ìê°")
 |------|--------|
 | **Instrument** | Brightfield microscopy |
 | **Cell lines** | HUVEC (Human Umbilical Vein Endothelial Cells) |
-| **Conditions** | 4 groups: Control Â· Healthy Serum Â· HGPS Serum Â· HGPS + MT-Exosome |
+| **Conditions** | 4 groups: Control · Healthy Serum · HGPS Serum · HGPS + MT-Exosome |
 | **Images analyzed** | 80 brightfield images |
 | **Segmentation** | Cellpose v3 (cyto3 model), GPU-accelerated |
-| **â ï¸ Limitation** | In vitro model only. Clinical relevance requires PDO (Patient-Derived Organoid) validation. |
+| **⚠️ Limitation** | In vitro model only. Clinical relevance requires PDO (Patient-Derived Organoid) validation. |
 
 ### Drug Synergy Models (TCGA N = 2,285)
 
@@ -755,7 +755,7 @@ print(f"í¬ì¬ ê°ê²©: {pk['dosing_interval_hours']}ìê°")
 | **Synergy metrics** | Bliss Independence, Loewe Additivity, HSA, ZIP |
 | **Model architecture** | DeepSynergy v2 (DNN) + XGBoost ensemble |
 | **Validation** | 5-fold cross-validation on held-out TCGA subset |
-| **â ï¸ Limitation** | Synergy predictions are based on genomic/transcriptomic features. Prospective clinical validation has not been conducted. Not for clinical use without regulatory approval. |
+| **⚠️ Limitation** | Synergy predictions are based on genomic/transcriptomic features. Prospective clinical validation has not been conducted. Not for clinical use without regulatory approval. |
 
 ### Reproducibility
 
@@ -770,20 +770,20 @@ All statistical tests, synergy formulas, and data integrity checks in `tests/tes
 
 ---
 
-## ð¬ ì°ë½ì² / Contact
+## 📬 연락처 / Contact
 
-| í­ëª© | ë´ì© |
+| 항목 | 내용 |
 |------|------|
-| **ë í¬ì§í ë¦¬** | [github.com/leejaeyoung-cpu/ADDS](https://github.com/leejaeyoung-cpu/ADDS) |
-| **ê¸°ê´** | ì´íëíêµë³ì, ì¸ì²ê´ì­ì, ëíë¯¼êµ­ |
-| **ì°êµ¬ ë¶ì¼** | ì ë° ì¢ìí / AI ìë£ê¸°ê¸° (SaMD) |
-| **ëª©í ì ë** | Nature Communications |
+| **레포지토리** | [github.com/leejaeyoung-cpu/ADDS](https://github.com/leejaeyoung-cpu/ADDS) |
+| **기관** | 인하대학교병원, 인천광역시, 대한민국 |
+| **연구 분야** | 정밀 종양학 / AI 의료기기 (SaMD) |
+| **목표 저널** | Nature Communications |
 
 ---
 
 <div align="center">
 
-**ADDS v3.5.0** â Built with â¤ï¸ for Precision Oncology  
-Inha University Hospital Ã AI Research Team | 2026
+**ADDS v3.5.0** — Built with ❤️ for Precision Oncology  
+Inha University Hospital × AI Research Team | 2026
 
 </div>
