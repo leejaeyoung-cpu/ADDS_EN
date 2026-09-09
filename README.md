@@ -68,7 +68,8 @@ eimen-prioritisation ranking invariant across all sensitivity weights (Spearman 
 | TCGA PrPc Samples | **2,285** |
 | Literature KB | **311 papers** |
        
-     > **Note:** CT accuracy is from a single-patient pilot study. Multi-centre validation (N >= 200) is ongoing.
+  **Note:** CT accuracy is from a single-patient pilot study. Multi-centre validation (N >= 200) is ongoing.
+     
           ---
 
           ## Installation
