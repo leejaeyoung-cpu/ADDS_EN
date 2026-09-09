@@ -36,78 +36,84 @@ All virtual-cohort outputs are **model-based projections** and should not be int
 Score = 0.35 * E_pred + 0.15 * S_pred - 0.10 * (T_tox / 10)
 ```
 
-- E_pred (0-1): efficacy prediction
-- - S_pred (0-2): synergy prediction
-  - - T_tox (1-10): toxicity burden
-    - - Role: ranking/prioritisation only, not a clinically calibrated HR surrogate
-     
-      - ### Survival-Projection Blend
-     
-      - Primary blend: 70:30. Regimen-prioritisation ranking invariant across all tested sensitivity weights (Spearman rho=1.0, Kendall tau=1.0).
-     
-      - ### Bootstrap Stability (Figure 4)
-     
-      - | Panel | Analysis | n |
-      - |---|---|---|
-      - | A | Bootstrap top-3 retention | N=5,000 resamples |
-      - | B | Perturbation rank correlation | N=2,000 replicates |
-      - | C | Modality dropout ablation | N=3,000 repetitions |
-     
-      - ### Biomarker Definitions
-     
-      - - PrPc-high: IHC H-score >= 50
-        - - KRAS-mutant: codons 12/13 activating mutations (G12D, G12V, G12C, G13D)
-         
-          - ---
+<ul>
+  <li><b>E_pred (0-1)</b>b>: efficacy prediction</li>li>
+<li><b>S_pred (0-2)</b>b>: synergy prediction</li>li>
+<li><b>T_tox (1-10)</b>b>: toxicity burden</li>li>
+<li><b>Role</b>b>: ranking/prioritisation only, not a clinically calibrated HR surrogate</li>li>
+</ul>ul>
 
-          ## Performance Metrics
+### Survival-Projection Blend
 
-          | Metric | Value |
-          |---|---|
-          | CT Detection Accuracy | 98.65% (74 slices, single-patient pilot) |
-          | Processing Time (E2E) | 15.67 s (530x751x750 volume) |
-          | HUVEC Cells Analysed | 43,190 |
-          | TCGA PrPc Samples | 2,285 |
-          | Literature KB | 311 papers |
+Primary blend: 70:30. Regimen-prioritisation ranking invariant across all tested sensitivity weights (Spearman rho=1.0, Kendall tau=1.0).
 
-          Note: CT accuracy is from a single-patient pilot study. Multi-centre validation is ongoing.
+### Bootstrap Stability (Figure 4)
 
-          ---
+| Panel | Analysis | n |
+|---|---|---|
+| A | Bootstrap top-3 retention | N=5,000 resamples |
+| B | Perturbation rank correlation | N=2,000 replicates |
+| C | Modality dropout ablation | N=3,000 repetitions |
 
-          ## Installation
+### Biomarker Definitions
 
-          ```bash
-          git clone https://github.com/leejaeyoung-cpu/ADDS_EN.git
-          cd ADDS_EN
-          python -m venv .venv
-          source .venv/bin/activate
-          pip install -r requirements.txt
-          ```
+<ul>
+  <li><b>PrPc-high</b>b>: IHC H-score >= 50</li>li>
+  <li><b>KRAS-mutant</b>b>: codons 12/13 activating mutations (G12D, G12V, G12C, G13D)</li>li>
+</ul>ul>
 
-          ---
+---
 
-          ## Data Availability
+## Performance Metrics
 
-          Zenodo archive (v3.6.0): https://doi.org/10.5281/zenodo.22302648
+| Metric | Value |
+|---|---|
+| CT Detection Accuracy | 98.65% (74 slices, single-patient pilot) |
+| Processing Time (E2E) | 15.67 s (530x751x750 volume) |
+| HUVEC Cells Analysed | 43,190 |
+| TCGA PrPc Samples | 2,285 |
+| Literature KB | 311 papers |
 
-          GitHub (Korean version): https://github.com/leejaeyoung-cpu/ADDS
+Note: CT accuracy is from a single-patient pilot study. Multi-centre validation is ongoing.
 
-          Reproducibility materials: See paper_release/r1_2026-09/ directory for ANALYTICAL_SPECIFICATION_R1.md, DATA_PROVENANCE_R1.csv, MANIFEST_R1.tsv
+---
 
-          ---
+## Installation
 
-          ## Citation
+```bash
+git clone https://github.com/leejaeyoung-cpu/ADDS_EN.git
+cd ADDS_EN
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
 
-          ```bibtex
-          @misc{adds2026,
-            title  = {ADDS: AI-Driven Drug Synergy and Diagnostic System},
-            author = {Lee, Jaeyoung and others},
-            year   = {2026},
-            url    = {https://github.com/leejaeyoung-cpu/ADDS_EN},
-            note   = {v3.6.0, DOI: 10.5281/zenodo.22302648}
-          }
-          ```
+---
 
-          ---
+## Data Availability
 
-          ADDS v3.6.0 - Inha University Hospital x AI Research Team - 2026
+Zenodo archive (v3.6.0): https://doi.org/10.5281/zenodo.22302648
+
+GitHub (Korean version): https://github.com/leejaeyoung-cpu/ADDS
+
+Reproducibility materials: See paper_release/r1_2026-09/ directory for ANALYTICAL_SPECIFICATION_R1.md, DATA_PROVENANCE_R1.csv, MANIFEST_R1.tsv
+
+---
+
+## Citation
+
+```bibtex
+@misc{adds2026,
+  title  = {ADDS: AI-Driven Drug Synergy and Diagnostic System},
+  author = {Lee, Jaeyoung and others},
+  year   = {2026},
+  url    = {https://github.com/leejaeyoung-cpu/ADDS_EN},
+  note   = {v3.6.0, DOI: 10.5281/zenodo.22302648}
+}
+```
+
+---
+
+ADDS v3.6.0 - Inha University Hospital x AI Research Team - 2026
+</li></li>
+</ul>
