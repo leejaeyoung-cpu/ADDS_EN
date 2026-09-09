@@ -12,7 +12,7 @@
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22302648-blue)](https://doi.org/10.5281/zenodo.22302648)
 [![Institution](https://img.shields.io/badge/Institution-Inha_University_Hospital-003DA5)](https://www.inha.com/)
 
-<blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified platform for personalized anticancer drug-cocktail recommendation in colorectal cancer (CRC).</blockquote>blockquote>
+<blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified <blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified platform for personalized anticancer drug-cocktail recommendation in colorectal cancer (CRC).</blockquote>blockquote></strong></blockquote>
 
 </div>
 
