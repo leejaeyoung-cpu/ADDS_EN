@@ -6,13 +6,9 @@
 
 **Multimodal AI Platform for Precision Oncology**
 
-[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x_GPU-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22302648-blue)](https://doi.org/10.5281/zenodo.22302648)
-[![Institution](https://img.shields.io/badge/Institution-Inha_University_Hospital-003DA5)](https://www.inha.com/)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-2.x_GPU-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/) [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE) [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22302648-blue)](https://doi.org/10.5281/zenodo.22302648) [![Institution](https://img.shields.io/badge/Institution-Inha_University_Hospital-003DA5)](https://www.inha.com/)
 
-<blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified <blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified platform for personalized anticancer drug-cocktail recommendation in colorectal cancer (CRC).</blockquote>blockquote></strong></blockquote>
+<blockquote><strong>ADDS</strong>strong> integrates CT radiomics, cellular morphometry, pharmacokinetic modelling, and machine learning into a unified platform for personalized anticancer drug-cocktail recommendation in colorectal cancer (CRC).</blockquote>blockquote>
 
 </div>
 
@@ -77,7 +73,7 @@ Score = 0.35 * E_pred + 0.15 * S_pred - 0.10 * (T_tox / 10)
           - | TCGA PrPc Samples | **2,285** |
           - | Literature KB | **311 papers** |
           -
-          - <blockquote><strong>Note:</strong>strong> CT accuracy is from a single-patient pilot study. Multi-centre validation (N &gt;= 200) is ongoing.</blockquote>blockquote>
+          - <blockquote><strong>Note:</strong>strong> CT accuracy is from a single-patient pilot study. Multi-centre validation (N >= 200) is ongoing.</blockquote>blockquote>
 
           ---
 
@@ -95,9 +91,7 @@ Score = 0.35 * E_pred + 0.15 * S_pred - 0.10 * (T_tox / 10)
           ## Data Availability
 
           The ADDS framework (v3.6.0) is publicly archived at:
-
           **Zenodo DOI:** [10.5281/zenodo.22302648](https://doi.org/10.5281/zenodo.22302648)
-
           **GitHub (Korean):** [leejaeyoung-cpu/ADDS](https://github.com/leejaeyoung-cpu/ADDS)
 
           ---
@@ -117,8 +111,7 @@ Score = 0.35 * E_pred + 0.15 * S_pred - 0.10 * (T_tox / 10)
           ---
 
           <div align="center">
-       
-           **ADDS v3.6.0** | Inha University Hospital x AI Research Team | 2026
-       
-          </div>
+            **ADDS v3.6.0** | Inha University Hospital x AI Research Team | 2026
+          </div>div>
+          
           </strong></blockquote>
