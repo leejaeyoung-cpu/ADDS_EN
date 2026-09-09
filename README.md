@@ -36,12 +36,10 @@ All virtual-cohort outputs are **model-based projections** and should not be int
 Score = 0.35 * E_pred + 0.15 * S_pred - 0.10 * (T_tox / 10)
 ```
 
-<ul>
-  <li><b>E_pred (0-1)</b>b>: efficacy prediction</li>li>
-<li><b>S_pred (0-2)</b>b>: synergy prediction</li>li>
-<li><b>T_tox (1-10)</b>b>: toxicity burden</li>li>
-<li><b>Role</b>b>: ranking/prioritisation only, not a clinically calibrated HR surrogate</li>li>
-</ul>ul>
+**E_pred (0-1)**: efficacy prediction
+**S_pred (0-2)**: synergy prediction
+**T_tox (1-10)**: toxicity burden
+**Role**: ranking/prioritisation only, not a clinically calibrated HR surrogate
 
 ### Survival-Projection Blend
 
@@ -57,10 +55,8 @@ Primary blend: 70:30. Regimen-prioritisation ranking invariant across all tested
 
 ### Biomarker Definitions
 
-<ul>
-  <li><b>PrPc-high</b>b>: IHC H-score >= 50</li>li>
-  <li><b>KRAS-mutant</b>b>: codons 12/13 activating mutations (G12D, G12V, G12C, G13D)</li>li>
-</ul>ul>
+**PrPc-high**: IHC H-score >= 50
+**KRAS-mutant**: codons 12/13 activating mutations (G12D, G12V, G12C, G13D)
 
 ---
 
@@ -115,5 +111,3 @@ Reproducibility materials: See paper_release/r1_2026-09/ directory for ANALYTICA
 ---
 
 ADDS v3.6.0 - Inha University Hospital x AI Research Team - 2026
-</li></li>
-</ul>
